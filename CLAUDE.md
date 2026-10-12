@@ -53,7 +53,7 @@
 | Supabase Storage | 버킷 `resources`(10MB, 문서·이미지) | 익명 이용자 업로드 금지(정책·트리거) |
 | Supabase Edge Function | **`kr-relay`**(서울 중계) — 코드 `supabase/functions/kr-relay/index.ts` | 대시보드에 붙여 넣어 배포. 시험용 `probe-kr`은 2026-10-12 삭제 |
 | 운영자 맥 launchd | `~/Library/LaunchAgents/kr.dongyeok.fetch.plist`(05:45·11:45·17:45) → `~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.sh` | 별도 git 클론. `~/Downloads`는 macOS 폴더 보호로 예약 작업이 못 읽음 |
-| 세라핌 | 저장소 `hyotowork-create/Seraphim` | Releases 없음(남은 일) |
+| 세라핌 | 저장소 `hyotowork-create/Seraphim`, 릴리스 **0.2.0**(2026-10-12, Windows 설치형·포터블, Mac Apple Silicon) | 사이트 「내려받기」 = `/releases/latest`. 0.2.0 소스는 아직 GitHub에 없음(운영자 맥의 작업 브랜치) |
 | 사진 | Unsplash 핫링크(`photo-…` 아이디) | 목록은 운영가이드 2-3 |
 | 통계 | `config.js`의 `goatcounter` | 비어 있음(꺼짐) |
 
@@ -92,9 +92,8 @@
    - 악용이 늘면 Cloudflare Turnstile(무료 CAPTCHA)을 Supabase Auth의 Bot and Abuse Protection에 연결합니다. 운영자가 Cloudflare 계정과 키를 만들어야 합니다.
    - 익명 이용자는 자료를 링크로만 공유합니다(파일 업로드는 DB 트리거·저장소 정책이 거절). 운영자 계정은 파일 업로드 가능.
 3. 개인정보처리방침·이용약관은 초안입니다. 법률 검토와 시행일 기입이 필요합니다.
-4. 세라핌 저장소에 Releases가 없어서 「내려받기」 버튼이 빈 릴리스 페이지로 갑니다.
-5. **대신대 중간 인증서가 2027-11-02에 만료됩니다.** `scraper/certs/extra-ca.pem`과 `supabase/functions/kr-relay/index.ts`의 `EXTRA_CA` **두 곳을 함께** 바꾸고 함수를 다시 배포합니다(SKILL.md 참고).
-6. Supabase 무료 플랜은 7일 동안 활동이 없으면 일시정지됩니다. 정지되면 커뮤니티 기능과 서울 중계가 함께 멈춥니다(공고는 이전 것이 유지됨).
+4. **대신대 중간 인증서가 2027-11-02에 만료됩니다.** `scraper/certs/extra-ca.pem`과 `supabase/functions/kr-relay/index.ts`의 `EXTRA_CA` **두 곳을 함께** 바꾸고 함수를 다시 배포합니다(SKILL.md 참고).
+5. Supabase 무료 플랜은 7일 동안 활동이 없으면 일시정지됩니다. 정지되면 커뮤니티 기능과 서울 중계가 함께 멈춥니다(공고는 이전 것이 유지됨).
 
 ## 구조
 
@@ -257,7 +256,7 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 | 일 | 담당 | 비고 |
 |---|---|---|
 | 첫 예약 실행(10/12 18:07) 확인 | Claude | 위 「아직 확인하지 않은 것」 |
-| 세라핌 Releases에 설치 파일·LICENSE 올리기 | 운영자 | |
+| 세라핌 0.2.0 소스 공개 여부 | 운영자 | 시험용 파일에 찬송가·CCM 가사와 실제 예배 PPT가 있어 그대로 공개하면 저작권 문제. 공개하려면 그 파일을 빼고 올림 |
 | 개인정보처리방침·약관 법률 검토 | 운영자 | |
 | 수집 허락 요청 메일 발송 | 운영자 | `docs/수집허락요청문.md` |
 | 스레드 연재 | 운영자 | `promo/스레드-출시문구.md`(저장소 제외). [고백] 표시 줄·헬라어 표기는 운영자 확인 필요 |
@@ -272,3 +271,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 | 2026-10-12 | GitHub 공개·Pages 배포(af70c77). Supabase 생성·연결(서울, 42cd60a), 관리자 지정, 로그인 없이 쓰기(익명 식별값·개인정보 미수집, 2e0dc1d) — 실사이트에서 익명 글·댓글·공감·평가(검수 대기)·자료 링크·삭제·익명 파일 거절 확인. CSP·의존성 알림 적용. 한국성서대 링크 추가. 해외 차단 출처 맥 보충 수집. 직책 세분화·사례비 분류·직책별 사례비 표(8c99bb4). 총신대 폴백, 맥 보충 자동 선택(65a0d10). 인수인계 문서(c563189). 맥 보충 수집 launchd 설치(05:45·11:45·17:45, 별도 사본 ~/Developer/dongyeok-collector) |
 | 2026-10-12 | 서울 리전 시험 함수(probe-kr)로 확인: 서울 AWS에서 총신·대신·목원·기독정보넷 접속 성공, 광신대는 TLS 실패. Meta Muse·Claude 클라우드 예약 실행 검토 후 제외. **서울 중계 함수 kr-relay 배포·수집기 연결(69d263d)**, GitHub 시험 실행에서 4곳 성공. probe-kr 삭제. 맥 보충은 광신대만 고정 |
 | 2026-10-12 | 서울 중계 실수집(4곳 저장·배포, a163e19) 확인. 공개 연락처 seraphim7997@gmail.com 설정(bd5a596). 운영 화면 반려 동작 확인(시험교회 → rejected) |
+| 2026-10-12 | 세라핌 0.2.0 릴리스(설치 파일 3개·SHA256·제3자 고지), Seraphim main에 LICENSE(MIT)·THIRD-PARTY-NOTICES 추가(d177b1c). 사이트 내려받기 링크를 /releases/latest로 |

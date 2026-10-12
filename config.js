@@ -24,10 +24,10 @@ window.SITE_CONFIG = {
       id: 'seraphim',
       name: 'Seraphim (세라핌)',
       summary: '예배 송출·가사 자막·성경 슬라이드·온라인 주보를 한 프로그램에서',
-      features: ['가사 입력 → 절 단위 자동 분할 송출', '예배별 플레이리스트', '성경 슬라이드(개역한글 내장)', '배경 영상·전환 효과', '온라인 주보 발행 + QR', '찬양 PPT·텍스트·JSON 곡 가져오기'],
+      features: ['가사 입력 → 절 단위 자동 분할 송출', '예배별 플레이리스트', '성경 슬라이드(개역한글 내장)', '배경 영상·전환 효과', '온라인 주보 발행 + QR', '찬양 PPT·텍스트·JSON 곡 가져오기', 'YouTube 라이브 송출·녹화'],
       platforms: 'Windows · macOS(Apple Silicon)',
       license: 'MIT 무료',
-      download: 'https://github.com/hyotowork-create/Seraphim/releases',
+      download: 'https://github.com/hyotowork-create/Seraphim/releases/latest',   // 0.2.0 공개(2026-10-12): Windows 설치형·포터블, Mac Apple Silicon
       source: 'https://github.com/hyotowork-create/Seraphim'
     }
   ],

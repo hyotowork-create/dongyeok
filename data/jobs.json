@@ -1,13 +1,14 @@
 {
- "updatedAt": "2026-10-12T06:18:52.083Z",
+ "updatedAt": "2026-10-12T07:49:06.628Z",
  "sources": [
   {
    "id": "chongshin",
    "name": "총신대",
    "group": "신학교",
    "home": "https://www.csu.ac.kr/?m1=page&menu_id=1110",
-   "status": "error",
-   "note": "fetch failed"
+   "status": "ok",
+   "count": 150,
+   "note": "서울 중계 서버 경유(해외 접속 차단 출처)"
   },
   {
    "id": "puts",
@@ -56,8 +57,8 @@
    "group": "신학교",
    "home": "https://www.daeshin.ac.kr/html/05_community/03.php",
    "status": "ok",
-   "note": "맥에서 보충 수집(2026-10-12) — 해외 접속 차단",
-   "count": 15
+   "count": 15,
+   "note": "서울 중계 서버 경유(해외 접속 차단 출처)"
   },
   {
    "id": "kwangshin",
@@ -130,8 +131,9 @@
    "name": "목원대",
    "group": "신학교",
    "home": "https://www.mokwon.ac.kr/theo/html/sub04/0404.html",
-   "status": "error",
-   "note": "fetch failed"
+   "status": "ok",
+   "count": 14,
+   "note": "서울 중계 서버 경유(해외 접속 차단 출처)"
   },
   {
    "id": "uhs",
@@ -195,8 +197,8 @@
    "group": "구인 사이트",
    "home": "https://www.cjob.co.kr/bbs/board.php?bo_table=offerKG",
    "status": "ok",
-   "note": "맥에서 보충 수집(2026-10-12) — 해외 접속 차단",
-   "count": 40
+   "count": 40,
+   "note": "서울 중계 서버 경유(해외 접속 차단 출처)"
   },
   {
    "id": "pckworld",
@@ -313,6 +315,191 @@
   }
  ],
  "items": [
+  {
+   "id": "cs-oiyf5q",
+   "dk": "oiyf5q",
+   "source": "chongshin",
+   "title": "목동제일교회에서 전임교역자를 초빙합니다.",
+   "church": "목동제일교회",
+   "region": "서울",
+   "area": "서울 양천구",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "아래참조",
+   "tags": [],
+   "pay": {
+    "min": 110,
+    "max": 110,
+    "label": "월 110만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122577",
+   "firstSeen": "2026-10-12T07:49:06.611Z"
+  },
+  {
+   "id": "cs-f53jzs",
+   "dk": "f53jzs",
+   "source": "chongshin",
+   "title": "강릉강동교회 동역자를 모십니다.",
+   "church": "강동교회",
+   "region": "강원",
+   "area": "강원 강릉시",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "전임 부목사 (행정, 주일학교부서, 양육)",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122576",
+   "firstSeen": "2026-10-12T07:49:06.611Z"
+  },
+  {
+   "id": "cs-14bxcia",
+   "dk": "14bxcia",
+   "source": "chongshin",
+   "title": "안산서현교회 동역자를 모십니다.",
+   "church": "안산서현교회",
+   "region": "경기",
+   "area": "경기 안산시",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "교육부서 지도",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122574",
+   "firstSeen": "2026-10-12T07:49:06.611Z"
+  },
+  {
+   "id": "cs-afonzt",
+   "dk": "afonzt",
+   "source": "chongshin",
+   "title": "양문교회에서 전임 사역자를 모십니다.",
+   "church": "양문교회",
+   "region": "경기",
+   "area": "경기 안산시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "아래참고",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": "예장합동",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122572",
+   "firstSeen": "2026-10-12T07:49:06.611Z"
+  },
+  {
+   "id": "cs-1g5yvp2",
+   "dk": "1g5yvp2",
+   "source": "chongshin",
+   "title": "남양주 호평동 기독대안학교 주빌리학교에서 중고등 과학 교사를 모집합니다.",
+   "church": null,
+   "region": "경기",
+   "area": "경기 남양주시",
+   "positions": [],
+   "dept": "기독대안학교 중고등 담임교사",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "denomination": "대한예수교장로회(합동)",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122569",
+   "firstSeen": "2026-10-12T07:49:06.611Z"
+  },
+  {
+   "id": "cs-gqsed2",
+   "dk": "gqsed2",
+   "source": "chongshin",
+   "title": "왜관교회에서 동역자를 모십니다.",
+   "church": "왜관교회",
+   "region": "경북",
+   "area": "경북 칠곡군",
+   "positions": [
+    "파트 교육전도사",
+    "준전임 전도사"
+   ],
+   "dept": "전임 및 준전임: 중고등부 및 교구 / 교육전도사: 유초등부, 유치부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "denomination": "예장합동",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122568",
+   "firstSeen": "2026-10-12T07:49:06.611Z"
+  },
+  {
+   "id": "ds-gqsed2",
+   "dk": "gqsed2",
+   "source": "daeshin",
+   "title": "왜관교회에서 동역자를 모십니다.",
+   "church": "왜관교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001563199999999",
+   "firstSeen": "2026-10-12T07:49:06.611Z"
+  },
   {
    "id": "gp-7b5xan",
    "dk": "7b5xan",
@@ -3112,9 +3299,7 @@
    "pay": null,
    "payChecked": true,
    "posHint": [
-    "파트 교육전도사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "파트 교육전도사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-12",
@@ -3145,8 +3330,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "전임 전도사",
-    "찬양인도자"
+    "전임 전도사"
    ],
    "denomination": "대한예수교장로회(합동)",
    "date": "2026-10-12",
@@ -3195,8 +3379,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "파트 목사",
-    "방송·미디어 간사"
+    "파트 목사"
    ],
    "denomination": "합동",
    "date": "2026-10-12",
@@ -3286,9 +3469,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 부목사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -3369,9 +3550,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "파트 교육전도사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "파트 교육전도사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-12",
@@ -3400,8 +3579,7 @@
    "payChecked": true,
    "posHint": [
     "전임 전도사",
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -3498,9 +3676,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "전임 전도사",
-    "방송·미디어 간사",
-    "사찰·관리집사"
+    "전임 전도사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-12",
@@ -3566,8 +3742,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "준전임 전도사",
-    "방송·미디어 간사"
+    "준전임 전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -3596,8 +3771,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "준전임 전도사",
-    "방송·미디어 간사"
+    "준전임 전도사"
    ],
    "denomination": "예장고신",
    "date": "2026-10-12",
@@ -3623,10 +3797,7 @@
    "pay": null,
    "payChecked": true,
    "posHint": [
-    "파트 교육전도사",
-    "찬양인도자",
-    "방송·미디어 간사",
-    "사찰·관리집사"
+    "파트 교육전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -3678,11 +3849,13 @@
    "positions": [],
    "dept": "파송지는 선교후보생이 지원하는 지역(협의가능)",
    "tags": [],
-   "pay": null,
+   "pay": {
+    "min": 250,
+    "max": 250,
+    "label": "월 250만원",
+    "roles": []
+   },
    "payChecked": true,
-   "posHint": [
-    "방송·미디어 간사"
-   ],
    "denomination": "에장합동",
    "date": "2026-10-12",
    "deadline": null,
@@ -3747,8 +3920,7 @@
    "payChecked": true,
    "posHint": [
     "전임 부목사",
-    "심방전도사",
-    "찬양인도자"
+    "심방전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -4717,6 +4889,66 @@
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
+   "id": "cs-swptxm",
+   "dk": "swptxm",
+   "source": "chongshin",
+   "title": "동역자를 모십니다",
+   "church": null,
+   "region": "서울",
+   "area": "서울 중랑구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "유초등부1, 중고등부1",
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 100,
+    "label": "월 100만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122571",
+   "firstSeen": "2026-10-12T05:26:53.698Z"
+  },
+  {
+   "id": "cs-7wsmt",
+   "dk": "7wsmt",
+   "source": "chongshin",
+   "title": "빛소망교회 교역자(교회학교 미취학, 취학, 청소년 파트) 청빙 공고",
+   "church": "빛소망교회",
+   "region": "경기",
+   "area": "경기 시흥시",
+   "positions": [
+    "파트 교육전도사",
+    "사찰·관리집사"
+   ],
+   "dept": "아래 내용 참고",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": "예장 합동",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122570",
+   "firstSeen": "2026-10-12T05:26:53.698Z"
+  },
+  {
    "id": "gp-5hrz7b",
    "dk": "5hrz7b",
    "source": "godpeople",
@@ -4840,8 +5072,7 @@
    "pay": null,
    "payChecked": true,
    "posHint": [
-    "전임 전도사",
-    "방송·미디어 간사"
+    "전임 전도사"
    ],
    "denomination": "합동",
    "date": "2026-10-12",
@@ -4871,9 +5102,7 @@
    "payChecked": true,
    "posHint": [
     "전임 전도사",
-    "전임 부목사",
-    "방송·미디어 간사",
-    "사찰·관리집사"
+    "전임 부목사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -4904,9 +5133,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "준전임 전도사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "준전임 전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -4950,8 +5177,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-12",
@@ -4980,8 +5206,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "준전임 전도사",
-    "사찰·관리집사"
+    "준전임 전도사"
    ],
    "denomination": "장로교 합동",
    "date": "2026-10-12",
@@ -5013,8 +5238,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "준전임 전도사",
-    "방송·미디어 간사"
+    "준전임 전도사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-12",
@@ -5076,8 +5300,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "합동",
    "date": "2026-10-12",
@@ -5105,9 +5328,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "전임 부목사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "합동",
    "date": "2026-10-12",
@@ -5139,8 +5360,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "준전임 전도사",
-    "찬양인도자"
+    "준전임 전도사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-12",
@@ -5201,8 +5421,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "강도사",
-    "찬양인도자"
+    "강도사"
    ],
    "denomination": "합동",
    "date": "2026-10-12",
@@ -5233,8 +5452,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-12",
@@ -5265,8 +5483,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "준전임 전도사",
-    "방송·미디어 간사"
+    "준전임 전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -8274,8 +8491,7 @@
    "payChecked": true,
    "posHint": [
     "전임 전도사",
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "합동",
    "date": "2026-10-12",
@@ -8301,8 +8517,7 @@
    "pay": null,
    "payChecked": true,
    "posHint": [
-    "전임 전도사",
-    "방송·미디어 간사"
+    "전임 전도사"
    ],
    "denomination": "합동",
    "date": "2026-10-12",
@@ -8365,9 +8580,7 @@
    "payChecked": true,
    "posHint": [
     "전임 부목사",
-    "심방전도사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "심방전도사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-12",
@@ -8398,9 +8611,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 부목사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "합동",
    "date": "2026-10-12",
@@ -8433,9 +8644,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "전임 부목사",
-    "방송·미디어 간사",
-    "사찰·관리집사"
+    "전임 부목사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -8464,8 +8673,7 @@
    "payChecked": true,
    "posHint": [
     "전임 전도사",
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-12",
@@ -8473,6 +8681,38 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122564",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-1nfd6r0",
+   "dk": "1nfd6r0",
+   "source": "chongshin",
+   "title": "행복한 수원동부교회에서 함께할 동역자를 모십니다(전임)",
+   "church": "수원동부교회",
+   "region": "경기",
+   "area": "경기 화성시",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "denomination": "예장 합동",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122573",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -8611,20 +8851,12 @@
    "region": null,
    "area": null,
    "positions": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "강도사"
+    "교역자(직책 미상)"
    ],
    "dept": null,
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "강도사",
-    "반주자"
-   ],
    "denomination": "예장 합동",
    "date": "2026-10-11",
    "deadline": null,
@@ -9890,9 +10122,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "방송·미디어 간사"
-   ],
    "denomination": "합동",
    "date": "2026-10-11",
    "deadline": null,
@@ -9919,9 +10148,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "준전임 전도사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "준전임 전도사"
    ],
    "denomination": "대한예수교장로회(합동)",
    "date": "2026-10-11",
@@ -9994,8 +10221,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "준전임 전도사",
-    "찬양인도자"
+    "준전임 전도사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-11",
@@ -10052,8 +10278,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-11",
@@ -10085,8 +10310,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -10114,8 +10338,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 부목사",
-    "사찰·관리집사"
+    "전임 부목사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -10145,8 +10368,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "전임 부목사",
-    "찬양인도자"
+    "전임 부목사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -10241,8 +10463,7 @@
    "posHint": [
     "전임 전도사",
     "전임 부목사",
-    "심방전도사",
-    "찬양인도자"
+    "심방전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -10324,8 +10545,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "파트 목사",
-    "방송·미디어 간사"
+    "파트 목사"
    ],
    "denomination": "예장고신",
    "date": "2026-10-11",
@@ -10396,8 +10616,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "준전임 전도사",
-    "찬양인도자"
+    "준전임 전도사"
    ],
    "denomination": "합동",
    "date": "2026-10-11",
@@ -10481,8 +10700,7 @@
    "posHint": [
     "파트 교육전도사",
     "전임 부목사",
-    "심방전도사",
-    "방송·미디어 간사"
+    "심방전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -10541,8 +10759,7 @@
    "payChecked": true,
    "posHint": [
     "전임 전도사",
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -10569,10 +10786,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "찬양인도자",
-    "방송·미디어 간사"
-   ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-11",
    "deadline": null,
@@ -10656,8 +10869,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-11",
@@ -10694,8 +10906,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "파트 목사",
-    "방송·미디어 간사"
+    "파트 목사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-11",
@@ -10769,9 +10980,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "방송·미디어 간사"
-   ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-11",
    "deadline": null,
@@ -10800,8 +11008,7 @@
    "payChecked": true,
    "posHint": [
     "전임 전도사",
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "대한예수교장로회(합동)",
    "date": "2026-10-11",
@@ -10895,8 +11102,7 @@
    "pay": null,
    "payChecked": true,
    "posHint": [
-    "심방전도사",
-    "사찰·관리집사"
+    "심방전도사"
    ],
    "denomination": "합동",
    "date": "2026-10-11",
@@ -10924,8 +11130,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 전도사",
-    "방송·미디어 간사"
+    "전임 전도사"
    ],
    "denomination": "합동교단",
    "date": "2026-10-11",
@@ -10976,11 +11181,10 @@
    ],
    "dept": "청년부",
    "tags": [],
-   "pay": null,
+   "pay": {
+    "note": "내규·협의"
+   },
    "payChecked": true,
-   "posHint": [
-    "방송·미디어 간사"
-   ],
    "denomination": "합동",
    "date": "2026-10-11",
    "deadline": null,
@@ -11037,8 +11241,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "예장(합동)",
    "date": "2026-10-11",
@@ -11094,8 +11297,7 @@
    "payChecked": true,
    "posHint": [
     "전임 부목사",
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "미주한인예수교장로회",
    "date": "2026-10-11",
@@ -11310,8 +11512,7 @@
    "payChecked": true,
    "posHint": [
     "전임 전도사",
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-11",
@@ -11378,9 +11579,6 @@
     "roles": []
    },
    "payChecked": true,
-   "posHint": [
-    "방송·미디어 간사"
-   ],
    "denomination": "합동",
    "date": "2026-10-11",
    "deadline": null,
@@ -11470,9 +11668,7 @@
    "pay": null,
    "payChecked": true,
    "posHint": [
-    "전임 전도사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "전임 전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -11480,32 +11676,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122433",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "cs-1nfd6r0",
-   "dk": "1nfd6r0",
-   "source": "chongshin",
-   "title": "행복한 수원동부교회에서 함께할 동역자를 모십니다(전임)",
-   "church": "수원동부교회",
-   "region": "경기",
-   "area": "경기 화성시",
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "dept": "아래 참조",
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "방송·미디어 간사"
-   ],
-   "denomination": "예장 합동",
-   "date": "2026-10-11",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122475",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -11654,8 +11824,7 @@
    "payChecked": true,
    "posHint": [
     "전임 전도사",
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "대한예수교장로회합동",
    "date": "2026-10-11",
@@ -11697,8 +11866,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "심방전도사",
-    "방송·미디어 간사"
+    "심방전도사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-11",
@@ -11754,9 +11922,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 부목사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "대한예수교장로회 합동",
    "date": "2026-10-11",
@@ -11814,9 +11980,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "준전임 전도사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "준전임 전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -11900,9 +12064,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "준전임 전도사",
-    "방송·미디어 간사",
-    "사찰·관리집사"
+    "준전임 전도사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-11",
@@ -11931,8 +12093,7 @@
    "payChecked": true,
    "posHint": [
     "전임 부목사",
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "합동",
    "date": "2026-10-11",
@@ -11963,8 +12124,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 전도사",
-    "방송·미디어 간사"
+    "전임 전도사"
    ],
    "denomination": "대한예수교장로회(합동)",
    "date": "2026-10-11",
@@ -12066,8 +12226,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "강도사",
-    "사찰·관리집사"
+    "강도사"
    ],
    "denomination": "합동",
    "date": "2026-10-11",
@@ -12159,8 +12318,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "파트 목사",
-    "사찰·관리집사"
+    "파트 목사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-11",
@@ -12224,8 +12382,7 @@
    "payChecked": true,
    "posHint": [
     "전임 전도사",
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-11",
@@ -12308,8 +12465,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -12339,9 +12495,7 @@
    "payChecked": true,
    "posHint": [
     "전임 부목사",
-    "심방전도사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "심방전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-11",
@@ -12369,8 +12523,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "준전임 전도사",
-    "방송·미디어 간사"
+    "준전임 전도사"
    ],
    "denomination": "합동",
    "date": "2026-10-11",
@@ -13649,8 +13802,7 @@
    "pay": null,
    "payChecked": true,
    "posHint": [
-    "파트 교육전도사",
-    "사찰·관리집사"
+    "파트 교육전도사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-10",
@@ -13679,9 +13831,7 @@
    "payChecked": true,
    "posHint": [
     "파트 교육전도사",
-    "파트 목사",
-    "찬양인도자",
-    "방송·미디어 간사"
+    "파트 목사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-10",
@@ -13709,8 +13859,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 부목사",
-    "방송·미디어 간사"
+    "전임 부목사"
    ],
    "denomination": "예장 합동",
    "date": "2026-10-10",
@@ -13748,8 +13897,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "전임 전도사",
-    "방송·미디어 간사"
+    "전임 전도사"
    ],
    "denomination": "대한예수교장로회(통합)",
    "date": "2026-10-10",
@@ -13780,9 +13928,7 @@
    },
    "payChecked": true,
    "posHint": [
-    "전임 부목사",
-    "방송·미디어 간사",
-    "사찰·관리집사"
+    "전임 부목사"
    ],
    "denomination": "예장합동",
    "date": "2026-10-10",
@@ -14868,37 +15014,6 @@
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
-   "id": "cs-swptxm",
-   "dk": "swptxm",
-   "source": "chongshin",
-   "title": "동역자를 모십니다",
-   "church": null,
-   "region": "서울",
-   "area": "서울 중랑구",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "유초등부1, 중고등부1",
-   "tags": [],
-   "pay": {
-    "min": 100,
-    "max": 100,
-    "label": "월 100만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "denomination": "합동",
-   "date": "2026-10-10",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122352",
-   "firstSeen": "2026-10-12T05:26:53.698Z"
-  },
-  {
    "id": "cs-16mih3c",
    "dk": "16mih3c",
    "source": "chongshin",
@@ -15807,8 +15922,7 @@
    "posHint": [
     "파트 교육전도사",
     "파트 목사",
-    "강도사",
-    "방송·미디어 간사"
+    "강도사"
    ],
    "denomination": "합동",
    "date": "2026-10-10",
@@ -15969,8 +16083,7 @@
    "posHint": [
     "파트 교육전도사",
     "전임 전도사",
-    "심방전도사",
-    "방송·미디어 간사"
+    "심방전도사"
    ],
    "denomination": "합동",
    "date": "2026-10-10",
@@ -16888,36 +17001,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122277",
-   "firstSeen": "2026-10-12T05:26:53.698Z"
-  },
-  {
-   "id": "cs-7wsmt",
-   "dk": "7wsmt",
-   "source": "chongshin",
-   "title": "빛소망교회 교역자(교회학교 미취학, 취학, 청소년 파트) 청빙 공고",
-   "church": "빛소망교회",
-   "region": "경기",
-   "area": "경기 시흥시",
-   "positions": [
-    "파트 교육전도사",
-    "사찰·관리집사"
-   ],
-   "dept": "아래 내용 참고",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "사찰·관리집사"
-   ],
-   "denomination": "예장합동",
-   "date": "2026-10-09",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122268",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -30159,18 +30242,11 @@
    "church": "평택교회",
    "region": "경기",
    "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
+   "positions": [],
    "dept": null,
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "찬양인도자",
-    "사찰·관리집사"
-   ],
    "denomination": "기하성(순복음)&nbsp; 성향: 독립교단",
    "date": "2026-10-01",
    "deadline": null,
@@ -31408,10 +31484,7 @@
    "region": null,
    "area": null,
    "positions": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "전임 부목사"
+    "교역자(직책 미상)"
    ],
    "dept": null,
    "tags": [],
@@ -31419,12 +31492,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "전임 부목사"
-   ],
    "denomination": null,
    "date": "2026-09-29",
    "deadline": null,
@@ -32348,20 +32415,12 @@
    "region": null,
    "area": null,
    "positions": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "강도사"
+    "교역자(직책 미상)"
    ],
    "dept": null,
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "강도사",
-    "반주자"
-   ],
    "denomination": "&nbsp;대한예수교장로회 고려개혁총회",
    "date": "2026-09-21",
    "deadline": null,
@@ -32730,21 +32789,12 @@
    "region": "경기",
    "area": null,
    "positions": [
-    "파트 교육전도사",
-    "파트 목사",
-    "강도사",
-    "심방전도사"
+    "교역자(직책 미상)"
    ],
    "dept": null,
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "강도사",
-    "심방전도사"
-   ],
    "denomination": null,
    "date": "2026-09-16",
    "deadline": null,

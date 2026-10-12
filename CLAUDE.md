@@ -40,8 +40,9 @@
 1. **GitHub(미국 서버)에서 실패하는 출처가 5곳입니다.**
    - 대신대·광신대·기독정보넷은 늘 해외 접속을 막습니다(robots.txt 응답 없음, 403).
    - 총신대·목원대는 10/12 오후 첫 수집 때는 됐지만 여러 번 돌린 뒤 `fetch failed`가 납니다. 원인은 미확정이고, 다음 실행부터 오류 코드가 `data/jobs.json`의 `sources[].note`에 남습니다.
-   - 대응: 맥 보충 수집이 이 출처들을 채웁니다(아래 「수집 구조」).
-   - **하지만 맥 자동 실행(launchd)은 아직 설치하지 않았습니다(운영자 승인 대기).** 손으로 `zsh scripts/mac-fetch-jobs.sh`를 돌리지 않으면 이 5곳은 공고가 오래된 상태로 남습니다. 3일이 넘은 보충 파일은 합치지 않습니다.
+   - 대응: **맥 보충 수집이 launchd로 하루 3번(05:45·11:45·17:45) 자동 실행됩니다**(2026-10-12 설치). GitHub 수집보다 먼저 돌아서 결과가 바로 합쳐집니다.
+     - 맥이 꺼져 있거나 3일 넘게 실패하면 이 5곳의 공고가 오래된 상태로 남습니다. 3일이 넘은 보충 파일은 합치지 않습니다.
+     - 실행 기록은 `~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.log`에 남습니다.
 2. **Supabase가 연결되지 않았습니다.** 그래서 교회 평가·대나무숲·자료실·콘티 나눔이 공유되지 않습니다. 연결 절차는 `docs/운영가이드.md` 5-2에 있습니다.
 3. `config.js`의 `contactEmail`(신고·임시조치 접수처)이 비어 있습니다. 화면에는 "설정 필요"로 보입니다.
 4. 개인정보처리방침·이용약관은 초안입니다. 법률 검토와 시행일 기입이 필요합니다.
@@ -68,6 +69,7 @@ scraper/
 supabase/schema.sql        DB·열 단위 권한·RLS·트리거·RPC(SQL Editor에 통째로 Run, 여러 번 실행 안전)
 supabase/test/             PGlite로 schema.sql 점검(16개)
 scripts/mac-fetch-jobs.sh  맥 보충 수집 → data/jobs-local.json 커밋·푸시
+                           (launchd는 이 맥의 별도 사본 ~/Developer/dongyeok-collector에서 실행 — ~/Downloads는 macOS 폴더 보호로 예약 작업이 못 읽음)
 .claude/skills/dongyeok-scraper/SKILL.md   수집기 수리·출처 추가 절차
 docs/운영가이드.md          설정·운영·법적 유의사항 전체
 docs/수집허락요청문.md       robots.txt 금지 기관에 보낼 요청문
@@ -114,7 +116,8 @@ node scraper/fetch-jobs.mjs                            # 전체 수집(이 맥=�
 node scraper/fetch-jobs.mjs --only=mtu --dry           # 한 곳만, 저장 안 함
 node scraper/fetch-jobs.mjs --offline                  # 요청 없이 분류 규칙만 다시 적용
 node scraper/fetch-jobs.mjs --detail=0                 # 본문(사례비) 읽기 끄기
-zsh scripts/mac-fetch-jobs.sh                          # 맥 보충 수집 + 커밋·푸시
+zsh ~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.sh   # 맥 보충 수집 + 커밋·푸시(launchd가 하루 3번 자동 실행)
+launchctl print gui/$(id -u)/kr.dongyeok.fetch | grep -E 'state|last exit'   # 예약 작업 상태
 cd supabase/test && npm test                           # DB 스키마 점검
 gh run list -R hyotowork-create/dongyeok --limit 5     # 자동 수집·배포 결과
 gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok   # 수동 수집(하루 1~2회 이내로)
@@ -126,7 +129,7 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok   # 수동 수집(�
 ### 정기 점검(주 1회 권장)
 1. `gh run list`로 최근 실행이 성공했는지 봅니다. 실패하면 GitHub가 저장소 주인에게 메일을 보냅니다.
 2. `data/jobs.json`의 `sources[]`에서 `status`가 ok가 아니거나 `note`에 "맥"이 있는 출처를 확인합니다.
-3. 맥 보충 파일 `data/jobs-local.json`의 `updatedAt`이 3일 이내인지 봅니다.
+3. 맥 보충 파일 `data/jobs-local.json`의 `updatedAt`이 3일 이내인지 봅니다. 오래됐다면 `~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.log`와 `~/Library/Logs/dongyeok-fetch.log`를 확인합니다.
 4. 사이트를 열어 오늘 날짜 공고가 있는지, 「직책별 사례비」 표가 정상인지 봅니다.
 5. 공개 저장소는 60일 동안 활동이 없으면 예약 실행이 꺼집니다. 봇이 매번 커밋하므로 보통 유지되지만, 꺼졌다면 Actions 화면에서 Enable을 누릅니다.
 6. Supabase를 연결한 뒤에는 운영 화면에서 검수 대기 평가와 신고된 글을 처리합니다(`docs/운영가이드.md` 7장).
@@ -162,7 +165,6 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok   # 수동 수집(�
 ## 남은 일
 | 일 | 담당 | 비고 |
 |---|---|---|
-| 맥 보충 수집 launchd 등록(하루 3번) | 운영자 승인 후 Claude | plist 예시는 `docs/운영가이드.md` 6-3. 명령은 `zsh scripts/mac-fetch-jobs.sh` |
 | 총신대·목원대 GitHub 실패 원인 확인 | Claude | 다음 실행 로그의 오류 코드로 판단. 계속 막히면 서울 리전 Supabase Edge Function 이전 검토 |
 | Supabase 프로젝트 생성(서울)·schema.sql 실행·URL·anon key 전달 | 운영자 | 그 뒤 `config.js`를 고치고 푸시, 관리자 SQL 실행(운영가이드 5-2) |
 | 공개 이메일 → `config.js` `contactEmail` | 운영자 → Claude | |
@@ -176,4 +178,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok   # 수동 수집(�
 | 날짜 | 내용 |
 |---|---|
 | 2026-10-07 | 사이트·수집기(총신·감신·갓피플)·Supabase 스키마·운영가이드 작성. 디자인 v2(교회 이미지·조명). 출처를 27곳으로 확대 |
-| 2026-10-12 | GitHub 공개·Pages 배포(af70c77). CSP·의존성 알림 적용. 한국성서대 링크 추가. 해외 차단 출처 맥 보충 수집. 직책 세분화·사례비 분류·직책별 사례비 표(8c99bb4). 총신대 폴백, 맥 보충 자동 선택(65a0d10) |
+| 2026-10-12 | GitHub 공개·Pages 배포(af70c77). CSP·의존성 알림 적용. 한국성서대 링크 추가. 해외 차단 출처 맥 보충 수집. 직책 세분화·사례비 분류·직책별 사례비 표(8c99bb4). 총신대 폴백, 맥 보충 자동 선택(65a0d10). 인수인계 문서(c563189). 맥 보충 수집 launchd 설치(05:45·11:45·17:45, 별도 사본 ~/Developer/dongyeok-collector) |

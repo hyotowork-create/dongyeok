@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>동역 | 부교역자 청빙 정보·교회 평가·예배 도구·익명 나눔</title>
+<meta name="description" content="신학교·기독교 사이트의 부교역자 청빙 공고를 한곳에서 보고, 그 교회에서 사역했던 교역자들의 평가를 함께 확인하세요. 예배 도구, 설교·신학 자료, 익명 대나무숲까지.">
+<link rel="canonical" href="https://hyotowork-create.github.io/dongyeok/">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="동역">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:title" content="동역 · 부교역자 라운지">
+<meta property="og:description" content="청빙 공고 모아보기 + 먼저 사역한 동역자들의 교회 평가 + 예배 도구 + 대나무숲 + 자료실">
+<meta property="og:url" content="https://hyotowork-create.github.io/dongyeok/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://images.unsplash.com">
+<meta name="theme-color" content="#0e1230">
+<style>
+/* ── 디자인 토큰 (동역 디자인 시스템 v2 — 성막의 밤 · 무대 조명 금빛 · 대림절 보라) ── */
+:root{
+  --night:#0e1230; --night-2:#181d48; --indigo:#2a2f7a; --violet:#7c5cff; --violet-pale:#eeeaff;
+  --gold:#ffc24b; --gold-2:#ffb21f; --gold-deep:#8a5a00; --gold-pale:#fff3d6;
+  --mist:#f4f5fb; --white:#ffffff;
+  --ink:#161a33; --ink-2:#2a2f55; --ink-3:#4a5080;
+  --muted:#545974; --muted-2:#666b88;
+  --border:#d9dbe9; --border-2:#e7e8f2;
+  --green:#1d7650; --green-pale:#e2f3ea;
+  --danger:#bf2530; --danger-pale:#fdecec; --ok:#1d7650; --ok-pale:#e2f3ea;
+  --max-w:1180px; --t:.2s;
+  --shadow:0 1px 2px rgba(14,18,48,.05),0 6px 20px rgba(14,18,48,.06);
+  --shadow-lg:0 18px 50px rgba(14,18,48,.24);
+  --sans:'Pretendard Variable',Pretendard,-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --serif:'Noto Serif KR','AppleMyungjo',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-size:16px;line-height:1.75;color:var(--ink);background:var(--mist);word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{line-height:1.3;text-wrap:balance;color:var(--ink);font-weight:800;letter-spacing:-.02em}
+p,li,dd{text-wrap:pretty}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--violet);outline-offset:2px;border-radius:6px}
+.skip-nav{position:absolute;left:-9999px;top:8px;z-index:999;background:var(--gold);color:var(--night);padding:8px 14px;border-radius:8px;font-weight:700}
+.skip-nav:focus{left:8px}
+.wrap{max-width:var(--max-w);margin:0 auto;padding:0 20px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ── 체험 모드 띠 ── */
+.demo-bar{background:#21265a;color:#ffd98a;font-size:13.5px;text-align:center;padding:7px 16px}
+.demo-bar b{font-weight:800;color:#fff}
+
+/* ── 헤더(항상 밤색) ── */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(14,18,48,.94);backdrop-filter:saturate(1.3) blur(10px);-webkit-backdrop-filter:saturate(1.3) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
+.hdr-in{display:flex;align-items:center;gap:28px;height:66px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;flex-shrink:0}
+.logo svg{width:30px;height:30px;flex-shrink:0}
+.logo b{font-size:23px;font-weight:900;letter-spacing:-.05em;color:#fff}
+.logo span{font-size:12.5px;color:#a9aed6;font-weight:500}
+.gnb{display:flex;gap:2px;flex:1}
+.gnb a{position:relative;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:600;color:#c9cdf0;font-size:15.5px;transition:color var(--t),background var(--t)}
+.gnb a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.gnb a.on{color:#fff}
+.gnb a.on::after{content:'';position:absolute;left:12px;right:12px;bottom:-13px;height:3px;border-radius:3px;background:var(--gold)}
+.hdr-act{display:flex;align-items:center;gap:10px;margin-left:auto}
+.hdr-act .who{font-size:13px;color:#9ea3cc}
+.hdr .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.32)}
+.hdr .btn-line:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.hamb{display:none;width:42px;height:42px;border:1px solid rgba(255,255,255,.3);border-radius:10px;background:transparent;color:#fff;font-size:20px;cursor:pointer}
+.drawer{position:fixed;inset:0;z-index:80;display:none}
+.drawer.open{display:block}
+.drawer-bg{position:absolute;inset:0;background:rgba(8,10,28,.55)}
+.drawer-panel{position:absolute;right:0;top:0;bottom:0;width:min(310px,86vw);background:var(--night);color:#fff;padding:20px;display:flex;flex-direction:column;gap:2px;box-shadow:var(--shadow-lg);overflow:auto}
+.drawer-panel a{padding:12px 10px;border-radius:10px;text-decoration:none;font-weight:700;font-size:17px;color:#fff}
+.drawer-panel a:hover{background:rgba(255,255,255,.08)}
+.drawer-panel .sub{font-size:14.5px;color:#b9bde3;font-weight:500;padding:8px 10px 8px 22px}
+.drawer-close{align-self:flex-end;border:0;background:none;color:#fff;font-size:28px;cursor:pointer;line-height:1}
+
+/* ── 버튼·폼 ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:10px 20px;border-radius:999px;border:1.5px solid transparent;font-weight:700;font-size:15.5px;text-decoration:none;cursor:pointer;transition:background var(--t),border-color var(--t),color var(--t),box-shadow var(--t);white-space:nowrap}
+.btn-lg{min-height:54px;padding:14px 28px;font-size:17px}
+.btn-main{background:var(--gold);color:var(--night)}
+.btn-main:hover{background:var(--gold-2);box-shadow:0 8px 28px rgba(255,178,31,.35)}
+.btn-ink{background:var(--indigo);color:#fff}
+.btn-ink:hover{background:#363c96}
+.btn-ghost{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.45)}
+.btn-ghost:hover{background:rgba(255,255,255,.14);border-color:#fff}
+.btn-line{background:#fff;color:var(--ink);border-color:var(--border)}
+.btn-line:hover{border-color:var(--ink-3)}
+.btn-sm{min-height:34px;padding:5px 14px;font-size:14px;font-weight:600}
+.btn-danger{background:#fff;color:var(--danger);border-color:#ecc4c6}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.btn-row{display:flex;flex-wrap:wrap;gap:8px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.field>label,.field>.lbl,fieldset legend{font-weight:700;font-size:15px;color:var(--ink)}
+.req::after{content:' *';color:var(--danger)}
+.hint{font-size:13.5px;color:var(--muted-2)}
+input[type=text],input[type=email],input[type=search],input[type=url],input[type=number],input[type=date],select,textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;background:#fff;font-size:16px;transition:border-color var(--t),box-shadow var(--t)}
+input:focus,select:focus,textarea:focus{border-color:var(--violet);outline:none;box-shadow:0 0 0 4px rgba(124,92,255,.15)}
+textarea{min-height:120px;resize:vertical;line-height:1.7}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:15px;margin-bottom:10px;cursor:pointer}
+.check input{width:18px;height:18px;margin-top:4px;flex-shrink:0;accent-color:var(--violet)}
+fieldset{border:0;margin-bottom:18px}
+.seg{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.seg label{cursor:pointer}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:inline-block;padding:7px 15px;border:1.5px solid var(--border);border-radius:999px;background:#fff;font-size:14.5px;font-weight:600;transition:all var(--t)}
+.seg input:checked+span{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.seg input:focus-visible+span{outline:3px solid var(--violet);outline-offset:2px}
+.form-card{background:#fff;border:1px solid var(--border-2);border-radius:16px;padding:30px;box-shadow:var(--shadow)}
+.notice{background:#fff;border:1px solid var(--border-2);border-left:4px solid var(--violet);padding:14px 16px;border-radius:0 10px 10px 0;font-size:14.5px;color:var(--muted);margin-bottom:20px}
+.notice.warn{border-left-color:var(--gold-2);background:var(--gold-pale)}
+.notice h3{font-size:15px;margin-bottom:4px}
+.hang{padding-left:1.1em;text-indent:-1.1em}
+.mk-list{list-style:none;display:grid;gap:6px}
+.mk-list li{display:grid;grid-template-columns:1.1em 1fr}
+.mk-list li::before{content:'✓';font-weight:800;color:var(--violet)}
+
+/* ── 첫 화면: 예배 사진이 바뀌며 조명 빔이 훑고 지나감 ── */
+.hero{position:relative;min-height:min(92svh,880px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--night);isolation:isolate}
+.hero-media{position:absolute;inset:0;z-index:-1}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;animation:hero-slide 28s infinite;will-change:opacity,transform}
+.hero-media img:nth-child(2){animation-delay:7s}
+.hero-media img:nth-child(3){animation-delay:14s}
+.hero-media img:nth-child(4){animation-delay:21s}
+@keyframes hero-slide{0%{opacity:0;transform:scale(1.14)}6%{opacity:1}25%{opacity:1}31%{opacity:0;transform:scale(1.02)}100%{opacity:0;transform:scale(1.02)}}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,18,48,.93) 0%,rgba(14,18,48,.7) 42%,rgba(14,18,48,.2) 100%),linear-gradient(0deg,rgba(14,18,48,.96) 0%,rgba(14,18,48,0) 48%)}
+.beams{position:absolute;inset:0;overflow:hidden;mix-blend-mode:screen;pointer-events:none}
+.beams i{position:absolute;top:-30%;width:34vw;min-width:260px;height:160%;transform-origin:50% 0;filter:blur(26px);opacity:.5;clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);animation:beam 11s ease-in-out infinite alternate}
+.beams i:nth-child(1){left:0;background:linear-gradient(180deg,rgba(255,206,110,.8),rgba(255,206,110,0) 72%);--a:-24deg;--b:8deg}
+.beams i:nth-child(2){left:32%;background:linear-gradient(180deg,rgba(150,120,255,.85),rgba(150,120,255,0) 70%);--a:16deg;--b:-18deg;animation-duration:13.5s}
+.beams i:nth-child(3){left:60%;background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,0) 66%);--a:-12deg;--b:22deg;animation-duration:16s}
+@keyframes beam{from{transform:rotate(var(--a))}to{transform:rotate(var(--b))}}
+.hero-in{position:relative;width:100%;padding-top:120px;padding-bottom:76px}
+.live-pill{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 12px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-size:14.5px;font-weight:600;color:#fff;text-decoration:none;margin-bottom:26px;animation:rise .8s both}
+.live-pill:hover{background:rgba(255,255,255,.18)}
+.live-pill .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(255,194,75,.7);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 11px rgba(255,194,75,0)}100%{box-shadow:0 0 0 0 rgba(255,194,75,0)}}
+.hero-title{font-size:clamp(40px,6.8vw,92px);line-height:1.06;font-weight:900;letter-spacing:-.05em;color:#fff;margin-bottom:26px;max-width:12.5em}
+.hero-title span{display:block;animation:rise .95s cubic-bezier(.2,.7,.2,1) both}
+.hero-title span:nth-child(2){animation-delay:.14s}
+.hero .lead{max-width:33em;font-size:clamp(16px,1.6vw,19px);color:#d5d8f2;margin-bottom:34px;animation:rise .95s .28s both}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;animation:rise .95s .38s both}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.verse{position:absolute;right:20px;bottom:80px;max-width:290px;text-align:right;color:#eceeff;animation:rise 1s .7s both}
+.verse blockquote{font-family:var(--serif);font-size:20px;line-height:1.65;font-weight:500}
+.verse figcaption{font-size:13px;color:#a9aed6;margin-top:8px}
+
+/* ── 최근 공고가 흘러가는 띠 ── */
+.ticker{background:var(--gold);color:var(--night);overflow:hidden;position:relative}
+.ticker-track{display:flex;width:max-content;animation:ticker 90s linear infinite}
+.ticker:hover .ticker-track,.ticker:focus-within .ticker-track{animation-play-state:paused}
+.ticker a{display:inline-flex;align-items:center;gap:10px;padding:14px 28px 14px 0;font-weight:700;font-size:15px;text-decoration:none;white-space:nowrap}
+.ticker a::before{content:'';width:7px;height:7px;background:var(--night);border-radius:2px;transform:rotate(45deg);opacity:.55;margin-left:28px}
+.ticker a:hover{text-decoration:underline;text-underline-offset:3px}
+.ticker small{font-weight:600;font-size:13px;opacity:.72}
+@keyframes ticker{to{transform:translateX(-50%)}}
+
+/* ── 홈 사진 타일 ── */
+.sec{padding:64px 20px}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:16px}
+.sec-head h2{font-size:23px;font-weight:800}
+.sec-head a{font-size:14.5px;font-weight:600;color:var(--indigo);text-decoration:none}
+.sec-head a:hover{text-decoration:underline;text-underline-offset:3px}
+.bento{display:grid;grid-template-columns:1.35fr 1fr 1fr;grid-template-rows:310px 250px;gap:16px}
+.tile{position:relative;overflow:hidden;border-radius:20px;color:#fff;text-decoration:none;display:flex;align-items:flex-end;isolation:isolate;background:var(--night)}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.tile::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(14,18,48,.94) 0%,rgba(14,18,48,.45) 52%,rgba(14,18,48,.08) 100%)}
+.tile:hover img,.tile:focus-visible img{transform:scale(1.06)}
+.tile-body{padding:26px}
+.tile h2{color:#fff;font-size:clamp(21px,2.1vw,28px);font-weight:900;letter-spacing:-.035em;margin-bottom:6px}
+.tile p{color:#d5d8f2;font-size:15px;max-width:30em}
+.tile-stat{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--night);background:var(--gold);padding:4px 13px;border-radius:999px}
+.tile-lg{grid-row:span 2}
+.tile-wide{grid-column:span 2}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.box{background:#fff;border:1px solid var(--border-2);border-radius:14px;box-shadow:var(--shadow)}
+
+/* ── 안쪽 페이지 머리(사진 띠) ── */
+.page-head{position:relative;color:#fff;background:var(--night);isolation:isolate;overflow:hidden}
+.page-head::before{content:'';position:absolute;inset:0;z-index:-2;background-image:var(--ph,none);background-size:cover;background-position:center 42%;opacity:.6}
+.page-head::after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(14,18,48,.95) 0%,rgba(14,18,48,.66) 58%,rgba(14,18,48,.3) 100%)}
+.page-head .wrap{padding-top:62px;padding-bottom:46px}
+.page-head h1{color:#fff;font-size:clamp(28px,4vw,46px);font-weight:900;letter-spacing:-.04em;margin-bottom:10px}
+.page-head p{color:#d5d8f2;max-width:46em}
+.page-head p b{color:#fff}
+.page-head a:not(.btn){color:#fff}
+.page-head .btn-row{margin-top:20px}
+.page-head .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.page-head .btn-line:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.page-head .hint{color:#b9bde3}
+.page-title{font-size:clamp(26px,3.4vw,38px);font-weight:900;letter-spacing:-.04em;margin-bottom:18px}
+.empty{padding:36px 20px;text-align:center;color:var(--muted-2);font-size:15px}
+.loading{padding:30px;text-align:center;color:var(--muted-2)}
+.tag{display:inline-block;font-size:12.5px;padding:2px 9px;border-radius:999px;background:#eef0f7;color:var(--ink-3);font-weight:600;white-space:nowrap}
+.tag.ok{background:var(--ok-pale);color:var(--ok)}
+.tag.no{background:var(--danger-pale);color:var(--danger)}
+.tag.wait{background:#fff1cc;color:#7a5200}
+.tag.ink{background:var(--violet-pale);color:#4b33b8}
+.tag.olive{background:var(--green-pale);color:var(--green)}
+.tag.clay{background:var(--gold-pale);color:var(--gold-deep)}
+.meta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:13.5px;color:var(--muted-2)}
+
+/* ── 목록 공통 ── */
+.list{list-style:none}
+.list>li{border-bottom:1px solid var(--border-2)}
+.list>li:last-child{border-bottom:0}
+.row-link{display:flex;gap:14px;align-items:center;padding:16px 20px;text-decoration:none;transition:background var(--t)}
+.row-link:hover{background:#f8f8fd}
+.row-main{flex:1;min-width:0}
+.row-title{font-weight:600;color:var(--ink);font-size:16px;line-height:1.5;margin-bottom:3px}
+.row-ex{font-size:14px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:2px 0 4px}
+.row-side{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0}
+.mini .row-link{padding:12px 18px}
+.mini .row-title{font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.filters{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px}
+.chip{padding:6px 14px;border:1.5px solid var(--border);border-radius:999px;background:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:all var(--t)}
+.chip:hover{border-color:var(--ink-3)}
+.chip.on{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--border);margin-bottom:18px;scrollbar-width:none}
+.tabs button{padding:10px 14px;border:0;background:none;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;cursor:pointer;white-space:nowrap}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--violet)}
+.more-wrap{text-align:center;margin-top:18px}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.toolbar input[type=search]{max-width:340px}
+.src-badge{font-size:12px;padding:1px 8px;border-radius:6px;background:var(--violet-pale);color:#4b33b8;font-weight:700}
+
+/* ── 상세 ── */
+.detail{background:#fff;border:1px solid var(--border-2);border-radius:16px;padding:30px;box-shadow:var(--shadow);margin-bottom:24px}
+.detail h1{font-size:clamp(22px,2.8vw,30px);font-weight:800;margin:6px 0 12px}
+.detail .body{font-size:16.5px;line-height:1.85;margin:18px 0}
+.act-bar{display:flex;flex-wrap:wrap;gap:8px;padding-top:16px;border-top:1px solid var(--border-2)}
+.act-bar .sp{flex:1}
+.like.on{background:var(--gold-pale);border-color:#f3d48a;color:var(--gold-deep)}
+.back{display:inline-flex;align-items:center;gap:4px;font-size:14.5px;font-weight:600;color:var(--muted);text-decoration:none;margin-bottom:16px}
+.back:hover{color:var(--indigo)}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:8px 14px;font-size:15px;margin:16px 0}
+.kv dt{color:var(--muted-2)}
+.layout-side{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+
+/* ── 댓글 ── */
+.comments h3{font-size:17px;margin-bottom:12px}
+.cmt{padding:14px 0;border-bottom:1px solid var(--border-2)}
+.cmt:last-of-type{border-bottom:0}
+.cmt-head{display:flex;gap:8px;align-items:center;font-size:13.5px;color:var(--muted-2);margin-bottom:4px}
+.cmt-head b{color:var(--ink-2);font-weight:700}
+.cmt-head .op{color:var(--violet)}
+.cmt-body{font-size:15.5px}
+.cmt-tools{margin-left:auto;display:flex;gap:6px}
+.txt-btn{border:0;background:none;color:var(--muted-2);font-size:13px;cursor:pointer;padding:2px 4px}
+.txt-btn:hover{color:var(--danger)}
+.cmt-form{display:flex;gap:8px;margin-top:14px}
+.cmt-form textarea{min-height:52px;height:52px}
+
+/* ── 교회 평가 ── */
+.stars{--v:0;--pct:calc(var(--v) / 5 * 100%);display:inline-block;font-size:15px;line-height:1;letter-spacing:1px;background:linear-gradient(90deg,var(--gold-2) var(--pct),#d6d8e6 var(--pct));-webkit-background-clip:text;background-clip:text;color:transparent;vertical-align:-1px}
+.stars::before{content:'★★★★★'}
+.stars.lg{font-size:24px}
+.rv-summary{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:center;padding:24px;background:linear-gradient(135deg,var(--night),var(--night-2));color:#fff;border-radius:16px;margin-bottom:20px}
+.rv-big{text-align:center}
+.rv-big strong{display:block;font-size:48px;line-height:1.1;color:#fff;font-weight:900;letter-spacing:-.04em}
+.rv-big p{font-size:13.5px;color:#b9bde3;margin-top:6px}
+.rv-summary .stars{background:linear-gradient(90deg,var(--gold) var(--pct),rgba(255,255,255,.25) var(--pct));-webkit-background-clip:text;background-clip:text}
+.bars{display:grid;gap:9px}
+.bar{display:grid;grid-template-columns:120px 1fr 34px;gap:10px;align-items:center;font-size:14px;color:#d5d8f2}
+.bar-track{height:8px;background:rgba(255,255,255,.14);border-radius:999px;overflow:hidden}
+.bar-fill{height:100%;background:linear-gradient(90deg,var(--violet),var(--gold));border-radius:999px}
+.bar b{text-align:right;font-weight:800;color:#fff}
+.review{border:1px solid var(--border-2);border-radius:14px;padding:20px;margin-bottom:14px;background:#fff}
+.review header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.review header strong{font-size:16px}
+.review h4{font-size:14px;color:var(--muted);margin:12px 0 2px;font-weight:700}
+.review p{font-size:15.5px}
+.review footer{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px;font-size:13px;color:var(--muted-2)}
+.review footer .sp{flex:1}
+.rv-scores{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--muted)}
+.rv-scores b{color:var(--ink-2)}
+.rate{border:1px solid var(--border-2);border-radius:12px;padding:12px 14px;margin-bottom:10px;background:#fff}
+.rate legend{padding:0 4px;font-size:14.5px}
+.rate .seg{margin-top:4px}
+.rate .seg span{min-width:42px;text-align:center}
+.rate-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 12px}
+.guide-box{background:var(--violet-pale);border-radius:14px;padding:18px 22px;font-size:14.5px;margin-bottom:22px}
+.guide-box h3{font-size:15px;margin-bottom:8px;color:#4b33b8}
+
+/* ── 예배 도구 ── */
+.tool{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:start;padding:28px;background:linear-gradient(135deg,var(--night),#22286a);color:#fff;border-radius:18px;box-shadow:var(--shadow);margin-bottom:16px;position:relative;overflow:hidden}
+.tool::after{content:'';position:absolute;right:-80px;top:-120px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(255,194,75,.28),transparent 65%);pointer-events:none}
+.tool h3{font-size:24px;font-weight:900;color:#fff;margin-bottom:4px}
+.tool .sum{color:#d5d8f2;margin-bottom:12px}
+.tool ul{columns:2;column-gap:24px;font-size:14.5px;list-style:none;color:#e6e8ff}
+.tool ul li{padding-left:1.2em;text-indent:-1.2em;margin-bottom:3px;break-inside:avoid}
+.tool ul li::before{content:'✓ ';color:var(--gold)}
+.tool .meta{color:#b9bde3}
+.tool .btn-row{flex-direction:column;align-items:stretch;min-width:180px;position:relative;z-index:1}
+.tool .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+.sl-row{display:grid;grid-template-columns:28px 1.6fr 92px 70px 108px 1.3fr auto;gap:6px;align-items:center;padding:8px 0;border-bottom:1px dashed var(--border-2)}
+.sl-row .no{font-weight:800;color:var(--violet);text-align:center}
+.sl-row input,.sl-row select{padding:8px 10px;font-size:15px}
+.sl-row .ops{display:flex;gap:2px}
+.icon-btn{width:32px;height:32px;border:1.5px solid var(--border);border-radius:8px;background:#fff;cursor:pointer;font-size:14px;line-height:1}
+.icon-btn:hover{border-color:var(--ink-3)}
+.sl-lyrics{grid-column:2 / -1;display:none}
+.sl-lyrics.open{display:block}
+.sl-lyrics textarea{min-height:110px;font-size:14.5px}
+.sl-head{display:grid;grid-template-columns:28px 1.6fr 92px 70px 108px 1.3fr auto;gap:6px;font-size:12.5px;color:var(--muted-2);font-weight:700;padding-bottom:4px;border-bottom:1px solid var(--border)}
+.song-list{list-style:none;counter-reset:s}
+.song-list li{counter-increment:s;display:grid;grid-template-columns:38px 1fr auto;gap:10px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--border-2)}
+.song-list li::before{content:counter(s);font-weight:900;color:var(--violet);font-size:20px;text-align:center}
+.song-list .t{font-weight:700;font-size:16.5px;color:var(--ink)}
+.song-list .n{font-size:14px;color:var(--muted)}
+.key{display:inline-block;min-width:34px;text-align:center;padding:1px 8px;border-radius:7px;background:var(--night);color:var(--gold);font-weight:800;font-size:13.5px}
+.stage{position:fixed;inset:0;z-index:200;background:#000;color:#fff;display:none;align-items:center;justify-content:center;text-align:center;padding:4vh 6vw;cursor:none}
+.stage.on{display:flex}
+.stage .txt{font-size:clamp(28px,5.4vw,84px);line-height:1.5;font-weight:800;white-space:pre-line;text-shadow:0 2px 8px rgba(0,0,0,.6)}
+.stage.black .txt{visibility:hidden}
+.stage .pg{position:absolute;right:18px;bottom:12px;font-size:14px;color:#666}
+
+/* ── 대나무숲 ── */
+.bamboo .page-head::after{background:linear-gradient(90deg,rgba(9,32,24,.94) 0%,rgba(9,32,24,.62) 58%,rgba(9,32,24,.25) 100%)}
+.cat-고민{background:#efe9fb;color:#5b3d9c}.cat-사역{background:var(--violet-pale);color:#4b33b8}.cat-관계{background:var(--gold-pale);color:var(--gold-deep)}.cat-진로{background:var(--green-pale);color:var(--green)}.cat-자유{background:#eef0f7;color:var(--ink-3)}
+
+/* ── 관리자 ── */
+.mod-item{border:1px solid var(--border-2);border-radius:14px;padding:16px 18px;margin-bottom:12px;background:#fff}
+.mod-item .reports{font-size:13.5px;color:var(--danger);margin:8px 0}
+.mod-item pre{white-space:pre-wrap;font-family:inherit;font-size:14.5px;background:var(--mist);padding:10px 12px;border-radius:10px;margin:8px 0;max-height:240px;overflow:auto}
+
+/* ── 문서형 페이지 ── */
+.doc{max-width:820px}
+.doc h2{font-size:21px;margin:36px 0 10px;padding-top:6px}
+.doc h3{font-size:17px;margin:20px 0 6px}
+.doc p,.doc li{font-size:15.5px;color:#30344f}
+.doc ol,.doc ul{padding-left:1.3em;margin:6px 0 10px}
+.doc li{margin-bottom:4px}
+.doc table{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0;background:#fff}
+.doc th,.doc td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
+.doc th{background:#eceef8}
+
+/* ── 푸터·토스트·대화상자 ── */
+.ftr{background:radial-gradient(900px 320px at 12% 0%,rgba(124,92,255,.28),transparent 60%),radial-gradient(700px 260px at 95% 100%,rgba(255,194,75,.12),transparent 60%),var(--night);color:#a9aed6;font-size:14px;margin-top:48px}
+.ftr .wrap{padding-top:48px;padding-bottom:40px}
+.ftr-grid{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:24px}
+.ftr b{display:block;color:#fff;margin-bottom:8px;font-weight:800}
+.ftr a{display:block;text-decoration:none;padding:2px 0;color:#c9cdf0}
+.ftr a:hover{color:#fff}
+.ftr .copy{margin-top:30px;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#8d92bb}
+.ftr .copy a{display:inline;color:#c9cdf0}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);background:var(--night);color:#fff;padding:12px 20px;border-radius:12px;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:all .25s;z-index:300;max-width:calc(100vw - 32px);font-size:15px}
+.toast.on{opacity:1;transform:translateX(-50%)}
+.toast.err{background:var(--danger)}
+dialog{border:0;border-radius:18px;padding:0;box-shadow:var(--shadow-lg);width:min(480px,calc(100vw - 32px))}
+dialog::backdrop{background:rgba(8,10,28,.55)}
+dialog form{padding:26px}
+dialog h2{font-size:20px;margin-bottom:6px}
+
+/* ── 화면 전환 ── */
+.page{display:none;min-height:60vh}
+.page.active{display:block}
+.reveal{opacity:1}
+
+/* ── 움직임 줄이기 설정 존중 ── */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-media img{animation:none;opacity:0}
+  .hero-media img:first-child{opacity:1}
+  .beams{display:none}
+  .live-pill,.hero-title span,.hero .lead,.hero-cta,.verse{animation:none}
+  .live-pill .dot{animation:none}
+  .ticker{overflow-x:auto}
+  .ticker-track{animation:none}
+  .tile img{transition:none}
+}
+
+/* ── 반응형 ── */
+@media (max-width:1024px){.gnb a{padding:8px 9px;font-size:15px}.logo span{display:none}.verse{display:none}}
+@media (max-width:960px){
+  .gnb,.hdr-act .who{display:none}.hamb{display:block}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:280px 220px 220px}
+  .tile-lg{grid-row:auto;grid-column:span 2}
+  .tile-wide{grid-column:span 2}
+  .two-col,.layout-side{grid-template-columns:1fr}
+  .ftr-grid{grid-template-columns:1fr 1fr}
+  .sl-head{display:none}
+  .sl-row{grid-template-columns:28px 1fr 1fr;row-gap:6px}
+  .sl-row .c-title{grid-column:2 / -1}
+  .sl-row .c-note{grid-column:2 / -1}
+  .sl-row .ops{grid-column:2 / -1;justify-content:flex-end}
+}
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  .hero{min-height:88svh}
+  .hero-in{padding-top:96px;padding-bottom:52px}
+  .hero-shade{background:linear-gradient(0deg,rgba(14,18,48,.97) 0%,rgba(14,18,48,.72) 55%,rgba(14,18,48,.45) 100%)}
+  .beams i{min-width:200px}
+  .sec{padding:44px 16px}
+  .bento{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:220px}
+  .tile-lg,.tile-wide{grid-column:auto;grid-row:auto}
+  .filters,.grid2,.rate-grid{grid-template-columns:1fr}
+  .rv-summary{grid-template-columns:1fr;gap:16px}
+  .bar{grid-template-columns:100px 1fr 30px}
+  .detail,.form-card{padding:20px}
+  .tool{grid-template-columns:1fr;padding:22px}.tool ul{columns:1}
+  .kv{grid-template-columns:88px 1fr}
+  .row-link{padding:13px 14px}
+  .cmt-form{flex-direction:column}
+  .ftr-grid{grid-template-columns:1fr}
+  .page-head .wrap{padding-top:44px;padding-bottom:34px}
+}
+@media (max-width:400px){.btn-lg{padding:13px 20px;font-size:16px}.btn{padding:10px 16px}}
+@media print{.hdr,.ftr,.demo-bar,.no-print,.act-bar,.comments,.ticker{display:none!important}body{background:#fff}.page-head{background:none;color:#000}.page-head::before,.page-head::after{display:none}.page-head h1,.page-head p{color:#000}}
+</style>
+</head>
+<body>
+<a class="skip-nav" href="#main">본문 바로가기</a>
+<div class="demo-bar" id="demo-bar" hidden><b>체험 모드</b> — 글이 이 브라우저에만 저장됩니다. 운영 연결(Supabase) 후에는 모두에게 공유됩니다.</div>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <a class="logo" href="#pg-home" aria-label="동역 홈"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="9.5" y="3" width="5" height="26" rx="2.5" fill="#ffc24b"/><rect x="17.5" y="3" width="5" height="26" rx="2.5" fill="#ffc24b" opacity=".55"/><rect x="4" y="10" width="24" height="5" rx="2.5" fill="#fff"/></svg><b data-cfg="name">동역</b><span>부교역자 라운지</span></a>
+    <nav class="gnb" aria-label="주 메뉴">
+      <a href="#pg-jobs" data-group="jobs">청빙 정보</a>
+      <a href="#pg-churches" data-group="churches">교회 평가</a>
+      <a href="#pg-worship" data-group="worship">예배 도구</a>
+      <a href="#pg-bamboo" data-group="bamboo">대나무숲</a>
+      <a href="#pg-library" data-group="library">자료실</a>
+      <a href="#pg-admin" data-group="admin" class="admin-only" hidden>운영</a>
+    </nav>
+    <div class="hdr-act">
+      <span class="who" id="who"></span>
+      <a class="btn btn-line btn-sm" id="btn-auth" href="#pg-login">로그인</a>
+      <button class="hamb" type="button" aria-label="메뉴 열기" aria-expanded="false" onclick="openDrawer()">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-bg" onclick="closeDrawer()"></div>
+  <nav class="drawer-panel" aria-label="모바일 메뉴">
+    <button class="drawer-close" type="button" aria-label="메뉴 닫기" onclick="closeDrawer()">×</button>
+    <a href="#pg-home">홈</a>
+    <a href="#pg-jobs">청빙 정보</a>
+    <a href="#pg-churches">교회 평가</a>
+    <a class="sub" href="#pg-review-new">└ 사역했던 교회 평가하기</a>
+    <a href="#pg-worship">예배 도구</a>
+    <a class="sub" href="#pg-setlist-new">└ 콘티 만들기</a>
+    <a class="sub" href="#pg-presenter">└ 웹 가사 화면</a>
+    <a href="#pg-bamboo">대나무숲</a>
+    <a href="#pg-library">자료실</a>
+    <a href="#pg-guide">이용 안내</a>
+    <a href="#pg-admin" class="admin-only" hidden>운영(관리자)</a>
+    <a href="#pg-login" id="drawer-auth">로그인</a>
+  </nav>
+</div>
+
+<main id="main" tabindex="-1">
+
+<!-- ██ 홈 ██ -->
+<div class="page active" id="pg-home">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-media" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async" fetchpriority="high">
+      <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async">
+      <img src="https://images.unsplash.com/photo-1522158637959-30385a09e0da?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1522158637959-30385a09e0da?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1522158637959-30385a09e0da?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1522158637959-30385a09e0da?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async">
+      <img src="https://images.unsplash.com/photo-1632230997264-b2bfc65cb8b4?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1632230997264-b2bfc65cb8b4?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1632230997264-b2bfc65cb8b4?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1632230997264-b2bfc65cb8b4?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async">
+      <div class="hero-shade"></div>
+      <div class="beams"><i></i><i></i><i></i></div>
+    </div>
+    <div class="wrap hero-in">
+      <a class="live-pill" href="#pg-jobs"><span class="dot" aria-hidden="true"></span><span id="live-text">청빙 공고 보기</span></a>
+      <h1 class="hero-title" id="hero-title"><span>다음 사역지,</span><span>먼저 걸어간 동역자에게 묻다</span></h1>
+      <p class="lead">신학교와 교단, 기독교 사이트의 청빙 공고를 하루 세 번 모으고, 그 교회에서 사역했던 교역자들의 평가를 공고 바로 아래에 보여 드립니다.</p>
+      <div class="hero-cta"><a class="btn btn-main btn-lg" href="#pg-jobs">청빙 공고 보기</a><a class="btn btn-ghost btn-lg" href="#pg-review-new">사역했던 교회 평가하기</a></div>
+      <figure class="verse"><blockquote>추수할 것은 많되<br>일군이 적으니</blockquote><figcaption>마태복음 9장 37절</figcaption></figure>
+    </div>
+  </section>
+  <nav class="ticker" aria-label="최근 청빙 공고"><div class="ticker-track" id="ticker"></div></nav>
+  <section class="wrap sec">
+    <div class="bento">
+      <a class="tile tile-lg" href="#pg-jobs"><img src="https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:640px) 100vw, 50vw" alt="" loading="lazy" decoding="async"><div class="tile-body"><h2>청빙 공고와 교회 평가</h2><p>여러 게시판의 청빙 공고를 한곳에서 보고, 공고마다 그 교회 출신 교역자들의 평가를 확인합니다.</p><span class="tile-stat" id="tile-jobs" hidden></span></div></a>
+      <a class="tile " href="#pg-worship"><img src="https://images.unsplash.com/photo-1508829040592-72f179f8a73f?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1508829040592-72f179f8a73f?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1508829040592-72f179f8a73f?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:640px) 100vw, 50vw" alt="" loading="lazy" decoding="async"><div class="tile-body"><h2>예배 도구</h2><p>세라핌을 내려받고 콘티를 만들어 나눕니다.</p></div></a>
+      <a class="tile " href="#pg-bamboo"><img src="https://images.unsplash.com/photo-1532920161727-344adb090f7f?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1532920161727-344adb090f7f?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1532920161727-344adb090f7f?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:640px) 100vw, 50vw" alt="" loading="lazy" decoding="async"><div class="tile-body"><h2>대나무숲</h2><p>이름 없이 털어놓는 사역 이야기.</p></div></a>
+      <a class="tile tile-wide" href="#pg-library"><img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:640px) 100vw, 50vw" alt="" loading="lazy" decoding="async"><div class="tile-body"><h2>자료실</h2><p>직접 만든 설교 원고, 성경공부 교안, 신학 정리 노트를 나눕니다.</p></div></a>
+    </div>
+  </section>
+  <section class="wrap sec two-col" style="padding-top:0">
+    <div>
+      <div class="sec-head"><h2>최근 청빙 공고</h2><a href="#pg-jobs">전체 보기</a></div>
+      <ul class="list box mini" id="home-jobs"></ul>
+    </div>
+    <div>
+      <div class="sec-head"><h2>대나무숲</h2><a href="#pg-bamboo">더 보기</a></div>
+      <ul class="list box mini" id="home-posts"></ul>
+    </div>
+  </section>
+  <section class="wrap sec two-col" style="padding-top:0">
+    <div>
+      <div class="sec-head"><h2>최근 평가된 교회</h2><a href="#pg-churches">교회 평가</a></div>
+      <ul class="list box mini" id="home-churches"></ul>
+    </div>
+    <div>
+      <div class="sec-head"><h2>새 자료</h2><a href="#pg-library">자료실</a></div>
+      <ul class="list box mini" id="home-res"></ul>
+    </div>
+  </section>
+</div>
+
+<!-- ██ 청빙 정보 ██ -->
+<div class="page" id="pg-jobs">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1663321231228-2625873fbdcd?auto=format&fit=crop&w=1600&q=70')"><div class="wrap">
+    <h1>청빙 공고 모아보기</h1>
+    <p>신학교·기독교 사이트의 공개 게시판에서 <b>제목·날짜·링크만</b> 모아 보여 드립니다. 지원 조건과 본문은 반드시 원문에서 확인하세요. <span id="jobs-updated"></span></p>
+  </div></section>
+  <div class="wrap sec">
+    <div class="filters">
+      <input id="jobs-q" type="search" placeholder="교회명·지역·직책으로 검색" aria-label="공고 검색">
+      <select id="jobs-pos" aria-label="직책"><option value="">직책 전체</option></select>
+      <select id="jobs-region" aria-label="지역"><option value="">지역 전체</option></select>
+    </div>
+    <div class="chips" id="jobs-src" role="group" aria-label="출처"></div>
+    <ul class="list box" id="jobs-list"></ul>
+    <div class="more-wrap"><button class="btn btn-line" id="jobs-more" type="button" hidden>더 보기</button></div>
+    <section id="jobs-links" hidden style="margin-top:44px">
+      <div class="sec-head"><h2>다른 청빙 게시판</h2></div>
+      <p class="hint" style="margin-bottom:12px">아래 게시판은 수집을 허락하지 않았거나 로그인이 필요해 목록에 넣지 않았습니다. 해당 사이트에서 직접 확인하세요.</p>
+      <ul class="list box" id="jobs-links-list"></ul>
+    </section>
+  </div>
+</div>
+
+<div class="page" id="pg-job">
+  <div class="wrap sec"><a class="back" href="#pg-jobs">← 청빙 공고 목록</a><div id="job-detail"></div></div>
+</div>
+
+<!-- ██ 교회 평가 ██ -->
+<div class="page" id="pg-churches">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1699830506478-af7b3f5e6cc9?auto=format&fit=crop&w=1600&q=70')"><div class="wrap">
+    <h1>그 교회에서 사역했던 동역자들의 평가</h1>
+    <p>사례·처우, 업무량과 휴무, 약속 이행, 존중과 소통, 담임목사 리더십, 배움과 성장 — 여섯 가지 기준으로 평가합니다. 모든 평가는 익명이며 운영자 확인 후 공개됩니다.</p>
+    <div class="btn-row"><a class="btn btn-main" href="#pg-review-new">사역했던 교회 평가하기</a><a class="btn btn-line" href="#pg-guide">작성 가이드</a></div>
+  </div></section>
+  <div class="wrap sec">
+    <form class="toolbar" id="church-search" role="search">
+      <input type="search" id="church-q" placeholder="교회 이름으로 찾기 (예: 은혜숲교회)" aria-label="교회 이름" style="flex:1;max-width:none">
+      <button class="btn btn-ink" type="submit">찾기</button>
+    </form>
+    <div id="church-search-res"></div>
+    <div class="two-col" style="margin-top:28px">
+      <div><div class="sec-head"><h2>최근 평가된 교회</h2></div><ul class="list box" id="church-recent"></ul></div>
+      <div><div class="sec-head"><h2>평가가 많은 교회</h2></div><ul class="list box" id="church-top"></ul></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="pg-church">
+  <div class="wrap sec"><a class="back" href="#pg-churches">← 교회 평가</a><div id="church-detail"></div></div>
+</div>
+
+<div class="page" id="pg-review-new">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1699830506478-af7b3f5e6cc9?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>사역했던 교회 평가하기</h1>
+    <p>후임 교역자가 사역지를 결정할 때 도움이 되도록, 직접 겪은 사실을 차분하게 적어 주세요.</p>
+  </div></section>
+  <div class="wrap sec" style="max-width:860px">
+    <div class="guide-box">
+      <h3>작성 전에 꼭 읽어 주세요</h3>
+      <ul class="mk-list">
+        <li>직접 사역하며 겪은 <b>사실</b>을 중심으로 씁니다. 추측·소문은 쓰지 않습니다.</li>
+        <li>담임목사 외의 <b>개인 이름·연락처·가족 이야기</b>, 나를 알아볼 수 있는 구체적 사건은 쓰지 않습니다.</li>
+        <li>욕설·비하·단정적 비난은 비공개 처리됩니다. 범죄 의혹은 이곳 대신 교단·수사기관에 알려 주세요.</li>
+        <li>평가는 <b>운영자 확인 후 공개</b>됩니다. 작성자 정보는 화면 어디에도 표시되지 않습니다.</li>
+      </ul>
+    </div>
+    <form class="form-card" id="review-form" novalidate>
+      <div class="grid2">
+        <div class="field"><label class="req" for="rv-church">교회 이름</label><input type="text" id="rv-church" name="church_name" maxlength="60" required placeholder="예: 은혜숲교회"></div>
+        <div class="field"><label for="rv-region">지역</label><input type="text" id="rv-region" name="region" maxlength="30" list="dl-region" placeholder="예: 서울 강남"></div>
+      </div>
+      <div class="field"><label for="rv-denom">교단</label><input type="text" id="rv-denom" name="denomination" maxlength="30" list="dl-denom" placeholder="선택 또는 직접 입력"></div>
+      <fieldset><legend class="req">사역 직책</legend>
+        <div class="seg" id="rv-role"></div></fieldset>
+      <div class="field"><label class="req" for="rv-period">사역 시기</label>
+        <select id="rv-period" name="period" required><option value="">선택</option></select>
+        <p class="hint">정확한 연도 대신 대략의 시기만 받습니다(작성자 보호).</p></div>
+      <fieldset><legend class="req">항목별 평가 <span class="hint">(1 매우 아쉬움 · 5 매우 좋음)</span></legend>
+        <div class="rate-grid" id="rv-rates"></div></fieldset>
+      <fieldset><legend class="req">후임 교역자에게 이 교회를 추천하시나요?</legend>
+        <div class="seg"><label><input type="radio" name="recommend" value="1" required><span>추천합니다</span></label><label><input type="radio" name="recommend" value="0"><span>추천하지 않습니다</span></label></div></fieldset>
+      <div class="field"><label class="req" for="rv-pros">좋았던 점</label><textarea id="rv-pros" name="pros" minlength="10" maxlength="2000" required placeholder="사역 환경, 배운 점, 감사했던 부분"></textarea></div>
+      <div class="field"><label class="req" for="rv-cons">아쉬웠던 점</label><textarea id="rv-cons" name="cons" minlength="10" maxlength="2000" required placeholder="처우, 업무, 소통 등에서 개선되었으면 하는 부분"></textarea></div>
+      <div class="field"><label for="rv-advice">후임자에게 한마디</label><textarea id="rv-advice" name="advice" maxlength="1000" style="min-height:80px" placeholder="면접 때 꼭 확인할 것, 미리 알면 좋은 것"></textarea></div>
+      <label class="check"><input type="checkbox" name="attested" required><span>이 교회에서 <b>직접 사역한 경험</b>을 바탕으로 사실대로 작성합니다.</span></label>
+      <label class="check"><input type="checkbox" name="agree" required><span>작성 가이드를 읽었으며, 위반 시 비공개 처리될 수 있음에 동의합니다.</span></label>
+      <div class="btn-row" style="margin-top:14px"><button class="btn btn-main" type="submit">평가 제출</button><a class="btn btn-line" href="#pg-churches">취소</a></div>
+    </form>
+  </div>
+</div>
+
+<!-- ██ 예배 도구 ██ -->
+<div class="page" id="pg-worship">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>예배를 준비하는 도구</h1>
+    <p>예배 송출 프로그램을 내려받고, 콘티를 만들어 나누세요. 콘티 나눔에는 곡 제목·키·흐름만 올라가며 <b>가사는 공유되지 않습니다</b>(저작권 보호).</p>
+    <div class="btn-row"><a class="btn btn-main" href="#pg-setlist-new">콘티 만들기</a><a class="btn btn-line" href="#pg-presenter">웹 가사 화면</a></div>
+  </div></section>
+  <div class="wrap sec">
+    <div class="sec-head"><h2>프로그램 내려받기</h2></div>
+    <div id="tool-list"></div>
+    <div class="sec-head" style="margin-top:40px"><h2>콘티 나눔</h2><a href="#pg-setlist-new">+ 콘티 만들기</a></div>
+    <ul class="list box" id="setlist-list"></ul>
+    <div class="more-wrap"><button class="btn btn-line" id="setlist-more" type="button" hidden>더 보기</button></div>
+  </div>
+</div>
+
+<div class="page" id="pg-setlist-new">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>콘티 만들기</h1>
+    <p>작성 내용은 이 브라우저에 자동 저장됩니다. 가사 칸은 <b>내 컴퓨터에서만</b> 쓰이며(세라핌 파일·가사 화면용), 콘티 나눔에 올릴 때는 빠집니다.</p>
+  </div></section>
+  <div class="wrap sec">
+    <div class="form-card">
+      <div class="grid2">
+        <div class="field"><label class="req" for="sl-title">콘티 제목</label><input type="text" id="sl-title" maxlength="80" placeholder="예: 10월 둘째 주 청년부 예배"></div>
+        <div class="field"><label for="sl-type">예배</label><select id="sl-type"></select></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label for="sl-date">날짜</label><input type="date" id="sl-date"></div>
+        <div class="field"><label for="sl-theme">주제·본문</label><input type="text" id="sl-theme" maxlength="80" placeholder="예: 시편 23편 — 목자 되신 주"></div>
+      </div>
+      <div class="sl-head" aria-hidden="true"><span></span><span>곡 제목</span><span>분류</span><span>키</span><span>BPM</span><span>흐름 메모</span><span></span></div>
+      <div id="sl-rows"></div>
+      <div class="btn-row" style="margin:14px 0 22px">
+        <button class="btn btn-line btn-sm" type="button" id="sl-add">+ 곡 추가</button>
+        <button class="btn btn-line btn-sm" type="button" id="sl-down">전체 키 ♭ 반음 내림</button>
+        <button class="btn btn-line btn-sm" type="button" id="sl-up">전체 키 ♯ 반음 올림</button>
+      </div>
+      <div class="field"><label for="sl-note">인도자 메모</label><textarea id="sl-note" maxlength="500" style="min-height:80px" placeholder="전체 흐름, 기도 인도, 전환 포인트 등"></textarea></div>
+      <div class="btn-row">
+        <button class="btn btn-main" type="button" id="sl-share">콘티 나눔에 올리기</button>
+        <button class="btn btn-ink" type="button" id="sl-seraphim">세라핌용 파일 받기</button>
+        <button class="btn btn-line" type="button" id="sl-copy">카톡용 텍스트 복사</button>
+        <button class="btn btn-line" type="button" id="sl-present">가사 화면 띄우기</button>
+        <button class="btn btn-line" type="button" id="sl-print">인쇄</button>
+        <button class="btn btn-danger" type="button" id="sl-clear">새로 쓰기</button>
+      </div>
+      <p class="hint" style="margin-top:12px">세라핌: <b>곡 가져오기</b>에서 받은 .json 파일을 고르면 가사를 넣은 곡이 라이브러리에 들어갑니다(가사가 빈 곡은 건너뜀).</p>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="pg-setlist">
+  <div class="wrap sec"><a class="back" href="#pg-worship">← 예배 도구</a><div id="setlist-detail"></div></div>
+</div>
+
+<div class="page" id="pg-presenter">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>웹 가사 화면</h1>
+    <p>설치 없이 브라우저만으로 가사를 프로젝터에 띄웁니다. 빈 줄로 화면을 나누세요. 입력한 가사는 서버로 전송되지 않습니다. 정식 예배 송출에는 세라핌을 권합니다.</p>
+  </div></section>
+  <div class="wrap sec">
+    <div class="form-card">
+      <div class="field"><label for="pr-text">가사</label><textarea id="pr-text" style="min-height:300px" placeholder="1절 가사 첫째 줄&#10;1절 가사 둘째 줄&#10;&#10;후렴 첫째 줄&#10;후렴 둘째 줄"></textarea></div>
+      <div class="btn-row"><button class="btn btn-main" type="button" id="pr-start">전체 화면으로 시작</button></div>
+      <p class="hint" style="margin-top:12px">조작: → · Space · PageDown 다음 / ← · PageUp 이전 / B 화면 끄기 / Esc 끝내기 · 발표용 리모컨도 그대로 쓸 수 있습니다.</p>
+    </div>
+  </div>
+  <div class="stage" id="stage" role="dialog" aria-modal="true" aria-label="가사 화면"><div class="txt" id="stage-txt"></div><div class="pg" id="stage-pg"></div></div>
+</div>
+
+<!-- ██ 대나무숲 ██ -->
+<div class="page bamboo" id="pg-bamboo">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1531021713651-fdd4ac075ac1?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>임금님 귀는 당나귀 귀</h1>
+    <p>누구에게도 말하기 어려웠던 사역 이야기를 이름 없이 나누세요. 익명 이름은 글마다 새로 정해지고, 같은 글 안에서만 이어집니다. 특정 교회·사람을 알아볼 수 있는 내용은 쓰지 않습니다.</p>
+    <div class="btn-row"><a class="btn btn-main" href="#pg-post-new">글쓰기</a></div>
+  </div></section>
+  <div class="wrap sec">
+    <div class="toolbar">
+      <div class="tabs" id="post-tabs" role="tablist" style="margin-bottom:0;border:0"></div>
+      <select id="post-sort" aria-label="정렬" style="width:auto"><option value="new">최신순</option><option value="like">공감순</option></select>
+    </div>
+    <ul class="list box" id="post-list"></ul>
+    <div class="more-wrap"><button class="btn btn-line" id="post-more" type="button" hidden>더 보기</button></div>
+  </div>
+</div>
+
+<div class="page bamboo" id="pg-post">
+  <div class="wrap sec" style="max-width:860px"><a class="back" href="#pg-bamboo">← 대나무숲</a><div id="post-detail"></div></div>
+</div>
+
+<div class="page bamboo" id="pg-post-new">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1531021713651-fdd4ac075ac1?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>익명 글쓰기</h1><p>글쓴이 정보는 표시되지 않습니다. 다만 법령에 따른 요청이 있으면 운영자가 협조할 수 있습니다.</p></div></section>
+  <div class="wrap sec" style="max-width:860px">
+    <form class="form-card" id="post-form" novalidate>
+      <fieldset><legend class="req">분류</legend><div class="seg" id="pf-cats"></div></fieldset>
+      <div class="field"><label class="req" for="pf-title">제목</label><input type="text" id="pf-title" name="title" minlength="2" maxlength="80" required></div>
+      <div class="field"><label class="req" for="pf-body">내용</label><textarea id="pf-body" name="body" minlength="5" maxlength="5000" required style="min-height:220px"></textarea></div>
+      <label class="check"><input type="checkbox" name="ok" required><span>특정 교회·사람을 알아볼 수 있는 이름이나 정보를 쓰지 않았습니다.</span></label>
+      <div class="btn-row" style="margin-top:14px"><button class="btn btn-main" type="submit">올리기</button><a class="btn btn-line" href="#pg-bamboo">취소</a></div>
+    </form>
+  </div>
+</div>
+
+<!-- ██ 자료실 ██ -->
+<div class="page" id="pg-library">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>신학·설교 자료 나눔</h1>
+    <p>직접 만든 설교 원고, 성경공부 교안, 신학 정리 노트, 행정 서식을 나눕니다. 다른 사람의 저작물(책·논문 PDF, 유료 자료)은 올리지 마세요.</p>
+    <div class="btn-row"><a class="btn btn-main" href="#pg-resource-new">자료 올리기</a></div>
+  </div></section>
+  <div class="wrap sec">
+    <div class="toolbar">
+      <div class="tabs" id="res-tabs" role="tablist" style="margin-bottom:0;border:0"></div>
+      <input type="search" id="res-q" placeholder="제목·태그 검색" aria-label="자료 검색">
+    </div>
+    <ul class="list box" id="res-list"></ul>
+    <div class="more-wrap"><button class="btn btn-line" id="res-more" type="button" hidden>더 보기</button></div>
+  </div>
+</div>
+
+<div class="page" id="pg-resource">
+  <div class="wrap sec" style="max-width:860px"><a class="back" href="#pg-library">← 자료실</a><div id="res-detail"></div></div>
+</div>
+
+<div class="page" id="pg-resource-new">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>자료 올리기</h1><p>파일(최대 <span data-cfg="maxUploadMB">10</span>MB) 또는 구글 드라이브 같은 외부 링크로 공유할 수 있습니다.</p></div></section>
+  <div class="wrap sec" style="max-width:860px">
+    <form class="form-card" id="res-form" novalidate>
+      <fieldset><legend class="req">분류</legend><div class="seg" id="rf-cats"></div></fieldset>
+      <div class="field"><label class="req" for="rf-title">제목</label><input type="text" id="rf-title" name="title" minlength="2" maxlength="100" required placeholder="예: 로마서 강해 1~8장 설교 원고"></div>
+      <div class="field"><label for="rf-desc">설명</label><textarea id="rf-desc" name="description" maxlength="2000" placeholder="어떤 자료인지, 어떻게 쓰면 좋은지"></textarea></div>
+      <div class="field"><label for="rf-tags">태그</label><input type="text" id="rf-tags" name="tags" maxlength="80" placeholder="쉼표로 구분, 최대 5개 (예: 로마서, 강해, 청년부)"></div>
+      <div class="grid2">
+        <div class="field"><label for="rf-file">파일</label><input type="file" id="rf-file" name="file" accept=".pdf,.hwp,.hwpx,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt,.jpg,.jpeg,.png"><p class="hint">PDF·한글·워드·PPT·엑셀·텍스트·이미지</p></div>
+        <div class="field"><label for="rf-link">또는 링크</label><input type="url" id="rf-link" name="link_url" maxlength="500" placeholder="https://drive.google.com/…"></div>
+      </div>
+      <label class="check"><input type="checkbox" name="rights" required><span>직접 만들었거나 공유할 권리가 있는 자료입니다. 타인의 저작물이 아닙니다.</span></label>
+      <div class="btn-row" style="margin-top:14px"><button class="btn btn-main" type="submit">올리기</button><a class="btn btn-line" href="#pg-library">취소</a></div>
+    </form>
+  </div>
+</div>
+
+<!-- ██ 로그인 ██ -->
+<div class="page" id="pg-login">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1640544351861-930d12160bbb?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>로그인</h1><p>글은 익명으로 표시됩니다. 이메일은 로그인과 악용 방지에만 쓰이며 어디에도 공개되지 않습니다.</p></div></section>
+  <div class="wrap sec" style="max-width:520px">
+    <div class="form-card" id="login-box"></div>
+  </div>
+</div>
+
+<!-- ██ 운영(관리자) ██ -->
+<div class="page" id="pg-admin">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1640544351861-930d12160bbb?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>검수·신고 처리</h1><p>교회 평가 검수, 신고된 글 처리. 임시조치(가림)는 최대 30일, 그 안에 공개 또는 삭제를 결정합니다.</p></div></section>
+  <div class="wrap sec"><div id="admin-body"></div></div>
+</div>
+
+<!-- ██ 이용 안내 ██ -->
+<div class="page" id="pg-guide">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1450558415837-1f5e21a17709?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>이용 안내·운영 정책</h1><p>모두가 안심하고 쓰는 공간이 되도록 지켜 주세요.</p></div></section>
+  <div class="wrap sec doc">
+    <h2>1. 서비스 소개</h2>
+    <p><span data-cfg="name">동역</span>은 부교역자를 위한 커뮤니티입니다. 청빙 공고 모아보기, 교회 평가, 예배 도구, 대나무숲(익명 게시판), 자료실을 제공합니다. 글을 읽는 것은 누구나, 글을 쓰려면 이메일 로그인이 필요합니다. 모든 글은 익명으로 표시됩니다.</p>
+
+    <h2>2. 청빙 정보는 어떻게 모으나요</h2>
+    <ul>
+      <li>각 신학교·기독교 사이트에서 <b>로그인 없이 공개된 게시판</b>만 하루 한 번 확인합니다. 사이트의 robots.txt에서 막은 곳은 가져오지 않습니다.</li>
+      <li>공고의 <b>제목·날짜·원문 링크</b>(와 제목에서 알 수 있는 교회명·지역·직책)만 보여 드립니다. 본문·첨부파일은 복사하지 않으며, 원문은 출처 사이트에서 확인합니다.</li>
+      <li>게시판 운영 기관이나 공고를 올린 교회가 제외를 요청하면 지체 없이 목록에서 뺍니다.</li>
+      <li>교회명은 제목에서 자동으로 추출하므로 틀릴 수 있습니다. 평가를 볼 때 지역·교단을 함께 확인하세요.</li>
+    </ul>
+    <div id="guide-sources"><p class="hint">출처 목록을 불러오는 중…</p></div>
+    <p class="hint">성결대·서울신대·한국성서대·나사렛대 등은 공개된 청빙 게시판이 없거나 찾을 수 없었습니다. 노회·연회 사이트는 대부분 수집을 막아 두었고, 공고는 총회 게시판 제목에 노회명과 함께 올라오므로 따로 모으지 않습니다.</p>
+
+    <h2>3. 교회 평가 작성 원칙</h2>
+    <ol>
+      <li>해당 교회에서 <b>직접 사역한 사람</b>만 작성합니다(작성 시 확인 문항 동의).</li>
+      <li>경험한 사실 위주로, 평가 기준(사례·처우 / 업무량·휴무 / 계약·약속 이행 / 존중·소통 / 담임목사 리더십 / 배움·성장)에 맞춰 씁니다.</li>
+      <li>담임목사에 대한 평가는 <b>사역 리더십</b>(업무 지시 방식, 소통, 약속 이행, 교역자 대우)에 한정합니다. 사생활·가족·외모·추측성 의혹은 쓰지 않습니다.</li>
+      <li>다른 교역자·성도의 이름, 연락처, 작성자를 특정할 수 있는 구체적 사건은 쓰지 않습니다.</li>
+      <li>모든 평가는 <b>운영자 검수 후 공개</b>합니다. 원칙에 어긋나면 고쳐 쓰기를 요청하거나 비공개합니다.</li>
+      <li>범죄·인권 침해가 의심되면 이곳에 쓰는 대신 교단·수사기관·관련 상담 기관에 알려 주세요.</li>
+    </ol>
+
+    <h2>4. 대나무숲 규칙</h2>
+    <ul>
+      <li>익명이어도 같은 동역자에게 하는 말입니다. 욕설·혐오·조롱은 지웁니다.</li>
+      <li>특정 교회·사람을 알아볼 수 있게 쓰지 않습니다. 실명·사진·연락처 노출은 즉시 가림 대상입니다.</li>
+      <li>익명 이름(예: “고요한 올리브 07”)은 글마다 새로 정해지고, 같은 글의 댓글 안에서만 같은 이름이 이어집니다. 글쓴이의 댓글에는 “글쓴이”가 표시됩니다.</li>
+      <li>위기 상황이라면 혼자 견디지 마세요. 자살예방 상담전화 <b>109</b>(24시간), 정신건강 위기상담 <b>1577-0199</b>.</li>
+    </ul>
+
+    <h2>5. 자료 공유와 저작권</h2>
+    <ul>
+      <li>직접 만들었거나 공유 권한이 있는 자료만 올립니다. 책·논문·유료 강의 자료, 다른 사람의 설교 원고를 허락 없이 올리지 않습니다.</li>
+      <li>찬양 가사·악보는 저작권이 있으므로 콘티 나눔에는 곡 제목·키·흐름만 올라갑니다. 가사는 각 교회가 받은 이용 허락(예: CCLI) 범위에서 개인적으로 사용하세요.</li>
+      <li>저작권자가 삭제를 요청하면 확인 후 바로 내립니다.</li>
+    </ul>
+
+    <h2>6. 신고와 임시조치</h2>
+    <ul>
+      <li>모든 글·댓글·평가에는 <b>신고</b> 버튼이 있습니다. 서로 다른 이용자의 신고가 <b>3건</b> 쌓이면 자동으로 가려지고 운영자가 확인합니다.</li>
+      <li>명예훼손·사생활 침해 등 권리를 침해당했다고 생각하는 분(교회·개인)은 아래 연락처로 <b>해당 글 주소, 침해 내용, 요청인 연락처</b>를 보내 주세요. 정보통신망법 제44조의2에 따라 확인 후 해당 글을 최대 30일간 가리고(임시조치), 작성자에게 소명 기회를 준 뒤 공개 또는 삭제를 결정합니다.</li>
+      <li>신고·요청 연락처: <span data-cfg="contactEmail">운영자 이메일(설정 필요)</span></li>
+    </ul>
+
+    <h2>7. 이용 제한</h2>
+    <p>원칙을 반복해서 어기거나 도배·광고·타인 사칭을 하면 글쓰기를 제한할 수 있습니다. 같은 사람이 1분에 5건 넘게 올리면 잠시 막힙니다(도배 방지).</p>
+  </div>
+</div>
+
+<!-- ██ 개인정보처리방침 ██ -->
+<div class="page" id="pg-privacy">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1450558415837-1f5e21a17709?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>개인정보처리방침</h1><p>시행일: 운영 시작일에 맞춰 적어 주세요. (이 문서는 초안이며 운영 전 검토가 필요합니다.)</p></div></section>
+  <div class="wrap sec doc">
+    <h2>1. 수집하는 항목과 목적</h2>
+    <table>
+      <tr><th>항목</th><th>목적</th><th>보관 기간</th></tr>
+      <tr><td>이메일 주소</td><td>로그인, 악용(도배·사칭) 방지, 법령에 따른 요청 대응</td><td>탈퇴 요청 시까지(법령상 보관 의무가 있으면 그 기간)</td></tr>
+      <tr><td>작성한 글·평가·댓글·자료</td><td>서비스 제공(작성자 정보 없이 익명 표시)</td><td>삭제 시까지</td></tr>
+      <tr><td>접속 기록(서버 로그)</td><td>보안·장애 대응</td><td>서비스 제공 업체 정책에 따름</td></tr>
+    </table>
+    <h2>2. 익명 표시</h2>
+    <p>이메일과 작성자 식별값은 화면에 표시되지 않으며, 다른 이용자는 볼 수 없습니다. 운영자는 신고 처리와 법령상 의무 이행에 필요한 경우에만 확인합니다.</p>
+    <h2>3. 처리 위탁과 국외 이전</h2>
+    <table>
+      <tr><th>업체</th><th>위탁 업무</th><th>이전 국가</th></tr>
+      <tr><td>Supabase Inc.</td><td>회원 인증, 데이터·파일 저장</td><td>프로젝트 생성 시 선택한 리전(예: 서울 ap-northeast-2)</td></tr>
+      <tr><td>GitHub Inc.</td><td>웹사이트 호스팅</td><td>미국</td></tr>
+      <tr><td>GoatCounter(사용 시)</td><td>쿠키 없는 익명 방문 통계</td><td>EU</td></tr>
+    </table>
+    <h2>4. 이용자의 권리</h2>
+    <p>언제든 자신의 글 삭제, 계정 삭제(이메일 정보 파기)를 요청할 수 있습니다. 계정을 삭제하면 이메일은 지워지고, 지우지 않은 글은 누구의 글인지 알 수 없는 익명 상태로 남습니다. 남기고 싶지 않은 글은 계정 삭제 전에 지워 주세요. 요청: <span data-cfg="contactEmail">운영자 이메일(설정 필요)</span></p>
+    <h2>5. 쿠키·로컬 저장소</h2>
+    <p>로그인 상태 유지와 콘티 임시 저장을 위해 브라우저 저장소를 씁니다. 광고·추적 쿠키는 쓰지 않습니다.</p>
+    <h2>6. 개인정보 보호책임자</h2>
+    <p>운영자: <span data-cfg="name">동역</span> 운영팀 · 연락처: <span data-cfg="contactEmail">운영자 이메일(설정 필요)</span></p>
+  </div>
+</div>
+
+<!-- ██ 이용약관 ██ -->
+<div class="page" id="pg-terms">
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1450558415837-1f5e21a17709?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>이용약관</h1><p>(초안 — 운영 전 검토가 필요합니다.)</p></div></section>
+  <div class="wrap sec doc">
+    <h2>제1조 목적</h2><p>이 약관은 <span data-cfg="name">동역</span>(이하 “서비스”)의 이용 조건과 절차, 이용자와 운영자의 권리·의무를 정합니다.</p>
+    <h2>제2조 게시물의 책임</h2><p>게시물의 책임은 작성자에게 있습니다. 작성자는 사실에 근거하여 작성해야 하며, 타인의 명예·사생활·저작권을 침해해서는 안 됩니다.</p>
+    <h2>제3조 게시물의 관리</h2><p>운영자는 이용 안내·운영 정책에 어긋나거나 권리 침해 신고가 접수된 게시물을 가리거나 삭제할 수 있습니다. 교회 평가는 검수 후 공개합니다.</p>
+    <h2>제4조 청빙 정보</h2><p>청빙 공고 목록은 공개된 출처의 제목·날짜·링크를 모은 것으로, 내용의 정확성과 최신성은 원문과 출처 기관에 따릅니다. 서비스는 채용 과정에 관여하지 않습니다.</p>
+    <h2>제5조 게시물의 저작권</h2><p>게시물의 저작권은 작성자에게 있습니다. 작성자는 서비스 안에서 게시물을 표시·공유하는 데 필요한 범위에서 이용을 허락합니다.</p>
+    <h2>제6조 서비스 변경·중단</h2><p>운영자는 사정에 따라 서비스를 변경하거나 중단할 수 있으며, 가능한 한 미리 알립니다.</p>
+    <h2>제7조 면책</h2><p>운영자는 이용자 간 또는 이용자와 제3자 간 분쟁에 개입하지 않으며, 고의·중과실이 없는 한 게시물로 인한 손해를 책임지지 않습니다.</p>
+  </div>
+</div>
+
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div><b data-cfg="name">동역</b><p data-cfg="tagline"></p></div>
+      <div><b>서비스</b><a href="#pg-jobs">청빙 정보</a><a href="#pg-churches">교회 평가</a><a href="#pg-worship">예배 도구</a></div>
+      <div><b>나눔</b><a href="#pg-bamboo">대나무숲</a><a href="#pg-library">자료실</a><a href="#pg-setlist-new">콘티 만들기</a></div>
+      <div><b>안내</b><a href="#pg-guide">이용 안내·운영 정책</a><a href="#pg-privacy">개인정보처리방침</a><a href="#pg-terms">이용약관</a></div>
+    </div>
+    <p class="copy">사진: <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash 무료 이미지</a>(출처 목록은 docs/운영가이드.md). 청빙 공고의 저작권은 각 원문 작성자와 게시판 운영 기관에 있습니다. 이 사이트는 제목과 링크만 안내합니다. · 이메일 주소 무단 수집을 거부합니다.</p>
+  </div>
+</footer>
+
+<dialog id="report-dlg" aria-labelledby="report-h">
+  <form method="dialog" id="report-form">
+    <h2 id="report-h">신고하기</h2>
+    <p class="hint" style="margin-bottom:14px">신고는 익명으로 처리됩니다. 서로 다른 신고가 3건 모이면 자동으로 가려집니다.</p>
+    <div class="seg" id="report-reasons" style="margin-bottom:12px"></div>
+    <div class="field"><label for="report-detail">자세한 내용(선택)</label><textarea id="report-detail" maxlength="500" style="min-height:80px"></textarea></div>
+    <div class="btn-row"><button class="btn btn-main" value="ok">신고</button><button class="btn btn-line" value="cancel" formnovalidate>취소</button></div>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<datalist id="dl-region"></datalist>
+<datalist id="dl-denom"></datalist>
+
+<script src="config.js"></script>
+<script src="data/jobs.js"></script>
+<script>
+'use strict';
+/* ═══════════════════════════ 기본 도구 ═══════════════════════════ */
+const C = window.SITE_CONFIG || {};
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+const nl2br = s => esc(s).replace(/\n/g, '<br>');
+const safeUrl = u => /^https?:\/\//i.test(String(u || '')) ? String(u) : '#';
+const churchKey = n => String(n || '').replace(/[^가-힣a-zA-Z0-9]/g, '').toLowerCase();
+const href = (id, params) => { const qs = new URLSearchParams(params || {}).toString(); return '#' + id + (qs ? '?' + qs : ''); };
+const empty = msg => `<li class="empty">${esc(msg)}</li>`;
+const loading = () => `<li class="loading">불러오는 중…</li>`;
+function fmtDate(iso) { const d = new Date(iso); if (isNaN(d)) return esc(iso || ''); return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`; }
+function timeAgo(iso) {
+  const s = (Date.now() - new Date(iso)) / 1000;
+  if (isNaN(s)) return '';
+  if (s < 60) return '방금'; if (s < 3600) return Math.floor(s / 60) + '분 전';
+  if (s < 86400) return Math.floor(s / 3600) + '시간 전'; if (s < 604800) return Math.floor(s / 86400) + '일 전';
+  return fmtDate(iso);
+}
+function fmtSize(b) { if (!b) return ''; return b > 1048576 ? (b / 1048576).toFixed(1) + 'MB' : Math.max(1, Math.round(b / 1024)) + 'KB'; }
+let toastTimer;
+function toast(msg, isErr) {
+  const t = $('#toast'); t.textContent = msg; t.classList.toggle('err', !!isErr); t.classList.add('on');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => t.classList.remove('on'), 3200);
+}
+async function safe(fn, fallback) {
+  try { return await fn(); } catch (e) { console.error(e); toast(errMsg(e), true); return fallback; }
+}
+function errMsg(e) {
+  const m = (e && (e.message || e.error_description)) || String(e);
+  if (/JWT|not authenticated|로그인/.test(m)) return '로그인이 필요합니다.';
+  if (/rate limit|도배/.test(m)) return '잠시 후 다시 시도해 주세요.';
+  if (/row-level security|permission denied/.test(m)) return '권한이 없습니다.';
+  if (/Failed to fetch|NetworkError/.test(m)) return '네트워크 연결을 확인해 주세요.';
+  return m.length > 120 ? '처리 중 문제가 생겼습니다.' : m;
+}
+function loadScript(src) {
+  return new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = () => no(new Error('스크립트를 불러오지 못했습니다: ' + src)); document.head.appendChild(s); });
+}
+function download(name, text, type) {
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: type || 'application/json' }));
+  a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500);
+}
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); toast('복사했습니다. 카톡에 붙여 넣으세요.'); }
+  catch { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); toast('복사했습니다.'); }
+}
+// 익명 이름(체험 모드용 — 운영 모드에서는 서버가 같은 방식으로 정함)
+const ADJ = ['고요한', '따뜻한', '성실한', '온유한', '든든한', '소박한', '맑은', '깊은', '부지런한', '너그러운', '단단한', '차분한'];
+const NOUN = ['올리브', '무화과', '겨자씨', '등불', '두루마리', '항아리', '종려', '포도나무', '샘물', '반석', '등잔', '돌판'];
+function fnv(s) { let h = 0x811c9dc5; for (const ch of s) { h ^= ch.codePointAt(0); h = Math.imul(h, 0x01000193) >>> 0; } return h >>> 0; }
+function anonName(seed) { const x = fnv(seed); return `${ADJ[x % 12]} ${NOUN[(x >>> 4) % 12]} ${String((x >>> 8) % 100).padStart(2, '0')}`; }
+
+/* ═══════════════════════════ 고정 값 ═══════════════════════════ */
+const ROLES = ['교육전도사', '전임전도사', '강도사', '부목사', '기타'];
+const PERIODS = ['최근 2년 이내', '3~5년 전', '6~10년 전', '10년 이상 전'];
+const RATINGS = [['r_pay', '사례·처우'], ['r_workload', '업무량·휴무'], ['r_contract', '계약·약속 이행'], ['r_respect', '존중·소통'], ['r_leadership', '담임목사 리더십'], ['r_growth', '배움·성장']];
+const POST_CATS = ['고민', '사역', '관계', '진로', '자유'];
+const RES_CATS = ['설교', '신학', '교육', '예배', '행정', '기타'];
+const SERVICE_TYPES = ['주일예배', '청년부', '중고등부', '수요예배', '금요기도회', '새벽예배', '수련회', '기타'];
+const SONG_CATS = ['새찬송가', '복음성가', '워십', '어린이', '특송'];   // 세라핌 곡 분류와 같음
+const KEYS = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
+const KEY_ALIAS = { Db: 'C#', 'D#': 'Eb', Gb: 'F#', 'G#': 'Ab', 'A#': 'Bb', Cb: 'B', Fb: 'E', 'E#': 'F', 'B#': 'C' };
+const REGIONS = ['서울', '경기', '인천', '부산', '대구', '광주', '대전', '울산', '세종', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주', '해외'];
+const DENOMS = ['예장합동', '예장통합', '예장고신', '예장합신', '예장백석', '기감', '기성', '예성', '기침', '기장', '기하성(순복음)', '기타'];
+const REPORT_REASONS = ['명예훼손·권리침해', '개인정보 노출', '욕설·비하', '허위 사실', '광고·도배', '기타'];
+const TYPE_LABEL = { review: '교회 평가', post: '대나무숲 글', comment: '댓글', resource: '자료', setlist: '콘티' };
+
+/* ═══════════════════════════ 데이터 계층 ═══════════════════════════
+   같은 함수 이름으로 두 가지 저장소를 씁니다.
+   - DemoAPI : 이 브라우저(localStorage)에만 저장. 설정 없이 바로 체험.
+   - LiveAPI : Supabase(로그인·DB·파일). config.js에 주소·키를 넣으면 자동 전환.
+   ─────────────────────────────────────────────────────────────── */
+function aggregate(reviews) {
+  const pub = reviews.filter(r => r.status === 'published');
+  const n = pub.length;
+  const avg = {};
+  RATINGS.forEach(([k]) => { avg[k] = n ? pub.reduce((s, r) => s + Number(r[k]), 0) / n : 0; });
+  const overall = n ? RATINGS.reduce((s, [k]) => s + avg[k], 0) / RATINGS.length : 0;
+  const rec = n ? Math.round(100 * pub.filter(r => r.recommend).length / n) : 0;
+  return { n, avg, overall, rec };
+}
+function reviewOverall(r) { return RATINGS.reduce((s, [k]) => s + Number(r[k]), 0) / RATINGS.length; }
+
+const DemoAPI = {
+  mode: 'demo', user: null, KEY: 'dongyeok-demo-v1', db: null,
+  async init() {
+    try { this.db = JSON.parse(localStorage.getItem(this.KEY)); } catch { this.db = null; }
+    if (!this.db || !this.db.v) this.db = demoSeed();
+    this.user = this.db.session || null;
+  },
+  persist() { try { localStorage.setItem(this.KEY, JSON.stringify(this.db)); } catch { } },
+  need() { if (!this.user) throw new Error('로그인이 필요합니다.'); },
+  nid() { return ++this.db.seq; },
+  now() { return new Date().toISOString(); },
+  async signInDemo() { this.user = this.db.session = { id: 'demo-user', email: 'demo@체험' }; this.persist(); },
+  async signOut() { this.user = this.db.session = null; this.persist(); },
+  async isAdmin() { return !!this.user; },   // 체험 모드에서는 로그인하면 운영 화면까지 써 볼 수 있음
+  async mine() { const s = new Set(); if (!this.user) return s; for (const t of ['reviews', 'posts', 'comments', 'resources', 'setlists']) this.db[t].forEach(x => { if (x.author_id === this.user.id) s.add(t.slice(0, -1) + ':' + x.id); }); return s; },
+  visible(x) { return x.status === 'published' || (this.user && x.author_id === this.user.id) ; },
+  async churchStats() {
+    const m = new Map();
+    this.db.reviews.filter(r => r.status === 'published').forEach(r => {
+      const g = m.get(r.church_key) || { church_key: r.church_key, church_name: r.church_name, region: r.region, list: [], last_at: r.created_at };
+      g.list.push(r); if (r.created_at > g.last_at) { g.last_at = r.created_at; g.church_name = r.church_name; g.region = r.region || g.region; }
+      m.set(r.church_key, g);
+    });
+    return [...m.values()].map(g => { const a = aggregate(g.list); return { church_key: g.church_key, church_name: g.church_name, region: g.region, n: a.n, overall: a.overall, rec_pct: a.rec, last_at: g.last_at }; });
+  },
+  async reviews(key) { return this.db.reviews.filter(r => r.church_key === key && this.visible(r) && r.status !== 'removed').sort((a, b) => b.created_at.localeCompare(a.created_at)); },
+  async createReview(d) {
+    this.need();
+    const r = { ...d, id: this.nid(), church_key: churchKey(d.church_name), author_id: this.user.id, status: 'pending', report_count: 0, created_at: this.now() };
+    this.db.reviews.push(r); this.persist(); return r.id;
+  },
+  list(table, { category, sort, q, offset = 0, limit = 20 } = {}) {
+    let a = this.db[table].filter(x => x.status === 'published');
+    if (category) a = a.filter(x => x.category === category);
+    if (q) { const k = q.toLowerCase(); a = a.filter(x => (x.title + ' ' + (x.tags || []).join(' ') + ' ' + (x.description || '')).toLowerCase().includes(k)); }
+    a.sort((x, y) => sort === 'like' ? (y.like_count - x.like_count) || y.created_at.localeCompare(x.created_at) : y.created_at.localeCompare(x.created_at));
+    return a.slice(offset, offset + limit);
+  },
+  getOne(table, id) { const x = this.db[table].find(x => String(x.id) === String(id)); return x && this.visible(x) ? x : null; },
+  create(table, type, d) {
+    this.need();
+    const id = this.nid();
+    const x = { ...d, id, author_id: this.user.id, anon_name: anonName(this.user.id + ':' + type + ':' + id), like_count: 0, comment_count: 0, report_count: 0, status: 'published', created_at: this.now() };
+    this.db[table].push(x); this.persist(); return id;
+  },
+  async posts(o) { return this.list('posts', o); },
+  async post(id) { return this.getOne('posts', id); },
+  async createPost(d) { return this.create('posts', 'post', d); },
+  async resources(o) { return this.list('resources', o); },
+  async resource(id) { return this.getOne('resources', id); },
+  async createResource(d, file) {
+    if (file) { d.file_name = file.name; d.file_size = file.size; d.file_path = null; d.demo_file = true; }
+    return this.create('resources', 'resource', d);
+  },
+  fileUrl() { return '#'; },
+  async setlists(o) { return this.list('setlists', o); },
+  async setlist(id) { return this.getOne('setlists', id); },
+  async createSetlist(d) { return this.create('setlists', 'setlist', d); },
+  tableOf(type) { return { review: 'reviews', post: 'posts', comment: 'comments', resource: 'resources', setlist: 'setlists' }[type]; },
+  async comments(type, id) { return this.db.comments.filter(c => c.target_type === type && String(c.target_id) === String(id) && this.visible(c) && c.status !== 'removed').sort((a, b) => a.created_at.localeCompare(b.created_at)); },
+  async createComment(type, id, body) {
+    this.need();
+    const target = this.db[this.tableOf(type)].find(x => String(x.id) === String(id));
+    if (!target) throw new Error('글을 찾을 수 없습니다.');
+    const is_op = target.author_id === this.user.id;
+    const c = { id: this.nid(), target_type: type, target_id: Number(id), body, author_id: this.user.id, is_op, anon_name: is_op ? '글쓴이' : anonName(this.user.id + ':' + type + ':' + id), status: 'published', report_count: 0, created_at: this.now() };
+    this.db.comments.push(c);
+    target.comment_count = this.db.comments.filter(x => x.target_type === type && String(x.target_id) === String(id) && x.status === 'published').length;
+    this.persist(); return c.id;
+  },
+  async liked(type, id) { return !!(this.user && this.db.reactions.find(r => r.target_type === type && String(r.target_id) === String(id) && r.user_id === this.user.id)); },
+  async toggleLike(type, id) {
+    this.need();
+    const t = this.db[this.tableOf(type)].find(x => String(x.id) === String(id));
+    const i = this.db.reactions.findIndex(r => r.target_type === type && String(r.target_id) === String(id) && r.user_id === this.user.id);
+    let liked;
+    if (i >= 0) { this.db.reactions.splice(i, 1); liked = false; } else { this.db.reactions.push({ target_type: type, target_id: Number(id), user_id: this.user.id }); liked = true; }
+    t.like_count = this.db.reactions.filter(r => r.target_type === type && String(r.target_id) === String(id)).length;
+    this.persist(); return { liked, count: t.like_count };
+  },
+  async report(type, id, reason, detail) {
+    this.need();
+    if (this.db.reports.find(r => r.target_type === type && String(r.target_id) === String(id) && r.reporter_id === this.user.id)) throw new Error('이미 신고한 글입니다.');
+    this.db.reports.push({ id: this.nid(), target_type: type, target_id: Number(id), reason, detail, reporter_id: this.user.id, resolved: false, created_at: this.now() });
+    const t = this.db[this.tableOf(type)].find(x => String(x.id) === String(id));
+    if (t) {
+      t.report_count = this.db.reports.filter(r => r.target_type === type && String(r.target_id) === String(id) && !r.resolved).length;
+      if (t.report_count >= 3 && t.status === 'published') t.status = 'hidden';
+    }
+    this.persist();
+  },
+  async deleteOwn(type, id) {
+    this.need();
+    const t = this.db[this.tableOf(type)].find(x => String(x.id) === String(id) && x.author_id === this.user.id);
+    if (!t) return false; t.status = 'removed'; this.persist(); return true;
+  },
+  async moderationQueue() {
+    const pending = this.db.reviews.filter(r => r.status === 'pending');
+    const groups = new Map();
+    this.db.reports.filter(r => !r.resolved).forEach(r => {
+      const k = r.target_type + ':' + r.target_id;
+      const g = groups.get(k) || { target_type: r.target_type, target_id: r.target_id, reports: [], content: null };
+      g.reports.push({ reason: r.reason, detail: r.detail, at: r.created_at }); groups.set(k, g);
+    });
+    const flagged = [...groups.values()].map(g => ({ ...g, content: this.db[this.tableOf(g.target_type)].find(x => x.id === g.target_id) || null }));
+    return { pending, flagged };
+  },
+  async moderate(type, id, status) {
+    const t = this.db[this.tableOf(type)].find(x => String(x.id) === String(id));
+    if (t) t.status = status;
+    this.db.reports.forEach(r => { if (r.target_type === type && String(r.target_id) === String(id)) r.resolved = true; });
+    if (type === 'comment' && t) { const p = this.db[this.tableOf(t.target_type)].find(x => x.id === t.target_id); if (p) p.comment_count = this.db.comments.filter(x => x.target_type === t.target_type && x.target_id === t.target_id && x.status === 'published').length; }
+    this.persist();
+  }
+};
+
+function demoSeed() {
+  const ago = d => new Date(Date.now() - d * 86400000).toISOString();
+  const rv = (id, church, region, role, period, r, rec, pros, cons, advice, d) => ({ id, church_name: church, church_key: churchKey(church), region, denomination: '', role, period, r_pay: r[0], r_workload: r[1], r_contract: r[2], r_respect: r[3], r_leadership: r[4], r_growth: r[5], recommend: rec, pros, cons, advice, author_id: 'seed' + id, status: 'published', report_count: 0, created_at: ago(d) });
+  const base = (id, d, extra) => ({ id, author_id: 'seed' + id, anon_name: anonName('seed' + id), like_count: 0, comment_count: 0, report_count: 0, status: 'published', created_at: ago(d), ...extra });
+  return {
+    v: 1, seq: 100, session: null, reactions: [], reports: [],
+    reviews: [
+      rv(1, '예시은혜숲교회', '경기 성남', '교육전도사', '최근 2년 이내', [3, 4, 5, 5, 4, 4], true, '(예시) 사례비가 약속한 날짜에 꼬박꼬박 들어왔고, 부서 운영을 믿고 맡겨 주셨습니다. 교역자 회의가 짧고 분명했습니다.', '(예시) 사례비 자체는 지역 평균보다 조금 낮았습니다. 주중 행사 때 사전 공지가 늦은 적이 몇 번 있었습니다.', '(예시) 면접 때 주중 출근 요일을 문서로 확인하세요.', 20),
+      rv(2, '예시은혜숲교회', '경기 성남', '전임전도사', '3~5년 전', [3, 3, 4, 4, 4, 5], true, '(예시) 설교 기회를 정기적으로 주셨고 피드백을 꼼꼼하게 해 주셨습니다.', '(예시) 새벽예배와 심방이 겹치는 주에는 휴무가 사실상 없었습니다.', '', 75),
+      rv(3, '예시새빛동산교회', '서울 은평', '부목사', '6~10년 전', [2, 2, 2, 3, 2, 3], false, '(예시) 성도들이 교역자를 따뜻하게 대해 주었습니다.', '(예시) 계약서 없이 구두로 시작했고, 약속했던 사택 지원이 바뀌었습니다. 월요일 휴무가 지켜지지 않았습니다.', '(예시) 처우는 꼭 계약서로 남기세요.', 140)
+    ],
+    posts: [
+      base(11, 1, { category: '고민', title: '(예시) 교육부서 3년 차, 이제 전임으로 가야 할까요', body: '(예시 글) 파트로 섬긴 지 3년이 되었는데 전임 사역을 시작할 시기인지 고민입니다. 다들 언제, 어떤 기준으로 결정하셨나요?', like_count: 4, comment_count: 1 }),
+      base(12, 3, { category: '사역', title: '(예시) 여름수련회 끝나고 번아웃이 왔어요', body: '(예시 글) 수련회를 마치고 2주째 아무것도 손에 잡히지 않습니다. 회복하는 각자의 방법을 나눠 주세요.', like_count: 9 }),
+      base(13, 6, { category: '자유', title: '(예시) 월요일 휴무에 다들 뭐 하세요?', body: '(예시 글) 저는 동네 도서관에서 책 읽다가 낮잠 잡니다.', like_count: 2 })
+    ],
+    comments: [
+      { id: 21, target_type: 'post', target_id: 11, body: '(예시 댓글) 저는 부서보다 "배울 수 있는 담임목사님"을 기준으로 옮겼습니다.', author_id: 'seed21', is_op: false, anon_name: anonName('seed21:post:11'), status: 'published', report_count: 0, created_at: ago(0.5) }
+    ],
+    resources: [
+      base(31, 2, { category: '교육', title: '(예시) 중고등부 사도행전 12주 교안', description: '(예시 자료) 매주 본문·도입 질문·나눔 질문·적용으로 구성한 교안입니다. 실제 파일은 없는 예시입니다.', tags: ['사도행전', '중고등부', '교안'], link_url: null, file_name: '사도행전_12주_교안.hwp', file_size: 482000, demo_file: true, like_count: 6 }),
+      base(32, 9, { category: '행정', title: '(예시) 교육부서 연간 계획서 양식', description: '(예시 자료) 부서 연간 계획·예산 양식입니다.', tags: ['행정', '양식'], link_url: null, file_name: '연간계획서_양식.xlsx', file_size: 61000, demo_file: true })
+    ],
+    setlists: [
+      base(41, 4, { title: '(예시) 10월 청년부 — 목자 되신 주', service_type: '청년부', theme: '시편 23편', note: '(예시) 2번 곡 후 짧은 기도, 4번 곡은 후렴 반복으로 마무리', songs: [{ title: '주 하나님 지으신 모든 세계', category: '새찬송가', key: 'Bb', bpm: '72', note: '시작 — 피아노 단독 전주' }, { title: '내 영혼이 은총 입어', category: '새찬송가', key: 'D', bpm: '84', note: '' }, { title: '주의 인자는 끝이 없고', category: '복음성가', key: 'E', bpm: '70', note: '' }, { title: '선한 목자 되신 우리 주', category: '새찬송가', key: 'F', bpm: '66', note: '후렴 2회 반복' }], like_count: 3 })
+    ]
+  };
+}
+
+const LiveAPI = {
+  mode: 'live', user: null, sb: null, _admin: null,
+  COLS: {
+    reviews: 'id,church_name,church_key,region,denomination,role,period,r_pay,r_workload,r_contract,r_respect,r_leadership,r_growth,recommend,pros,cons,advice,status,created_at',
+    posts: 'id,category,title,body,anon_name,like_count,comment_count,status,created_at',
+    comments: 'id,target_type,target_id,body,anon_name,is_op,status,created_at',
+    resources: 'id,category,title,description,link_url,file_path,file_name,file_size,tags,anon_name,like_count,comment_count,status,created_at',
+    setlists: 'id,title,service_type,theme,note,songs,anon_name,like_count,comment_count,status,created_at'
+  },
+  async init() {
+    await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js');
+    this.sb = window.supabase.createClient(C.supabaseUrl, C.supabaseAnonKey, { auth: { flowType: 'pkce', persistSession: true, detectSessionInUrl: true } });
+    const { data } = await this.sb.auth.getSession();
+    this.user = data.session ? data.session.user : null;
+    if (/[?&]code=/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash);
+    this.sb.auth.onAuthStateChange((_e, session) => {
+      const was = this.user && this.user.id; this.user = session ? session.user : null;
+      if ((this.user && this.user.id) !== was) { this._admin = null; refreshAuth(); }
+    });
+  },
+  ok({ data, error }) { if (error) throw error; return data; },
+  async signInEmail(email) {
+    const redirect = C.url && location.href.startsWith(C.url) ? C.url : location.origin + location.pathname;
+    this.ok(await this.sb.auth.signInWithOtp({ email, options: { emailRedirectTo: redirect, shouldCreateUser: true } }));
+  },
+  async verifyCode(email, token) { this.ok(await this.sb.auth.verifyOtp({ email, token, type: 'email' })); const { data } = await this.sb.auth.getSession(); this.user = data.session ? data.session.user : null; },
+  async signOut() { await this.sb.auth.signOut(); this.user = null; this._admin = null; },
+  async isAdmin() { if (!this.user) return false; if (this._admin === null) { const { data } = await this.sb.rpc('is_admin'); this._admin = !!data; } return this._admin; },
+  async mine() { const s = new Set(); if (!this.user) return s; const rows = this.ok(await this.sb.rpc('my_items')) || []; rows.forEach(r => s.add(r.target_type + ':' + r.target_id)); return s; },
+  async churchStats() { return this.ok(await this.sb.from('church_stats').select('church_key,church_name,region,n,overall,rec_pct,last_at').order('last_at', { ascending: false }).limit(500)) || []; },
+  async reviews(key) { return this.ok(await this.sb.from('reviews').select(this.COLS.reviews).eq('church_key', key).neq('status', 'removed').order('created_at', { ascending: false }).limit(200)) || []; },
+  async createReview(d) { const r = this.ok(await this.sb.from('reviews').insert(d).select('id').single()); return r.id; },
+  async list(table, { category, sort, q, offset = 0, limit = 20 } = {}) {
+    let qb = this.sb.from(table).select(this.COLS[table]).eq('status', 'published');
+    if (category) qb = qb.eq('category', category);
+    if (q) { const k = q.replace(/[%,()]/g, ' ').trim(); if (k) qb = qb.or(`title.ilike.%${k}%,description.ilike.%${k}%`); }
+    if (sort === 'like') qb = qb.order('like_count', { ascending: false });
+    qb = qb.order('created_at', { ascending: false }).range(offset, offset + limit - 1);
+    return this.ok(await qb) || [];
+  },
+  async getOne(table, id) { return this.ok(await this.sb.from(table).select(this.COLS[table]).eq('id', id).maybeSingle()); },
+  async insert(table, d) { const r = this.ok(await this.sb.from(table).insert(d).select('id').single()); return r.id; },
+  async posts(o) { return this.list('posts', o); },
+  async post(id) { return this.getOne('posts', id); },
+  async createPost(d) { return this.insert('posts', d); },
+  async resources(o) { return this.list('resources', o); },
+  async resource(id) { return this.getOne('resources', id); },
+  async createResource(d, file) {
+    if (file) {
+      const ext = (file.name.split('.').pop() || '').toLowerCase();
+      const now = new Date();
+      const path = `${now.getFullYear()}/${String(now.getMonth() + 1).padStart(2, '0')}/${crypto.randomUUID()}.${ext}`;
+      this.ok(await this.sb.storage.from('resources').upload(path, file, { contentType: MIME[ext] || 'application/octet-stream', upsert: false }));
+      Object.assign(d, { file_path: path, file_name: file.name.slice(0, 120), file_size: file.size });
+    }
+    return this.insert('resources', d);
+  },
+  fileUrl(path) { return this.sb.storage.from('resources').getPublicUrl(path).data.publicUrl; },
+  async setlists(o) { return this.list('setlists', o); },
+  async setlist(id) { return this.getOne('setlists', id); },
+  async createSetlist(d) { return this.insert('setlists', d); },
+  async comments(type, id) { return this.ok(await this.sb.from('comments').select(this.COLS.comments).eq('target_type', type).eq('target_id', id).neq('status', 'removed').order('created_at').limit(300)) || []; },
+  async createComment(type, id, body) { return this.insert('comments', { target_type: type, target_id: Number(id), body }); },
+  async liked(type, id) { if (!this.user) return false; const r = this.ok(await this.sb.from('reactions').select('target_id').eq('target_type', type).eq('target_id', id).limit(1)); return !!(r && r.length); },
+  async toggleLike(type, id) {
+    const { error } = await this.sb.from('reactions').insert({ target_type: type, target_id: Number(id) });
+    let liked = true;
+    if (error) { if (error.code !== '23505') throw error; this.ok(await this.sb.from('reactions').delete().eq('target_type', type).eq('target_id', id)); liked = false; }
+    const t = this.ok(await this.sb.from({ post: 'posts', resource: 'resources', setlist: 'setlists' }[type]).select('like_count').eq('id', id).maybeSingle());
+    return { liked, count: t ? t.like_count : 0 };
+  },
+  async report(type, id, reason, detail) {
+    const { error } = await this.sb.from('reports').insert({ target_type: type, target_id: Number(id), reason, detail });
+    if (error) { if (error.code === '23505') throw new Error('이미 신고한 글입니다.'); throw error; }
+  },
+  async deleteOwn(type, id) { return !!this.ok(await this.sb.rpc('delete_own', { p_type: type, p_id: Number(id) })); },
+  async moderationQueue() { return this.ok(await this.sb.rpc('moderation_queue')); },
+  async moderate(type, id, status) { this.ok(await this.sb.rpc('moderate', { p_type: type, p_id: Number(id), p_status: status })); }
+};
+const MIME = { pdf: 'application/pdf', hwp: 'application/x-hwp', hwpx: 'application/vnd.hancom.hwpx', doc: 'application/msword', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', ppt: 'application/vnd.ms-powerpoint', pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', xls: 'application/vnd.ms-excel', xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', txt: 'text/plain', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' };
+
+const API = (C.supabaseUrl && C.supabaseAnonKey) ? LiveAPI : DemoAPI;
+let MINE = new Set();
+let STATS = null;   // 교회별 평가 요약(캐시)
+async function stats(force) { if (!STATS || force) STATS = await safe(() => API.churchStats(), []) || []; return STATS; }
+const statByKey = k => (STATS || []).find(s => s.church_key === k);
+
+/* ═══════════════════════════ 화면 전환(라우터) ═══════════════════════════
+   주소 형식: #pg-화면ID?키=값  (예: #pg-church?name=은혜숲교회)
+   모든 링크는 <a href="#pg-…">이며 hashchange 하나로 처리합니다
+   → 뒤로가기·새 탭 열기·링크 공유가 모두 됩니다.
+   ─────────────────────────────────────────────────────────────── */
+const ALL_PAGES = ['pg-home', 'pg-jobs', 'pg-job', 'pg-churches', 'pg-church', 'pg-review-new', 'pg-worship', 'pg-setlist-new', 'pg-setlist', 'pg-presenter', 'pg-bamboo', 'pg-post', 'pg-post-new', 'pg-library', 'pg-resource', 'pg-resource-new', 'pg-login', 'pg-admin', 'pg-guide', 'pg-privacy', 'pg-terms'];
+const GROUP = { 'pg-jobs': 'jobs', 'pg-job': 'jobs', 'pg-churches': 'churches', 'pg-church': 'churches', 'pg-review-new': 'churches', 'pg-worship': 'worship', 'pg-setlist-new': 'worship', 'pg-setlist': 'worship', 'pg-presenter': 'worship', 'pg-bamboo': 'bamboo', 'pg-post': 'bamboo', 'pg-post-new': 'bamboo', 'pg-library': 'library', 'pg-resource': 'library', 'pg-resource-new': 'library', 'pg-admin': 'admin' };
+const NEED_LOGIN = ['pg-review-new', 'pg-post-new', 'pg-resource-new'];
+const HOOKS = {};
+let firstRoute = true;
+const revealObs = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }), { threshold: 0.08 }) : null;
+
+function parseHash() {
+  const h = location.hash.slice(1); const i = h.indexOf('?');
+  return { id: i < 0 ? h : h.slice(0, i), params: Object.fromEntries(new URLSearchParams(i < 0 ? '' : h.slice(i + 1))) };
+}
+function go(id, params) { const next = href(id, params); if (location.hash === next) routeFromHash(); else location.hash = next; }
+function routeFromHash() {
+  let { id, params } = parseHash();
+  if (id === 'main') return;                      // 「본문 바로가기」 링크
+  if (!ALL_PAGES.includes(id)) { id = 'pg-home'; params = {}; }
+  if (NEED_LOGIN.includes(id) && !API.user) { go('pg-login', { next: location.hash.slice(1) || id }); return; }
+  ALL_PAGES.forEach(p => document.getElementById(p).classList.remove('active'));
+  const t = document.getElementById(id); t.classList.add('active');
+  $$('.gnb a').forEach(a => a.classList.toggle('on', a.dataset.group === GROUP[id]));
+  closeDrawer();
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  $$('.reveal', t).forEach(el => { if (revealObs) { el.classList.remove('visible'); revealObs.observe(el); } else el.classList.add('visible'); });
+  if (HOOKS[id]) HOOKS[id](params);
+  if (!firstRoute && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: location.pathname + '#' + id, title: document.title });
+  firstRoute = false;
+}
+addEventListener('hashchange', routeFromHash);
+function openDrawer() { $('#drawer').classList.add('open'); $('#drawer').setAttribute('aria-hidden', 'false'); $('.hamb').setAttribute('aria-expanded', 'true'); }
+function closeDrawer() { const d = $('#drawer'); if (!d) return; d.classList.remove('open'); d.setAttribute('aria-hidden', 'true'); const b = $('.hamb'); if (b) b.setAttribute('aria-expanded', 'false'); }
+addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+function needLogin() { if (API.user) return false; toast('로그인이 필요합니다.'); go('pg-login', { next: location.hash.slice(1) }); return true; }
+
+/* ═══════════════════════════ 청빙 공고 ═══════════════════════════ */
+const JOB_DATA = window.JOBS_DATA || { items: [], sources: [] };
+const JOBS_RAW = Array.isArray(JOB_DATA.items) ? JOB_DATA.items : [];
+// 같은 공고(교회+제목)가 여러 게시판에 올라오면 하나로 묶고, 나머지는 alt(다른 게시판)로 둔다
+const JOBS = (() => {
+  const m = new Map();
+  for (const j of JOBS_RAW) {
+    const k = j.dk || j.id, g = m.get(k);
+    if (!g) m.set(k, { ...j, alt: [] });
+    else if (g.source !== j.source && !g.alt.some(a => a.source === j.source)) g.alt.push({ source: j.source, url: j.url });
+  }
+  return [...m.values()];
+})();
+const SRC_NAME = Object.fromEntries((JOB_DATA.sources || []).map(s => [s.id, s.name]));
+const jobState = { q: '', pos: '', region: '', src: '', shown: 30 };
+function jobMatches(j) {
+  const s = jobState;
+  if (s.src && j.source !== s.src && !(j.alt || []).some(a => a.source === s.src)) return false;
+  if (s.pos && !(j.positions || []).includes(s.pos)) return false;
+  if (s.region && j.region !== s.region) return false;
+  if (s.q) { const k = s.q.toLowerCase().replace(/\s+/g, ''); if (!((j.title || '') + (j.church || '') + (j.region || '')).toLowerCase().replace(/\s+/g, '').includes(k)) return false; }
+  return true;
+}
+function jobRow(j, mini) {
+  const st = j.church ? statByKey(churchKey(j.church)) : null;
+  return `<li><a class="row-link" href="${href('pg-job', { id: j.id })}">
+    <div class="row-main"><p class="row-title">${esc(j.title)}</p>
+      <p class="meta"><span class="src-badge">${esc(SRC_NAME[j.source] || j.source)}${(j.alt || []).length ? ` 외 ${j.alt.length}곳` : ''}</span>${j.closed ? '<span class="tag">초빙완료</span>' : ''}${j.church && !String(j.title).replace(/\s/g, '').includes(j.church) ? `<b style="color:var(--ink-2)">${esc(j.church)}</b>` : ''}<span>${fmtDate(j.date)}</span>${j.region ? `<span>${esc(j.area || j.region)}</span>` : ''}${!mini && (j.positions || []).length ? `<span>${esc(j.positions.join('·'))}</span>` : ''}</p></div>
+    ${st ? `<div class="row-side"><span class="tag clay">평가 ${st.n}</span><span class="stars" style="--v:${st.overall}" aria-label="평균 ${Number(st.overall).toFixed(1)}점"></span></div>` : ''}
+  </a></li>`;
+}
+function renderJobs() {
+  const all = JOBS.filter(jobMatches);
+  $('#jobs-list').innerHTML = all.length ? all.slice(0, jobState.shown).map(j => jobRow(j)).join('') : empty(JOBS.length ? '조건에 맞는 공고가 없습니다.' : '아직 수집된 공고가 없습니다. (scraper/fetch-jobs.mjs 실행 후 표시됩니다)');
+  $('#jobs-more').hidden = all.length <= jobState.shown;
+}
+function initJobFilters() {
+  const pos = [...new Set(JOBS.flatMap(j => j.positions || []))];
+  $('#jobs-pos').insertAdjacentHTML('beforeend', pos.map(p => `<option>${esc(p)}</option>`).join(''));
+  const regs = REGIONS.filter(r => JOBS.some(j => j.region === r));
+  $('#jobs-region').insertAdjacentHTML('beforeend', regs.map(r => `<option>${esc(r)}</option>`).join(''));
+  const srcs = (JOB_DATA.sources || []).filter(s => JOBS_RAW.some(j => j.source === s.id));
+  $('#jobs-src').innerHTML = `<button type="button" class="chip on" data-src="">전체 ${JOBS.length}</button>` + srcs.map(s => `<button type="button" class="chip" data-src="${esc(s.id)}">${esc(s.name)} ${JOBS_RAW.filter(j => j.source === s.id).length}</button>`).join('');
+  $('#jobs-src').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; jobState.src = b.dataset.src; jobState.shown = 30; $$('#jobs-src .chip').forEach(c => c.classList.toggle('on', c === b)); renderJobs(); });
+  $('#jobs-q').addEventListener('input', e => { jobState.q = e.target.value.trim(); jobState.shown = 30; renderJobs(); });
+  $('#jobs-pos').addEventListener('change', e => { jobState.pos = e.target.value; jobState.shown = 30; renderJobs(); });
+  $('#jobs-region').addEventListener('change', e => { jobState.region = e.target.value; jobState.shown = 30; renderJobs(); });
+  $('#jobs-more').addEventListener('click', () => { jobState.shown += 30; renderJobs(); });
+  const links = (JOB_DATA.links || []).filter(l => /^https?:\/\//.test(l.url));
+  if (links.length) {
+    $('#jobs-links-list').innerHTML = links.map(l => `<li><a class="row-link" href="${esc(l.url)}" target="_blank" rel="noopener" aria-label="${esc(l.name)} 새 창에서 열기"><div class="row-main"><p class="row-title">${esc(l.name)} ↗</p><p class="meta">${l.group ? `<span>${esc(l.group)}</span>` : ''}${l.reason ? `<span>${esc(l.reason)}</span>` : ''}</p></div></a></li>`).join('');
+    $('#jobs-links').hidden = false;
+  }
+  if (JOB_DATA.updatedAt) {
+    const st = (JOB_DATA.sources || []).map(s => s.status === 'ok' ? esc(s.name) : `<span title="${esc(s.note || '')}">${esc(s.name)}(${s.status === 'off' ? '제외' : '이번 수집 실패'})</span>`).join(' · ');
+    $('#jobs-updated').innerHTML = `<br><span class="hint">마지막 수집 ${fmtDate(JOB_DATA.updatedAt)} ${new Date(JOB_DATA.updatedAt).toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit' })} · 출처: ${st} · <a href="#pg-guide">수집 방식</a></span>`;
+  }
+}
+HOOKS['pg-jobs'] = async () => { renderJobs(); await stats(); renderJobs(); };
+HOOKS['pg-job'] = async ({ id }) => {
+  const box = $('#job-detail');
+  const j = JOBS.find(x => x.id === id);
+  if (!j) { box.innerHTML = `<div class="detail"><p class="empty">공고를 찾을 수 없습니다. 목록이 갱신되어 빠졌을 수 있습니다.</p></div>`; return; }
+  const same = j.church ? JOBS.filter(x => x.id !== j.id && x.church && churchKey(x.church) === churchKey(j.church)) : [];
+  box.innerHTML = `<article class="detail">
+      <p class="meta"><span class="src-badge">${esc(SRC_NAME[j.source] || j.source)}</span><span>게시 ${fmtDate(j.date)}</span></p>
+      <h1>${esc(j.title)}</h1>
+      <dl class="kv">
+        <dt>교회</dt><dd>${j.church ? `<a href="${href('pg-church', { name: j.church })}">${esc(j.church)}</a> <span class="hint">(제목에서 자동 추출)</span>` : '<span class="hint">제목에서 교회명을 찾지 못했습니다</span>'}</dd>
+        ${j.region ? `<dt>지역</dt><dd>${esc(j.area || j.region)}</dd>` : ''}
+        ${j.denomination ? `<dt>교단</dt><dd>${esc(j.denomination)}</dd>` : ''}
+        ${(j.positions || []).length ? `<dt>직책</dt><dd>${esc(j.positions.join(', '))} <span class="hint">(제목에서 추정)</span></dd>` : ''}
+        ${j.deadline ? `<dt>마감</dt><dd>${/^\d{4}-/.test(j.deadline) ? fmtDate(j.deadline) : esc(j.deadline)}</dd>` : ''}
+        ${j.closed ? `<dt>상태</dt><dd><span class="tag">초빙완료</span></dd>` : ''}
+      </dl>
+      ${j.truncated ? '<p class="hint" style="margin-bottom:10px">출처 목록에서 제목이 잘려 있어 전체 제목은 원문에서 볼 수 있습니다.</p>' : ''}
+      <div class="btn-row"><a class="btn btn-main" href="${esc(safeUrl(j.url))}" target="_blank" rel="noopener" aria-label="원문 공고 새 창에서 열기">원문 공고 보기 ↗</a>${(j.alt || []).map(a => `<a class="btn btn-line" href="${esc(safeUrl(a.url))}" target="_blank" rel="noopener" aria-label="${esc(SRC_NAME[a.source] || a.source)} 게시판의 같은 공고 새 창에서 열기">${esc(SRC_NAME[a.source] || a.source)} ↗</a>`).join('')}</div>
+      ${(j.alt || []).length ? `<p class="hint" style="margin-top:8px">같은 공고가 ${j.alt.length + 1}개 게시판에 올라와 있습니다.</p>` : ''}
+      <p class="hint" style="margin-top:10px">지원 자격·제출 서류·마감일은 원문에서 확인하세요.</p>
+    </article>
+    <section id="job-church"></section>
+    ${same.length ? `<section style="margin-top:28px"><div class="sec-head"><h2>같은 교회의 다른 공고</h2></div><ul class="list box">${same.slice(0, 10).map(x => jobRow(x)).join('')}</ul></section>` : ''}`;
+  const sec = $('#job-church');
+  if (j.church) renderChurchReviews(sec, j.church, j.region);
+  else {
+    sec.innerHTML = `<div class="detail"><h2 style="font-size:19px;margin-bottom:10px">이 교회의 평가 찾기</h2><form class="toolbar" id="job-church-form"><input type="search" placeholder="교회 이름 입력" style="flex:1;max-width:none" aria-label="교회 이름"><button class="btn btn-ink">찾기</button></form></div>`;
+    $('#job-church-form').addEventListener('submit', e => { e.preventDefault(); const v = e.target.querySelector('input').value.trim(); if (v) go('pg-church', { name: v }); });
+  }
+};
+
+/* ═══════════════════════════ 교회 평가 ═══════════════════════════ */
+function reviewCard(r) {
+  const mine = MINE.has('review:' + r.id);
+  return `<article class="review">
+    <header><span class="stars" style="--v:${reviewOverall(r)}"></span><strong>${reviewOverall(r).toFixed(1)}</strong>
+      <span class="tag ink">${esc(r.role)}</span><span class="tag">${esc(r.period)}</span>
+      ${r.recommend ? '<span class="tag ok">추천</span>' : '<span class="tag no">비추천</span>'}
+      ${r.status === 'pending' ? '<span class="tag wait">검수 대기 · 나와 운영자만 보임</span>' : ''}${r.status === 'hidden' ? '<span class="tag wait">가려짐</span>' : ''}</header>
+    <div class="rv-scores">${RATINGS.map(([k, l]) => `<span>${l} <b>${r[k]}</b></span>`).join('')}</div>
+    <h4>좋았던 점</h4><p>${nl2br(r.pros)}</p>
+    <h4>아쉬웠던 점</h4><p>${nl2br(r.cons)}</p>
+    ${r.advice ? `<h4>후임자에게 한마디</h4><p>${nl2br(r.advice)}</p>` : ''}
+    <footer><span>${fmtDate(r.created_at)}</span>${r.region ? `<span>· ${esc(r.region)}</span>` : ''}${r.denomination ? `<span>· ${esc(r.denomination)}</span>` : ''}<span class="sp"></span>
+      ${mine ? `<button class="txt-btn" data-act="del" data-type="review" data-id="${r.id}">삭제</button>` : ''}
+      <button class="txt-btn" data-act="report" data-type="review" data-id="${r.id}">신고</button></footer>
+  </article>`;
+}
+async function renderChurchReviews(box, name, region) {
+  box.innerHTML = `<div class="detail"><p class="loading">평가를 불러오는 중…</p></div>`;
+  const key = churchKey(name);
+  const list = await safe(() => API.reviews(key), []) || [];
+  const a = aggregate(list);
+  const regions = [...new Set(list.filter(r => r.status === 'published').map(r => r.region).filter(Boolean))];
+  const writeHref = href('pg-review-new', { name, region: region || '' });
+  box.innerHTML = `<div class="detail">
+    <div class="sec-head" style="margin-bottom:14px"><h2 style="font-size:20px">${esc(name)} 사역자 평가</h2><a class="btn btn-main btn-sm" href="${writeHref}">평가 쓰기</a></div>
+    ${a.n ? `<div class="rv-summary">
+        <div class="rv-big"><strong>${a.overall.toFixed(1)}</strong><span class="stars lg" style="--v:${a.overall}"></span><p>평가 ${a.n}건 · 추천 ${a.rec}%</p></div>
+        <div class="bars">${RATINGS.map(([k, l]) => `<div class="bar"><span>${l}</span><div class="bar-track"><div class="bar-fill" style="width:${a.avg[k] / 5 * 100}%"></div></div><b>${a.avg[k].toFixed(1)}</b></div>`).join('')}</div>
+      </div>
+      ${regions.length > 1 ? `<div class="notice warn">이 이름의 평가에 지역이 여러 개(${regions.map(esc).join(', ')}) 있습니다. 같은 이름의 다른 교회일 수 있으니 각 평가의 지역을 확인하세요.</div>` : ''}
+      ${a.n < 3 ? `<p class="hint" style="margin-bottom:14px">평가가 ${a.n}건뿐이라 개인 경험에 치우칠 수 있습니다.</p>` : ''}`
+      : `<p class="empty" style="padding:20px 0">아직 공개된 평가가 없습니다. 이 교회에서 사역하셨다면 첫 평가를 남겨 주세요.</p>`}
+    ${list.map(reviewCard).join('')}
+  </div>`;
+}
+function churchRow(s) {
+  return `<li><a class="row-link" href="${href('pg-church', { name: s.church_name })}"><div class="row-main"><p class="row-title">${esc(s.church_name)}</p><p class="meta">${s.region ? `<span>${esc(s.region)}</span>` : ''}<span>평가 ${s.n}건</span><span>추천 ${s.rec_pct}%</span><span>${timeAgo(s.last_at)}</span></p></div><div class="row-side"><span class="stars" style="--v:${s.overall}"></span><b style="font-size:14px">${Number(s.overall).toFixed(1)}</b></div></a></li>`;
+}
+HOOKS['pg-churches'] = async () => {
+  $('#church-recent').innerHTML = loading(); $('#church-top').innerHTML = loading();
+  const st = await stats(true);
+  const recent = [...st].sort((a, b) => String(b.last_at).localeCompare(String(a.last_at))).slice(0, 10);
+  const top = [...st].sort((a, b) => b.n - a.n).slice(0, 10);
+  $('#church-recent').innerHTML = recent.length ? recent.map(churchRow).join('') : empty('아직 평가가 없습니다.');
+  $('#church-top').innerHTML = top.length ? top.map(churchRow).join('') : empty('아직 평가가 없습니다.');
+};
+HOOKS['pg-church'] = async ({ name }) => {
+  const box = $('#church-detail');
+  if (!name) { box.innerHTML = '<p class="empty">교회 이름이 없습니다.</p>'; return; }
+  const key = churchKey(name);
+  const jobs = JOBS.filter(j => j.church && churchKey(j.church) === key);
+  box.innerHTML = `<h1 class="page-title">${esc(name)}</h1><section id="church-reviews"></section>
+    <section style="margin-top:24px"><div class="sec-head"><h2>이 교회의 청빙 공고</h2></div><ul class="list box">${jobs.length ? jobs.map(j => jobRow(j)).join('') : empty('현재 수집된 공고가 없습니다.')}</ul></section>`;
+  renderChurchReviews($('#church-reviews'), name, jobs[0] && jobs[0].region);
+};
+$('#church-search').addEventListener('submit', async e => {
+  e.preventDefault();
+  const q = $('#church-q').value.trim(); if (!q) return;
+  const k = churchKey(q); const st = await stats();
+  const hits = st.filter(s => s.church_key.includes(k));
+  $('#church-search-res').innerHTML = `<ul class="list box" style="margin-top:6px">${hits.map(churchRow).join('')}<li><a class="row-link" href="${href('pg-church', { name: q })}"><div class="row-main"><p class="row-title">“${esc(q)}” 페이지로 이동</p><p class="meta">평가가 없으면 첫 평가를 남길 수 있습니다</p></div></a></li></ul>`;
+});
+function initReviewForm() {
+  $('#rv-role').innerHTML = ROLES.map(r => `<label><input type="radio" name="role" value="${r}" required><span>${r}</span></label>`).join('');
+  $('#rv-period').insertAdjacentHTML('beforeend', PERIODS.map(p => `<option>${p}</option>`).join(''));
+  $('#rv-rates').innerHTML = RATINGS.map(([k, l]) => `<fieldset class="rate"><legend>${l}</legend><div class="seg">${[1, 2, 3, 4, 5].map(n => `<label><input type="radio" name="${k}" value="${n}" required><span>${n}</span></label>`).join('')}</div></fieldset>`).join('');
+  $('#dl-region').innerHTML = REGIONS.map(r => `<option value="${r}">`).join('');
+  $('#dl-denom').innerHTML = DENOMS.map(r => `<option value="${r}">`).join('');
+  $('#review-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const f = e.target; const fd = new FormData(f);
+    const miss = [];
+    if ((fd.get('church_name') || '').trim().length < 2) miss.push('교회 이름');
+    if (!fd.get('role')) miss.push('사역 직책');
+    if (!fd.get('period')) miss.push('사역 시기');
+    RATINGS.forEach(([k, l]) => { if (!fd.get(k)) miss.push(l); });
+    if (fd.get('recommend') === null) miss.push('추천 여부');
+    if ((fd.get('pros') || '').trim().length < 10) miss.push('좋았던 점(10자 이상)');
+    if ((fd.get('cons') || '').trim().length < 10) miss.push('아쉬웠던 점(10자 이상)');
+    if (!fd.get('attested') || !fd.get('agree')) miss.push('확인 문항');
+    if (miss.length) { toast('다음 항목을 확인해 주세요: ' + miss.join(', '), true); return; }
+    const d = { church_name: fd.get('church_name').trim(), region: (fd.get('region') || '').trim() || null, denomination: (fd.get('denomination') || '').trim() || null, role: fd.get('role'), period: fd.get('period'), recommend: fd.get('recommend') === '1', pros: fd.get('pros').trim(), cons: fd.get('cons').trim(), advice: (fd.get('advice') || '').trim() || null, attested: true };
+    RATINGS.forEach(([k]) => { d[k] = Number(fd.get(k)); });
+    const btn = f.querySelector('[type=submit]'); btn.disabled = true;
+    const id = await safe(() => API.createReview(d), null);
+    btn.disabled = false;
+    if (!id) return;
+    MINE.add('review:' + id); f.reset();
+    toast(API.mode === 'demo' ? '제출했습니다. 체험 모드에서는 「운영」 화면에서 직접 승인해 볼 수 있습니다.' : '제출했습니다. 운영자 확인 후 공개됩니다.');
+    go('pg-church', { name: d.church_name });
+  });
+}
+// 이용 안내의 출처 표 — 수집 결과(data/jobs.js)에서 자동으로 그림
+HOOKS['pg-guide'] = () => {
+  const srcs = JOB_DATA.sources || [], links = JOB_DATA.links || [];
+  const groups = [...new Set([...srcs.map(x => x.group || '신학교'), ...links.map(x => x.group || '기타')])];
+  const st = x => x.status === 'ok' ? '수집' : x.status === 'off' ? '제외' : '이번 수집 실패';
+  $('#guide-sources').innerHTML = `<table><tr><th>구분</th><th>수집하는 곳</th><th>링크만 거는 곳(수집 금지·로그인)</th></tr>${groups.map(g => `<tr><td>${esc(g)}</td>
+    <td>${srcs.filter(x => (x.group || '신학교') === g && x.status !== 'off').map(x => `<a href="${esc(safeUrl(x.home))}" target="_blank" rel="noopener">${esc(x.name)}</a>${x.status !== 'ok' ? ` <span class="hint">(${st(x)})</span>` : ''}`).join(', ') || '—'}</td>
+    <td>${links.filter(x => (x.group || '기타') === g).map(x => `<a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">${esc(x.name)}</a>`).join(', ') || '—'}</td></tr>`).join('')}</table>`;
+};
+HOOKS['pg-review-new'] = ({ name, region }) => { if (name) $('#rv-church').value = name; if (region) $('#rv-region').value = region; };
+
+/* ═══════════════════════════ 공감·신고·삭제 공통 ═══════════════════════════ */
+let reportTarget = null;
+function actBar(type, x) {
+  const mine = MINE.has(type + ':' + x.id);
+  return `<div class="act-bar">
+    <button class="btn btn-line btn-sm like" type="button" data-act="like" data-type="${type}" data-id="${x.id}" aria-pressed="false">♡ 공감 <span>${x.like_count || 0}</span></button>
+    <button class="btn btn-line btn-sm" type="button" data-act="share">링크 복사</button>
+    <span class="sp"></span>
+    ${mine ? `<button class="btn btn-danger btn-sm" type="button" data-act="del" data-type="${type}" data-id="${x.id}">삭제</button>` : ''}
+    <button class="btn btn-line btn-sm" type="button" data-act="report" data-type="${type}" data-id="${x.id}">신고</button>
+  </div>`;
+}
+async function markLiked(type, id) {
+  if (!API.user) return;
+  const on = await safe(() => API.liked(type, id), false);
+  const b = $(`.like[data-type="${type}"][data-id="${id}"]`);
+  if (b && on) { b.classList.add('on'); b.setAttribute('aria-pressed', 'true'); b.firstChild.textContent = '♥ 공감 '; }
+}
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const { act, type, id } = b.dataset;
+  if (act === 'share') { copyText(location.href); return; }
+  if (needLogin()) return;
+  if (act === 'like') {
+    b.disabled = true;
+    const r = await safe(() => API.toggleLike(type, id), null);
+    b.disabled = false; if (!r) return;
+    b.classList.toggle('on', r.liked); b.setAttribute('aria-pressed', String(r.liked));
+    b.firstChild.textContent = r.liked ? '♥ 공감 ' : '♡ 공감 '; b.querySelector('span').textContent = r.count;
+  } else if (act === 'report') {
+    reportTarget = { type, id };
+    $('#report-detail').value = '';
+    $$('#report-reasons input').forEach(i => { i.checked = false; });
+    $('#report-dlg').showModal();
+  } else if (act === 'del') {
+    if (!confirm('정말 삭제할까요? 되돌릴 수 없습니다.')) return;
+    const ok = await safe(() => API.deleteOwn(type, id), false);
+    if (!ok) { toast('본인이 쓴 글만 삭제할 수 있습니다.', true); return; }
+    MINE.delete(type + ':' + id); toast('삭제했습니다.');
+    routeFromHash();
+  }
+});
+function initReport() {
+  $('#report-reasons').innerHTML = REPORT_REASONS.map(r => `<label><input type="radio" name="reason" value="${r}"><span>${r}</span></label>`).join('');
+  $('#report-dlg').addEventListener('close', async () => {
+    if ($('#report-dlg').returnValue !== 'ok' || !reportTarget) return;
+    const reason = ($$('#report-reasons input').find(i => i.checked) || {}).value;
+    if (!reason) { toast('신고 사유를 골라 주세요.', true); $('#report-dlg').showModal(); return; }
+    const t = reportTarget; reportTarget = null;
+    const ok = await safe(() => API.report(t.type, t.id, reason, $('#report-detail').value.trim() || null).then(() => true), false);
+    if (ok) toast('신고가 접수되었습니다. 감사합니다.');
+  });
+}
+
+/* ═══════════════════════════ 댓글 ═══════════════════════════ */
+async function renderComments(box, type, id) {
+  box.innerHTML = `<div class="comments detail"><h3>댓글</h3><div class="cmt-list"><p class="loading">불러오는 중…</p></div>
+    ${API.user ? `<form class="cmt-form"><label class="sr-only" for="cmt-in">댓글</label><textarea id="cmt-in" maxlength="1000" required placeholder="따뜻한 말 한마디(익명으로 표시됩니다)"></textarea><button class="btn btn-ink">등록</button></form>`
+      : `<p class="hint" style="margin-top:12px"><a href="${href('pg-login', { next: location.hash.slice(1) })}">로그인</a>하면 댓글을 쓸 수 있습니다(익명 표시).</p>`}</div>`;
+  const draw = async () => {
+    const list = await safe(() => API.comments(type, id), []) || [];
+    box.querySelector('.cmt-list').innerHTML = list.length ? list.map(c => `<div class="cmt"><div class="cmt-head"><b class="${c.is_op ? 'op' : ''}">${esc(c.anon_name)}</b><span>${timeAgo(c.created_at)}</span>${c.status === 'hidden' ? '<span class="tag wait">가려짐</span>' : ''}
+        <span class="cmt-tools">${MINE.has('comment:' + c.id) ? `<button class="txt-btn" data-act="del" data-type="comment" data-id="${c.id}">삭제</button>` : ''}<button class="txt-btn" data-act="report" data-type="comment" data-id="${c.id}">신고</button></span></div>
+        <div class="cmt-body">${nl2br(c.body)}</div></div>`).join('') : '<p class="hint">첫 댓글을 남겨 주세요.</p>';
+  };
+  await draw();
+  const f = box.querySelector('.cmt-form');
+  if (f) f.addEventListener('submit', async e => {
+    e.preventDefault();
+    const ta = f.querySelector('textarea'); const body = ta.value.trim();
+    if (!body) return;
+    f.querySelector('button').disabled = true;
+    const cid = await safe(() => API.createComment(type, id, body), null);
+    f.querySelector('button').disabled = false;
+    if (cid) { MINE.add('comment:' + cid); ta.value = ''; await draw(); }
+  });
+}
+
+/* ═══════════════════════════ 대나무숲 ═══════════════════════════ */
+const postState = { category: '', sort: 'new', offset: 0 };
+function postRow(p, mini) {
+  return `<li><a class="row-link" href="${href('pg-post', { id: p.id })}"><div class="row-main">
+    <p class="row-title"><span class="tag cat-${esc(p.category)}">${esc(p.category)}</span> ${esc(p.title)}</p>
+    ${mini ? '' : `<p class="row-ex">${esc(p.body)}</p>`}
+    <p class="meta"><span>${esc(p.anon_name)}</span><span>${timeAgo(p.created_at)}</span><span>♡ ${p.like_count}</span><span>💬 ${p.comment_count}</span></p></div></a></li>`;
+}
+async function loadPosts(reset) {
+  if (reset) { postState.offset = 0; $('#post-list').innerHTML = loading(); }
+  const rows = await safe(() => API.posts({ category: postState.category, sort: postState.sort, offset: postState.offset, limit: 20 }), []) || [];
+  const html = rows.map(p => postRow(p)).join('');
+  if (reset) $('#post-list').innerHTML = html || empty('아직 글이 없습니다. 첫 이야기를 남겨 주세요.');
+  else $('#post-list').insertAdjacentHTML('beforeend', html);
+  postState.offset += rows.length; $('#post-more').hidden = rows.length < 20;
+}
+function initBamboo() {
+  $('#post-tabs').innerHTML = ['', ...POST_CATS].map(c => `<button type="button" role="tab" data-cat="${c}" class="${c ? '' : 'on'}">${c || '전체'}</button>`).join('');
+  $('#post-tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; postState.category = b.dataset.cat; $$('#post-tabs button').forEach(x => x.classList.toggle('on', x === b)); loadPosts(true); });
+  $('#post-sort').addEventListener('change', e => { postState.sort = e.target.value; loadPosts(true); });
+  $('#post-more').addEventListener('click', () => loadPosts(false));
+  $('#pf-cats').innerHTML = POST_CATS.map((c, i) => `<label><input type="radio" name="category" value="${c}" ${i === 0 ? 'checked' : ''}><span>${c}</span></label>`).join('');
+  $('#post-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const fd = new FormData(e.target);
+    const title = (fd.get('title') || '').trim(), body = (fd.get('body') || '').trim();
+    if (title.length < 2 || body.length < 5) { toast('제목(2자 이상)과 내용(5자 이상)을 적어 주세요.', true); return; }
+    if (!fd.get('ok')) { toast('확인 문항에 체크해 주세요.', true); return; }
+    const btn = e.target.querySelector('[type=submit]'); btn.disabled = true;
+    const id = await safe(() => API.createPost({ category: fd.get('category'), title, body }), null);
+    btn.disabled = false;
+    if (id) { MINE.add('post:' + id); e.target.reset(); toast('올렸습니다.'); go('pg-post', { id }); }
+  });
+}
+HOOKS['pg-bamboo'] = () => loadPosts(true);
+HOOKS['pg-post'] = async ({ id }) => {
+  const box = $('#post-detail'); box.innerHTML = '<p class="loading">불러오는 중…</p>';
+  const p = await safe(() => API.post(id), null);
+  if (!p || p.status === 'removed') { box.innerHTML = '<div class="detail"><p class="empty">글을 찾을 수 없습니다. 삭제되었거나 가려진 글입니다.</p></div>'; return; }
+  box.innerHTML = `<article class="detail"><p class="meta"><span class="tag cat-${esc(p.category)}">${esc(p.category)}</span><span>${esc(p.anon_name)}</span><span>${timeAgo(p.created_at)}</span>${p.status !== 'published' ? '<span class="tag wait">가려짐</span>' : ''}</p>
+    <h1>${esc(p.title)}</h1><div class="body">${nl2br(p.body)}</div>${actBar('post', p)}</article><div id="post-cmts"></div>`;
+  markLiked('post', p.id);
+  renderComments($('#post-cmts'), 'post', p.id);
+};
+
+/* ═══════════════════════════ 자료실 ═══════════════════════════ */
+const resState = { category: '', q: '', offset: 0 };
+const fileIcon = n => { const e = String(n || '').split('.').pop().toLowerCase(); return { pdf: '📕', hwp: '📘', hwpx: '📘', doc: '📘', docx: '📘', ppt: '📙', pptx: '📙', xls: '📗', xlsx: '📗', jpg: '🖼️', jpeg: '🖼️', png: '🖼️' }[e] || '📄'; };
+function resRow(r, mini) {
+  return `<li><a class="row-link" href="${href('pg-resource', { id: r.id })}"><span aria-hidden="true" style="font-size:22px">${r.file_name ? fileIcon(r.file_name) : '🔗'}</span><div class="row-main">
+    <p class="row-title"><span class="tag olive">${esc(r.category)}</span> ${esc(r.title)}</p>
+    ${mini ? '' : `<p class="meta">${(r.tags || []).map(t => `<span>#${esc(t)}</span>`).join('')}<span>${timeAgo(r.created_at)}</span><span>♡ ${r.like_count}</span><span>💬 ${r.comment_count}</span></p>`}</div></a></li>`;
+}
+async function loadRes(reset) {
+  if (reset) { resState.offset = 0; $('#res-list').innerHTML = loading(); }
+  const rows = await safe(() => API.resources({ category: resState.category, q: resState.q, offset: resState.offset, limit: 20 }), []) || [];
+  const html = rows.map(r => resRow(r)).join('');
+  if (reset) $('#res-list').innerHTML = html || empty('아직 자료가 없습니다.');
+  else $('#res-list').insertAdjacentHTML('beforeend', html);
+  resState.offset += rows.length; $('#res-more').hidden = rows.length < 20;
+}
+function initLibrary() {
+  $('#res-tabs').innerHTML = ['', ...RES_CATS].map(c => `<button type="button" role="tab" data-cat="${c}" class="${c ? '' : 'on'}">${c || '전체'}</button>`).join('');
+  $('#res-tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; resState.category = b.dataset.cat; $$('#res-tabs button').forEach(x => x.classList.toggle('on', x === b)); loadRes(true); });
+  let t; $('#res-q').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => { resState.q = e.target.value.trim(); loadRes(true); }, 300); });
+  $('#res-more').addEventListener('click', () => loadRes(false));
+  $('#rf-cats').innerHTML = RES_CATS.map((c, i) => `<label><input type="radio" name="category" value="${c}" ${i === 0 ? 'checked' : ''}><span>${c}</span></label>`).join('');
+  $('#res-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const f = e.target; const fd = new FormData(f);
+    const title = (fd.get('title') || '').trim();
+    const file = f.querySelector('#rf-file').files[0] || null;
+    const link = (fd.get('link_url') || '').trim();
+    const maxMB = Number(C.maxUploadMB) || 10;
+    if (title.length < 2) { toast('제목을 적어 주세요.', true); return; }
+    if (!file && !link) { toast('파일을 고르거나 링크를 넣어 주세요.', true); return; }
+    if (link && !/^https?:\/\//i.test(link)) { toast('링크는 http:// 또는 https://로 시작해야 합니다.', true); return; }
+    if (file) {
+      const ext = file.name.split('.').pop().toLowerCase();
+      if (!MIME[ext]) { toast('올릴 수 없는 파일 형식입니다.', true); return; }
+      if (file.size > maxMB * 1048576) { toast(`파일은 ${maxMB}MB까지 올릴 수 있습니다.`, true); return; }
+    }
+    if (!fd.get('rights')) { toast('저작권 확인 문항에 체크해 주세요.', true); return; }
+    const tags = (fd.get('tags') || '').split(',').map(s => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 5).map(s => s.slice(0, 20));
+    const d = { category: fd.get('category'), title, description: (fd.get('description') || '').trim() || null, link_url: link || null, tags, rights_confirmed: true };
+    const btn = f.querySelector('[type=submit]'); btn.disabled = true; btn.textContent = '올리는 중…';
+    const id = await safe(() => API.createResource(d, file), null);
+    btn.disabled = false; btn.textContent = '올리기';
+    if (id) { MINE.add('resource:' + id); f.reset(); toast('올렸습니다.'); go('pg-resource', { id }); }
+  });
+}
+HOOKS['pg-library'] = () => loadRes(true);
+HOOKS['pg-resource'] = async ({ id }) => {
+  const box = $('#res-detail'); box.innerHTML = '<p class="loading">불러오는 중…</p>';
+  const r = await safe(() => API.resource(id), null);
+  if (!r || r.status === 'removed') { box.innerHTML = '<div class="detail"><p class="empty">자료를 찾을 수 없습니다.</p></div>'; return; }
+  const fileBtn = r.file_path ? `<a class="btn btn-main" href="${esc(API.fileUrl(r.file_path))}" target="_blank" rel="noopener" download>${fileIcon(r.file_name)} ${esc(r.file_name)} 내려받기 <span style="font-weight:500;opacity:.75">${fmtSize(r.file_size)}</span></a>`
+    : r.demo_file ? `<span class="btn btn-line" aria-disabled="true">${fileIcon(r.file_name)} ${esc(r.file_name)} (체험 모드 — 파일 없음)</span>` : '';
+  const linkBtn = r.link_url ? `<a class="btn btn-ink" href="${esc(safeUrl(r.link_url))}" target="_blank" rel="noopener nofollow" aria-label="자료 링크 새 창에서 열기">링크 열기 ↗</a>` : '';
+  box.innerHTML = `<article class="detail"><p class="meta"><span class="tag olive">${esc(r.category)}</span><span>${esc(r.anon_name)}</span><span>${fmtDate(r.created_at)}</span>${r.status !== 'published' ? '<span class="tag wait">가려짐</span>' : ''}</p>
+    <h1>${esc(r.title)}</h1>${r.description ? `<div class="body">${nl2br(r.description)}</div>` : ''}
+    ${(r.tags || []).length ? `<p class="meta" style="margin-bottom:16px">${r.tags.map(t => `<span class="tag">#${esc(t)}</span>`).join('')}</p>` : ''}
+    <div class="btn-row" style="margin-bottom:18px">${fileBtn}${linkBtn}</div>
+    <p class="hint" style="margin-bottom:14px">자료의 저작권은 올린 분에게 있습니다. 개인·교회 사역 용도로만 쓰고 재배포할 때는 출처를 밝혀 주세요.</p>
+    ${actBar('resource', r)}</article><div id="res-cmts"></div>`;
+  markLiked('resource', r.id);
+  renderComments($('#res-cmts'), 'resource', r.id);
+};
+
+/* ═══════════════════════════ 예배 도구: 프로그램·콘티 ═══════════════════════════ */
+const slState = { offset: 0 };
+function renderTools() {
+  const tools = C.tools || [];
+  $('#tool-list').innerHTML = tools.length ? tools.map(t => `<article class="tool">
+      <div><h3>${esc(t.name)}</h3><p class="sum">${esc(t.summary)}</p><ul>${(t.features || []).map(f => `<li>${esc(f)}</li>`).join('')}</ul>
+        <p class="meta" style="margin-top:12px"><span>${esc(t.platforms || '')}</span><span>${esc(t.license || '')}</span></p></div>
+      <div class="btn-row">${t.download ? `<a class="btn btn-main" href="${esc(safeUrl(t.download))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 내려받기 새 창에서 열기">내려받기 ↗</a>` : ''}${t.source ? `<a class="btn btn-line" href="${esc(safeUrl(t.source))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 소스 코드 새 창에서 열기">소스·설명서 ↗</a>` : ''}</div>
+    </article>`).join('') : '<p class="empty">등록된 도구가 없습니다. config.js의 tools에 추가하세요.</p>';
+}
+function slRow(s) {
+  return `<li><a class="row-link" href="${href('pg-setlist', { id: s.id })}"><div class="row-main"><p class="row-title"><span class="tag ink">${esc(s.service_type || '예배')}</span> ${esc(s.title)}</p>
+    <p class="meta"><span>${(s.songs || []).slice(0, 4).map(x => esc(x.title)).join(' · ')}${(s.songs || []).length > 4 ? ' …' : ''}</span></p>
+    <p class="meta"><span>${esc(s.anon_name)}</span><span>${timeAgo(s.created_at)}</span><span>♡ ${s.like_count}</span><span>💬 ${s.comment_count}</span></p></div></a></li>`;
+}
+async function loadSetlists(reset) {
+  if (reset) { slState.offset = 0; $('#setlist-list').innerHTML = loading(); }
+  const rows = await safe(() => API.setlists({ offset: slState.offset, limit: 20 }), []) || [];
+  const html = rows.map(slRow).join('');
+  if (reset) $('#setlist-list').innerHTML = html || empty('아직 나눈 콘티가 없습니다.');
+  else $('#setlist-list').insertAdjacentHTML('beforeend', html);
+  slState.offset += rows.length; $('#setlist-more').hidden = rows.length < 20;
+}
+HOOKS['pg-worship'] = () => { renderTools(); loadSetlists(true); };
+
+// 키 조옮김
+function transposeKey(k, n) {
+  const m = String(k || '').trim().match(/^([A-G])([#b]?)(m?)$/);
+  if (!m) return k;
+  let root = m[1] + m[2]; root = KEY_ALIAS[root] || root;
+  const i = KEYS.indexOf(root); if (i < 0) return k;
+  return KEYS[(i + n + 120) % 12] + m[3];
+}
+// 콘티 작성기 — 이 브라우저에 자동 저장
+const SL_KEY = 'dongyeok-setlist-draft';
+let SL = null;
+function slBlank() { return { title: '', service_type: '주일예배', date: '', theme: '', note: '', songs: [slSong(), slSong(), slSong()] }; }
+function slSong() { return { title: '', category: '복음성가', key: '', bpm: '', note: '', lyrics: '' }; }
+function slLoad() { try { SL = JSON.parse(localStorage.getItem(SL_KEY)); } catch { SL = null; } if (!SL || !Array.isArray(SL.songs)) SL = slBlank(); }
+function slSave() { try { localStorage.setItem(SL_KEY, JSON.stringify(SL)); } catch { } }
+function slRender() {
+  $('#sl-title').value = SL.title; $('#sl-type').value = SL.service_type; $('#sl-date').value = SL.date; $('#sl-theme').value = SL.theme; $('#sl-note').value = SL.note;
+  const keyOpts = k => ['<option value="">키</option>', ...KEYS.flatMap(x => [x, x + 'm'])].map(x => x.startsWith('<') ? x : `<option ${x === k ? 'selected' : ''}>${x}</option>`).join('');
+  $('#sl-rows').innerHTML = SL.songs.map((s, i) => `<div class="sl-row" data-i="${i}">
+    <span class="no">${i + 1}</span>
+    <input class="c-title" type="text" data-f="title" value="${esc(s.title)}" maxlength="80" placeholder="곡 제목" aria-label="${i + 1}번 곡 제목">
+    <select data-f="category" aria-label="${i + 1}번 곡 분류">${SONG_CATS.map(c => `<option ${c === s.category ? 'selected' : ''}>${c}</option>`).join('')}</select>
+    <select data-f="key" aria-label="${i + 1}번 곡 키">${keyOpts(s.key)}</select>
+    <input type="text" inputmode="numeric" data-f="bpm" value="${esc(s.bpm)}" maxlength="3" placeholder="BPM" aria-label="${i + 1}번 곡 BPM">
+    <input class="c-note" type="text" data-f="note" value="${esc(s.note)}" maxlength="100" placeholder="흐름 메모(전주, 반복 등)" aria-label="${i + 1}번 곡 메모">
+    <span class="ops"><button type="button" class="icon-btn" data-op="lyr" title="가사(내 PC에만 저장)" aria-label="${i + 1}번 곡 가사 열기">가</button><button type="button" class="icon-btn" data-op="up" aria-label="위로">↑</button><button type="button" class="icon-btn" data-op="down" aria-label="아래로">↓</button><button type="button" class="icon-btn" data-op="del" aria-label="빼기">×</button></span>
+    <div class="sl-lyrics ${s.lyrics ? 'open' : ''}"><textarea data-f="lyrics" placeholder="가사(선택) — 빈 줄로 절을 나눕니다. 이 브라우저에만 저장되고 콘티 나눔에는 올라가지 않습니다." aria-label="${i + 1}번 곡 가사">${esc(s.lyrics)}</textarea></div>
+  </div>`).join('');
+}
+function slText() {
+  const head = `[${SL.date ? SL.date.slice(5).replace('-', '/') + ' ' : ''}${SL.service_type}] ${SL.title || '콘티'}`;
+  const songs = SL.songs.filter(s => s.title.trim()).map((s, i) => `${i + 1}. ${s.title}${s.key || s.bpm ? ` (${[s.key, s.bpm && s.bpm + 'bpm'].filter(Boolean).join(', ')})` : ''}${s.note ? ' — ' + s.note : ''}`);
+  return [head, SL.theme ? '주제: ' + SL.theme : '', ...songs, SL.note ? '\n' + SL.note : ''].filter(Boolean).join('\n');
+}
+function initSetlistBuilder() {
+  $('#sl-type').innerHTML = SERVICE_TYPES.map(t => `<option>${t}</option>`).join('');
+  slLoad();
+  const meta = { 'sl-title': 'title', 'sl-type': 'service_type', 'sl-date': 'date', 'sl-theme': 'theme', 'sl-note': 'note' };
+  Object.entries(meta).forEach(([id, k]) => $('#' + id).addEventListener('input', e => { SL[k] = e.target.value; slSave(); }));
+  $('#sl-rows').addEventListener('input', e => { const row = e.target.closest('.sl-row'); const f = e.target.dataset.f; if (!row || !f) return; SL.songs[row.dataset.i][f] = e.target.value; slSave(); });
+  $('#sl-rows').addEventListener('change', e => { const row = e.target.closest('.sl-row'); const f = e.target.dataset.f; if (!row || !f) return; SL.songs[row.dataset.i][f] = e.target.value; slSave(); });
+  $('#sl-rows').addEventListener('click', e => {
+    const b = e.target.closest('[data-op]'); if (!b) return;
+    const i = Number(b.closest('.sl-row').dataset.i); const op = b.dataset.op; const a = SL.songs;
+    if (op === 'lyr') { b.closest('.sl-row').querySelector('.sl-lyrics').classList.toggle('open'); return; }
+    if (op === 'up' && i > 0) [a[i - 1], a[i]] = [a[i], a[i - 1]];
+    if (op === 'down' && i < a.length - 1) [a[i + 1], a[i]] = [a[i], a[i + 1]];
+    if (op === 'del') { a.splice(i, 1); if (!a.length) a.push(slSong()); }
+    slSave(); slRender();
+  });
+  $('#sl-add').addEventListener('click', () => { if (SL.songs.length >= 30) { toast('곡은 30개까지 넣을 수 있습니다.', true); return; } SL.songs.push(slSong()); slSave(); slRender(); });
+  $('#sl-up').addEventListener('click', () => { SL.songs.forEach(s => { s.key = transposeKey(s.key, 1); }); slSave(); slRender(); });
+  $('#sl-down').addEventListener('click', () => { SL.songs.forEach(s => { s.key = transposeKey(s.key, -1); }); slSave(); slRender(); });
+  $('#sl-clear').addEventListener('click', () => { if (!confirm('작성 중인 콘티를 지우고 새로 쓸까요?')) return; SL = slBlank(); slSave(); slRender(); });
+  $('#sl-copy').addEventListener('click', () => copyText(slText()));
+  $('#sl-print').addEventListener('click', () => window.print());
+  $('#sl-seraphim').addEventListener('click', () => {
+    const songs = SL.songs.filter(s => s.title.trim());
+    if (!songs.length) { toast('곡 제목을 하나 이상 적어 주세요.', true); return; }
+    const withLyrics = songs.filter(s => s.lyrics.trim()).length;
+    const data = { songs: songs.map(s => ({ title: s.title.trim(), category: s.category, lyrics: s.lyrics.trim() })) };
+    download(`콘티_${(SL.date || new Date().toISOString().slice(0, 10))}_${(SL.title || SL.service_type).replace(/[\\/:*?"<>|\s]+/g, '_').slice(0, 30)}.json`, JSON.stringify(data, null, 2));
+    toast(withLyrics < songs.length ? `받았습니다. 가사가 있는 ${withLyrics}곡만 세라핌에 들어갑니다.` : '받았습니다. 세라핌 「곡 가져오기」에서 여세요.');
+  });
+  $('#sl-present').addEventListener('click', () => {
+    const txt = SL.songs.filter(s => s.lyrics.trim()).map(s => s.lyrics.trim()).join('\n\n');
+    if (!txt) { toast('가사 칸(가 버튼)에 가사를 넣은 곡이 없습니다.', true); return; }
+    $('#pr-text').value = txt; go('pg-presenter');
+  });
+  $('#sl-share').addEventListener('click', async () => {
+    if (needLogin()) return;
+    const songs = SL.songs.filter(s => s.title.trim()).map(s => ({ title: s.title.trim().slice(0, 80), category: s.category, key: s.key, bpm: String(s.bpm || '').replace(/\D/g, '').slice(0, 3), note: s.note.trim().slice(0, 100) }));
+    if ((SL.title || '').trim().length < 2) { toast('콘티 제목을 적어 주세요.', true); return; }
+    if (!songs.length) { toast('곡을 하나 이상 넣어 주세요.', true); return; }
+    const d = { title: SL.title.trim(), service_type: SL.service_type, theme: SL.theme.trim() || null, note: SL.note.trim() || null, songs };   // 가사는 보내지 않음
+    const id = await safe(() => API.createSetlist(d), null);
+    if (id) { MINE.add('setlist:' + id); toast('콘티 나눔에 올렸습니다(가사 제외).'); go('pg-setlist', { id }); }
+  });
+}
+HOOKS['pg-setlist-new'] = () => slRender();
+HOOKS['pg-setlist'] = async ({ id }) => {
+  const box = $('#setlist-detail'); box.innerHTML = '<p class="loading">불러오는 중…</p>';
+  const s = await safe(() => API.setlist(id), null);
+  if (!s || s.status === 'removed') { box.innerHTML = '<div class="detail"><p class="empty">콘티를 찾을 수 없습니다.</p></div>'; return; }
+  box.innerHTML = `<article class="detail"><p class="meta"><span class="tag ink">${esc(s.service_type || '예배')}</span><span>${esc(s.anon_name)}</span><span>${fmtDate(s.created_at)}</span></p>
+    <h1>${esc(s.title)}</h1>${s.theme ? `<p class="hint" style="font-size:15px">주제·본문: ${esc(s.theme)}</p>` : ''}
+    <ol class="song-list" style="margin:14px 0">${(s.songs || []).map(x => `<li><div><p class="t">${esc(x.title)}</p>${x.note ? `<p class="n">${esc(x.note)}</p>` : ''}</div><div class="meta">${x.key ? `<span class="key">${esc(x.key)}</span>` : ''}${x.bpm ? `<span>${esc(x.bpm)} bpm</span>` : ''}<span>${esc(x.category || '')}</span></div></li>`).join('')}</ol>
+    ${s.note ? `<div class="notice">${nl2br(s.note)}</div>` : ''}
+    <div class="btn-row" style="margin-bottom:16px"><button class="btn btn-ink btn-sm" type="button" id="sl-import">내 콘티로 가져오기</button></div>
+    ${actBar('setlist', s)}</article><div id="sl-cmts"></div>`;
+  $('#sl-import').addEventListener('click', () => {
+    if (!confirm('작성 중인 콘티를 이 콘티로 바꿀까요?')) return;
+    SL = { title: s.title, service_type: s.service_type || '주일예배', date: '', theme: s.theme || '', note: s.note || '', songs: (s.songs || []).map(x => ({ ...slSong(), title: x.title || '', category: x.category || '복음성가', key: x.key || '', bpm: x.bpm || '', note: x.note || '' })) };
+    slSave(); go('pg-setlist-new');
+  });
+  markLiked('setlist', s.id);
+  renderComments($('#sl-cmts'), 'setlist', s.id);
+};
+
+// 웹 가사 화면(프레젠터) — 가사는 브라우저 밖으로 나가지 않음
+const PR = { slides: [], i: 0 };
+function prShow() { $('#stage-txt').textContent = PR.slides[PR.i] || ''; $('#stage-pg').textContent = `${PR.i + 1} / ${PR.slides.length}`; }
+function prStop() { $('#stage').classList.remove('on', 'black'); if (document.fullscreenElement) document.exitFullscreen().catch(() => { }); }
+function initPresenter() {
+  $('#pr-start').addEventListener('click', () => {
+    PR.slides = $('#pr-text').value.split(/\n\s*\n/).map(s => s.trim()).filter(Boolean);
+    if (!PR.slides.length) { toast('가사를 입력해 주세요.', true); return; }
+    PR.i = 0; prShow(); const st = $('#stage'); st.classList.add('on');
+    if (st.requestFullscreen) st.requestFullscreen().catch(() => { });
+  });
+  $('#stage').addEventListener('click', () => { if (PR.i < PR.slides.length - 1) { PR.i++; prShow(); } });
+  document.addEventListener('keydown', e => {
+    if (!$('#stage').classList.contains('on')) return;
+    if (['ArrowRight', 'PageDown', ' ', 'Enter', 'ArrowDown'].includes(e.key)) { e.preventDefault(); if (PR.i < PR.slides.length - 1) PR.i++; prShow(); }
+    else if (['ArrowLeft', 'PageUp', 'ArrowUp'].includes(e.key)) { e.preventDefault(); if (PR.i > 0) PR.i--; prShow(); }
+    else if (['b', 'B', '.'].includes(e.key)) $('#stage').classList.toggle('black');
+    else if (e.key === 'Escape') prStop();
+  });
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && $('#stage').classList.contains('on')) $('#stage').classList.remove('on', 'black'); });
+}
+
+/* ═══════════════════════════ 홈 ═══════════════════════════ */
+// 첫 화면의 "오늘 공고" 알림과 흘러가는 공고 띠 — 한 번만 그림
+function renderHeroLive() {
+  const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
+  const nToday = JOBS.filter(j => j.date === today).length;
+  $('#live-text').textContent = !JOBS.length ? '청빙 공고 보기' : nToday ? `오늘 새로 올라오거나 갱신된 청빙 공고 ${nToday.toLocaleString()}건` : `최근 90일 청빙 공고 ${JOBS.length.toLocaleString()}건`;
+  const pick = JOBS.filter(j => !j.closed).slice(0, 18);
+  const ticker = $('#ticker');
+  if (!pick.length) { ticker.parentElement.hidden = true; return; }
+  const row = (j, hide) => `<a href="${href('pg-job', { id: j.id })}"${hide ? ' tabindex="-1" aria-hidden="true"' : ''}>${esc(j.church || '')} <small>${esc((j.positions || [])[0] || SRC_NAME[j.source] || '')}${j.region ? ', ' + esc(j.region) : ''}</small></a>`;
+  ticker.innerHTML = pick.map(j => row(j)).join('') + pick.map(j => row(j, true)).join('');   // 두 번 이어 붙여 끊김 없이 순환
+}
+HOOKS['pg-home'] = async () => {
+  $('#home-jobs').innerHTML = JOBS.length ? JOBS.slice(0, 6).map(j => jobRow(j, true)).join('') : empty('수집된 공고가 아직 없습니다.');
+  $('#home-posts').innerHTML = loading(); $('#home-res').innerHTML = loading(); $('#home-churches').innerHTML = loading();
+  const [posts, res, st] = await Promise.all([safe(() => API.posts({ limit: 6 }), []), safe(() => API.resources({ limit: 6 }), []), stats(true)]);
+  $('#home-posts').innerHTML = (posts || []).length ? posts.map(p => postRow(p, true)).join('') : empty('아직 글이 없습니다. 첫 이야기를 남겨 주세요.');
+  $('#home-res').innerHTML = (res || []).length ? res.map(r => resRow(r, true)).join('') : empty('아직 자료가 없습니다.');
+  const recent = [...st].sort((a, b) => String(b.last_at).localeCompare(String(a.last_at))).slice(0, 6);
+  $('#home-churches').innerHTML = recent.length ? recent.map(churchRow).join('') : empty('아직 평가가 없습니다. 사역했던 교회를 평가해 주세요.');
+  $('#home-jobs').innerHTML = JOBS.length ? JOBS.slice(0, 6).map(j => jobRow(j, true)).join('') : empty('수집된 공고가 아직 없습니다.');
+  const tj = $('#tile-jobs');
+  if (JOBS.length) { tj.textContent = `공고 ${JOBS.length.toLocaleString()}건, 평가된 교회 ${st.length.toLocaleString()}곳`; tj.hidden = false; }
+};
+
+/* ═══════════════════════════ 로그인 ═══════════════════════════ */
+HOOKS['pg-login'] = ({ next }) => {
+  const box = $('#login-box');
+  const back = () => go(...(next ? (() => { const i = next.indexOf('?'); const id = i < 0 ? next : next.slice(0, i); return [ALL_PAGES.includes(id) ? id : 'pg-home', Object.fromEntries(new URLSearchParams(i < 0 ? '' : next.slice(i + 1)))]; })() : ['pg-home']));
+  if (API.user) {
+    box.innerHTML = `<p style="margin-bottom:16px">로그인되어 있습니다. <span class="hint">(${esc(maskEmail(API.user.email))})</span></p><div class="btn-row"><a class="btn btn-ink" href="#pg-home">홈으로</a><button class="btn btn-line" type="button" id="btn-logout">로그아웃</button></div>`;
+    $('#btn-logout').addEventListener('click', async () => { await API.signOut(); MINE = new Set(); await refreshAuth(); toast('로그아웃했습니다.'); go('pg-home'); });
+    return;
+  }
+  if (API.mode === 'demo') {
+    box.innerHTML = `<div class="notice warn"><h3>체험 모드입니다</h3>운영자가 Supabase를 연결하기 전이라 이메일 로그인 대신 체험 계정을 씁니다. 쓴 글은 이 브라우저에만 저장되고, 운영 화면(검수·신고 처리)도 써 볼 수 있습니다.</div><button class="btn btn-main" type="button" id="btn-demo" style="width:100%">체험 계정으로 시작</button>`;
+    $('#btn-demo').addEventListener('click', async () => { await API.signInDemo(); await refreshAuth(); toast('체험 계정으로 로그인했습니다.'); back(); });
+    return;
+  }
+  box.innerHTML = `<form id="login-form"><div class="field"><label class="req" for="lg-email">이메일</label><input type="email" id="lg-email" required autocomplete="email" placeholder="you@example.com"></div>
+      <button class="btn btn-main" style="width:100%">로그인 메일 받기</button>
+      <p class="hint" style="margin-top:12px">처음이면 자동으로 가입됩니다. 비밀번호는 없습니다.</p></form>
+    <form id="code-form" hidden style="margin-top:20px"><div class="notice">메일을 보냈습니다. 메일의 <b>로그인 링크</b>를 누르거나, 메일에 적힌 <b>6자리 코드</b>를 아래에 입력하세요. (카카오톡 등 앱 안 브라우저에서 링크가 안 되면 코드를 쓰세요)</div>
+      <div class="field"><label for="lg-code">인증 코드</label><input type="text" id="lg-code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="123456"></div>
+      <button class="btn btn-ink" style="width:100%">코드로 로그인</button></form>`;
+  let email = '';
+  $('#login-form').addEventListener('submit', async e => {
+    e.preventDefault(); email = $('#lg-email').value.trim(); if (!email) return;
+    const b = e.target.querySelector('button'); b.disabled = true;
+    const ok = await safe(() => API.signInEmail(email).then(() => true), false);
+    b.disabled = false;
+    if (ok) { $('#code-form').hidden = false; $('#lg-code').focus(); try { sessionStorage.setItem('dongyeok-next', next || ''); } catch { } }
+  });
+  $('#code-form').addEventListener('submit', async e => {
+    e.preventDefault(); const code = $('#lg-code').value.replace(/\s/g, ''); if (!code) return;
+    const ok = await safe(() => API.verifyCode(email, code).then(() => true), false);
+    if (ok) { await refreshAuth(); toast('로그인했습니다.'); back(); }
+  });
+};
+function maskEmail(e) { const [a, b] = String(e || '').split('@'); return b ? a.slice(0, 2) + '***@' + b : '***'; }
+async function refreshAuth() {
+  const u = API.user;
+  $('#btn-auth').textContent = u ? '내 계정' : '로그인';
+  $('#drawer-auth').textContent = u ? '내 계정·로그아웃' : '로그인';
+  $('#who').textContent = u ? maskEmail(u.email) : '';
+  const admin = u ? await safe(() => API.isAdmin(), false) : false;
+  $$('.admin-only').forEach(el => { el.hidden = !admin; });
+  MINE = u ? (await safe(() => API.mine(), new Set()) || new Set()) : new Set();
+}
+
+/* ═══════════════════════════ 운영(관리자) ═══════════════════════════ */
+function modContent(type, c) {
+  if (!c) return '<p class="hint">(내용을 찾을 수 없음)</p>';
+  if (type === 'review') return `<p><b>${esc(c.church_name)}</b> ${esc(c.region || '')} · ${esc(c.role)} · ${esc(c.period)} · ${c.recommend ? '추천' : '비추천'} · 평균 ${reviewOverall(c).toFixed(1)}</p><pre>좋았던 점: ${esc(c.pros)}\n\n아쉬웠던 점: ${esc(c.cons)}${c.advice ? '\n\n한마디: ' + esc(c.advice) : ''}</pre>`;
+  if (type === 'setlist') return `<p><b>${esc(c.title)}</b></p><pre>${esc((c.songs || []).map(s => s.title).join('\n'))}${c.note ? '\n\n' + esc(c.note) : ''}</pre>`;
+  return `${c.title ? `<p><b>${esc(c.title)}</b></p>` : ''}<pre>${esc(c.body || c.description || '')}</pre>`;
+}
+const modBtns = (type, id) => `<div class="btn-row"><button class="btn btn-main btn-sm" data-mod="published" data-type="${type}" data-id="${id}">공개</button><button class="btn btn-line btn-sm" data-mod="hidden" data-type="${type}" data-id="${id}">가림(임시조치)</button><button class="btn btn-danger btn-sm" data-mod="${type === 'review' ? 'rejected' : 'removed'}" data-type="${type}" data-id="${id}">${type === 'review' ? '반려' : '삭제'}</button></div>`;
+HOOKS['pg-admin'] = async () => {
+  const box = $('#admin-body');
+  if (!API.user) { box.innerHTML = `<p class="empty"><a href="${href('pg-login', { next: 'pg-admin' })}">로그인</a>이 필요합니다.</p>`; return; }
+  if (!(await safe(() => API.isAdmin(), false))) { box.innerHTML = '<p class="empty">관리자만 볼 수 있습니다.</p>'; return; }
+  box.innerHTML = '<p class="loading">불러오는 중…</p>';
+  const q = await safe(() => API.moderationQueue(), null); if (!q) return;
+  const pending = q.pending || [], flagged = q.flagged || [];
+  box.innerHTML = `<div class="sec-head"><h2>검수 대기 교회 평가 (${pending.length})</h2></div>
+    ${pending.length ? pending.map(r => `<div class="mod-item"><p class="meta"><span class="tag wait">검수 대기</span><span>${fmtDate(r.created_at)}</span></p>${modContent('review', r)}${modBtns('review', r.id)}</div>`).join('') : '<p class="empty">대기 중인 평가가 없습니다.</p>'}
+    <div class="sec-head" style="margin-top:36px"><h2>신고된 글 (${flagged.length})</h2></div>
+    ${flagged.length ? flagged.map(f => `<div class="mod-item"><p class="meta"><span class="tag no">${esc(TYPE_LABEL[f.target_type] || f.target_type)}</span><span>신고 ${f.reports.length}건</span>${f.content ? `<span class="tag ${f.content.status === 'published' ? 'ok' : 'wait'}">현재: ${esc(f.content.status)}</span>` : ''}</p>
+        <div class="reports">${f.reports.map(r => `· ${esc(r.reason)}${r.detail ? ' — ' + esc(r.detail) : ''}`).join('<br>')}</div>${modContent(f.target_type, f.content)}${modBtns(f.target_type, f.target_id)}</div>`).join('') : '<p class="empty">처리할 신고가 없습니다.</p>'}
+    <div class="notice" style="margin-top:28px"><h3>권리침해 신고(임시조치) 처리 순서</h3>① 요청 메일 확인(글 주소·침해 내용·요청인) → ② 「가림」으로 임시조치(최대 30일) → ③ 작성자에게 소명 기회(사이트 공지 또는 메일) → ④ 공개 또는 삭제 결정 → ⑤ 처리 결과를 요청인에게 회신. 기록은 docs/운영가이드.md의 처리 대장에 남깁니다.</div>`;
+};
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-mod]'); if (!b) return;
+  b.disabled = true;
+  const ok = await safe(() => API.moderate(b.dataset.type, b.dataset.id, b.dataset.mod).then(() => true), false);
+  if (ok) { toast('처리했습니다.'); STATS = null; HOOKS['pg-admin'](); } else b.disabled = false;
+});
+
+/* ═══════════════════════════ 시작 ═══════════════════════════ */
+function applyConfig() {
+  $$('[data-cfg]').forEach(el => { const v = C[el.dataset.cfg]; if (v !== undefined && v !== '') el.textContent = v; });
+  if (C.contactEmail) $$('[data-cfg="contactEmail"]').forEach(el => { el.innerHTML = `<a href="mailto:${esc(C.contactEmail)}">${esc(C.contactEmail)}</a>`; });
+  if (C.goatcounter) { const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js'; s.dataset.goatcounter = `https://${C.goatcounter}.goatcounter.com/count`; document.body.appendChild(s); }
+}
+(async function start() {
+  applyConfig();
+  renderHeroLive(); initJobFilters(); initReviewForm(); initReport(); initBamboo(); initLibrary(); initSetlistBuilder(); initPresenter();
+  try { await API.init(); }
+  catch (e) { console.error(e); toast('서버에 연결하지 못했습니다. 잠시 후 새로고침해 주세요.', true); }
+  $('#demo-bar').hidden = API.mode !== 'demo';
+  await refreshAuth();
+  // 메일 링크로 돌아온 경우, 로그인 전에 보던 화면으로
+  let nextAfterMail = ''; try { nextAfterMail = sessionStorage.getItem('dongyeok-next') || ''; sessionStorage.removeItem('dongyeok-next'); } catch { }
+  if (API.user && nextAfterMail && (!location.hash || location.hash === '#pg-login')) { location.hash = '#' + nextAfterMail; return; }
+  routeFromHash();
+})();
+</script>
+<noscript><p style="padding:20px;text-align:center">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
+</body>
+</html>

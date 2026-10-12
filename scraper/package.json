@@ -1,0 +1,14 @@
+{
+  "name": "dongyeok-scraper",
+  "private": true,
+  "type": "module",
+  "description": "부교역자 청빙 공고 수집기 (제목·날짜·링크만)",
+  "scripts": {
+    "fetch": "node fetch-jobs.mjs",
+    "test": "node test-parsers.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  }
+}

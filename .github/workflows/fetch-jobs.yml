@@ -1,0 +1,69 @@
+# 청빙 공고 자동 수집 + 사이트 배포
+#  - 하루 3번(한국 시간 06·12·18시 7분): scraper를 돌려 data/jobs.*를 갱신·커밋한 뒤 사이트를 배포
+#  - main에 직접 올릴 때(push): 수집 없이 배포만
+#  - 수동: 저장소 → Actions → "청빙 공고 수집·배포" → Run workflow
+# 처음 한 번: Settings → Pages → Source를 "GitHub Actions"로 바꿔 주세요(docs/운영가이드.md 5-1).
+name: 청빙 공고 수집·배포
+on:
+  schedule:
+    - cron: '7 21,3,9 * * *'     # UTC 21:07·03:07·09:07 = KST 06:07·12:07·18:07 (정각 혼잡 피함)
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: fetch-and-deploy
+  cancel-in-progress: false
+jobs:
+  fetch:
+    if: github.event_name != 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: scraper/package-lock.json
+      - name: 설치
+        run: npm ci
+        working-directory: scraper
+      - name: 파서 점검(네트워크 없이)
+        run: node scraper/test-parsers.mjs
+      - name: 수집(출처별 결과가 로그에 남음)
+        run: node scraper/fetch-jobs.mjs
+      - name: 바뀐 게 있으면 커밋
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/jobs.json data/jobs.js
+          if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
+          git commit -m "청빙 공고 갱신 $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M')"
+          git push
+
+  deploy:
+    needs: fetch
+    if: always() && (needs.fetch.result == 'success' || needs.fetch.result == 'skipped')
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main          # 방금 커밋한 공고까지 포함
+      - name: 공개할 파일만 모으기
+        run: |
+          mkdir _site
+          cp index.html config.js 404.html _site/
+          cp -r data _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

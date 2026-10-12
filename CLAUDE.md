@@ -84,6 +84,7 @@
 - **첫 GitHub 예약(18:07)이 실행되지 않았습니다.** 워크플로는 active, GitHub 장애 공지 없음 → 혼잡 때 예약이 빠진 것으로 봄. 그래서 보조 예약(06:47·12:47·18:47, 직전 90분 안에 갱신됐으면 건너뜀)을 넣고, 빠진 회차를 수동 전체 수집 1회로 대신함.
   - 다음 확인: 10/13 06:07 또는 06:47에 `gh run list -R hyotowork-create/dongyeok --event schedule`에 실행이 생기는지. 예약이 계속 하나도 안 생기면 저장소 Actions 설정·워크플로 다시 등록을 조사.
 - 맥은 17:26~20:33 꺼져 있어 17:45 보충 수집을 건너뜀(광신대만 영향). 전원이 꺼져 있던 동안의 예약은 켠 뒤에 따라잡지 않음(잠자기는 깨어나면 1회 실행).
+- 빠진 회차 대신 20:42 수동 전체 수집(run 38244023163): 1,276건, 서울 중계 52회 정상, 광신대는 맥 파일로 채움, 부산장신대 1회 시간 초과(이전 공고 유지, 다음 회차에 다시 보기).
 - 공개 오픈 뒤 실제 이용: 익명 이용자 5명(18:11~19:41), 교회 평가 4건 검수 대기, 대나무숲 공개 글 1건, 신고 0건.
 - 20:36에 이메일 계정 `se***@gmail.com`이 새로 생김(관리자 아님). 운영자가 공개 메일로 운영자 로그인을 시도한 것으로 보임 → 관리자로 쓸지 운영자 확인 필요.
 
@@ -201,6 +202,15 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 사이트를 로컬에서 미리 보는 방법: 운영자 맥의 미리보기 서버는 `~/Downloads`를 읽지 못합니다(macOS 폴더 보호). 그래서 사이트 파일을 임시 폴더에 복사해서 띄웁니다. 자세한 방법은 `CLAUDE.local.md`에 있습니다.
 
 ## 유지보수 절차
+
+### 상태 점검(운영자가 "상태 점검해"라고 하면)
+1. 저장소: `git fetch` 후 `git status`·`git log -5 origin/main`(봇 커밋이 하루 3번 있는지, 남의 미커밋 변경이 있는지).
+2. 자동 수집: `gh run list -R hyotowork-create/dongyeok --limit 8`, 예약만 `--event schedule`. 실패나 빠진 회차가 있는지 봅니다.
+3. 맥: `launchctl print gui/$(id -u)/kr.dongyeok.fetch | grep -E 'runs|last exit'`, `tail ~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.log`, 꺼져 있던 시간은 `sysctl -n kern.boottime`·`pmset -g log`.
+4. 공개 사이트: 주소·`config.js`·`data/jobs.json`이 200인지, `updatedAt`이 6시간 이내인지, `sources[]`의 status·note.
+5. Supabase: 인증 `/auth/v1/health` 200, 중계 함수는 토큰 없이 부르면 401이 정상, DB 공개 읽기(`/rest/v1/posts?select=id`).
+6. 이용 현황(대시보드 SQL Editor, 읽기만): 익명 이용자 수, 평가 상태별 수(특히 `pending`), 신고 미처리 수, 24시간 새 글, DB 크기. 쿼리는 `CLAUDE.local.md`에 있습니다.
+7. 결과는 「정상 / 고칠 것 / 운영자가 할 일」로 나눠 보고하고, 이 파일의 현재 상태를 고칩니다.
 
 ### 정기 점검(주 1회 권장)
 1. `gh run list`로 최근 실행이 성공했는지 봅니다. 실패하면 GitHub가 저장소 주인에게 메일을 보냅니다.

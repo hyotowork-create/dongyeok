@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- 보안 정책: 정해 둔 곳의 스크립트·글꼴·사진만 불러오고, 데이터는 Supabase·통계로만 보냄 -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https://images.unsplash.com https://*.supabase.co https://*.goatcounter.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>동역 | 부교역자 청빙 정보·교회 평가·예배 도구·익명 나눔</title>
 <meta name="description" content="신학교·기독교 사이트의 부교역자 청빙 공고를 한곳에서 보고, 그 교회에서 사역했던 교역자들의 평가를 함께 확인하세요. 예배 도구, 설교·신학 자료, 익명 대나무숲까지.">
 <link rel="canonical" href="https://hyotowork-create.github.io/dongyeok/">

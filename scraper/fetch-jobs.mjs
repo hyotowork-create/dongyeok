@@ -26,6 +26,9 @@ const MAX_ITEMS = 3000;
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_JSON = join(ROOT, 'data', 'jobs.json');
 const OUT_JS = join(ROOT, 'data', 'jobs.js');
+// 해외(GitHub 서버) 접속을 막는 출처는 맥에서 따로 모아 이 파일에 둔다 → GitHub 수집 때 합쳐 넣음
+const OUT_LOCAL = join(ROOT, 'data', 'jobs-local.json');
+const LOCAL_MAX_AGE_DAYS = 3;
 // 중간 인증서를 빠뜨린 사이트(certs/extra-ca.pem)를 위해, 보충 인증서를 켠 채로 자기 자신을 다시 실행
 const EXTRA_CA = join(ROOT, 'scraper', 'certs', 'extra-ca.pem');
 if (!process.env.NODE_EXTRA_CA_CERTS && existsSync(EXTRA_CA)) {
@@ -33,6 +36,8 @@ if (!process.env.NODE_EXTRA_CA_CERTS && existsSync(EXTRA_CA)) {
   process.exit(r.status ?? 1);
 }
 const args = Object.fromEntries(process.argv.slice(2).map(a => { const [k, v] = a.replace(/^--/, '').split('='); return [k, v ?? true]; }));
+
+const ONLY = args.only ? new Set(String(args.only).split(',').map(x => x.trim()).filter(Boolean)) : null;
 
 function toItem(src, raw, today) {
   const title = cleanTitle(raw.title);
@@ -67,7 +72,7 @@ async function main() {
 
   const fresh = []; const statuses = [];
   for (const src of SOURCES) {
-    if (args.only && args.only !== src.id) { const old = (prev.sources || []).find(s => s.id === src.id); if (old) statuses.push(old); continue; }
+    if (ONLY && !ONLY.has(src.id)) { const old = (prev.sources || []).find(s => s.id === src.id); if (old) statuses.push(old); continue; }
     const st = { id: src.id, name: src.name, group: src.group || '신학교', home: src.home, checkedAt: new Date().toISOString() };
     if (!src.enabled) { Object.assign(st, { status: 'off', note: src.disabledReason || '꺼짐' }); statuses.push(st); console.log(`- ${src.name}: 꺼짐 (${st.note})`); continue; }
     try {
@@ -87,9 +92,39 @@ async function main() {
     statuses.push(st);
   }
 
+  if (args.out === 'local') {
+    const ok = statuses.filter(s => s.status === 'ok' && (!ONLY || ONLY.has(s.id)));
+    const okIds = new Set(ok.map(s => s.id));
+    const local = { updatedAt: new Date().toISOString(), sources: ok.map(({ checkedAt, ...s }) => ({ ...s, note: '맥에서 보충 수집' })), items: fresh.filter(it => okIds.has(it.source)) };
+    console.log(`맥 보충 수집: ${local.items.length}건 (${ok.map(s => s.name).join(', ') || '없음'})`);
+    if (!args.dry) { await mkdir(dirname(OUT_LOCAL), { recursive: true }); await writeFile(OUT_LOCAL, JSON.stringify(local, null, 1) + '\n'); console.log('저장: data/jobs-local.json'); }
+    return;
+  }
+  // GitHub에서 실패한 출처는 맥 보충 파일(3일 이내)의 공고로 채운다
+  try {
+    const local = JSON.parse(await readFile(OUT_LOCAL, 'utf8'));
+    if (Date.now() - new Date(local.updatedAt) < LOCAL_MAX_AGE_DAYS * 86400e3) {
+      for (const ls of local.sources || []) {
+        const st = statuses.find(s => s.id === ls.id);
+        if (!st || st.status === 'ok' || st.status === 'off') continue;
+        const add = (local.items || []).filter(it => it.source === ls.id);
+        fresh.push(...add);
+        Object.assign(st, { status: 'ok', count: add.length, note: `맥에서 보충 수집(${local.updatedAt.slice(0, 10)}) — 해외 접속 차단` });
+        console.log(`↺ ${st.name}: 맥 보충 파일에서 ${add.length}건`);
+      }
+    }
+  } catch { /* 보충 파일 없음 */ }
   // 병합: 이번에 실패한 출처의 이전 공고는 그대로 두고, 같은 공고(교회+제목)는 최신 것으로 덮어씀
   const byId = new Map();
   for (const it of prev.items || []) byId.set(it.id, { ...it, dk: it.dk || it.id.slice(it.id.indexOf('-') + 1) });   // 예전 파일에는 dk가 없을 수 있음
+  // 같은 출처의 같은 원문 주소·같은 제목인데 id가 다른 옛 기록(교회명 추출 규칙이 바뀐 경우 등)은 지운다
+  const freshUrl = new Set(fresh.map(it => it.source + '|' + it.url));
+  const freshTitle = new Set(fresh.map(it => it.source + '|' + titleKey(it.title)));
+  const freshIds = new Set(fresh.map(it => it.id));
+  for (const [id, it] of byId) {
+    if (freshIds.has(id)) continue;
+    if (freshUrl.has(it.source + '|' + it.url) || freshTitle.has(it.source + '|' + titleKey(it.title))) byId.delete(id);
+  }
   const seenNow = new Set();
   for (const it of fresh) {
     const old = byId.get(it.id);
@@ -110,7 +145,7 @@ async function main() {
   console.log(`합계 ${items.length}건 (이번 수집 ${fresh.length}건, 요청 ${http.count}회)`);
   if (args.dry) { console.log(JSON.stringify(items.slice(0, 5), null, 2)); return; }
   // 켜진 출처가 모두 실패하면 파일을 건드리지 않고 실패로 끝냄 → GitHub Actions가 저장소 주인에게 실패 메일을 보냄
-  const tried = statuses.filter(s => s.status !== 'off' && (!args.only || s.id === args.only));
+  const tried = statuses.filter(s => s.status !== 'off' && (!ONLY || ONLY.has(s.id)));
   if (tried.length && tried.every(s => s.status !== 'ok')) { console.error('모든 출처 수집 실패 — 저장하지 않음'); process.exitCode = 1; return; }
   await mkdir(dirname(OUT_JSON), { recursive: true });
   await writeFile(OUT_JSON, JSON.stringify(data, null, 1) + '\n');

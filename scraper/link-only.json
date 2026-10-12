@@ -1,17 +1,83 @@
 {
   "_설명": "수집하지 않고 링크만 거는 청빙 게시판(robots.txt 금지·로그인 필요). 사이트의 「다른 청빙 게시판」에 표시됩니다. 2026-10-07 조사. 기관의 허락을 받으면 sources/에 수집기를 만들고 여기서 뺍니다.",
   "links": [
-    { "name": "장로회신학대학교 초빙게시판", "url": "https://www.puts.ac.kr/www/sub/lounge/sub.asp?m1=4&m2=4", "group": "신학교", "reason": "수집 금지(robots.txt)" },
-    { "name": "한국침례신학대학교 사역자채용", "url": "https://job.kbtus.ac.kr/job/CMS/Board/Board.do?mCode=MN014", "group": "신학교", "reason": "수집 금지(robots.txt)" },
-    { "name": "호남신학대학교 청빙", "url": "https://ministry.htus.ac.kr/board/board.php?b_id=ministry_009", "group": "신학교", "reason": "수집 금지(robots.txt)" },
-    { "name": "대전신학대학교 게시판", "url": "https://www.daejeon.ac.kr/bbs/board.php?bo_table=B01_01", "group": "신학교", "reason": "수집 금지(robots.txt)" },
-    { "name": "예수교대한성결교회(예성) 총회", "url": "https://www.sungkyul.org/NOS-Board/bbs.php?idx=com9", "group": "교단", "reason": "수집 금지(robots.txt)" },
-    { "name": "나사렛성결회 목회자 청빙", "url": "https://na.or.kr/ccall", "group": "교단", "reason": "수집 금지(robots.txt)" },
-    { "name": "예장백석 총회 사역자구함", "url": "https://www.pgak.net/www.contents.asp?id=sub09_07_new2&layout=board&skin=basic&ext=list.asp&boardid=B5FF8", "group": "교단", "reason": "수집 금지(robots.txt)" },
-    { "name": "예장대신(수호) 총회", "url": "https://www.pckd1961.org/", "group": "교단", "reason": "수집 금지(robots.txt) — 홈에서 청빙게시판 메뉴" },
-    { "name": "기독교대한감리회 구인구직", "url": "https://kmc.or.kr/kmc-news/the-wants-cloumns", "group": "교단", "reason": "로그인 필요" },
-    { "name": "기하성(여의도) 총회", "url": "https://www.agk.or.kr/bbs/board.php?bo_table=sub505", "group": "교단", "reason": "로그인 필요" },
-    { "name": "기독신문 구인", "url": "https://www.kidok.com/bbs/list.html?table=bbs_9", "group": "기독교 언론", "reason": "로그인 필요" },
-    { "name": "CTS 사역자 채용정보", "url": "https://www.cts.tv/board/recruit", "group": "기독교 언론", "reason": "수집 금지(robots.txt)" }
+    {
+      "name": "장로회신학대학교 초빙게시판",
+      "url": "https://www.puts.ac.kr/www/sub/lounge/sub.asp?m1=4&m2=4",
+      "group": "신학교",
+      "reason": "수집 금지(robots.txt)"
+    },
+    {
+      "name": "한국침례신학대학교 사역자채용",
+      "url": "https://job.kbtus.ac.kr/job/CMS/Board/Board.do?mCode=MN014",
+      "group": "신학교",
+      "reason": "수집 금지(robots.txt)"
+    },
+    {
+      "name": "호남신학대학교 청빙",
+      "url": "https://ministry.htus.ac.kr/board/board.php?b_id=ministry_009",
+      "group": "신학교",
+      "reason": "수집 금지(robots.txt)"
+    },
+    {
+      "name": "한국성서대학교 성서대학원 게시판",
+      "url": "https://grad.bible.ac.kr/ko/community/gospel",
+      "group": "신학교",
+      "reason": "수집 금지(robots.txt)"
+    },
+    {
+      "name": "대전신학대학교 게시판",
+      "url": "https://www.daejeon.ac.kr/bbs/board.php?bo_table=B01_01",
+      "group": "신학교",
+      "reason": "수집 금지(robots.txt)"
+    },
+    {
+      "name": "예수교대한성결교회(예성) 총회",
+      "url": "https://www.sungkyul.org/NOS-Board/bbs.php?idx=com9",
+      "group": "교단",
+      "reason": "수집 금지(robots.txt)"
+    },
+    {
+      "name": "나사렛성결회 목회자 청빙",
+      "url": "https://na.or.kr/ccall",
+      "group": "교단",
+      "reason": "수집 금지(robots.txt)"
+    },
+    {
+      "name": "예장백석 총회 사역자구함",
+      "url": "https://www.pgak.net/www.contents.asp?id=sub09_07_new2&layout=board&skin=basic&ext=list.asp&boardid=B5FF8",
+      "group": "교단",
+      "reason": "수집 금지(robots.txt)"
+    },
+    {
+      "name": "예장대신(수호) 총회",
+      "url": "https://www.pckd1961.org/",
+      "group": "교단",
+      "reason": "수집 금지(robots.txt) — 홈에서 청빙게시판 메뉴"
+    },
+    {
+      "name": "기독교대한감리회 구인구직",
+      "url": "https://kmc.or.kr/kmc-news/the-wants-cloumns",
+      "group": "교단",
+      "reason": "로그인 필요"
+    },
+    {
+      "name": "기하성(여의도) 총회",
+      "url": "https://www.agk.or.kr/bbs/board.php?bo_table=sub505",
+      "group": "교단",
+      "reason": "로그인 필요"
+    },
+    {
+      "name": "기독신문 구인",
+      "url": "https://www.kidok.com/bbs/list.html?table=bbs_9",
+      "group": "기독교 언론",
+      "reason": "로그인 필요"
+    },
+    {
+      "name": "CTS 사역자 채용정보",
+      "url": "https://www.cts.tv/board/recruit",
+      "group": "기독교 언론",
+      "reason": "수집 금지(robots.txt)"
+    }
   ]
 }

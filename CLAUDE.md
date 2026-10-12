@@ -21,7 +21,7 @@
 | 이 맥의 작업 폴더 | `~/Downloads/dongyeok` (git 클론, origin = 위 저장소) |
 | 배포 | `.github/workflows/fetch-jobs.yml`. main에 push하면 배포만, 예약·수동 실행이면 수집→커밋→배포. Pages Source = GitHub Actions |
 | 자동 수집 | 하루 3번, KST 06:07·12:07·18:07 (`cron: '7 21,3,9 * * *'`) |
-| 커뮤니티 기능 | Supabase 연결됨(2026-10-12). 프로젝트 `xjmexzeyxkxqsgvwaupz`(서울, 조직 dongyeok, Free). **단, 자체 메일 서버(SMTP)가 없어서 아직 일반 이용자 로그인 메일이 나가지 않음** → 「알려진 문제」 참고 |
+| 커뮤니티 기능 | Supabase 연결·운영 중(2026-10-12). 프로젝트 `xjmexzeyxkxqsgvwaupz`(서울, 조직 dongyeok, Free). **이용자는 로그인 없이 익명 식별값(Supabase anonymous sign-in)으로 쓰고 개인정보를 받지 않는다.** 이메일 로그인은 운영자만(관리자 1명 지정됨) |
 | 디자인 | v2: 밤색(#0e1230)·금색(#ffc24b)·보라(#7c5cff), 예배 사진 슬라이드와 조명 빔, Unsplash 사진 핫링크 |
 
 ## 현재 상태 (2026-10-12)
@@ -43,10 +43,12 @@
    - 대응: **맥 보충 수집이 launchd로 하루 3번(05:45·11:45·17:45) 자동 실행됩니다**(2026-10-12 설치). GitHub 수집보다 먼저 돌아서 결과가 바로 합쳐집니다.
      - 맥이 꺼져 있거나 3일 넘게 실패하면 이 5곳의 공고가 오래된 상태로 남습니다. 3일이 넘은 보충 파일은 합치지 않습니다.
      - 실행 기록은 `~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.log`에 남습니다.
-2. **일반 이용자 로그인 수단이 필요합니다.** Supabase는 연결했습니다(스키마 실행·RLS 14개·버킷·사이트 주소 등록 완료).
-   - 기본 메일 서버는 프로젝트 팀원 주소로만 메일을 보내는 것으로 알려져 있습니다. 템플릿(6자리 코드)도 자체 SMTP를 연결해야 고칠 수 있습니다.
-   - 해결책은 둘 중 하나입니다: ① SMTP 연결(Gmail 앱 비밀번호나 Brevo) ② 카카오(또는 구글) 로그인 연결.
-   - 둘 다 운영자가 직접 계정·비밀값을 만들어 대시보드에 넣어야 합니다(Claude는 비밀번호·키를 입력하지 않음).
+2. **익명 운영의 한계**(2026-10-12 운영자 결정: 개인정보를 받지 않음)
+   - 내 글 삭제는 글을 쓴 브라우저에서만 됩니다.
+   - 브라우저를 바꿔 여러 번 쓰거나 신고하기가 쉽습니다. 막는 장치: 1분 5건 도배 방지, Supabase 익명 발급 제한(IP당), 평가 사전 검수, 신고 3건 자동 가림 후 운영자 복구.
+   - 악용이 늘면 Cloudflare Turnstile(무료 CAPTCHA)을 Supabase Auth의 Bot and Abuse Protection에 연결합니다. 운영자가 Cloudflare 계정과 키를 만들어야 합니다.
+   - 익명 이용자는 자료를 링크로만 공유합니다(파일 업로드는 DB 트리거·저장소 정책이 거절). 운영자 계정은 파일 업로드 가능.
+   - 운영자 이메일 로그인은 Supabase 기본 메일로 됩니다(팀원 주소). 메일 템플릿을 바꾸려면 자체 SMTP가 필요합니다(지금은 필요 없음).
 3. `config.js`의 `contactEmail`(신고·임시조치 접수처)이 비어 있습니다. 화면에는 "설정 필요"로 보입니다.
 4. 개인정보처리방침·이용약관은 초안입니다. 법률 검토와 시행일 기입이 필요합니다.
 5. 세라핌 저장소(`hyotowork-create/Seraphim`)에 Releases가 없어서 「내려받기」 버튼이 빈 릴리스 페이지로 갑니다.
@@ -135,7 +137,8 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok   # 수동 수집(�
 3. 맥 보충 파일 `data/jobs-local.json`의 `updatedAt`이 3일 이내인지 봅니다. 오래됐다면 `~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.log`와 `~/Library/Logs/dongyeok-fetch.log`를 확인합니다.
 4. 사이트를 열어 오늘 날짜 공고가 있는지, 「직책별 사례비」 표가 정상인지 봅니다.
 5. 공개 저장소는 60일 동안 활동이 없으면 예약 실행이 꺼집니다. 봇이 매번 커밋하므로 보통 유지되지만, 꺼졌다면 Actions 화면에서 Enable을 누릅니다.
-6. Supabase를 연결한 뒤에는 운영 화면에서 검수 대기 평가와 신고된 글을 처리합니다(`docs/운영가이드.md` 7장).
+6. 운영 화면(푸터 「운영자 로그인」 → 상단 「운영」)에서 검수 대기 평가와 신고된 글을 처리합니다(`docs/운영가이드.md` 7장).
+7. Supabase 무료 플랜은 7일 동안 활동이 없으면 일시정지됩니다. 정지되면 대시보드에서 Restore를 누릅니다.
 
 ### 수집이 깨졌을 때
 `dongyeok-scraper` 스킬(`.claude/skills/dongyeok-scraper/SKILL.md`)을 따릅니다.
@@ -169,7 +172,7 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok   # 수동 수집(�
 | 일 | 담당 | 비고 |
 |---|---|---|
 | 총신대·목원대 GitHub 실패 원인 확인 | Claude | 다음 실행 로그의 오류 코드로 판단. 계속 막히면 서울 리전 Supabase Edge Function 이전 검토 |
-| Supabase 프로젝트 생성(서울)·schema.sql 실행·URL·anon key 전달 | 운영자 | 그 뒤 `config.js`를 고치고 푸시, 관리자 SQL 실행(운영가이드 5-2) |
+| 시험용 교회 평가(「시험교회」) 반려 | 운영자 | 운영 화면에서 「반려」 — 관리자 화면 동작 확인을 겸함 |
 | 공개 이메일 → `config.js` `contactEmail` | 운영자 → Claude | |
 | 세라핌 Releases에 설치 파일·LICENSE 올리기 | 운영자 | |
 | 개인정보처리방침·약관 법률 검토 | 운영자 | |
@@ -181,4 +184,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok   # 수동 수집(�
 | 날짜 | 내용 |
 |---|---|
 | 2026-10-07 | 사이트·수집기(총신·감신·갓피플)·Supabase 스키마·운영가이드 작성. 디자인 v2(교회 이미지·조명). 출처를 27곳으로 확대 |
-| 2026-10-12 | GitHub 공개·Pages 배포(af70c77). CSP·의존성 알림 적용. 한국성서대 링크 추가. 해외 차단 출처 맥 보충 수집. 직책 세분화·사례비 분류·직책별 사례비 표(8c99bb4). 총신대 폴백, 맥 보충 자동 선택(65a0d10). 인수인계 문서(c563189). 맥 보충 수집 launchd 설치(05:45·11:45·17:45, 별도 사본 ~/Developer/dongyeok-collector) |
+| 2026-10-12 | GitHub 공개·Pages 배포(af70c77). Supabase 생성·연결(서울, 42cd60a), 관리자 지정, 로그인 없이 쓰기(익명 식별값·개인정보 미수집, 2e0dc1d) — 실사이트에서 익명 글·댓글·공감·평가(검수 대기)·자료 링크·삭제·익명 파일 거절 확인. CSP·의존성 알림 적용. 한국성서대 링크 추가. 해외 차단 출처 맥 보충 수집. 직책 세분화·사례비 분류·직책별 사례비 표(8c99bb4). 총신대 폴백, 맥 보충 자동 선택(65a0d10). 인수인계 문서(c563189). 맥 보충 수집 launchd 설치(05:45·11:45·17:45, 별도 사본 ~/Developer/dongyeok-collector) |

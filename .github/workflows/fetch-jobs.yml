@@ -45,6 +45,7 @@ jobs:
           echo "마지막 갱신 후 $((age / 60))분"
           if [ "${{ github.event_name }}" = "schedule" ] && [ "$age" -lt 5400 ]; then
             echo "90분 안에 이미 갱신됨 — 이번 예약은 건너뜀"; echo "skip=true" >> "$GITHUB_OUTPUT"
+            echo "::notice title=건너뜀::마지막 갱신 후 $((age / 60))분 — 90분 안이라 이번 예약은 수집하지 않음"
           else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/setup-node@v4
         if: steps.guard.outputs.skip != 'true'
@@ -70,6 +71,16 @@ jobs:
         run: |
           if [[ ! "$ARGS" =~ ^[-a-z0-9=,\ ]*$ ]]; then echo "옵션에 허용하지 않은 글자가 있음: $ARGS"; exit 1; fi
           node scraper/fetch-jobs.mjs $ARGS
+      # 클라우드 세션은 Actions 로그를 내려받지 못하므로 결과를 annotation으로 남긴다(node scripts/status.mjs가 읽음)
+      - name: 결과 요약 남기기
+        if: always() && steps.guard.outputs.skip != 'true'
+        env:
+          ARGS: ${{ inputs.args }}
+        run: |
+          s=$(jq -r '"공고 \(.items|length)건(갱신 \(.updatedAt)) · 문제 출처: "
+            + ([.sources[] | select(.status != "ok" and .status != "off") | "\(.id) \(.status) \((.note // "")[0:80])"] | join(" / ") | if . == "" then "없음" else . end)
+            + " · 서울 중계: " + ([.sources[] | select((.note // "") | test("서울 중계")) | "\(.id) \(.status) \(.count // 0)건"] | join(", "))' data/jobs.json)
+          echo "::notice title=수집 결과${ARGS:+ ($ARGS)}::${s//$'\n'/ }"
       - name: 바뀐 게 있으면 커밋
         if: steps.guard.outputs.skip != 'true'
         run: |

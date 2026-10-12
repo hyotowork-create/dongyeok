@@ -5,7 +5,7 @@
 > 상세 운영 설명 = `docs/운영가이드.md`. 수집기 수리 절차 = `.claude/skills/dongyeok-scraper/SKILL.md`.
 > 운영자 관련 정보(호칭·보고 방식·계정·이 맥의 사정)는 `CLAUDE.local.md`(저장소에 안 올라감)에 있다. 있으면 반드시 함께 읽는다.
 > 저장소가 공개라서 이 파일에는 운영자 실명·개인 연락처를 적지 않는다.
-> 마지막 갱신: 2026-10-12 22시 (공개 오픈 첫날 점검·방문 통계·휴대폰 레이아웃 수정까지)
+> 마지막 갱신: 2026-10-13 아침 (클라우드 세션에서도 유지보수할 수 있게 정비 — 아래 「클라우드 세션에서 유지보수」)
 > 한 파일로 모은 인수인계서: 운영자 맥의 `인수인계.local.md`(운영자 정보 포함이라 저장소 제외). 다른 컴퓨터로 옮길 때는 이 파일과 `CLAUDE.local.md`를 함께 복사한다.
 
 ## 한 줄 요약
@@ -43,6 +43,29 @@
 
 ### 동시 작업 주의
 2026-10-12에 한 대화가 두 세션으로 갈라져 이 폴더를 동시에 고쳤습니다(충돌 없이 통합함, 기록은 `CLAUDE.local.md`). 앞으로는 한 번에 한 세션만 고칩니다. 작업 전에 `git pull --rebase origin main`과 `git status`를 보고, 내가 만들지 않은 미커밋 변경이 있으면 건드리지 말고 운영자에게 알립니다.
+- 맥 세션과 클라우드 세션도 마찬가지입니다. 둘 다 같은 GitHub 저장소에 push하므로, 한쪽에서 고치는 동안 다른 쪽은 고치지 않습니다.
+
+## 클라우드 세션에서 유지보수(맥 없이, Claude 앱)
+운영자 맥이 꺼져 있어도 Claude 앱의 클라우드 작업 공간에서 점검·코드 수정·배포를 할 수 있습니다(2026-10-13 정비). 클라우드 작업 공간은 미국에 있고 네트워크가 허용 목록으로 묶여 있어, 아래처럼 우회 경로를 씁니다.
+
+**시작할 때**
+1. 새 작업에서 저장소 `hyotowork-create/dongyeok`을 고르면 자동으로 클론됩니다. `gh`가 안 되면(토큰 오류) Claude가 저장소 추가 도구로 이 저장소를 **쓰기 권한**으로 붙입니다(운영자는 승인만).
+2. `bash scripts/cloud-setup.sh` — 커밋 작성자(이 클론만), 점검 의존성, Deno(npm 경유, `.tools/`), 휴대폰 점검용 글꼴을 준비하고 무엇에 닿는지 보여 줍니다. 작업 공간은 시간이 지나면 지워지므로 세션마다 다시 실행합니다.
+3. 저장소에 없는 운영자 파일(`CLAUDE.local.md`·`인수인계.local.md`·`promo/`)은 운영자 구글 드라이브 「동역/dongyeok」 폴더의 비공개 사본을 드라이브 도구로 읽습니다(2026-10-12 밤 사본). 맥에서 이 파일들을 고치면 드라이브에도 다시 올려야 맞춰집니다.
+4. `node scripts/status.mjs --health`로 상태를 봅니다(아래 「상태 점검」).
+
+**되는 일·안 되는 일**
+| 일 | 클라우드에서 | 방법 |
+|---|---|---|
+| 코드 수정·점검·push(=배포) | 됨 | 점검 4종 모두 실행 가능(Deno는 `.tools/node_modules/.bin/deno`) |
+| Actions 실행 목록·수동 실행 | 됨 | `gh run list`, `gh workflow run` |
+| Actions 로그 | **안 됨**(로그 저장소 주소가 막힘) | 워크플로가 남기는 annotation(「수집 결과」「건너뜀」「정상」)을 `status.mjs`가 API로 읽음. 더 자세한 로그는 운영자가 GitHub 화면에서 보거나 맥 세션에서 `gh run view --log` |
+| 공개 사이트·Supabase·서울 중계 응답 | 셸에서 막힘 | `status.mjs --health`(「상태 확인」 워크플로가 GitHub 서버에서 확인). 사이트 내용은 WebFetch |
+| 휴대폰 화면 점검 | 됨(이 폴더의 파일로) | `node scripts/mobile-check.mjs` — 공개 사이트에 못 닿으면 자동으로 로컬 `index.html`. DB에서 오는 목록은 비어 보임 |
+| 수집기 실제 실행 | **하지 않음** | 외부 사이트가 막혀 있고 해외 서버. 시험은 `gh workflow run fetch-jobs.yml -f args="--only=… --dry --detail=0"` |
+| Supabase 대시보드(함수 재배포·SQL·이용 현황·인증 설정) | **안 됨** | 맥/데스크톱 앱 세션의 내장 브라우저(운영자 로그인)에서 |
+| 맥 launchd·광신대 보충 | **안 됨** | 맥 세션에서. 클라우드에서는 `data/jobs-local.json` 날짜로만 간접 확인 |
+| 운영자 파일(드라이브) | 읽기 됨 | 드라이브 도구. 고친 내용은 운영자 확인 후 반영 |
 
 ## 외부 자원(전부)
 
@@ -95,7 +118,11 @@
 - 저장소의 `data/jobs.json`: 1,276건(20:44), 장신대 off·부산장신대 시간 초과(error) 외 모두 ok. 공개 사이트의 `jobs.json`도 같은 `updatedAt`(WebFetch로 확인).
 - 점검: 수집기 15·중계 14·DB 스키마 17 통과(중계 함수 Deno 점검은 이 환경에 Deno가 없어 생략).
 - 고침: 수집 작업의 checkout을 `ref: main`으로. 예약 시각의 커밋으로 checkout하면, 앞 회차가 늦게 돌아 보조 회차와 대기열에서 겹칠 때 보조 회차가 옛 `updatedAt`을 보고 한 번 더 수집하고, `data/jobs.json` 충돌로 push가 실패할 수 있었음.
-- 클라우드 세션 참고: 네트워크 정책으로 `*.github.io`·`*.supabase.co`가 셸에서 막힘. 사이트는 WebFetch, 서울 중계는 Actions 로그(「서울 중계 서버 경유」)로 대신 확인. 맥 항목은 맥과 연결된 세션에서만 볼 수 있음.
+- 클라우드 세션 참고: 네트워크 정책으로 `*.github.io`·`*.supabase.co`가 셸에서 막힘. → 10/13 아침 「클라우드 세션에서 유지보수」 절차로 정리.
+
+### 2026-10-13 아침 점검(07시, 클라우드 세션)
+- 예약 실행 **처음으로 확인**: 03:51 `schedule` 실행(run 38293763116) 성공 → 03:55 커밋(1,288건, 묶으면 1,191건), 배포 성공. 크론 시각(06:07·06:47·12:07…)과 맞지 않는 시각이라, 10/12 밤 회차가 GitHub 쪽에서 늦게 나온 것으로 봄. 07:20 기준 06:07·06:47 회차는 아직 목록에 없음.
+- 서울 중계 4곳 ok(총신 150·대신 15·목원 14·기독정보넷 40), 부산장신대 회복(ok 9). 맥 보충 파일은 10/12 15:35 그대로(05:45 맥 실행이 올리지 않음 — 맥이 꺼져 있었거나 바뀐 게 없었는지는 맥에서만 확인 가능).
 
 ### 알려진 문제 (우선순위 순)
 1. **광신대는 맥에서만 모입니다.** GitHub(미국)에서는 막히고, 서울 함수(Deno)는 학교 서버의 옛 TLS 방식을 지원하지 않아 `received fatal alert`로 실패합니다.
@@ -131,6 +158,10 @@ supabase/schema.sql        DB·열 단위 권한·RLS·트리거·RPC(SQL Editor
 supabase/test/             PGlite로 schema.sql 점검(17개)
 supabase/functions/kr-relay/   서울 중계 함수 index.ts + 점검 test.ts(Deno, 7개)
 scripts/mac-fetch-jobs.sh  맥 보충 수집 → data/jobs-local.json 커밋·푸시(launchd는 별도 사본에서 실행)
+scripts/status.mjs         상태 점검 한 번에(맥·클라우드 공용, --health면 「상태 확인」 워크플로까지)
+scripts/cloud-setup.sh     클라우드 세션 준비(작성자·의존성·Deno·글꼴)
+scripts/mobile-check.mjs   휴대폰 폭 21개 화면 점검
+.github/workflows/         fetch-jobs.yml(수집·배포), health.yml(상태 확인, 수동 실행 전용)
 .claude/skills/dongyeok-scraper/SKILL.md   수집기 수리·출처 추가 절차
 docs/운영가이드.md          설정·운영·법적 유의사항 전체
 docs/수집허락요청문.md       robots.txt 금지 기관에 보낼 요청문
@@ -204,6 +235,8 @@ node scraper/fetch-jobs.mjs --detail=0                 # 본문(사례비) 읽�
 zsh ~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.sh   # 맥 보충 수집 + 커밋·푸시(launchd가 하루 3번 자동 실행)
 launchctl print gui/$(id -u)/kr.dongyeok.fetch | grep -E 'state|last exit'   # 예약 작업 상태
 cd supabase/test && npm test                           # DB 스키마 점검
+node scripts/status.mjs --health                       # 상태 점검 한 번에(맥·클라우드 공용, 읽기만)
+bash scripts/cloud-setup.sh                            # 클라우드 세션 시작할 때(맥에서는 필요 없음)
 gh run list -R hyotowork-create/dongyeok --limit 5     # 자동 수집·배포 결과
 gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok   # 수동 전체 수집(하루 1~2회 이내로)
 gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chongshin,mokwon --dry --detail=0"   # GitHub에서 일부만 시험(저장 안 함)
@@ -213,6 +246,7 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 ## 유지보수 절차
 
 ### 상태 점검(운영자가 "상태 점검해"라고 하면)
+**한 번에:** `node scripts/status.mjs --health` — 아래 1·2·4·5번을 맥·클라우드 어디서나 봅니다(읽기만, 「상태 확인」 워크플로를 한 번 실행). 3번(맥)과 6번(이용 현황)은 따로.
 1. 저장소: `git fetch` 후 `git status`·`git log -5 origin/main`(봇 커밋이 하루 3번 있는지, 남의 미커밋 변경이 있는지).
 2. 자동 수집: `gh run list -R hyotowork-create/dongyeok --limit 8`, 예약만 `--event schedule`. 실패나 빠진 회차가 있는지 봅니다.
 3. 맥: `launchctl print gui/$(id -u)/kr.dongyeok.fetch | grep -E 'runs|last exit'`, `tail ~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.log`, 꺼져 있던 시간은 `sysctl -n kern.boottime`·`pmset -g log`.
@@ -274,7 +308,8 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 
 ### 디자인·문구를 고칠 때
 `index.html` 맨 위 `:root` 토큰을 씁니다. 사진은 `photo-…` 아이디로 바꿉니다(목록은 운영가이드 2-3). 보안 정책(CSP 메타)에 없는 외부 주소를 추가하면 그 주소가 차단되므로 CSP도 함께 고칩니다.
-- 고친 뒤 `node scripts/mobile-check.mjs`로 21개 화면을 휴대폰 폭(390px)에서 점검합니다(맥의 Chrome을 화면 없이 사용, 공개 사이트 기준. 로컬 파일은 `--url=file:///…/index.html`, 화면 저장은 `--shot=pg-…`). 내장 브라우저 창이 가려져 있으면 폭이 0으로 잡혀 레이아웃 점검이 안 되므로 이 도구를 씁니다.
+- 고친 뒤 `node scripts/mobile-check.mjs`로 21개 화면을 휴대폰 폭(390px)에서 점검합니다(맥은 Chrome, 클라우드는 Playwright Chromium을 화면 없이 사용. 공개 사이트 기준이고, 닿지 않거나 `--url=local`이면 이 폴더의 `index.html`. 화면 저장은 `--shot=pg-…`). 내장 브라우저 창이 가려져 있으면 폭이 0으로 잡혀 레이아웃 점검이 안 되므로 이 도구를 씁니다.
+  - 클라우드에서는 Pretendard 글꼴이 깔려 있어야 결과가 맞습니다(`cloud-setup.sh`가 설치). 없으면 더 넓은 대체 글꼴 때문에 이용 안내 화면 표가 넘친다고 잘못 나옵니다(10/13 확인).
 - 칸 나눔(grid·flex) 안에 한 줄로 자르는 긴 글자가 있으면 자식에 `min-width:0`을 줍니다(10/12 첫 화면 가로 넘침 원인). 목록 앞 표시는 grid 칸 대신 절대 위치로 둡니다(10/12 평가 작성 안내 글자 세로 쪼개짐 원인).
 
 ## 절대 규칙
@@ -291,7 +326,7 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 ## 남은 일
 | 일 | 담당 | 비고 |
 |---|---|---|
-| 예약 수집이 실제로 도는지 확인 | Claude | 10/12 18:07은 빠짐. 10/13 06:07 또는 보조 06:47 실행이 `--event schedule`에 생기는지(위 「저녁 점검」) |
+| 예약 수집이 제시각에 도는지 확인 | Claude | 10/12 18:07 빠짐 → 10/13 03:51 예약 실행 1회 성공(시각이 크론과 안 맞음). 06:07·06:47·12:07 회차가 `--event schedule`에 제때 생기는지 계속 확인 |
 | 운영자 전용 로그인으로 바꿀지 | 운영자 → Claude | 지금은 운영자 로그인 화면에 아무 메일이나 넣으면 계정이 만들어짐(`signInWithOtp`의 `shouldCreateUser: true`). 바꾸면 `false`로, 새 운영자는 대시보드에서 초대 |
 | Supabase 조직에 공개 메일 초대 | 운영자 | 팀 화면 → Invite members → seraphim7997@gmail.com, Administrator |
 | 세라핌 0.2.0 소스 공개 여부 | 운영자 | 시험용 파일에 찬송가·CCM 가사와 실제 예배 PPT가 있어 그대로 공개하면 저작권 문제. 공개하려면 그 파일을 빼고 올림 |
@@ -316,3 +351,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 | 2026-10-12 | 방문 통계 GoatCounter(dongyeok) 연결(397d3fe), 개인정보처리방침 수집 항목에 「방문 통계」 추가. 공개 사이트에서 집계 요청 전송 확인 |
 | 2026-10-12 | 휴대폰 레이아웃 수정(5b42acf): 평가 작성 안내 글자 세로 쪼개짐, 첫 화면 가로 넘침(390→535px), 링크로 들어올 때 제목 가림. 휴대폰 점검 도구 `scripts/mobile-check.mjs`(84e8701) |
 | 2026-10-12 | 밤 점검(클라우드 세션). 수집 작업 checkout을 `ref: main`으로 바꿔 늦게 돈 예약 회차와 보조 회차가 겹쳐도 두 번 수집하지 않게 함 |
+| 2026-10-13 | 클라우드 세션 유지보수 정비: `scripts/cloud-setup.sh`(준비), `scripts/status.mjs`(상태 점검 한 번에), 「상태 확인」 워크플로 `health.yml`(사이트·Supabase·서울 중계 응답을 annotation으로), 수집 워크플로에 결과 요약 annotation, `mobile-check.mjs`가 Chromium·로컬 파일로도 동작. 운영자 파일은 구글 드라이브 사본 |

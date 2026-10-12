@@ -1,0 +1,42 @@
+# 상태 확인(수동 실행 전용) — 공개 사이트·Supabase·서울 중계가 응답하는지 GitHub 서버에서 확인한다. 아무것도 바꾸지 않는다.
+#  - 클라우드 세션은 셸에서 *.github.io·*.supabase.co에 닿지 않고 Actions 로그도 내려받지 못한다.
+#    그래서 결과를 annotation(::notice / ::error)으로 남기고, API로 읽는다: node scripts/status.mjs --health
+#  - 맥에서도 같은 명령으로 쓸 수 있다.
+name: 상태 확인
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: health
+  cancel-in-progress: true
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: 응답 확인
+        env:
+          SITE: https://hyotowork-create.github.io/dongyeok/
+          SB: https://xjmexzeyxkxqsgvwaupz.supabase.co
+          KEY: sb_publishable_1cyG9HPpcC4hqJZIv4wbuA_JpoS_UiQ   # config.js와 같은 공개(publishable) 키
+        run: |
+          ok=(); bad=0
+          code() { curl -s -o /dev/null -m 20 -w '%{http_code}' "$@"; }
+          check() { # 이름 기대값 실제값
+            if [ "$2" = "$3" ]; then ok+=("$1 $3"); else echo "::error title=$1::기대 $2, 실제 $3"; bad=1; fi; }
+          check "사이트" 200 "$(code "$SITE")"
+          check "config.js" 200 "$(code "${SITE}config.js")"
+          check "jobs.js" 200 "$(code "${SITE}data/jobs.js")"
+          up=$(curl -s -m 20 "${SITE}data/jobs.json" | jq -r '.updatedAt // empty')
+          if [ -n "$up" ]; then
+            age=$(( ( $(date +%s) - $(date -d "$up" +%s) ) / 60 ))
+            if [ "$age" -le 780 ]; then ok+=("공고 갱신 ${age}분 전"); else echo "::error title=공고 갱신::${age}분 전(13시간 넘음)"; bad=1; fi
+          else echo "::error title=jobs.json::읽기 실패"; bad=1; fi
+          check "인증 서버" 200 "$(code -H "apikey: $KEY" "$SB/auth/v1/health")"
+          check "DB 공개 읽기" 200 "$(code -H "apikey: $KEY" "$SB/rest/v1/posts?select=id&limit=1")"
+          # 서울 중계는 토큰 없이 부르면 401이 정상(함수가 살아 있고 권한 검사가 동작함)
+          check "서울 중계(토큰 없음)" 401 "$(code -X POST -H "apikey: $KEY" -H 'x-region: ap-northeast-2' -H 'Content-Type: application/json' --data '{}' "$SB/functions/v1/kr-relay?forceFunctionRegion=ap-northeast-2")"
+          msg=$(printf '%s · ' "${ok[@]}"); msg=${msg% · }
+          echo "::notice title=정상::$msg"
+          exit $bad

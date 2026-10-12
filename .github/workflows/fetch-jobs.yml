@@ -1,13 +1,20 @@
 # 청빙 공고 자동 수집 + 사이트 배포
 #  - 하루 3번(한국 시간 06·12·18시 7분): scraper를 돌려 data/jobs.*를 갱신·커밋한 뒤 사이트를 배포
 #  - main에 직접 올릴 때(push): 수집 없이 배포만
-#  - 수동: 저장소 → Actions → "청빙 공고 수집·배포" → Run workflow
+#  - 수동: 저장소 → Actions → "청빙 공고 수집·배포" → Run workflow (옵션 칸을 비우면 전체 수집)
+#  - 해외 접속을 막는 출처(viaKR)는 서울 리전 Supabase 함수(kr-relay)를 거쳐 요청한다.
+#    권한은 이 작업의 OIDC 토큰(id-token: write)으로 증명하므로 저장소 Secrets가 필요 없다(docs/운영가이드.md 6-3).
 # 처음 한 번: Settings → Pages → Source를 "GitHub Actions"로 바꿔 주세요(docs/운영가이드.md 5-1).
 name: 청빙 공고 수집·배포
 on:
   schedule:
     - cron: '7 21,3,9 * * *'     # UTC 21:07·03:07·09:07 = KST 06:07·12:07·18:07 (정각 혼잡 피함)
   workflow_dispatch:
+    inputs:
+      args:
+        description: '수집기 옵션(비우면 전체 수집). 예: --only=chongshin,mokwon --dry --detail=0'
+        required: false
+        default: ''
   push:
     branches: [main]
 permissions:
@@ -21,7 +28,7 @@ jobs:
   fetch:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -32,10 +39,18 @@ jobs:
       - name: 설치
         run: npm ci
         working-directory: scraper
-      - name: 파서 점검(네트워크 없이)
-        run: node scraper/test-parsers.mjs
+      - name: 파서·중계 점검(외부 요청 없이)
+        run: |
+          node scraper/test-parsers.mjs
+          node scraper/test-relay.mjs
       - name: 수집(출처별 결과가 로그에 남음)
-        run: node scraper/fetch-jobs.mjs
+        env:
+          KR_RELAY_URL: https://xjmexzeyxkxqsgvwaupz.supabase.co/functions/v1/kr-relay   # 공개값
+          KR_RELAY_APIKEY: sb_publishable_1cyG9HPpcC4hqJZIv4wbuA_JpoS_UiQ                # config.js와 같은 공개(publishable) 키
+          ARGS: ${{ inputs.args }}
+        run: |
+          if [[ ! "$ARGS" =~ ^[-a-z0-9=,\ ]*$ ]]; then echo "옵션에 허용하지 않은 글자가 있음: $ARGS"; exit 1; fi
+          node scraper/fetch-jobs.mjs $ARGS
       - name: 바뀐 게 있으면 커밋
         run: |
           git config user.name "github-actions[bot]"

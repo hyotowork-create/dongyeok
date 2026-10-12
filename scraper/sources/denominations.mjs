@@ -60,6 +60,7 @@ export default [
   }),
   {
     id: 'cjob', short: 'cj', name: '기독정보넷', group: '구인 사이트', enabled: true, pages: 1,
+    viaKR: true,      // 해외 접속 차단(403) → GitHub Actions에서는 서울 중계 함수(kr-relay)를 거침
     home: 'https://www.cjob.co.kr/bbs/board.php?bo_table=offerKG',
     async collect({ http }) {
       // 목록에는 날짜가 없어 RSS를 쓴다. 본문(_desc)에서는 교단만 읽고 나머지(연락처 등)는 버린다.

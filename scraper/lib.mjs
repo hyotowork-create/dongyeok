@@ -42,9 +42,10 @@ export function robotsAllows(groups, pathWithQuery, token = BOT_TOKEN) {
 
 /* ── HTTP ── */
 export class Http {
-  constructor({ delayMs = 3000, timeoutMs = 20000, log = console.log } = {}) {
+  constructor({ delayMs = 3000, timeoutMs = 20000, log = console.log, relay = null } = {}) {
     this.delayMs = delayMs; this.timeoutMs = timeoutMs; this.log = log;
     this.lastAt = new Map(); this.robots = new Map(); this.count = 0;
+    this.relay = relay; this.relayCount = 0;      // 서울 중계(KrRelay) — 정해 둔 호스트만 거쳐 감
   }
   async throttle(host) {
     const wait = (this.lastAt.get(host) || 0) + this.delayMs - Date.now();
@@ -55,6 +56,7 @@ export class Http {
     const u = new URL(url);
     await this.throttle(u.host);
     this.count++;
+    if (this.relay && this.relay.hosts.has(u.host)) { this.relayCount++; return this.relay.fetch(url, { method, body, headers, timeoutMs: timeoutMs || this.timeoutMs }); }
     return fetch(url, { method, body, headers: { 'User-Agent': UA, 'Accept-Language': 'ko-KR,ko;q=0.9', ...headers }, redirect: 'follow', signal: AbortSignal.timeout(timeoutMs || this.timeoutMs) });
   }
   /** RFC 9309 기준: 4xx = 규칙 없음(허용), 5xx·연결 실패 = 전부 금지, 내용이 robots 형식이 아니면 규칙 없음으로 보고 기록만 남김 */
@@ -78,7 +80,7 @@ export class Http {
     if (source.permission) return { status: 'permission' };   // 운영 기관의 허락을 받은 경우(허락 내용을 소스 파일에 기록)
     const u = new URL(url);
     const info = await this.robotsFor(u.origin);
-    if (info.status === 'unreachable') throw new RobotsError(`robots.txt에 접근할 수 없어 수집하지 않음 (${u.host})`);
+    if (info.status === 'unreachable') throw new RobotsError(`robots.txt에 접근할 수 없어 수집하지 않음 (${u.host}${info.error ? ': ' + info.error : ''})`);
     if (!robotsAllows(info.groups, u.pathname + u.search)) throw new RobotsError(`robots.txt가 수집을 금지함: ${u.pathname}`);
     return info;
   }
@@ -97,6 +99,46 @@ export class Http {
     const text = new TextDecoder(encoding).decode(buf);
     if (/웹 보안 정책에 위배되어 차단|비정상적인 접근|captcha/i.test(text.slice(0, 2000))) throw new BlockedError('사이트 보안 장치가 요청을 막음');
     return text;
+  }
+}
+
+/* ── 서울 중계(kr-relay) ──
+   GitHub Actions(미국 서버)에서 해외 접속을 막는 출처만, 서울 리전 Supabase 함수(supabase/functions/kr-relay)를 거쳐 요청한다.
+   UA·robots.txt·3초 간격은 위 Http가 그대로 지키고, 함수는 정해 둔 사이트만 중계한다.
+   호출 권한은 GitHub Actions가 발급하는 OIDC 토큰으로 증명한다(비밀키 없음). 맥에서는 쓰지 않는다(이미 한국 회선). */
+export const RELAY_AUDIENCE = 'dongyeok-kr-relay';
+export class KrRelay {
+  constructor({ url, apikey, hosts, tokenUrl, tokenAuth }) {
+    const u = new URL(url); u.searchParams.set('forceFunctionRegion', 'ap-northeast-2');
+    Object.assign(this, { url: u.href, apikey, hosts, tokenUrl, tokenAuth, token: null, exp: 0 });
+  }
+  /** GitHub Actions 안에서 KR_RELAY_URL·KR_RELAY_APIKEY가 있고 id-token 권한이 있을 때만 켠다 */
+  static fromEnv(hosts, env = process.env) {
+    const { KR_RELAY_URL: url, KR_RELAY_APIKEY: apikey, ACTIONS_ID_TOKEN_REQUEST_URL: tokenUrl, ACTIONS_ID_TOKEN_REQUEST_TOKEN: tokenAuth } = env;
+    return url && apikey && tokenUrl && tokenAuth && hosts.size ? new KrRelay({ url, apikey, hosts, tokenUrl, tokenAuth }) : null;
+  }
+  async idToken() {
+    if (this.token && Date.now() / 1000 < this.exp - 60) return this.token;   // 토큰은 몇 분짜리라 만료 1분 전에 새로 받음
+    const r = await fetch(`${this.tokenUrl}&audience=${encodeURIComponent(RELAY_AUDIENCE)}`, { headers: { Authorization: `Bearer ${this.tokenAuth}` }, signal: AbortSignal.timeout(10000) });
+    if (!r.ok) throw new Error(`GitHub OIDC 토큰을 받지 못함(HTTP ${r.status})`);
+    this.token = (await r.json()).value;
+    try { this.exp = JSON.parse(Buffer.from(this.token.split('.')[1], 'base64url').toString()).exp || 0; } catch { this.exp = 0; }
+    return this.token;
+  }
+  async fetch(url, { method = 'GET', body, headers = {}, timeoutMs = 20000 } = {}) {
+    const res = await fetch(this.url, {
+      method: 'POST',
+      headers: { apikey: this.apikey, Authorization: `Bearer ${this.apikey}`, 'x-region': 'ap-northeast-2', 'x-gh-oidc': await this.idToken(), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url, method, headers, body: body == null ? undefined : String(body), timeoutMs }),
+      signal: AbortSignal.timeout(timeoutMs + 15000)
+    });
+    const st = res.headers.get('x-upstream-status');
+    if (!st) {                                        // 함수 자체가 거절·실패(권한, 허용 목록, 사이트 접속 실패 등)
+      const why = res.headers.get('x-relay-error');
+      throw new Error(`서울 중계 실패: ${why ? decodeURIComponent(why) : `HTTP ${res.status}`}`);
+    }
+    const status = Number(st), buf = await res.arrayBuffer();
+    return new Response([204, 205, 304].includes(status) ? null : buf, { status, headers: { 'content-type': res.headers.get('x-upstream-type') || '' } });
   }
 }
 

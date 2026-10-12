@@ -31,6 +31,7 @@ export default [
   }),
   board({
     id: 'daeshin', short: 'ds', name: '대신대', home: 'https://www.daeshin.ac.kr/html/05_community/03.php',
+    viaKR: true,      // 해외 접속 차단 → GitHub Actions에서는 서울 중계 함수(kr-relay)를 거침
     listUrl: p => `https://www.daeshin.ac.kr/html/05_community/03.php?search_select=&keyword=&b_page=${p}`,
     row: 'table.board tr',
     parse: ($, r, base) => {
@@ -124,6 +125,7 @@ export default [
   }),
   board({
     id: 'mokwon', short: 'mw', name: '목원대', home: 'https://www.mokwon.ac.kr/theo/html/sub04/0404.html',
+    viaKR: true,      // 해외 접속 차단 → GitHub Actions에서는 서울 중계 함수(kr-relay)를 거침
     listUrl: p => `https://www.mokwon.ac.kr/theo/html/sub04/0404.html?mode=L&GotoPage=${p}`,
     row: 'table.board_list tbody tr:not(.bbs_notice)',
     parse: ($, r, base) => {

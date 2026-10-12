@@ -9,6 +9,7 @@ export default {
   id: 'chongshin', short: 'cs', name: '총신대', group: '신학교',
   home: 'https://www.csu.ac.kr/?m1=page&menu_id=1110',
   enabled: true,
+  viaKR: true,       // 해외(GitHub) 접속을 막음 → GitHub Actions에서는 서울 중계 함수(kr-relay)를 거침
   pages: 3,          // 1쪽 = 50건(약 4~5시간 분량). 하루 3번 × 3쪽 = 충분, 서버 부담을 줄이려 6→3
   async collect({ http }) {
     const out = [];

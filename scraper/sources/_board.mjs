@@ -30,7 +30,7 @@ export function board(c) {
   return {
     id: c.id, short: c.short, name: c.name, home: c.home, group: c.group || '신학교',
     enabled: c.enabled ?? true, pages: c.pages ?? 1, encoding: c.encoding || 'utf-8', noDetail: !!c.noDetail,
-    permission: c.permission || '', disabledReason: c.disabledReason,
+    permission: c.permission || '', disabledReason: c.disabledReason, viaKR: !!c.viaKR,
     async collect({ http }) {
       const out = [];
       for (let page = 1; page <= this.pages; page++) {

@@ -12,7 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
-import { Http, BlockedError, RobotsError, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
+import { Http, KrRelay, BlockedError, RobotsError, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import puts from './sources/puts.mjs';
 import mtu from './sources/mtu.mjs';
@@ -38,8 +38,9 @@ if (!process.env.NODE_EXTRA_CA_CERTS && existsSync(EXTRA_CA)) {
 }
 const args = Object.fromEntries(process.argv.slice(2).map(a => { const [k, v] = a.replace(/^--/, '').split('='); return [k, v ?? true]; }));
 
-// --only=auto: 직전 GitHub 수집에서 실패했거나 맥 보충으로 채운 출처 + 늘 해외 차단인 출처
-const ALWAYS_LOCAL = ['daeshin', 'kwangshin', 'cjob'];
+// --only=auto: 직전 GitHub 수집에서 실패했거나 맥 보충으로 채운 출처 + 서울 중계로도 안 되는 출처
+// (대신대·기독정보넷·총신대·목원대는 2026-10-12부터 GitHub가 서울 중계로 직접 모음. 중계가 실패하면 위 조건으로 다시 맥이 맡음)
+const ALWAYS_LOCAL = ['kwangshin'];   // 광신대: 학교 서버의 옛 TLS 방식을 서울 함수(Deno)가 지원하지 않음 → 맥만 가능
 function resolveOnly() {
   if (!args.only) return null;
   if (args.only !== 'auto') return new Set(String(args.only).split(',').map(x => x.trim()).filter(Boolean));
@@ -115,7 +116,9 @@ function toItem(src, raw, today) {
 
 async function main() {
   const today = kstToday();
-  const http = new Http({ delayMs: 3000 });
+  // 해외 접속을 막는 출처(viaKR)는 GitHub Actions에서 서울 중계 함수를 거침. 맥·로컬에서는 relay가 null(직접 접속)
+  const http = new Http({ delayMs: 3000, relay: args.out === 'local' ? null : KrRelay.fromEnv(new Set(SOURCES.filter(s => s.viaKR).map(s => new URL(s.home).host))) });
+  if (http.relay) console.log(`서울 중계 사용: ${[...http.relay.hosts].join(', ')}`);
   let prev = { items: [], sources: [] };
   try { prev = JSON.parse(await readFile(OUT_JSON, 'utf8')); } catch { /* 첫 실행 */ }
 
@@ -132,6 +135,7 @@ async function main() {
       const robots = http.robots.get(new URL(src.home).origin);
       if (robots && robots.status === 'unreadable') st.note = 'robots.txt 내용 확인 불가(규칙 없음으로 처리) — 기관에 허락 받기 권장';
       if (src.permission) st.note = '허락: ' + src.permission;
+      if (src.viaKR && http.relay) st.note = '서울 중계 서버 경유(해외 접속 차단 출처)';
       console.log(`✓ ${src.name}: ${items.length}건`);
     } catch (e) {
       const kind = e instanceof RobotsError ? 'robots' : e instanceof BlockedError ? 'blocked' : 'error';
@@ -203,7 +207,7 @@ async function main() {
   let links = [];
   try { links = (JSON.parse(await readFile(join(ROOT, 'scraper', 'link-only.json'), 'utf8')).links || []).filter(l => /^https?:\/\//.test(l.url)); } catch { /* 없으면 생략 */ }
   const data = { updatedAt: new Date().toISOString(), sources: statuses.map(({ checkedAt, ...s }) => s), links, items };
-  console.log(`합계 ${items.length}건 (이번 수집 ${fresh.length}건, 요청 ${http.count}회)`);
+  console.log(`합계 ${items.length}건 (이번 수집 ${fresh.length}건, 요청 ${http.count}회${http.relay ? `, 그중 서울 중계 ${http.relayCount}회` : ''})`);
   if (args.dry) { console.log(JSON.stringify(items.slice(0, 5), null, 2)); return; }
   // 켜진 출처가 모두 실패하면 파일을 건드리지 않고 실패로 끝냄 → GitHub Actions가 저장소 주인에게 실패 메일을 보냄
   const tried = statuses.filter(s => s.status !== 'off' && (!ONLY || ONLY.has(s.id)));

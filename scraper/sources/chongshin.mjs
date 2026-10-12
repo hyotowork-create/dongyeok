@@ -13,11 +13,14 @@ export default {
   async collect({ http }) {
     const out = [];
     for (let page = 1; page <= this.pages; page++) {
-      const body = new URLSearchParams({ boardIdList: '178', isAvailable: '1', isDeleted: '0', page: String(page), count: '50', includeBody: '1', orderByCode: '4', parentBoardContentId: '-1', includeProperties: '1' });
-      const text = await http.request('https://www.csu.ac.kr/api/user/board/getBoardContentSummaryList', {
-        source: this, method: 'POST', body,
+      const ask = (withBody, count) => http.request('https://www.csu.ac.kr/api/user/board/getBoardContentSummaryList', {
+        source: this, method: 'POST', timeoutMs: withBody ? 60000 : 20000,
+        body: new URLSearchParams({ boardIdList: '178', isAvailable: '1', isDeleted: '0', page: String(page), count: String(count), includeBody: withBody ? '1' : '0', orderByCode: '4', parentBoardContentId: '-1', includeProperties: '1' }),
         headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', Referer: this.home, 'X-Requested-With': 'XMLHttpRequest' }
       });
+      // 본문까지 받으면 1쪽이 약 0.8MB라 해외 서버에서 끊길 수 있음 → 실패하면 본문 없이 목록만(사례비는 다음 기회에)
+      let text;
+      try { text = await ask(true, 50); } catch (e) { if (e.name === 'BlockedError' || e.name === 'RobotsError') throw e; text = await ask(false, 50); }
       const json = JSON.parse(text);
       const list = (json.body || json).list || [];
       for (const it of list) {

@@ -51,11 +51,11 @@ export class Http {
     if (wait > 0) await sleep(wait);
     this.lastAt.set(host, Date.now());
   }
-  async fetchRaw(url, { method = 'GET', body, headers = {} } = {}) {
+  async fetchRaw(url, { method = 'GET', body, headers = {}, timeoutMs } = {}) {
     const u = new URL(url);
     await this.throttle(u.host);
     this.count++;
-    return fetch(url, { method, body, headers: { 'User-Agent': UA, 'Accept-Language': 'ko-KR,ko;q=0.9', ...headers }, redirect: 'follow', signal: AbortSignal.timeout(this.timeoutMs) });
+    return fetch(url, { method, body, headers: { 'User-Agent': UA, 'Accept-Language': 'ko-KR,ko;q=0.9', ...headers }, redirect: 'follow', signal: AbortSignal.timeout(timeoutMs || this.timeoutMs) });
   }
   /** RFC 9309 기준: 4xx = 규칙 없음(허용), 5xx·연결 실패 = 전부 금지, 내용이 robots 형식이 아니면 규칙 없음으로 보고 기록만 남김 */
   async robotsFor(origin) {
@@ -83,9 +83,9 @@ export class Http {
     return info;
   }
   /** 텍스트로 받기. encoding: 'utf-8' | 'euc-kr' */
-  async request(url, { source, method = 'GET', body, headers, encoding = 'utf-8' } = {}) {
+  async request(url, { source, method = 'GET', body, headers, encoding = 'utf-8', timeoutMs } = {}) {
     await this.checkRobots(url, source);
-    const res = await this.fetchRaw(url, { method, body, headers });
+    const res = await this.fetchRaw(url, { method, body, headers, timeoutMs });
     if (res.status === 403 || res.status === 429) throw new BlockedError(`HTTP ${res.status} — 사이트가 요청을 거절함`);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = await res.arrayBuffer();

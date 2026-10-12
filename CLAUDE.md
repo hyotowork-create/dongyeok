@@ -62,7 +62,7 @@
 | Actions 로그 | **안 됨**(로그 저장소 주소가 막힘) | 워크플로가 남기는 annotation(「수집 결과」「건너뜀」「정상」)을 `status.mjs`가 API로 읽음. 더 자세한 로그는 운영자가 GitHub 화면에서 보거나 맥 세션에서 `gh run view --log` |
 | 공개 사이트·Supabase·서울 중계 응답 | 셸에서 막힘 | `status.mjs --health`(「상태 확인」 워크플로가 GitHub 서버에서 확인). 사이트 내용은 WebFetch |
 | 휴대폰 화면 점검 | 됨(이 폴더의 파일로) | `node scripts/mobile-check.mjs` — 공개 사이트에 못 닿으면 자동으로 로컬 `index.html`. DB에서 오는 목록은 비어 보임 |
-| 수집기 실제 실행 | **하지 않음** | 외부 사이트가 막혀 있고 해외 서버. 시험은 `gh workflow run fetch-jobs.yml -f args="--only=… --dry --detail=0"` |
+| 수집기 실제 실행 | **하지 않음** | 외부 사이트가 막혀 있고 해외 서버. 시험은 `gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="--only=… --dry --detail=0"`(모르는 옵션이면 수집기가 멈춤) |
 | Supabase 대시보드(함수 재배포·SQL·이용 현황·인증 설정) | **안 됨** | 맥/데스크톱 앱 세션의 내장 브라우저(운영자 로그인)에서 |
 | 맥 launchd·광신대 보충 | **안 됨** | 맥 세션에서. 클라우드에서는 `data/jobs-local.json` 날짜로만 간접 확인 |
 | 운영자 파일(드라이브) | 읽기 됨 | 드라이브 도구. 고친 내용은 운영자 확인 후 반영 |
@@ -238,8 +238,8 @@ cd supabase/test && npm test                           # DB 스키마 점검
 node scripts/status.mjs --health                       # 상태 점검 한 번에(맥·클라우드 공용, 읽기만)
 bash scripts/cloud-setup.sh                            # 클라우드 세션 시작할 때(맥에서는 필요 없음)
 gh run list -R hyotowork-create/dongyeok --limit 5     # 자동 수집·배포 결과
-gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok   # 수동 전체 수집(하루 1~2회 이내로)
-gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chongshin,mokwon --dry --detail=0"   # GitHub에서 일부만 시험(저장 안 함)
+gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main   # 수동 전체 수집(하루 1~2회 이내로, 부르는 즉시 실제로 돎)
+gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="--only=chongshin,mokwon --dry --detail=0"   # GitHub에서 일부만 시험(저장 안 함)
 ```
 사이트를 로컬에서 미리 보는 방법: 운영자 맥의 미리보기 서버는 `~/Downloads`를 읽지 못합니다(macOS 폴더 보호). 그래서 사이트 파일을 임시 폴더에 복사해서 띄웁니다. 자세한 방법은 `CLAUDE.local.md`에 있습니다.
 

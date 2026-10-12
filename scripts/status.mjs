@@ -38,7 +38,7 @@ if (!sched.length) say(false, '예약 실행이 최근 30회 안에 없음 — �
 else say(mins(sched[0].createdAt) < 13 * 60, `마지막 예약 실행 ${kst(sched[0].createdAt)}(${ago(sched[0].createdAt)}) ${sched[0].conclusion || sched[0].status} · 최근 30회 중 예약 ${sched.length}회`);
 const failed = runs.filter(r => r.conclusion && !['success', 'skipped', 'cancelled'].includes(r.conclusion));
 if (failed.length) say(false, `실패한 실행 ${failed.length}회: ${failed.slice(0, 3).map(r => `${kst(r.createdAt)} ${r.event} #${r.databaseId}`).join(', ')}`);
-const lastFetch = runs.find(r => r.event !== 'push' && r.status === 'completed');
+const lastFetch = runs.find(r => r.event !== 'push' && r.status === 'completed' && r.conclusion !== 'cancelled');
 if (lastFetch) {
   const notes = runNotes(lastFetch.databaseId).filter(a => /수집 결과|건너뜀/.test(a.title || ''));
   if (notes.length) for (const a of notes) say(null, `${kst(lastFetch.createdAt)} ${a.title}: ${a.message}`);

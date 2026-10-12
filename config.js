@@ -9,7 +9,7 @@ window.SITE_CONFIG = {
   name: '동역',
   tagline: '부교역자를 위한 청빙 정보·교회 평가·예배 도구·익명 나눔 공간',
   url: 'https://hyotowork-create.github.io/dongyeok/',  // 공개 주소(도메인 연결 후 교체)
-  contactEmail: '',                                     // 운영자 연락처(신고·임시조치 접수). 비워 두면 안내만 표시
+  contactEmail: 'seraphim7997@gmail.com',              // 운영자 연락처(신고·임시조치 접수). 비워 두면 안내만 표시
 
   // Supabase 연결값. 둘 다 비워 두면 "체험 모드"(이 브라우저에만 저장)로 동작합니다.
   supabaseUrl: 'https://xjmexzeyxkxqsgvwaupz.supabase.co',          // 서울(ap-northeast-2), 조직 dongyeok(Free)

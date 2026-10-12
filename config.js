@@ -16,7 +16,7 @@ window.SITE_CONFIG = {
   supabaseAnonKey: 'sb_publishable_1cyG9HPpcC4hqJZIv4wbuA_JpoS_UiQ',  // 공개용(publishable) 키 — 보안은 RLS가 지킴
 
   // 방문 통계(GoatCounter 코드). 비워 두면 통계 스크립트를 넣지 않습니다.
-  goatcounter: '',
+  goatcounter: 'dongyeok',                               // https://dongyeok.goatcounter.com (2026-10-12 연결, 쿠키 없음)
 
   // 예배 도구 목록 — 설치 파일은 GitHub Releases에 올리고 그 주소를 넣습니다(저장소에 직접 넣지 않음).
   tools: [

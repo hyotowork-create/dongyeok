@@ -3,7 +3,7 @@
 // 사이트 구조가 바뀌어 수집이 0건이 되면, 표본을 새로 저장하고 이 점검부터 맞춘다.
 import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
-import { parseRobots, robotsAllows, normRegion, extractChurch, extractPositions, cleanTitle, titleKey, parseDate, areaOf } from './lib.mjs';
+import { classifyPositions, parseSalary, parseRobots, robotsAllows, normRegion, extractChurch, extractPositions, cleanTitle, titleKey, parseDate, areaOf } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import mtu from './sources/mtu.mjs';
 import godpeople from './sources/godpeople.mjs';
@@ -109,5 +109,29 @@ await t('모든 출처 정의가 올바름', () => {
     assert.ok(s.id && s.short && s.name && /^https?:\/\//.test(s.home) && typeof s.collect === 'function', s.id);
     assert.ok(!ids.has(s.id) && !shorts.has(s.short), '중복 id/short: ' + s.id); ids.add(s.id); shorts.add(s.short);
   }
+});
+await t('직책 세분화', () => {
+  const c = x => classifyPositions(x);
+  assert.deepEqual(c('영광교회에서 부목사님을 청빙합니다.'), ['전임 부목사']);
+  assert.deepEqual(c('도화교회 담임목사를 청빙합니다'), ['담임목사']);
+  assert.ok(!c('담임목사님과 함께할 부교역자(목사) 모십니다').includes('담임목사'));
+  assert.deepEqual(c('청년회(준전임) 사역자 모집'), ['준전임 전도사']);
+  assert.ok(c('유치부, 아동2부 교역자(교육전도사, 교육목사) 청빙').includes('파트 교육전도사'));
+  assert.ok(c('유치부, 아동2부 교역자(교육전도사, 교육목사) 청빙').includes('파트 목사'));
+  assert.deepEqual(c('전임사역자를 모십니다.'), ['전임 전도사']);
+  assert.deepEqual(c('주일 오르간 반주자 및 솔리스트 모집'), ['반주자', '솔리스트']);
+  assert.deepEqual(c('방송실 간사 및 관리집사 모집'), ['방송·미디어 간사', '사찰·관리집사']);
+  assert.deepEqual(c('사무간사 채용'), ['사무간사']);
+});
+await t('사례비 읽기 — 수당 제외·연봉 환산·전화번호 무시', () => {
+  assert.deepEqual(parseSalary('사례 및 복지 ① 전임: 270만원 + @ (주거지원비 월 30만원, 점심식사비 월 30만원)').min, 270);
+  const r = parseSalary('사례: 재학생 - 100만원 / 졸업생 - 120만원');
+  assert.equal(r.min, 100); assert.equal(r.max, 120); assert.equal(r.roles.length, 2);
+  assert.equal(parseSalary('연봉 3,600만원').min, 300);
+  assert.equal(parseSalary('사례비: 1,500,000원 (문의 010-1234-5678)').max, 150);
+  assert.equal(parseSalary('3. 사례 월 150 X 14개월(4대보험 적용)').min, 150);
+  assert.deepEqual(parseSalary('사례 및 예우 교회 내규에 따름'), { note: '내규·협의' });
+  assert.equal(parseSalary('80', { dedicated: true }).min, 80);
+  assert.equal(parseSalary('제출서류 2부, 모집 3명, 2027년'), null);
 });
 console.log(`\n${n}개 점검 통과`);

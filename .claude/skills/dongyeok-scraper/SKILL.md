@@ -15,6 +15,10 @@ description: 동역 사이트의 청빙 공고 수집기(scraper/)를 고치거�
 - `scraper/fixtures/` + `scraper/test-parsers.mjs` — 네트워크 없이 파서를 확인하는 표본과 점검.
 - `.github/workflows/fetch-jobs.yml` — 하루 3번 수집·커밋·배포. 예비: `scripts/mac-fetch-jobs.sh`(맥 launchd).
 
+## 직책·사례비
+- 분류 규칙 `classifyPositions`, 금액 읽기 `parseSalary`(lib.mjs). 규칙을 고치면 `test-parsers.mjs`에 사례를 추가하고 `node scraper/fetch-jobs.mjs --offline`으로 요청 없이 다시 분류한다.
+- 본문은 금액·직책 힌트만 뽑고 버린다(`fillPay`). 본문 문장·연락처를 저장하는 코드를 넣지 않는다.
+
 ## 절대 규칙
 1. **robots.txt가 막은 곳, 로그인이 필요한 곳은 수집하지 않는다.** 기관의 서면 허락이 있으면 `permission`에 날짜·부서·허락 내용을 적고 켠다. 브라우저인 척 UA를 바꾸거나 프록시로 차단을 피하지 않는다.
 2. **제목·날짜·링크·교회명·지역·직책만** 저장한다. 연락처·이메일·담임목사 이름·작성자 정보·IP는 `collect()` 안에서 바로 버린다.

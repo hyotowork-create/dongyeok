@@ -1,6 +1,7 @@
 // 신학교 청빙·사역자 게시판(2026-10-07 조사: robots.txt 허용 + 로그인 없이 공개된 곳만)
 // robots.txt가 막은 학교는 여기 넣지 않고 scraper/link-only.json에 링크만 둔다.
 import { board, linkText, dateText } from './_board.mjs';
+import { parseSalary } from '../lib.mjs';
 
 const abs = (href, base) => new URL(String(href || '').replace(/:443(?=\/)/, ''), base).href;
 // "[지역] 교회명" 꼴 제목에서 교회명
@@ -89,7 +90,7 @@ export default [
       if (!a.length) return null;
       const form = String(a.attr('title') || '').replace(/&nbsp;/g, ' ');
       const pick = label => { const m = form.match(new RegExp(label + '\\s*:\\s*([^*]+)')); return m ? m[1].trim() : ''; };
-      return { title: linkText($, a), url: abs(a.attr('href'), base), church: pick('교\\s*회\\s*명'), /* 작성자 칸은 개인 이름일 수 있어 쓰지 않음 */ location: pick('교회\\s*주소'), dept: pick('모집\\s*부서'), denomination: pick('교\\s*단\\s*명'), date: r.find('td.rdate').text().trim() };
+      return { title: linkText($, a), url: abs(a.attr('href'), base), church: pick('교\\s*회\\s*명'), /* 작성자 칸은 개인 이름일 수 있어 쓰지 않음 */ location: pick('교회\\s*주소'), dept: pick('모집\\s*부서'), denomination: pick('교\\s*단\\s*명'), pay: parseSalary(pick('사\\s*례\\s*비'), { dedicated: true }), payChecked: !!pick('사\\s*례\\s*비'), date: r.find('td.rdate').text().trim() };
     }
   }),
   board({

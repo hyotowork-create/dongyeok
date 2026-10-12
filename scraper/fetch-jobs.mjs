@@ -11,7 +11,8 @@ import { existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { Http, BlockedError, RobotsError, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
+import * as cheerio from 'cheerio';
+import { Http, BlockedError, RobotsError, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import puts from './sources/puts.mjs';
 import mtu from './sources/mtu.mjs';
@@ -39,6 +40,41 @@ const args = Object.fromEntries(process.argv.slice(2).map(a => { const [k, v] = 
 
 const ONLY = args.only ? new Set(String(args.only).split(',').map(x => x.trim()).filter(Boolean)) : null;
 
+// 새 공고의 본문을 한 번만 읽어 사례비 숫자만 뽑는다(본문·연락처는 저장하지 않음). 1회 실행 상한을 둔다.
+// 본문 앞부분(모집 부서·자격)에서 직책 힌트 — 담임목사는 본문 언급만으로 붙이지 않음(교회 소개에 자주 나옴)
+const bodyHint = text => { const t = String(text || ''); const i = Math.max(0, t.search(/모집|청빙|초빙|부서|자격|사역\s*내용/)); return classifyPositions(t.slice(i, i + 1200)).filter(p => CLERGY.includes(p)).slice(0, 4); };   // 본문에서는 교역자 직책만(반주·방송 등은 제목·부서에서만)
+const DETAIL_MAX = args.detail != null ? Number(args.detail) : 150, DETAIL_PER_SOURCE = 20, DETAIL_DAYS = 45;
+async function fillPay(http, items, okSources) {
+  const bySrc = new Map(SOURCES.map(s => [s.id, s]));
+  const since = new Date(Date.now() - DETAIL_DAYS * 86400e3).toISOString().slice(0, 10);
+  const queues = new Map();
+  for (const it of [...items].sort((a, b) => b.date.localeCompare(a.date))) {
+    const src = bySrc.get(it.source);
+    const unknownPos = !(it.positions || []).length || ((it.positions || []).length === 1 && it.positions[0] === '교역자(직책 미상)');
+    const needHint = it.payChecked && unknownPos && it.posHint === undefined;   // 본문은 읽었지만 직책 힌트를 아직 안 뽑은 공고(한 번만)
+    if ((it.payChecked && !needHint) || !src || src.noDetail || !okSources.has(src.id) || it.date < since || !/^https?:/.test(it.url)) continue;
+    if (!queues.has(src.id)) queues.set(src.id, []);
+    if (queues.get(src.id).length < DETAIL_PER_SOURCE) queues.get(src.id).push(it);
+  }
+  let done = 0, found = 0; const fails = new Map();
+  while (done < DETAIL_MAX && [...queues.values()].some(q => q.length)) {
+    for (const [sid, q] of queues) {                    // 출처를 돌아가며 하나씩(같은 사이트 연속 요청 줄이기)
+      if (!q.length || done >= DETAIL_MAX) continue;
+      if ((fails.get(sid) || 0) >= 3) { q.length = 0; continue; }
+      const it = q.shift();
+      try {
+        const html = await http.request(it.url, { source: bySrc.get(sid), encoding: 'auto' });
+        const $ = cheerio.load(html); $('script, style, noscript, header, footer, nav').remove();
+        const text = ($('body').text() || $.root().text()).replace(/\s+/g, ' ');
+        it.pay = parseSalary(text); it.payChecked = true; done++;
+        it.posHint = bodyHint(text);
+        if (it.pay && it.pay.min) found++;
+      } catch (e) { fails.set(sid, (fails.get(sid) || 0) + 1); if (e instanceof RobotsError || e instanceof BlockedError) fails.set(sid, 9); }
+    }
+  }
+  if (done) console.log(`사례비: 본문 ${done}건 확인, 금액 ${found}건`);
+}
+
 function toItem(src, raw, today) {
   const title = cleanTitle(raw.title);
   if (!title) return null;
@@ -54,7 +90,12 @@ function toItem(src, raw, today) {
     church: church || null,
     region: region || null,
     area: raw.location ? areaOf(raw.location) : null,
-    positions: extractPositions([title, raw.dept, ...(raw.tags || [])].filter(Boolean).join(' ')),
+    positions: classifyPositions(title, raw.dept, (raw.tags || []).join(' ')),
+    dept: raw.dept ? String(raw.dept).replace(/\s+/g, ' ').trim().slice(0, 40) : null,
+    tags: (raw.tags || []).map(x => String(x).trim().slice(0, 12)).filter(Boolean).slice(0, 6),
+    pay: raw.pay || null,
+    payChecked: !!raw.payChecked,
+    posHint: raw.posHint && raw.posHint.length ? raw.posHint : undefined,
     denomination: raw.denomination ? String(raw.denomination).trim().slice(0, 30) : null,
     date,
     deadline: raw.deadline ? (/^\d/.test(raw.deadline) ? parseDate(raw.deadline, today) : String(raw.deadline).slice(0, 20)) : null,
@@ -72,7 +113,7 @@ async function main() {
 
   const fresh = []; const statuses = [];
   for (const src of SOURCES) {
-    if (ONLY && !ONLY.has(src.id)) { const old = (prev.sources || []).find(s => s.id === src.id); if (old) statuses.push(old); continue; }
+    if (args.offline || (ONLY && !ONLY.has(src.id))) { const old = (prev.sources || []).find(s => s.id === src.id); if (old) statuses.push(old); continue; }
     const st = { id: src.id, name: src.name, group: src.group || '신학교', home: src.home, checkedAt: new Date().toISOString() };
     if (!src.enabled) { Object.assign(st, { status: 'off', note: src.disabledReason || '꺼짐' }); statuses.push(st); console.log(`- ${src.name}: 꺼짐 (${st.note})`); continue; }
     try {
@@ -95,7 +136,10 @@ async function main() {
   if (args.out === 'local') {
     const ok = statuses.filter(s => s.status === 'ok' && (!ONLY || ONLY.has(s.id)));
     const okIds = new Set(ok.map(s => s.id));
-    const local = { updatedAt: new Date().toISOString(), sources: ok.map(({ checkedAt, ...s }) => ({ ...s, note: '맥에서 보충 수집' })), items: fresh.filter(it => okIds.has(it.source)) };
+    let prevLocal = []; try { prevLocal = JSON.parse(await readFile(OUT_LOCAL, 'utf8')).items || []; } catch { }
+    const localItems = fresh.filter(it => okIds.has(it.source)).map(it => { const o = prevLocal.find(x => x.id === it.id); return !it.payChecked && o && o.payChecked ? { ...it, pay: o.pay, payChecked: true } : it; });
+    await fillPay(http, localItems, okIds);
+    const local = { updatedAt: new Date().toISOString(), sources: ok.map(({ checkedAt, ...s }) => ({ ...s, note: '맥에서 보충 수집' })), items: localItems };
     console.log(`맥 보충 수집: ${local.items.length}건 (${ok.map(s => s.name).join(', ') || '없음'})`);
     if (!args.dry) { await mkdir(dirname(OUT_LOCAL), { recursive: true }); await writeFile(OUT_LOCAL, JSON.stringify(local, null, 1) + '\n'); console.log('저장: data/jobs-local.json'); }
     return;
@@ -130,7 +174,8 @@ async function main() {
     const old = byId.get(it.id);
     if (seenNow.has(it.id)) { if (it.date > byId.get(it.id).date) byId.set(it.id, { ...it, firstSeen: byId.get(it.id).firstSeen }); continue; }
     seenNow.add(it.id);
-    byId.set(it.id, { ...it, firstSeen: old ? old.firstSeen : new Date().toISOString(), date: old && old.date > it.date ? old.date : it.date });
+    const keepPay = !it.payChecked && old && old.payChecked ? { pay: old.pay, payChecked: true, posHint: old.posHint } : {};   // 본문에서 읽어 둔 사례비는 유지
+    byId.set(it.id, { ...it, ...keepPay, firstSeen: old ? old.firstSeen : new Date().toISOString(), date: old && old.date > it.date ? old.date : it.date });
   }
   const cutoff = new Date(Date.now() - KEEP_DAYS * 86400e3).toISOString().slice(0, 10);
   const enabledIds = new Set(SOURCES.filter(s => s.enabled).map(s => s.id));
@@ -139,6 +184,13 @@ async function main() {
     .sort((a, b) => b.date.localeCompare(a.date) || String(b.firstSeen).localeCompare(String(a.firstSeen)))
     .slice(0, MAX_ITEMS);
 
+  const okNow = new Set(statuses.filter(s => s.status === 'ok' && !/맥/.test(s.note || '')).map(s => s.id));
+  if (DETAIL_MAX > 0 && !args.dry && !args.offline) await fillPay(http, items, okNow);
+  for (const it of items) {   // 분류 규칙이 바뀌면 예전 공고도 다시 분류. 제목으로 모르면 본문 힌트 사용
+    const p = classifyPositions(it.title, it.dept, (it.tags || []).join(' '));
+    const hint = (it.posHint || []).filter(x => CLERGY.includes(x));
+    it.positions = (!p.length || (p.length === 1 && p[0] === '교역자(직책 미상)')) && hint.length ? hint : p;
+  }
   let links = [];
   try { links = (JSON.parse(await readFile(join(ROOT, 'scraper', 'link-only.json'), 'utf8')).links || []).filter(l => /^https?:\/\//.test(l.url)); } catch { /* 없으면 생략 */ }
   const data = { updatedAt: new Date().toISOString(), sources: statuses.map(({ checkedAt, ...s }) => s), links, items };
@@ -146,7 +198,7 @@ async function main() {
   if (args.dry) { console.log(JSON.stringify(items.slice(0, 5), null, 2)); return; }
   // 켜진 출처가 모두 실패하면 파일을 건드리지 않고 실패로 끝냄 → GitHub Actions가 저장소 주인에게 실패 메일을 보냄
   const tried = statuses.filter(s => s.status !== 'off' && (!ONLY || ONLY.has(s.id)));
-  if (tried.length && tried.every(s => s.status !== 'ok')) { console.error('모든 출처 수집 실패 — 저장하지 않음'); process.exitCode = 1; return; }
+  if (!args.offline && tried.length && tried.every(s => s.status !== 'ok')) { console.error('모든 출처 수집 실패 — 저장하지 않음'); process.exitCode = 1; return; }
   await mkdir(dirname(OUT_JSON), { recursive: true });
   await writeFile(OUT_JSON, JSON.stringify(data, null, 1) + '\n');
   // file://로 index.html을 바로 열어도 읽히도록 스크립트 형태로도 저장

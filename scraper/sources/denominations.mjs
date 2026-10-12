@@ -3,7 +3,7 @@
 // 노회·연회 사이트는 대부분 수집 금지이고 글이 거의 없어 넣지 않는다(공고는 총회 게시판 제목에 노회명과 함께 올라옴).
 import * as cheerio from 'cheerio';
 import { board, linkText, dateText } from './_board.mjs';
-import { normRegion } from '../lib.mjs';
+import { normRegion, parseSalary } from '../lib.mjs';
 
 const abs = (href, base) => new URL(String(href || '').replace(/:443(?=\/)/, ''), base).href;
 const PASTOR_WORDS = /청빙|초빙|전도사|목사|교역자|사역자|강도사|모십니다/;
@@ -65,12 +65,12 @@ export default [
       // 목록에는 날짜가 없어 RSS를 쓴다. 본문(_desc)에서는 교단만 읽고 나머지(연락처 등)는 버린다.
       return (await readRss(http, this, 'https://www.cjob.co.kr/bbs/rss.php?bo_table=offerKG')).map(({ _desc, ...it }) => {
         const m = String(_desc || '').match(/소속\s*교단\s*:\s*(?:<br\s*\/?>)?\s*([^<\n]{1,30})/);
-        return { ...it, denomination: m ? m[1].trim() : null };
+        return { ...it, denomination: m ? m[1].trim() : null, pay: parseSalary(String(_desc || '').replace(/<br\s*\/?>/g, ' ')), payChecked: true };
       });
     }
   },
   board({
-    id: 'pckworld', short: 'pw', name: '한국기독공보', group: '기독교 언론', home: 'https://www.pckworld.com/adsearch/',
+    id: 'pckworld', short: 'pw', name: '한국기독공보', group: '기독교 언론', noDetail: true, home: 'https://www.pckworld.com/adsearch/',
     listUrl: p => `https://www.pckworld.com/adsearch/?page=${p}`,
     row: 'ul.grid li.grid-item', filter: r => PASTOR_WORDS.test(r.title),
     parse: ($, r) => {
@@ -91,7 +91,7 @@ export default [
     }
   },
   board({
-    id: 'cdaily', short: 'cd', name: '기독일보 크리스천잡스', group: '기독교 언론', home: 'https://bbs.kr.christianitydaily.com/?bo_table=minister',
+    id: 'cdaily', short: 'cd', name: '기독일보 크리스천잡스', group: '기독교 언론', noDetail: true, home: 'https://bbs.kr.christianitydaily.com/?bo_table=minister',
     listUrl: p => `https://bbs.kr.christianitydaily.com/?bo_table=minister&page=${p}`,
     row: 'tbody.hover > tr:not(.notice)',
     parse: ($, r) => {

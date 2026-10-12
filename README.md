@@ -7,7 +7,7 @@
 - **대나무숲**: 익명 게시판입니다. 익명 이름은 글마다 새로 정해집니다.
 - **자료실**: 설교·신학·교육 자료를 나눕니다.
 
-KSA 홈페이지와 같은 방식으로 만들었습니다. 빌드 없는 단일 `index.html` SPA를 GitHub Pages에 올리고, 글쓰기·로그인만 Supabase에 맡깁니다.
+KSA 홈페이지와 같은 방식으로 만들었습니다. 빌드 없는 단일 `index.html` SPA를 GitHub Pages에 올리고, 글쓰기만 Supabase에 맡깁니다. 이용자는 로그인 없이 익명으로 쓰고, 개인정보는 받지 않습니다.
 
 ```
 index.html                 사이트 전체(화면 21개)
@@ -16,6 +16,7 @@ data/jobs.json, jobs.js    수집된 청빙 공고(자동 생성)
 scraper/                   청빙 공고 수집기(Node 20)
 supabase/schema.sql        DB·권한·트리거(SQL Editor에 붙여 넣기)
 supabase/test/             schema.sql 자동 점검(PGlite)
+supabase/functions/kr-relay/  서울 리전 중계 함수(해외 접속을 막는 출처용)
 .github/workflows/         하루 3번 자동 수집
 docs/운영가이드.md          설정·운영·법적 유의사항 전체 안내
 CLAUDE.md                  인수인계·유지보수 안내(현재 상태·알려진 문제·절차)

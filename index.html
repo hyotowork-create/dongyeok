@@ -1150,10 +1150,12 @@ const LiveAPI = {
   },
   async init() {
     await loadScript('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js');
-    this.sb = window.supabase.createClient(C.supabaseUrl, C.supabaseAnonKey, { auth: { flowType: 'pkce', persistSession: true, detectSessionInUrl: true } });
+    // implicit: 메일 링크를 요청한 브라우저와 다른 곳(휴대폰·카카오톡 안 브라우저)에서 열어도 그곳에서 로그인됨
+    this.sb = window.supabase.createClient(C.supabaseUrl, C.supabaseAnonKey, { auth: { flowType: 'implicit', persistSession: true, detectSessionInUrl: true } });
     const { data } = await this.sb.auth.getSession();
     this.user = data.session ? data.session.user : null;
-    if (/[?&]code=/.test(location.search)) history.replaceState(null, '', location.pathname + location.hash);
+    // 로그인 토큰이 주소창에 남지 않게 지움(#access_token=… / ?code=…)
+    if (/access_token=|refresh_token=|error_description=/.test(location.hash) || /[?&]code=/.test(location.search)) history.replaceState(null, '', location.pathname);
     this.sb.auth.onAuthStateChange((_e, session) => {
       const was = this.user && this.user.id; this.user = session ? session.user : null;
       if ((this.user && this.user.id) !== was) { this._admin = null; refreshAuth(); }
@@ -1893,7 +1895,7 @@ HOOKS['pg-login'] = ({ next }) => {
   box.innerHTML = `<form id="login-form"><div class="field"><label class="req" for="lg-email">이메일</label><input type="email" id="lg-email" required autocomplete="email" placeholder="you@example.com"></div>
       <button class="btn btn-main" style="width:100%">로그인 메일 받기</button>
       <p class="hint" style="margin-top:12px">처음이면 자동으로 가입됩니다. 비밀번호는 없습니다.</p></form>
-    <form id="code-form" hidden style="margin-top:20px"><div class="notice">메일을 보냈습니다. 메일의 <b>로그인 링크</b>를 누르거나, 메일에 적힌 <b>6자리 코드</b>를 아래에 입력하세요. (카카오톡 등 앱 안 브라우저에서 링크가 안 되면 코드를 쓰세요)</div>
+    <form id="code-form" hidden style="margin-top:20px"><div class="notice">메일을 보냈습니다. 메일의 <b>로그인 링크</b>를 누르면 그 기기에서 로그인됩니다. 메일에 <b>6자리 코드</b>가 있으면 아래에 입력해도 됩니다. 메일이 안 오면 스팸함을 확인하세요.</div>
       <div class="field"><label for="lg-code">인증 코드</label><input type="text" id="lg-code" inputmode="numeric" autocomplete="one-time-code" maxlength="10" placeholder="123456"></div>
       <button class="btn btn-ink" style="width:100%">코드로 로그인</button></form>`;
   let email = '';

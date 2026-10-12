@@ -12,8 +12,8 @@ window.SITE_CONFIG = {
   contactEmail: '',                                     // 운영자 연락처(신고·임시조치 접수). 비워 두면 안내만 표시
 
   // Supabase 연결값. 둘 다 비워 두면 "체험 모드"(이 브라우저에만 저장)로 동작합니다.
-  supabaseUrl: '',
-  supabaseAnonKey: '',
+  supabaseUrl: 'https://xjmexzeyxkxqsgvwaupz.supabase.co',          // 서울(ap-northeast-2), 조직 dongyeok(Free)
+  supabaseAnonKey: 'sb_publishable_1cyG9HPpcC4hqJZIv4wbuA_JpoS_UiQ',  // 공개용(publishable) 키 — 보안은 RLS가 지킴
 
   // 방문 통계(GoatCounter 코드). 비워 두면 통계 스크립트를 넣지 않습니다.
   goatcounter: '',

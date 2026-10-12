@@ -14,8 +14,9 @@ LOG="scripts/mac-fetch-jobs.log"
   [ -d scraper/node_modules ] || (cd scraper && npm ci --no-audit --no-fund)
   node scraper/test-parsers.mjs > /dev/null
   # GitHub(해외)에서 막히는 출처만 맥(한국 회선)에서 보충 수집 → data/jobs-local.json
-  # GitHub 수집이 이 파일을 합쳐 사이트에 반영함(최대 6시간 뒤). 출처가 바뀌면 아래 목록만 고친다.
-  node scraper/fetch-jobs.mjs --only=daeshin,kwangshin,cjob --out=local
+  # GitHub 수집이 이 파일을 합쳐 사이트에 반영함(최대 6시간 뒤).
+  # auto = 직전 GitHub 수집에서 실패한 출처 + 늘 해외 차단인 출처(대신대·광신대·기독정보넷)
+  node scraper/fetch-jobs.mjs --only=auto --out=local
   git add data/jobs-local.json
   if git diff --cached --quiet; then echo "변경 없음"; else
     git commit -q -m "청빙 공고 보충 수집(맥) $(date '+%Y-%m-%d %H:%M')"

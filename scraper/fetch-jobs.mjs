@@ -7,7 +7,7 @@
 //
 // 원칙: robots.txt 준수 · 같은 사이트에 3초 간격 · 하루 1~2회 · 식별 가능한 User-Agent · 개인정보 필드는 받자마자 버림
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -38,7 +38,15 @@ if (!process.env.NODE_EXTRA_CA_CERTS && existsSync(EXTRA_CA)) {
 }
 const args = Object.fromEntries(process.argv.slice(2).map(a => { const [k, v] = a.replace(/^--/, '').split('='); return [k, v ?? true]; }));
 
-const ONLY = args.only ? new Set(String(args.only).split(',').map(x => x.trim()).filter(Boolean)) : null;
+// --only=auto: 직전 GitHub 수집에서 실패했거나 맥 보충으로 채운 출처 + 늘 해외 차단인 출처
+const ALWAYS_LOCAL = ['daeshin', 'kwangshin', 'cjob'];
+function resolveOnly() {
+  if (!args.only) return null;
+  if (args.only !== 'auto') return new Set(String(args.only).split(',').map(x => x.trim()).filter(Boolean));
+  let prevSrc = []; try { prevSrc = JSON.parse(readFileSync(OUT_JSON, 'utf8')).sources || []; } catch { }
+  return new Set([...ALWAYS_LOCAL, ...prevSrc.filter(s => s.status !== 'off' && (s.status !== 'ok' || /맥/.test(s.note || ''))).map(s => s.id)]);
+}
+const ONLY = resolveOnly();
 
 // 새 공고의 본문을 한 번만 읽어 사례비 숫자만 뽑는다(본문·연락처는 저장하지 않음). 1회 실행 상한을 둔다.
 // 본문 앞부분(모집 부서·자격)에서 직책 힌트 — 담임목사는 본문 언급만으로 붙이지 않음(교회 소개에 자주 나옴)
@@ -127,8 +135,9 @@ async function main() {
       console.log(`✓ ${src.name}: ${items.length}건`);
     } catch (e) {
       const kind = e instanceof RobotsError ? 'robots' : e instanceof BlockedError ? 'blocked' : 'error';
-      Object.assign(st, { status: kind, note: e.message });
-      console.log(`✗ ${src.name}: ${kind} — ${e.message}`);
+      const why = e.message + (e.cause && (e.cause.code || e.cause.message) ? ` (${e.cause.code || e.cause.message})` : '');
+      Object.assign(st, { status: kind, note: why });
+      console.log(`✗ ${src.name}: ${kind} — ${why}`);
     }
     statuses.push(st);
   }

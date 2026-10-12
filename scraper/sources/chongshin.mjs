@@ -9,7 +9,7 @@ export default {
   id: 'chongshin', short: 'cs', name: '총신대', group: '신학교',
   home: 'https://www.csu.ac.kr/?m1=page&menu_id=1110',
   enabled: true,
-  pages: 6,          // 1쪽 = 50건(약 4~5시간 분량)
+  pages: 3,          // 1쪽 = 50건(약 4~5시간 분량). 하루 3번 × 3쪽 = 충분, 서버 부담을 줄이려 6→3
   async collect({ http }) {
     const out = [];
     for (let page = 1; page <= this.pages; page++) {

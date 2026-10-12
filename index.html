@@ -1218,9 +1218,11 @@ const LiveAPI = {
   async liked(type, id) { if (!this.user) return false; const r = this.ok(await this.sb.from('reactions').select('target_id').eq('target_type', type).eq('target_id', id).limit(1)); return !!(r && r.length); },
   async toggleLike(type, id) {
     await this.ensureUser();
-    const { error } = await this.sb.from('reactions').insert({ target_type: type, target_id: Number(id) });
-    let liked = true;
-    if (error) { if (error.code !== '23505') throw error; this.ok(await this.sb.from('reactions').delete().eq('target_type', type).eq('target_id', id)); liked = false; }
+    // 이미 공감했으면 취소, 아니면 공감(중복 요청으로 생기는 409 오류를 피함)
+    const had = await this.liked(type, id);
+    if (had) this.ok(await this.sb.from('reactions').delete().eq('target_type', type).eq('target_id', id));
+    else { const { error } = await this.sb.from('reactions').insert({ target_type: type, target_id: Number(id) }); if (error && error.code !== '23505') throw error; }
+    const liked = !had;
     const t = this.ok(await this.sb.from({ post: 'posts', resource: 'resources', setlist: 'setlists' }[type]).select('like_count').eq('id', id).maybeSingle());
     return { liked, count: t ? t.like_count : 0 };
   },

@@ -126,8 +126,8 @@ fieldset{border:0;margin-bottom:18px}
 .notice h3{font-size:15px;margin-bottom:4px}
 .hang{padding-left:1.1em;text-indent:-1.1em}
 .mk-list{list-style:none;display:grid;gap:6px}
-.mk-list li{display:grid;grid-template-columns:1.1em 1fr}
-.mk-list li::before{content:'✓';font-weight:800;color:var(--violet)}
+.mk-list li{position:relative;padding-left:1.3em}   /* 칸 나눔(grid)을 쓰면 <b> 같은 글자 묶음이 좁은 첫 칸으로 밀려 세로로 쪼개짐 */
+.mk-list li::before{content:'✓';position:absolute;left:0;top:0;font-weight:800;color:var(--violet)}
 
 /* ── 첫 화면: 예배 사진이 바뀌며 조명 빔이 훑고 지나감 ── */
 .hero{position:relative;min-height:min(92svh,880px);display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--night);isolation:isolate}
@@ -187,6 +187,7 @@ fieldset{border:0;margin-bottom:18px}
 .tile-lg{grid-row:span 2}
 .tile-wide{grid-column:span 2}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.two-col>*,.layout-side>*{min-width:0}   /* 한 줄로 자르는 긴 제목(mini 목록)이 칸을 넓혀 휴대폰에서 가로로 넘치지 않게 */
 .box{background:#fff;border:1px solid var(--border-2);border-radius:14px;box-shadow:var(--shadow)}
 
 /* ── 안쪽 페이지 머리(사진 띠) ── */
@@ -382,7 +383,7 @@ dialog form{padding:26px}
 dialog h2{font-size:20px;margin-bottom:6px}
 
 /* ── 화면 전환 ── */
-.page{display:none;min-height:60vh}
+.page{display:none;min-height:60vh;scroll-margin-top:96px}   /* #pg-… 링크로 바로 들어올 때 브라우저가 제목을 위 메뉴 막대 밑에 숨기지 않게 */
 .page.active{display:block}
 .reveal{opacity:1}
 

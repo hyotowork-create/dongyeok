@@ -58,7 +58,7 @@
 | 운영자 맥 launchd | `~/Library/LaunchAgents/kr.dongyeok.fetch.plist`(05:45·11:45·17:45) → `~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.sh` | 별도 git 클론. `~/Downloads`는 macOS 폴더 보호로 예약 작업이 못 읽음 |
 | 세라핌 | 저장소 `hyotowork-create/Seraphim`, 릴리스 **0.2.0**(2026-10-12, Windows 설치형·포터블, Mac Apple Silicon) | 사이트 「내려받기」 = `/releases/latest`. 0.2.0 소스는 아직 GitHub에 없음(운영자 맥의 작업 브랜치) |
 | 사진 | Unsplash 핫링크(`photo-…` 아이디) | 목록은 운영가이드 2-3 |
-| 통계 | `config.js`의 `goatcounter` | 비어 있음(꺼짐) |
+| 방문 통계 | GoatCounter `dongyeok` — https://dongyeok.goatcounter.com (`config.js` `goatcounter`) | 2026-10-12 연결. 쿠키 없음. 운영자 계정(운영자가 가입). 화면 이동마다 `/dongyeok/#pg-…` 경로로 집계 |
 
 ## 현재 상태 (2026-10-12)
 
@@ -301,3 +301,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 | 2026-10-12 | 개인정보처리방침·이용약관 시행일 2026-10-12 기입, 위탁 표의 저장 위치를 "대한민국(서울)"로 확정. 스레드 문구 원어·숫자 점검 |
 | 2026-10-12 | 세라핌 LICENSE를 표준 MIT 문구만 남겨 GitHub가 MIT로 인식(Seraphim 904cc40, 제3자 안내는 README로). 두 세션 작업 내용 통합 |
 | 2026-10-12 | **운영자가 사이트를 공개 오픈(홍보 시작)**. 이후 매일 운영 화면에서 검수·신고 처리 필요 |
+| 2026-10-12 | 방문 통계 GoatCounter(dongyeok) 연결(397d3fe), 개인정보처리방침 수집 항목에 「방문 통계」 추가. 공개 사이트에서 집계 요청 전송 확인 |

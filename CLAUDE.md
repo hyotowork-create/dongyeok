@@ -24,7 +24,7 @@
 | 배포 | `.github/workflows/fetch-jobs.yml`. main에 push하면 배포만, 예약·수동 실행이면 수집→커밋→배포. Pages Source = GitHub Actions |
 | 자동 수집 | 하루 3번, KST 06:07·12:07·18:07 (`cron: '7 21,3,9 * * *'`) |
 | 해외 차단 출처 | 총신대·대신대·목원대·기독정보넷은 **서울 리전 Supabase 함수 `kr-relay`를 거쳐** GitHub가 직접 모읍니다. 광신대만 운영자 맥(launchd)이 모읍니다 |
-| 커뮤니티 기능 | Supabase 운영 중. 프로젝트 `xjmexzeyxkxqsgvwaupz`(서울 ap-northeast-2, 조직 dongyeok, Free). **이용자는 로그인 없이 익명 식별값(Supabase anonymous sign-in)으로 쓰고 개인정보를 받지 않습니다.** 이메일 로그인은 운영자만(관리자 1명 지정됨) |
+| 커뮤니티 기능 | Supabase 운영 중. 프로젝트 `xjmexzeyxkxqsgvwaupz`(서울 ap-northeast-2, 조직 dongyeok, Free). **이용자는 로그인 없이 익명 식별값(Supabase anonymous sign-in)으로 쓰고 개인정보를 받지 않습니다.** 이메일 로그인은 운영자만(관리자 2명: 처음 운영자 메일 + 공개 메일 seraphim7997@gmail.com, 10/12 추가) |
 | 공개 연락처 | `seraphim7997@gmail.com` — `config.js` `contactEmail`. 신고·임시조치·삭제 요청 접수처로 이용 안내·개인정보처리방침에 표시됨 |
 | 디자인 | v2: 밤색(#0e1230)·금색(#ffc24b)·보라(#7c5cff), 예배 사진 슬라이드와 조명 빔, Unsplash 사진 핫링크 |
 
@@ -52,7 +52,7 @@
 | 저장소 보호 | 비밀키 유출 감시·push 차단, Dependabot 알림 | 켜짐 |
 | Supabase 프로젝트 | `xjmexzeyxkxqsgvwaupz`, 서울, Free | 7일 무활동 시 일시정지 → 대시보드에서 Restore |
 | Supabase Auth | Anonymous sign-ins **켜짐**, Email(운영자 전용), Site URL·Redirect = 공개 주소 | 운영자 메일은 Supabase 기본 메일 |
-| Supabase DB | `supabase/schema.sql` 전체 적용됨(여러 번 실행 안전) | 관리자 1명(`public.admins`) |
+| Supabase DB | `supabase/schema.sql` 전체 적용됨(여러 번 실행 안전) | 관리자 2명(`public.admins`) |
 | Supabase Storage | 버킷 `resources`(10MB, 문서·이미지) | 익명 이용자 업로드 금지(정책·트리거) |
 | Supabase Edge Function | **`kr-relay`**(서울 중계) — 코드 `supabase/functions/kr-relay/index.ts` | 대시보드에 붙여 넣어 배포. 시험용 `probe-kr`은 2026-10-12 삭제 |
 | 운영자 맥 launchd | `~/Library/LaunchAgents/kr.dongyeok.fetch.plist`(05:45·11:45·17:45) → `~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.sh` | 별도 git 클론. `~/Downloads`는 macOS 폴더 보호로 예약 작업이 못 읽음 |
@@ -86,7 +86,7 @@
 - 맥은 17:26~20:33 꺼져 있어 17:45 보충 수집을 건너뜀(광신대만 영향). 전원이 꺼져 있던 동안의 예약은 켠 뒤에 따라잡지 않음(잠자기는 깨어나면 1회 실행).
 - 빠진 회차 대신 20:42 수동 전체 수집(run 38244023163): 1,276건, 서울 중계 52회 정상, 광신대는 맥 파일로 채움, 부산장신대 1회 시간 초과(이전 공고 유지, 다음 회차에 다시 보기).
 - 공개 오픈 뒤 실제 이용: 익명 이용자 5명(18:11~19:41), 교회 평가 4건(20:51 운영자가 운영 화면에서 모두 공개 — DB·처리 기록 확인), 대나무숲 공개 글 1건, 신고 0건.
-- 20:36에 이메일 계정 `se***@gmail.com`이 새로 생김(관리자 아님). 운영자가 공개 메일로 운영자 로그인을 시도한 것으로 보임 → 관리자로 쓸지 운영자 확인 필요.
+- 20:36에 생긴 이메일 계정 `se***@gmail.com`(운영자의 공개 메일)을 운영자 요청으로 관리자에 추가(21시, `public.admins` 2명 확인). Supabase 조직(dongyeok, Owner 1명) 초대는 운영자가 직접 하기로 함.
 
 ### 알려진 문제 (우선순위 순)
 1. **광신대는 맥에서만 모입니다.** GitHub(미국)에서는 막히고, 서울 함수(Deno)는 학교 서버의 옛 TLS 방식을 지원하지 않아 `received fatal alert`로 실패합니다.
@@ -211,6 +211,16 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 5. Supabase: 인증 `/auth/v1/health` 200, 중계 함수는 토큰 없이 부르면 401이 정상, DB 공개 읽기(`/rest/v1/posts?select=id`).
 6. 이용 현황(대시보드 SQL Editor, 읽기만): 익명 이용자 수, 평가 상태별 수(특히 `pending`), 신고 미처리 수, 24시간 새 글, DB 크기. 쿼리는 `CLAUDE.local.md`에 있습니다.
 7. 결과는 「정상 / 고칠 것 / 운영자가 할 일」로 나눠 보고하고, 이 파일의 현재 상태를 고칩니다.
+
+### Supabase 대시보드에서 보는 곳(운영자용)
+| 보고 싶은 것 | 위치 |
+|---|---|
+| 평가·글·댓글·신고 목록 | Table Editor → `reviews`·`posts`·`comments`·`reports` (`status` 열: pending 검수 대기, published 공개, hidden 가림, rejected 반려, removed 삭제) |
+| 글쓴이 수 | Authentication → Users (Anonymous 표시가 익명 이용자) |
+| 무료 한도 사용량 | 조직 → Usage (월 활성 이용자, DB 크기, 전송량) |
+| 서울 중계 기록 | Edge Functions → kr-relay → Invocations·Logs |
+| 처리 기록 | Table Editor → `moderation_log` |
+- 공개·반려·가림 같은 처리는 대시보드에서 직접 고치지 말고 사이트 운영 화면에서 합니다(처리 기록이 남고 공감·신고 숫자가 맞게 유지됨).
 
 ### 정기 점검(주 1회 권장)
 1. `gh run list`로 최근 실행이 성공했는지 봅니다. 실패하면 GitHub가 저장소 주인에게 메일을 보냅니다.

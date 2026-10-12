@@ -36,6 +36,8 @@ jobs:
       skipped: ${{ steps.guard.outputs.skip }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main          # 예약 시점의 커밋이 아니라 지금의 main — 앞 회차가 늦게 돌아 대기열에서 겹쳐도 그 결과를 보고 건너뛰게
       - name: 이번 회차가 필요한지 확인(예약 실행만)
         id: guard
         run: |

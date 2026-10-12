@@ -1,6 +1,8 @@
 -- ═══════════════════════════════════════════════════════════════════
 -- 동역 · Supabase 데이터베이스 설정
 -- 사용법: Supabase 대시보드 → SQL Editor → 이 파일 전체를 붙여 넣고 Run
+-- 이용 방식: 이용자는 로그인 없이 Supabase 익명 로그인(무작위 식별값)으로 쓰고, 이메일 로그인은 운영자만 쓴다.
+--          Authentication → Sign In / Providers → Allow anonymous sign-ins 를 켜야 한다.
 --        (여러 번 실행해도 안전하게 짰습니다. 고친 뒤 다시 Run 하면 덮어씁니다.)
 --
 -- 설계 원칙
@@ -208,6 +210,12 @@ begin
                           else public.anon_handle(new.author_id::text || ':' || new.target_type || ':' || new.target_id) end;
     new.status := 'published';
   else  -- posts, resources, setlists
+    -- 익명 이용자(로그인 없이 쓰는 사람)는 파일 대신 링크로만 자료를 올린다(불법 파일·용량 악용 방지)
+    if tg_table_name = 'resources' then   -- (조건을 나눠야 함: posts·setlists에는 file_path 칸이 없음)
+      if new.file_path is not null and coalesce((auth.jwt() ->> 'is_anonymous')::boolean, false) then
+        raise exception '파일은 링크(구글 드라이브 등)로 공유해 주세요';
+      end if;
+    end if;
     new.status := 'published';
     new.anon_name := public.anon_handle(new.author_id::text || ':' || tg_table_name || ':' || new.id);
     new.like_count := 0;
@@ -466,7 +474,8 @@ on conflict (id) do update set public = excluded.public, file_size_limit = exclu
 
 drop policy if exists "resources upload" on storage.objects;
 create policy "resources upload" on storage.objects for insert to authenticated
-  with check (bucket_id = 'resources' and name ~ '^[0-9]{4}/[0-9]{2}/[0-9a-f-]{36}\.[a-z0-9]{2,5}$');
+  with check (bucket_id = 'resources' and name ~ '^[0-9]{4}/[0-9]{2}/[0-9a-f-]{36}\.[a-z0-9]{2,5}$'
+              and coalesce((auth.jwt() ->> 'is_anonymous')::boolean, false) = false);   -- 익명 이용자는 업로드 불가
 
 -- ── 9. 관리자 지정(처음 한 번) ─────────────────────────────────────
 -- 사이트에서 운영자 이메일로 한 번 로그인한 뒤, 아래 줄의 이메일을 바꿔 실행하세요.

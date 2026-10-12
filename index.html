@@ -457,7 +457,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
     </nav>
     <div class="hdr-act">
       <span class="who" id="who"></span>
-      <a class="btn btn-line btn-sm" id="btn-auth" href="#pg-login">로그인</a>
+      <a class="btn btn-line btn-sm" id="btn-auth" href="#pg-login" hidden>운영자</a>
       <button class="hamb" type="button" aria-label="메뉴 열기" aria-expanded="false" onclick="openDrawer()">☰</button>
     </div>
   </div>
@@ -478,7 +478,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
     <a href="#pg-library">자료실</a>
     <a href="#pg-guide">이용 안내</a>
     <a href="#pg-admin" class="admin-only" hidden>운영(관리자)</a>
-    <a href="#pg-login" id="drawer-auth">로그인</a>
+    <a class="sub" href="#pg-login" id="drawer-auth">운영자 로그인</a>
   </nav>
 </div>
 
@@ -716,7 +716,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
 </div>
 
 <div class="page bamboo" id="pg-post-new">
-  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1531021713651-fdd4ac075ac1?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>익명 글쓰기</h1><p>글쓴이 정보는 표시되지 않습니다. 다만 법령에 따른 요청이 있으면 운영자가 협조할 수 있습니다.</p></div></section>
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1531021713651-fdd4ac075ac1?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>익명 글쓰기</h1><p>로그인도 개인정보도 필요 없습니다. 운영자도 누가 썼는지 알 수 없습니다. 내 글은 이 브라우저에서만 지울 수 있습니다.</p></div></section>
   <div class="wrap sec" style="max-width:860px">
     <form class="form-card" id="post-form" novalidate>
       <fieldset><legend class="req">분류</legend><div class="seg" id="pf-cats"></div></fieldset>
@@ -757,7 +757,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
       <div class="field"><label for="rf-desc">설명</label><textarea id="rf-desc" name="description" maxlength="2000" placeholder="어떤 자료인지, 어떻게 쓰면 좋은지"></textarea></div>
       <div class="field"><label for="rf-tags">태그</label><input type="text" id="rf-tags" name="tags" maxlength="80" placeholder="쉼표로 구분, 최대 5개 (예: 로마서, 강해, 청년부)"></div>
       <div class="grid2">
-        <div class="field"><label for="rf-file">파일</label><input type="file" id="rf-file" name="file" accept=".pdf,.hwp,.hwpx,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt,.jpg,.jpeg,.png"><p class="hint">PDF·한글·워드·PPT·엑셀·텍스트·이미지</p></div>
+        <div class="field" id="rf-file-field"><label for="rf-file">파일</label><input type="file" id="rf-file" name="file" accept=".pdf,.hwp,.hwpx,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.txt,.jpg,.jpeg,.png"><p class="hint">PDF·한글·워드·PPT·엑셀·텍스트·이미지</p></div>
         <div class="field"><label for="rf-link">또는 링크</label><input type="url" id="rf-link" name="link_url" maxlength="500" placeholder="https://drive.google.com/…"></div>
       </div>
       <label class="check"><input type="checkbox" name="rights" required><span>직접 만들었거나 공유할 권리가 있는 자료입니다. 타인의 저작물이 아닙니다.</span></label>
@@ -768,7 +768,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
 
 <!-- ██ 로그인 ██ -->
 <div class="page" id="pg-login">
-  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1640544351861-930d12160bbb?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>로그인</h1><p>글은 익명으로 표시됩니다. 이메일은 로그인과 악용 방지에만 쓰이며 어디에도 공개되지 않습니다.</p></div></section>
+  <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1640544351861-930d12160bbb?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>운영자 로그인</h1><p>이용자는 로그인 없이 바로 글을 씁니다. 이 화면은 검수·신고 처리를 하는 운영자용입니다.</p></div></section>
   <div class="wrap sec" style="max-width:520px">
     <div class="form-card" id="login-box"></div>
   </div>
@@ -785,7 +785,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
   <section class="page-head" style="--ph:url('https://images.unsplash.com/photo-1450558415837-1f5e21a17709?auto=format&fit=crop&w=1600&q=70')"><div class="wrap"><h1>이용 안내·운영 정책</h1><p>모두가 안심하고 쓰는 공간이 되도록 지켜 주세요.</p></div></section>
   <div class="wrap sec doc">
     <h2>1. 서비스 소개</h2>
-    <p><span data-cfg="name">동역</span>은 부교역자를 위한 커뮤니티입니다. 청빙 공고 모아보기, 교회 평가, 예배 도구, 대나무숲(익명 게시판), 자료실을 제공합니다. 글을 읽는 것은 누구나, 글을 쓰려면 이메일 로그인이 필요합니다. 모든 글은 익명으로 표시됩니다.</p>
+    <p><span data-cfg="name">동역</span>은 부교역자를 위한 커뮤니티입니다. 청빙 공고 모아보기, 교회 평가, 예배 도구, 대나무숲(익명 게시판), 자료실을 제공합니다. 회원 가입이나 로그인 없이 누구나 읽고 쓸 수 있습니다. 이메일·이름 같은 개인정보는 받지 않으며, 모든 글은 익명으로 표시됩니다. 내 글 삭제는 그 글을 쓴 브라우저에서만 할 수 있습니다.</p>
 
     <h2>2. 청빙 정보는 어떻게 모으나요</h2>
     <ul>
@@ -842,23 +842,25 @@ dialog h2{font-size:20px;margin-bottom:6px}
     <h2>1. 수집하는 항목과 목적</h2>
     <table>
       <tr><th>항목</th><th>목적</th><th>보관 기간</th></tr>
-      <tr><td>이메일 주소</td><td>로그인, 악용(도배·사칭) 방지, 법령에 따른 요청 대응</td><td>탈퇴 요청 시까지(법령상 보관 의무가 있으면 그 기간)</td></tr>
-      <tr><td>작성한 글·평가·댓글·자료</td><td>서비스 제공(작성자 정보 없이 익명 표시)</td><td>삭제 시까지</td></tr>
-      <tr><td>접속 기록(서버 로그)</td><td>보안·장애 대응</td><td>서비스 제공 업체 정책에 따름</td></tr>
+      <tr><td>(이용자) 이메일·이름·연락처</td><td colspan="2"><b>받지 않습니다.</b> 회원 가입과 로그인 없이 이용합니다.</td></tr>
+      <tr><td>(이용자) 익명 식별값</td><td>처음 글을 쓸 때 브라우저에 발급되는 무작위 값. 내 글 삭제, 1인 1공감, 도배 방지에만 씀. 사람을 알아볼 수 없는 값</td><td>글이 남아 있는 동안</td></tr>
+      <tr><td>작성한 글·평가·댓글·자료</td><td>서비스 제공(익명 표시)</td><td>삭제 시까지</td></tr>
+      <tr><td>접속 기록(IP 등 서버 로그)</td><td>보안·장애 대응 — 서비스 제공 업체가 자동으로 남김</td><td>업체 정책에 따른 짧은 기간</td></tr>
+      <tr><td>(운영자) 이메일</td><td>운영자 로그인</td><td>운영 기간</td></tr>
     </table>
     <h2>2. 익명 표시</h2>
-    <p>이메일과 작성자 식별값은 화면에 표시되지 않으며, 다른 이용자는 볼 수 없습니다. 운영자는 신고 처리와 법령상 의무 이행에 필요한 경우에만 확인합니다.</p>
+    <p>작성자를 알 수 있는 정보를 받지 않으므로, 다른 이용자는 물론 운영자도 누가 썼는지 알 수 없습니다. 익명 식별값은 화면에 표시되지 않습니다.</p>
     <h2>3. 처리 위탁과 국외 이전</h2>
     <table>
       <tr><th>업체</th><th>위탁 업무</th><th>이전 국가</th></tr>
-      <tr><td>Supabase Inc.</td><td>회원 인증, 데이터·파일 저장</td><td>프로젝트 생성 시 선택한 리전(예: 서울 ap-northeast-2)</td></tr>
+      <tr><td>Supabase Inc.</td><td>익명 식별값 발급, 데이터·파일 저장</td><td>프로젝트 생성 시 선택한 리전(예: 서울 ap-northeast-2)</td></tr>
       <tr><td>GitHub Inc.</td><td>웹사이트 호스팅</td><td>미국</td></tr>
       <tr><td>GoatCounter(사용 시)</td><td>쿠키 없는 익명 방문 통계</td><td>EU</td></tr>
     </table>
     <h2>4. 이용자의 권리</h2>
-    <p>언제든 자신의 글 삭제, 계정 삭제(이메일 정보 파기)를 요청할 수 있습니다. 계정을 삭제하면 이메일은 지워지고, 지우지 않은 글은 누구의 글인지 알 수 없는 익명 상태로 남습니다. 남기고 싶지 않은 글은 계정 삭제 전에 지워 주세요. 요청: <span data-cfg="contactEmail">운영자 이메일(설정 필요)</span></p>
+    <p>자신의 글은 그 글을 쓴 브라우저에서 언제든 지울 수 있습니다. 브라우저 저장소를 지웠거나 기기를 바꿔 직접 지울 수 없으면, 글의 「신고」로 삭제를 요청하거나 아래로 연락해 주세요. 요청: <span data-cfg="contactEmail">운영자 이메일(설정 필요)</span></p>
     <h2>5. 쿠키·로컬 저장소</h2>
-    <p>로그인 상태 유지와 콘티 임시 저장을 위해 브라우저 저장소를 씁니다. 광고·추적 쿠키는 쓰지 않습니다.</p>
+    <p>익명 식별값 보관과 콘티 임시 저장을 위해 브라우저 저장소를 씁니다. 광고·추적 쿠키는 쓰지 않습니다.</p>
     <h2>6. 개인정보 보호책임자</h2>
     <p>운영자: <span data-cfg="name">동역</span> 운영팀 · 연락처: <span data-cfg="contactEmail">운영자 이메일(설정 필요)</span></p>
   </div>
@@ -886,7 +888,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
       <div><b data-cfg="name">동역</b><p data-cfg="tagline"></p></div>
       <div><b>서비스</b><a href="#pg-jobs">청빙 정보</a><a href="#pg-churches">교회 평가</a><a href="#pg-worship">예배 도구</a></div>
       <div><b>나눔</b><a href="#pg-bamboo">대나무숲</a><a href="#pg-library">자료실</a><a href="#pg-setlist-new">콘티 만들기</a></div>
-      <div><b>안내</b><a href="#pg-guide">이용 안내·운영 정책</a><a href="#pg-privacy">개인정보처리방침</a><a href="#pg-terms">이용약관</a></div>
+      <div><b>안내</b><a href="#pg-guide">이용 안내·운영 정책</a><a href="#pg-privacy">개인정보처리방침</a><a href="#pg-terms">이용약관</a><a href="#pg-login">운영자 로그인</a></div>
     </div>
     <p class="copy">사진: <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash 무료 이미지</a>(출처 목록은 docs/운영가이드.md). 청빙 공고의 저작권은 각 원문 작성자와 게시판 운영 기관에 있습니다. 이 사이트는 제목과 링크만 안내합니다. · 이메일 주소 무단 수집을 거부합니다.</p>
   </div>
@@ -1005,6 +1007,7 @@ const DemoAPI = {
   need() { if (!this.user) throw new Error('로그인이 필요합니다.'); },
   nid() { return ++this.db.seq; },
   now() { return new Date().toISOString(); },
+  async ensureUser() { if (!this.user) await this.signInDemo(); },
   async signInDemo() { this.user = this.db.session = { id: 'demo-user', email: 'demo@체험' }; this.persist(); },
   async signOut() { this.user = this.db.session = null; this.persist(); },
   async isAdmin() { return !!this.user; },   // 체험 모드에서는 로그인하면 운영 화면까지 써 볼 수 있음
@@ -1045,7 +1048,9 @@ const DemoAPI = {
   async resources(o) { return this.list('resources', o); },
   async resource(id) { return this.getOne('resources', id); },
   async createResource(d, file) {
-    if (file) { d.file_name = file.name; d.file_size = file.size; d.file_path = null; d.demo_file = true; }
+    await this.ensureUser();
+    if (file) {
+      if (this.user.is_anonymous) throw new Error('파일은 링크(구글 드라이브 등)로 공유해 주세요.'); d.file_name = file.name; d.file_size = file.size; d.file_path = null; d.demo_file = true; }
     return this.create('resources', 'resource', d);
   },
   fileUrl() { return '#'; },
@@ -1162,6 +1167,12 @@ const LiveAPI = {
     });
   },
   ok({ data, error }) { if (error) throw error; return data; },
+  async ensureUser() {
+    if (this.user) return;
+    const { data, error } = await this.sb.auth.signInAnonymously();
+    if (error) throw new Error(/anonymous|disabled|not enabled/i.test(error.message) ? '지금은 글쓰기를 준비 중입니다. 잠시 후 다시 시도해 주세요.' : error.message);
+    this.user = data.user; this._admin = false;
+  },
   async signInEmail(email) {
     const redirect = C.url && location.href.startsWith(C.url) ? C.url : location.origin + location.pathname;
     this.ok(await this.sb.auth.signInWithOtp({ email, options: { emailRedirectTo: redirect, shouldCreateUser: true } }));
@@ -1172,7 +1183,7 @@ const LiveAPI = {
   async mine() { const s = new Set(); if (!this.user) return s; const rows = this.ok(await this.sb.rpc('my_items')) || []; rows.forEach(r => s.add(r.target_type + ':' + r.target_id)); return s; },
   async churchStats() { return this.ok(await this.sb.from('church_stats').select('church_key,church_name,region,n,overall,rec_pct,last_at').order('last_at', { ascending: false }).limit(500)) || []; },
   async reviews(key) { return this.ok(await this.sb.from('reviews').select(this.COLS.reviews).eq('church_key', key).neq('status', 'removed').order('created_at', { ascending: false }).limit(200)) || []; },
-  async createReview(d) { const r = this.ok(await this.sb.from('reviews').insert(d).select('id').single()); return r.id; },
+  async createReview(d) { await this.ensureUser(); const r = this.ok(await this.sb.from('reviews').insert(d).select('id').single()); return r.id; },
   async list(table, { category, sort, q, offset = 0, limit = 20 } = {}) {
     let qb = this.sb.from(table).select(this.COLS[table]).eq('status', 'published');
     if (category) qb = qb.eq('category', category);
@@ -1182,7 +1193,7 @@ const LiveAPI = {
     return this.ok(await qb) || [];
   },
   async getOne(table, id) { return this.ok(await this.sb.from(table).select(this.COLS[table]).eq('id', id).maybeSingle()); },
-  async insert(table, d) { const r = this.ok(await this.sb.from(table).insert(d).select('id').single()); return r.id; },
+  async insert(table, d) { await this.ensureUser(); const r = this.ok(await this.sb.from(table).insert(d).select('id').single()); return r.id; },
   async posts(o) { return this.list('posts', o); },
   async post(id) { return this.getOne('posts', id); },
   async createPost(d) { return this.insert('posts', d); },
@@ -1206,6 +1217,7 @@ const LiveAPI = {
   async createComment(type, id, body) { return this.insert('comments', { target_type: type, target_id: Number(id), body }); },
   async liked(type, id) { if (!this.user) return false; const r = this.ok(await this.sb.from('reactions').select('target_id').eq('target_type', type).eq('target_id', id).limit(1)); return !!(r && r.length); },
   async toggleLike(type, id) {
+    await this.ensureUser();
     const { error } = await this.sb.from('reactions').insert({ target_type: type, target_id: Number(id) });
     let liked = true;
     if (error) { if (error.code !== '23505') throw error; this.ok(await this.sb.from('reactions').delete().eq('target_type', type).eq('target_id', id)); liked = false; }
@@ -1213,6 +1225,7 @@ const LiveAPI = {
     return { liked, count: t ? t.like_count : 0 };
   },
   async report(type, id, reason, detail) {
+    await this.ensureUser();
     const { error } = await this.sb.from('reports').insert({ target_type: type, target_id: Number(id), reason, detail });
     if (error) { if (error.code === '23505') throw new Error('이미 신고한 글입니다.'); throw error; }
   },
@@ -1235,7 +1248,6 @@ const statByKey = k => (STATS || []).find(s => s.church_key === k);
    ─────────────────────────────────────────────────────────────── */
 const ALL_PAGES = ['pg-home', 'pg-jobs', 'pg-job', 'pg-churches', 'pg-church', 'pg-review-new', 'pg-worship', 'pg-setlist-new', 'pg-setlist', 'pg-presenter', 'pg-bamboo', 'pg-post', 'pg-post-new', 'pg-library', 'pg-resource', 'pg-resource-new', 'pg-login', 'pg-admin', 'pg-guide', 'pg-privacy', 'pg-terms'];
 const GROUP = { 'pg-jobs': 'jobs', 'pg-job': 'jobs', 'pg-churches': 'churches', 'pg-church': 'churches', 'pg-review-new': 'churches', 'pg-worship': 'worship', 'pg-setlist-new': 'worship', 'pg-setlist': 'worship', 'pg-presenter': 'worship', 'pg-bamboo': 'bamboo', 'pg-post': 'bamboo', 'pg-post-new': 'bamboo', 'pg-library': 'library', 'pg-resource': 'library', 'pg-resource-new': 'library', 'pg-admin': 'admin' };
-const NEED_LOGIN = ['pg-review-new', 'pg-post-new', 'pg-resource-new'];
 const HOOKS = {};
 let firstRoute = true;
 const revealObs = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } }), { threshold: 0.08 }) : null;
@@ -1249,7 +1261,6 @@ function routeFromHash() {
   let { id, params } = parseHash();
   if (id === 'main') return;                      // 「본문 바로가기」 링크
   if (!ALL_PAGES.includes(id)) { id = 'pg-home'; params = {}; }
-  if (NEED_LOGIN.includes(id) && !API.user) { go('pg-login', { next: location.hash.slice(1) || id }); return; }
   ALL_PAGES.forEach(p => document.getElementById(p).classList.remove('active'));
   const t = document.getElementById(id); t.classList.add('active');
   $$('.gnb a').forEach(a => a.classList.toggle('on', a.dataset.group === GROUP[id]));
@@ -1264,7 +1275,8 @@ addEventListener('hashchange', routeFromHash);
 function openDrawer() { $('#drawer').classList.add('open'); $('#drawer').setAttribute('aria-hidden', 'false'); $('.hamb').setAttribute('aria-expanded', 'true'); }
 function closeDrawer() { const d = $('#drawer'); if (!d) return; d.classList.remove('open'); d.setAttribute('aria-hidden', 'true'); const b = $('.hamb'); if (b) b.setAttribute('aria-expanded', 'false'); }
 addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-function needLogin() { if (API.user) return false; toast('로그인이 필요합니다.'); go('pg-login', { next: location.hash.slice(1) }); return true; }
+// 로그인 없이 쓰기: 처음 글을 쓸 때 이 브라우저에 무작위 익명 식별값을 받는다(개인정보 없음)
+async function needLogin() { try { const had = !!API.user; await API.ensureUser(); if (!had) await refreshAuth(); return false; } catch (e) { toast(errMsg(e), true); return true; } }
 
 /* ═══════════════════════════ 청빙 공고 ═══════════════════════════ */
 const JOB_DATA = window.JOBS_DATA || { items: [], sources: [] };
@@ -1542,7 +1554,7 @@ document.addEventListener('click', async e => {
   const b = e.target.closest('[data-act]'); if (!b) return;
   const { act, type, id } = b.dataset;
   if (act === 'share') { copyText(location.href); return; }
-  if (needLogin()) return;
+  if (await needLogin()) return;
   if (act === 'like') {
     b.disabled = true;
     const r = await safe(() => API.toggleLike(type, id), null);
@@ -1577,7 +1589,7 @@ function initReport() {
 /* ═══════════════════════════ 댓글 ═══════════════════════════ */
 async function renderComments(box, type, id) {
   box.innerHTML = `<div class="comments detail"><h3>댓글</h3><div class="cmt-list"><p class="loading">불러오는 중…</p></div>
-    ${API.user ? `<form class="cmt-form"><label class="sr-only" for="cmt-in">댓글</label><textarea id="cmt-in" maxlength="1000" required placeholder="따뜻한 말 한마디(익명으로 표시됩니다)"></textarea><button class="btn btn-ink">등록</button></form>`
+    ${true ? `<form class="cmt-form"><label class="sr-only" for="cmt-in">댓글</label><textarea id="cmt-in" maxlength="1000" required placeholder="따뜻한 말 한마디(익명으로 표시됩니다)"></textarea><button class="btn btn-ink">등록</button></form>`
       : `<p class="hint" style="margin-top:12px"><a href="${href('pg-login', { next: location.hash.slice(1) })}">로그인</a>하면 댓글을 쓸 수 있습니다(익명 표시).</p>`}</div>`;
   const draw = async () => {
     const list = await safe(() => API.comments(type, id), []) || [];
@@ -1690,6 +1702,12 @@ function initLibrary() {
   });
 }
 HOOKS['pg-library'] = () => loadRes(true);
+// 익명 이용자는 파일 대신 링크로(불법 파일·용량 악용 방지). 운영자는 파일도 올릴 수 있음
+HOOKS['pg-resource-new'] = () => {
+  const anon = API.mode === 'live' && (!API.user || API.user.is_anonymous);
+  $('#rf-file-field').hidden = anon;
+  $('#rf-link').placeholder = anon ? 'https://drive.google.com/… (파일은 구글 드라이브 등에 올린 뒤 링크로 공유)' : 'https://drive.google.com/…';
+};
 HOOKS['pg-resource'] = async ({ id }) => {
   const box = $('#res-detail'); box.innerHTML = '<p class="loading">불러오는 중…</p>';
   const r = await safe(() => API.resource(id), null);
@@ -1802,7 +1820,7 @@ function initSetlistBuilder() {
     $('#pr-text').value = txt; go('pg-presenter');
   });
   $('#sl-share').addEventListener('click', async () => {
-    if (needLogin()) return;
+    if (await needLogin()) return;
     const songs = SL.songs.filter(s => s.title.trim()).map(s => ({ title: s.title.trim().slice(0, 80), category: s.category, key: s.key, bpm: String(s.bpm || '').replace(/\D/g, '').slice(0, 3), note: s.note.trim().slice(0, 100) }));
     if ((SL.title || '').trim().length < 2) { toast('콘티 제목을 적어 주세요.', true); return; }
     if (!songs.length) { toast('곡을 하나 이상 넣어 주세요.', true); return; }
@@ -1882,7 +1900,7 @@ HOOKS['pg-home'] = async () => {
 HOOKS['pg-login'] = ({ next }) => {
   const box = $('#login-box');
   const back = () => go(...(next ? (() => { const i = next.indexOf('?'); const id = i < 0 ? next : next.slice(0, i); return [ALL_PAGES.includes(id) ? id : 'pg-home', Object.fromEntries(new URLSearchParams(i < 0 ? '' : next.slice(i + 1)))]; })() : ['pg-home']));
-  if (API.user) {
+  if (API.user && !API.user.is_anonymous) {
     box.innerHTML = `<p style="margin-bottom:16px">로그인되어 있습니다. <span class="hint">(${esc(maskEmail(API.user.email))})</span></p><div class="btn-row"><a class="btn btn-ink" href="#pg-home">홈으로</a><button class="btn btn-line" type="button" id="btn-logout">로그아웃</button></div>`;
     $('#btn-logout').addEventListener('click', async () => { await API.signOut(); MINE = new Set(); await refreshAuth(); toast('로그아웃했습니다.'); go('pg-home'); });
     return;
@@ -1915,9 +1933,10 @@ HOOKS['pg-login'] = ({ next }) => {
 function maskEmail(e) { const [a, b] = String(e || '').split('@'); return b ? a.slice(0, 2) + '***@' + b : '***'; }
 async function refreshAuth() {
   const u = API.user;
-  $('#btn-auth').textContent = u ? '내 계정' : '로그인';
-  $('#drawer-auth').textContent = u ? '내 계정·로그아웃' : '로그인';
-  $('#who').textContent = u ? maskEmail(u.email) : '';
+  const real = !!(u && !u.is_anonymous);      // 이메일로 로그인한 사람(운영자)만 표시
+  $('#btn-auth').hidden = !real; $('#btn-auth').textContent = '운영자 계정';
+  $('#drawer-auth').textContent = real ? '운영자 계정·로그아웃' : '운영자 로그인';
+  $('#who').textContent = real ? maskEmail(u.email) : '';
   const admin = u ? await safe(() => API.isAdmin(), false) : false;
   $$('.admin-only').forEach(el => { el.hidden = !admin; });
   MINE = u ? (await safe(() => API.mine(), new Set()) || new Set()) : new Set();

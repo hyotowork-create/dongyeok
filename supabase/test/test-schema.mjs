@@ -13,6 +13,8 @@ create role anon nologin; create role authenticated nologin;
 create schema auth; create schema storage;
 create table auth.users (id uuid primary key, email text);
 create function auth.uid() returns uuid language sql stable as $$ select nullif(current_setting('request.jwt.claim.sub', true), '')::uuid $$;
+create function auth.jwt() returns jsonb language sql stable as $$ select coalesce(nullif(current_setting('request.jwt.claims', true), '')::jsonb, '{}'::jsonb) $$;
+grant execute on function auth.jwt() to anon, authenticated;
 create table storage.buckets (id text primary key, name text, public boolean, file_size_limit bigint, allowed_mime_types text[]);
 create table storage.objects (id uuid default gen_random_uuid() primary key, bucket_id text, name text, owner_id text);
 alter table storage.objects enable row level security;
@@ -131,6 +133,13 @@ await fails(as(U1, `insert into resources (category, title, link_url, rights_con
 await fails(as(U1, `insert into resources (category, title, file_path, rights_confirmed) values ('설교','제목','../etc/passwd',true)`), /check/);
 await as(U1, `insert into resources (category, title, link_url, tags, rights_confirmed) values ('설교','제목','https://drive.google.com/x', '{로마서}', true)`);
 ok('자료: 링크·파일 경로 형식 검사');
+
+// 익명 이용자는 파일 경로가 있는 자료를 못 올림(링크만)
+await db.query(`select set_config('request.jwt.claims', '{"is_anonymous": true}', false)`);
+await fails(as(U2, `insert into resources (category, title, file_path, file_name, rights_confirmed) values ('설교','파일','2026/10/0b6f0e4c-1b2a-4c3d-8e9f-0123456789ab.pdf','a.pdf',true)`), /링크/);
+await as(U2, `insert into resources (category, title, link_url, rights_confirmed) values ('설교','링크 자료','https://drive.google.com/y', true)`);
+await db.query(`select set_config('request.jwt.claims', '', false)`);
+ok('익명 이용자: 파일 업로드 거절, 링크 공유는 허용');
 
 // 도배 방지
 for (let i = 0; i < 4; i++) await as(U3, `insert into posts (category, title, body) values ('자유', $1, '본문입니다')`, ['도배' + i]);

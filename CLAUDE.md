@@ -266,6 +266,8 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 
 ### 디자인·문구를 고칠 때
 `index.html` 맨 위 `:root` 토큰을 씁니다. 사진은 `photo-…` 아이디로 바꿉니다(목록은 운영가이드 2-3). 보안 정책(CSP 메타)에 없는 외부 주소를 추가하면 그 주소가 차단되므로 CSP도 함께 고칩니다.
+- 고친 뒤 `node scripts/mobile-check.mjs`로 21개 화면을 휴대폰 폭(390px)에서 점검합니다(맥의 Chrome을 화면 없이 사용, 공개 사이트 기준. 로컬 파일은 `--url=file:///…/index.html`, 화면 저장은 `--shot=pg-…`). 내장 브라우저 창이 가려져 있으면 폭이 0으로 잡혀 레이아웃 점검이 안 되므로 이 도구를 씁니다.
+- 칸 나눔(grid·flex) 안에 한 줄로 자르는 긴 글자가 있으면 자식에 `min-width:0`을 줍니다(10/12 첫 화면 가로 넘침 원인). 목록 앞 표시는 grid 칸 대신 절대 위치로 둡니다(10/12 평가 작성 안내 글자 세로 쪼개짐 원인).
 
 ## 절대 규칙
 - **robots.txt가 막은 곳과 로그인이 필요한 곳은 수집하지 않습니다.** UA를 바꾸거나, 상용 프록시·IP 돌려 쓰기로 차단을 피하지 않습니다. 기관의 서면 허락을 받으면 소스의 `permission`에 기록하고 켭니다.
@@ -302,3 +304,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 | 2026-10-12 | 세라핌 LICENSE를 표준 MIT 문구만 남겨 GitHub가 MIT로 인식(Seraphim 904cc40, 제3자 안내는 README로). 두 세션 작업 내용 통합 |
 | 2026-10-12 | **운영자가 사이트를 공개 오픈(홍보 시작)**. 이후 매일 운영 화면에서 검수·신고 처리 필요 |
 | 2026-10-12 | 방문 통계 GoatCounter(dongyeok) 연결(397d3fe), 개인정보처리방침 수집 항목에 「방문 통계」 추가. 공개 사이트에서 집계 요청 전송 확인 |
+| 2026-10-12 | 휴대폰 레이아웃 수정(5b42acf): 평가 작성 안내 글자 세로 쪼개짐, 첫 화면 가로 넘침(390→535px), 링크로 들어올 때 제목 가림. 휴대폰 점검 도구 `scripts/mobile-check.mjs`(84e8701) |

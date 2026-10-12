@@ -1,5 +1,7 @@
 # 청빙 공고 자동 수집 + 사이트 배포
 #  - 하루 3번(한국 시간 06·12·18시 7분): scraper를 돌려 data/jobs.*를 갱신·커밋한 뒤 사이트를 배포
+#  - 보조 예약(47분): GitHub가 혼잡하면 예약 실행을 건너뛰는 일이 있어(10/12 18:07 미실행) 40분 뒤 한 번 더 시도한다.
+#    직전 90분 안에 이미 갱신됐으면 수집·배포 없이 바로 끝낸다(같은 회차 두 번 수집 방지).
 #  - main에 직접 올릴 때(push): 수집 없이 배포만
 #  - 수동: 저장소 → Actions → "청빙 공고 수집·배포" → Run workflow (옵션 칸을 비우면 전체 수집)
 #  - 해외 접속을 막는 출처(viaKR)는 서울 리전 Supabase 함수(kr-relay)를 거쳐 요청한다.
@@ -9,6 +11,7 @@ name: 청빙 공고 수집·배포
 on:
   schedule:
     - cron: '7 21,3,9 * * *'     # UTC 21:07·03:07·09:07 = KST 06:07·12:07·18:07 (정각 혼잡 피함)
+    - cron: '47 21,3,9 * * *'    # 보조: KST 06:47·12:47·18:47 — 위 회차가 빠졌을 때만 실제로 수집
   workflow_dispatch:
     inputs:
       args:
@@ -29,21 +32,35 @@ jobs:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    outputs:
+      skipped: ${{ steps.guard.outputs.skip }}
     steps:
       - uses: actions/checkout@v4
+      - name: 이번 회차가 필요한지 확인(예약 실행만)
+        id: guard
+        run: |
+          age=$(( $(date +%s) - $(date -d "$(jq -r .updatedAt data/jobs.json)" +%s) ))
+          echo "마지막 갱신 후 $((age / 60))분"
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$age" -lt 5400 ]; then
+            echo "90분 안에 이미 갱신됨 — 이번 예약은 건너뜀"; echo "skip=true" >> "$GITHUB_OUTPUT"
+          else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
       - uses: actions/setup-node@v4
+        if: steps.guard.outputs.skip != 'true'
         with:
           node-version: 20
           cache: npm
           cache-dependency-path: scraper/package-lock.json
       - name: 설치
+        if: steps.guard.outputs.skip != 'true'
         run: npm ci
         working-directory: scraper
       - name: 파서·중계 점검(외부 요청 없이)
+        if: steps.guard.outputs.skip != 'true'
         run: |
           node scraper/test-parsers.mjs
           node scraper/test-relay.mjs
       - name: 수집(출처별 결과가 로그에 남음)
+        if: steps.guard.outputs.skip != 'true'
         env:
           KR_RELAY_URL: https://xjmexzeyxkxqsgvwaupz.supabase.co/functions/v1/kr-relay   # 공개값
           KR_RELAY_APIKEY: sb_publishable_1cyG9HPpcC4hqJZIv4wbuA_JpoS_UiQ                # config.js와 같은 공개(publishable) 키
@@ -52,6 +69,7 @@ jobs:
           if [[ ! "$ARGS" =~ ^[-a-z0-9=,\ ]*$ ]]; then echo "옵션에 허용하지 않은 글자가 있음: $ARGS"; exit 1; fi
           node scraper/fetch-jobs.mjs $ARGS
       - name: 바뀐 게 있으면 커밋
+        if: steps.guard.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -63,7 +81,7 @@ jobs:
 
   deploy:
     needs: fetch
-    if: always() && (needs.fetch.result == 'success' || needs.fetch.result == 'skipped')
+    if: always() && (needs.fetch.result == 'success' || needs.fetch.result == 'skipped') && needs.fetch.outputs.skipped != 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages

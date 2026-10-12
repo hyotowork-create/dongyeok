@@ -277,3 +277,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 | 2026-10-12 | 세라핌 0.2.0 릴리스(설치 파일 3개·SHA256·제3자 고지), Seraphim main에 LICENSE(MIT)·THIRD-PARTY-NOTICES 추가(d177b1c). 사이트 내려받기 링크를 /releases/latest로 |
 | 2026-10-12 | 개인정보처리방침·이용약관 시행일 2026-10-12 기입, 위탁 표의 저장 위치를 "대한민국(서울)"로 확정. 스레드 문구 원어·숫자 점검 |
 | 2026-10-12 | 세라핌 LICENSE를 표준 MIT 문구만 남겨 GitHub가 MIT로 인식(Seraphim 904cc40, 제3자 안내는 README로). 두 세션 작업 내용 통합 |
+| 2026-10-12 | **운영자가 사이트를 공개 오픈(홍보 시작)**. 이후 매일 운영 화면에서 검수·신고 처리 필요 |

@@ -58,7 +58,7 @@
 | 일 | 클라우드에서 | 방법 |
 |---|---|---|
 | 코드 수정·점검·push(=배포) | 됨 | 점검 4종 모두 실행 가능(Deno는 `.tools/node_modules/.bin/deno`) |
-| Actions 실행 목록·수동 실행 | 됨 | `gh run list`, `gh workflow run` |
+| Actions 실행 목록·수동 실행 | 됨 | `gh run list`, `gh workflow run … --ref main`(클라우드는 GraphQL이 막혀 `--ref main`이 꼭 필요). 수동 실행은 **바로 실제로 돈다** — 시험 삼아 부르지 않는다 |
 | Actions 로그 | **안 됨**(로그 저장소 주소가 막힘) | 워크플로가 남기는 annotation(「수집 결과」「건너뜀」「정상」)을 `status.mjs`가 API로 읽음. 더 자세한 로그는 운영자가 GitHub 화면에서 보거나 맥 세션에서 `gh run view --log` |
 | 공개 사이트·Supabase·서울 중계 응답 | 셸에서 막힘 | `status.mjs --health`(「상태 확인」 워크플로가 GitHub 서버에서 확인). 사이트 내용은 WebFetch |
 | 휴대폰 화면 점검 | 됨(이 폴더의 파일로) | `node scripts/mobile-check.mjs` — 공개 사이트에 못 닿으면 자동으로 로컬 `index.html`. DB에서 오는 목록은 비어 보임 |
@@ -352,3 +352,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok -f args="--only=chon
 | 2026-10-12 | 휴대폰 레이아웃 수정(5b42acf): 평가 작성 안내 글자 세로 쪼개짐, 첫 화면 가로 넘침(390→535px), 링크로 들어올 때 제목 가림. 휴대폰 점검 도구 `scripts/mobile-check.mjs`(84e8701) |
 | 2026-10-12 | 밤 점검(클라우드 세션). 수집 작업 checkout을 `ref: main`으로 바꿔 늦게 돈 예약 회차와 보조 회차가 겹쳐도 두 번 수집하지 않게 함 |
 | 2026-10-13 | 클라우드 세션 유지보수 정비: `scripts/cloud-setup.sh`(준비), `scripts/status.mjs`(상태 점검 한 번에), 「상태 확인」 워크플로 `health.yml`(사이트·Supabase·서울 중계 응답을 annotation으로), 수집 워크플로에 결과 요약 annotation, `mobile-check.mjs`가 Chromium·로컬 파일로도 동작. 운영자 파일은 구글 드라이브 사본 |
+| 2026-10-13 | 07:33 실수로 수동 수집 1회 시작(`gh workflow run`이 `--ref` 확인용으로 부른 `-f args=--help`를 모르는 옵션으로 무시하고 전체 수집 시작) → 약 90초 만에 취소(run 38317298802, 커밋·배포 없음). 재발 방지: 수집기가 모르는 옵션이면 멈춤(exit 2) |

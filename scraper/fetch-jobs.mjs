@@ -37,6 +37,9 @@ if (!process.env.NODE_EXTRA_CA_CERTS && existsSync(EXTRA_CA)) {
   process.exit(r.status ?? 1);
 }
 const args = Object.fromEntries(process.argv.slice(2).map(a => { const [k, v] = a.replace(/^--/, '').split('='); return [k, v ?? true]; }));
+// 모르는 옵션은 무시하지 않고 멈춘다 — 무시하면 전체 수집이 돌아 버림(10/13 `--help`로 전체 수집이 시작된 일)
+const unknown = Object.keys(args).filter(k => !['only', 'dry', 'detail', 'offline', 'out'].includes(k));
+if (unknown.length) { console.error(`모르는 옵션: ${unknown.join(', ')} — 쓸 수 있는 것: --only=id,id|auto --dry --detail=N --offline --out=local`); process.exit(2); }
 
 // --only=auto: 직전 GitHub 수집에서 실패했거나 맥 보충으로 채운 출처 + 서울 중계로도 안 되는 출처
 // (대신대·기독정보넷·총신대·목원대는 2026-10-12부터 GitHub가 서울 중계로 직접 모음. 중계가 실패하면 위 조건으로 다시 맥이 맡음)

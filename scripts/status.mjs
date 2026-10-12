@@ -68,7 +68,9 @@ try {
 if (HEALTH) {
   console.log('\n— 응답 확인(GitHub 서버에서, 「상태 확인」 워크플로)');
   const since = Date.now() - 30_000;
-  sh('gh', ['workflow', 'run', 'health.yml', '-R', R]);
+  // gh workflow run은 GraphQL을 써서 클라우드 세션에서 막히므로 REST로 실행한다
+  try { sh('gh', ['api', '-X', 'POST', `repos/${R}/actions/workflows/health.yml/dispatches`, '-f', 'ref=main']); }
+  catch (e) { say(false, `상태 확인 워크플로 실행 실패: ${(e.stderr || e.message).split('\n')[0]}`); }
   let run;
   for (let i = 0; i < 30 && !(run && run.status === 'completed'); i++) {
     await sleep(5000);

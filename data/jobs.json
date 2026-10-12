@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-12T05:26:53.706Z",
+ "updatedAt": "2026-10-12T05:41:19.746Z",
  "sources": [
   {
    "id": "chongshin",
@@ -55,16 +55,18 @@
    "name": "대신대",
    "group": "신학교",
    "home": "https://www.daeshin.ac.kr/html/05_community/03.php",
-   "status": "robots",
-   "note": "robots.txt에 접근할 수 없어 수집하지 않음 (www.daeshin.ac.kr)"
+   "status": "ok",
+   "note": "맥에서 보충 수집(2026-10-12) — 해외 접속 차단",
+   "count": 15
   },
   {
    "id": "kwangshin",
    "name": "광신대",
    "group": "신학교",
    "home": "https://www.kwangshin.ac.kr/front/boardList.do?brd_mgrno=184&menu_no=467",
-   "status": "robots",
-   "note": "robots.txt에 접근할 수 없어 수집하지 않음 (www.kwangshin.ac.kr)"
+   "status": "ok",
+   "note": "맥에서 보충 수집(2026-10-12) — 해외 접속 차단",
+   "count": 10
   },
   {
    "id": "wgst",
@@ -192,8 +194,9 @@
    "name": "기독정보넷",
    "group": "구인 사이트",
    "home": "https://www.cjob.co.kr/bbs/board.php?bo_table=offerKG",
-   "status": "blocked",
-   "note": "HTTP 403 — 사이트가 요청을 거절함"
+   "status": "ok",
+   "note": "맥에서 보충 수집(2026-10-12) — 해외 접속 차단",
+   "count": 40
   },
   {
    "id": "pckworld",
@@ -245,6 +248,12 @@
   {
    "name": "호남신학대학교 청빙",
    "url": "https://ministry.htus.ac.kr/board/board.php?b_id=ministry_009",
+   "group": "신학교",
+   "reason": "수집 금지(robots.txt)"
+  },
+  {
+   "name": "한국성서대학교 성서대학원 게시판",
+   "url": "https://grad.bible.ac.kr/ko/community/gospel",
    "group": "신학교",
    "reason": "수집 금지(robots.txt)"
   },
@@ -305,6 +314,117 @@
  ],
  "items": [
   {
+   "id": "ds-cytvcf",
+   "dk": "cytvcf",
+   "source": "daeshin",
+   "title": "산격제일교회에서 동역자를 초빙합니다",
+   "church": "산격제일교회",
+   "region": null,
+   "area": null,
+   "positions": [],
+   "denomination": null,
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001563099999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-2ctv59",
+   "dk": "2ctv59",
+   "source": "daeshin",
+   "title": "[경산] 경산예수소망교회(합동) 주일학교 교육전도사 청빙 (남녀 무관 / 반주 가능자 우대)...",
+   "church": "경산예수소망교회",
+   "region": "경북",
+   "area": null,
+   "positions": [
+    "교육전도사",
+    "반주자"
+   ],
+   "denomination": null,
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": true,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562999999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-1wxmwug",
+   "dk": "1wxmwug",
+   "source": "daeshin",
+   "title": "새소망교회(서울 수유동)에서 전임사역자 초빙",
+   "church": "새소망교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562899999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-h5u41t",
+   "dk": "h5u41t",
+   "source": "daeshin",
+   "title": "오천제일교회에서 선교후보생을 구합니다.",
+   "church": "오천제일교회",
+   "region": null,
+   "area": null,
+   "positions": [],
+   "denomination": null,
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562799999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-udyskh",
+   "dk": "udyskh",
+   "source": "daeshin",
+   "title": "참 행복하고 즐거운 청주중앙교회에서 전임 부목사님 한분을 정중히 모십니다. ...",
+   "church": "청주중앙교회",
+   "region": "충북",
+   "area": null,
+   "positions": [
+    "부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": true,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562699999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "gp-1qiwiab",
+   "dk": "1qiwiab",
+   "source": "godpeople",
+   "title": "유치부 교육전도사 청빙공고",
+   "church": "백석교회",
+   "region": "인천",
+   "area": null,
+   "positions": [
+    "교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-12",
+   "deadline": "채용시까지",
+   "closed": false,
+   "truncated": false,
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5PyKkKtx5F",
+   "firstSeen": "2026-10-12T05:41:19.740Z"
+  },
+  {
    "id": "gp-195khb8",
    "dk": "195khb8",
    "source": "godpeople",
@@ -321,7 +441,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5r3RwqmmMr",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=45X2eUcAlv",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -342,7 +462,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2A3PuQzTjd",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4gAj8eGWMl",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -362,7 +482,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2JDL1yGg4z",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1nYGGg4gVk",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -383,7 +503,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=60DN4H7EED",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5Z8FrkZMJr",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -403,7 +523,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4EIJbx20jB",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5UYIJ6KjJ8",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -424,7 +544,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1iZeXp4cDP",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1QeSSporGh",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -446,7 +566,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7G4hbSURqA",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=21I8wyyqV5",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -465,7 +585,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5BpntrsMni",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3QJObVi1NO",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -486,7 +606,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2SNG9UxwK1",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6S5mb59Zdf",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -507,7 +627,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5htWpIZ93J",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=60c1ESTN9h",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -527,7 +647,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2A3PuQjqXJ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6S5mb5VsHr",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -547,7 +667,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6IXDJPFNSD",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=lQoPr9V7W",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -567,7 +687,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2g78pn6jdA",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6S5mb4MU2R",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -588,7 +708,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1LfqjvloYc",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3idEqbkkys",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -608,7 +728,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=60DN4NE9cX",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4balZrHwRa",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -627,7 +747,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1dzgz3O6jO",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=18KcDlCIJT",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -646,7 +766,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=pc7obGcQx",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=21I8wyvAAd",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -665,7 +785,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=ym2w8YKQD",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=72jT5Eoq35",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -684,7 +804,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2kh6Oa2bOX",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7GTLlXkZ9O",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -705,7 +825,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3CArlBuBX5",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6kPcqADfR5",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -726,7 +846,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=37auCQFfkQ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3e3HHt6IzZ",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -746,7 +866,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5Bpntu2d1K",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypiWOjX60",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -767,7 +887,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1iZi427nOV",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2AS9Lsu5u9",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -787,7 +907,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6IXGpm6BTR",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2uFkxfIhxv",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -806,7 +926,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=ym6SMdT3N",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1VEVIz3oOW",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -827,7 +947,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=33109xjMNN",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=72jYMhUhtT",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -847,7 +967,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6DxJH0Tg0q",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4yUefBPNCZ",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -868,7 +988,7 @@
    "deadline": "2026-11-02",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2A3TQjw1HV",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2uFkxfIHvP",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -888,7 +1008,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1ZPmwalQnR",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6ozfgOVG2i",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -907,7 +1027,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2bXEnLpDhn",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5Z8L9KY13b",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -927,7 +1047,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5r3VTACCYh",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=534cDwzzfw",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -946,7 +1066,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3UUlWZVhHP",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1iyNzMuy6B",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -965,7 +1085,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1n9fcteH9U",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2F26ukQIcg",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -985,7 +1105,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5BprQCHMKk",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5CEXLRBPV0",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1004,7 +1124,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=64nO9T5IeY",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5diIi66zTY",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1024,7 +1144,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2WxHEW6Lx8",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypiWMsW2C",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1043,7 +1163,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=uC8tfsHUC",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2F26ukOktC",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1062,7 +1182,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5BprQFJ06I",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2OC22Hg4F2",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1082,7 +1202,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3CAvHUmseh",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6ozfgOJxEi",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1101,7 +1221,7 @@
    "deadline": "2026-10-24",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=49iPZUEfS0",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3nDHgsusN1",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1121,7 +1241,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1ZPmwadVif",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3e3MZLcHXl",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1140,7 +1260,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4WcDNKS6qv",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1HUcckwli9",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1160,7 +1280,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=13M41D6Jtm",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2bvuiaYxEz",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1179,7 +1299,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4NSIFn8cvX",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2XLx9ou6GQ",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1198,7 +1318,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6oazl9RTGG",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=45X7vxSGVv",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1217,7 +1337,7 @@
    "deadline": "2026-10-07",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4kM63dJw1E",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=57eZmiSAIH",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1236,7 +1356,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=37axiaF3zW",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4JH0c7TTGg",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1256,7 +1376,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6oazl9Pfbg",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4SQvjnekJg",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -1275,7 +1395,7 @@
    "deadline": "2026-10-07",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5YjfE5QdcJ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5CEXLU6Xxi",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -2541,7 +2661,7 @@
    "deadline": "2026-11-12",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5GPlShxXip",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3QJOba8tha",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2561,7 +2681,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5mTUO5nT4E",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4kkghQ5EE8",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2580,7 +2700,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3vyTMseJbB",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5iIAzPSrdN",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2599,7 +2719,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6IXDJTGokb",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2uFfgCtwRr",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2619,7 +2739,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=60DN4OfbNd",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3CZVvHSkmV",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2638,7 +2758,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=52fsmPHxVM",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1QeSSpz78t",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2657,7 +2777,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=60DN4O5Ffz",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4balZs8hRC",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2678,7 +2798,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2A3PuQYuhV",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3UtMALVbgl",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2699,7 +2819,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5htWpK56Dz",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=69lwM1Hc2l",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2720,7 +2840,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=17vy3g35Nv",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1QeSSpxFFP",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2739,7 +2859,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4IsHAhPAxw",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4balZrJaWc",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2759,7 +2879,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5mTUO5EmOI",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5rS66wDGnH",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2780,7 +2900,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6N7AsEsTFK",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1VEQ1bakkm",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2800,7 +2920,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2EdNT9Sa58",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypdEvFCdQ",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2821,7 +2941,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4IsHAf6LkM",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1CuZmTJDBw",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2840,7 +2960,7 @@
    "deadline": "2026-10-25",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4NSEjUQJKJ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=zAh6E3UVh",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2860,7 +2980,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6IXDJTCRQ1",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4kkghPxtMW",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2880,7 +3000,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3Z4fZ07RNQ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4SQqSJC0Ry",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2901,7 +3021,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7BUk2gwM9l",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5PyKkKldGb",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2921,7 +3041,7 @@
    "deadline": "2026-10-25",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=72Kov9dhqN",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1eOL98posM",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2941,7 +3061,7 @@
    "deadline": "2026-10-25",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2kh6OaBlTV",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3rn9yCCI4W",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2960,7 +3080,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=13M0UuKfsA",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3UtMALxebf",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -2980,7 +3100,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1LfqjytzLS",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1s8DpRkL0H",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -3000,7 +3120,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1ZPjQHm2Dl",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5CES41jJDS",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -3019,7 +3139,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2pH3xGlqB0",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=lQoPq1VA6",
    "firstSeen": "2026-10-07T07:28:05.757Z"
   },
   {
@@ -3039,7 +3159,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3PukRTmYF0",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6tZXxgS6OD",
    "firstSeen": "2026-10-07T07:28:05.757Z"
   },
   {
@@ -3059,7 +3179,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2SNG9UlAsf",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3H9TU2BkXc",
    "firstSeen": "2026-10-07T07:28:05.757Z"
   },
   {
@@ -3080,7 +3200,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2g78pjCgKw",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1M4UtyuV0o",
    "firstSeen": "2026-10-07T07:28:05.757Z"
   },
   {
@@ -3360,7 +3480,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5r3VT8DotD",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=uaooss0mG",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3380,7 +3500,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=57FqL9a2Yn",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6Wfk9qAkyS",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3400,7 +3520,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=458S0hrinj",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1VEVJ3Av7c",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3420,7 +3540,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2A3TQjCs77",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=69m1dSy68h",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3440,7 +3560,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5dJcmqPOU4",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=45X7vwkX11",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3460,7 +3580,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1n9c6aJCgq",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1M4Uu3lDcw",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3480,7 +3600,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2kh9usqvAx",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=69m1dTS8ON",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3501,7 +3621,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1rjZfMLB3N",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5LONBZ0k0a",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3520,7 +3640,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5BprQDnDaI",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5rSBONVSkZ",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3539,7 +3659,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=l2Dm6VDb4",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4A75Uh6U6i",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3558,7 +3678,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=76umTnO1M4",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2OBwkhObyO",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3578,7 +3698,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=49iM38UmX2",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3ZTJj4erkG",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3597,7 +3717,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3LKmsiop5F",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1VEQ1b0IqG",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3617,7 +3737,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6tAtnbnbo1",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1eOL98I6AA",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3636,7 +3756,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1wJakLMt14",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypiWLJJ6q",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3657,7 +3777,7 @@
    "deadline": "2026-10-31",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2pH3xKeQm2",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4SQqSKB6JM",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3676,7 +3796,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4S2FoYe2SK",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4kklys86ds",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3695,7 +3815,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6N7AsCm1l8",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4tubovBiWg",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3715,7 +3835,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=57FtrRjjEL",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypiWOutmK",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3734,7 +3854,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1LfuGGJQFO",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5PyQ1litFh",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3754,7 +3874,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2bXBH1XfNv",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2l5kYeA2GT",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3775,7 +3895,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5r3RwlqNV1",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3ZTJj29dV2",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3796,7 +3916,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=17vy3cPMSR",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1nYGGcXWa8",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3816,7 +3936,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2SNJfoCGmX",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2pfnOtKSNS",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3835,7 +3955,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=76uq0AbLy0",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3LjWKDa7OD",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3855,7 +3975,7 @@
    "deadline": "2026-10-18",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4y5yju5hi3",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2bvuiYKqS3",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3875,7 +3995,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1LfuGDh4Yo",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5UYNaUkQp4",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3894,7 +4014,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=69NIBv7M0h",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4NqstYwmad",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3917,7 +4037,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5GPoyzh3Rn",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=zAmNf9Bft",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3938,7 +4058,7 @@
    "deadline": "2026-12-13",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=13M41D8C50",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4X0tIZNSC9",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3957,7 +4077,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=69NLiE4U2r",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3UtRRnjqlD",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3978,7 +4098,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6DxFka85hE",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3wN7WqRIoD",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -3997,7 +4117,7 @@
    "deadline": "2026-11-15",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6k0yg0T0Ez",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2OBwkkhgPY",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4017,7 +4137,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3moYFKC8NH",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=60c1ESsntl",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4037,7 +4157,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1CVvcQZTcC",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypdExOIKG",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4057,7 +4177,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=49iM3ALbpo",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5CES40i19W",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4076,7 +4196,7 @@
    "deadline": "2026-10-14",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5dJcmqwWCi",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3QJTt2TcMQ",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4096,7 +4216,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6WH5zkIAO8",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=65BynDkNOc",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4118,7 +4238,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1rjZfH3yJx",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3QJObUwlAo",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4139,7 +4259,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1wJXE1II02",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6bFhiWIDP7",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4159,7 +4279,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2EdQzVYF3K",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2pfnOtciNK",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4178,7 +4298,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1rjdBf0EeP",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2Slzb34E0L",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4198,7 +4318,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=pcBKtvVZb",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1M4aBWLr9G",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4217,7 +4337,7 @@
    "deadline": "2026-10-31",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1H5tBCczgb",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4SQqSKiAT2",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4236,7 +4356,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6N7EOR75rs",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1HUcceTXMH",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4255,7 +4375,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1QFoIeps27",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3idEqZB27S",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4275,7 +4395,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3CAvHTgg5j",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4tuh6ORYxq",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4296,7 +4416,7 @@
    "deadline": "2026-10-17",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4kM63d7SIG",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=65C44he2ik",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4316,7 +4436,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4y5yjw34YN",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5iIGGrPITv",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4337,7 +4457,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3CAvHUIe9L",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4X0tIYovVZ",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4357,7 +4477,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7G4l7fEjDe",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5rSBOIsHL5",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4378,7 +4498,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5YjbhjGjLv",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6NVp2GhEsQ",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4398,7 +4518,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=52fwIfjLKe",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2Slzb12RKb",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4419,7 +4539,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6N7EOXJEdC",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1eOQQatO0U",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4439,7 +4559,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3dege6PiKT",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3LjWKGjcBv",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4459,7 +4579,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3UUlWZ7LGR",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4SQvjnPZRo",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4479,7 +4599,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=60DQadgLvr",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1nYLY4mka0",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4498,7 +4618,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6k12CGVFKx",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2F26ud1frq",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4517,7 +4637,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4ow066Aci5",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7BtOCm9uXl",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4537,7 +4657,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3GksqG9WvE",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=18KhVDKbh9",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4556,7 +4676,7 @@
    "deadline": "2026-10-24",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4bCAw5mK06",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3idK86wHwc",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4576,7 +4696,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4S2CIDf4Aq",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3idEqcX1Xa",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4595,7 +4715,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=57FqL8UAUn",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypdEw5d00",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4614,7 +4734,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6DxJGzyJdE",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=534cDwXwui",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4633,7 +4753,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4Wc9qylu3V",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6fpfHLorFS",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4653,7 +4773,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5U9hfJBboI",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4Eh33U7TDt",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4672,7 +4792,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4EIN8FWWdB",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=21IEER3lJv",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4693,7 +4813,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2JDOYG4D5P",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1s8J6t64Q1",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4713,7 +4833,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3LKqP1mqkP",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=37zddxkhcg",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4734,7 +4854,7 @@
    "deadline": "2026-10-25",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5r3RwpvfQZ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5rS66vFpzD",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4753,7 +4873,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1iZi450HWV",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=18KhVAk3tf",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4772,7 +4892,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=13M41Cl6pu",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1HUcckay2v",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4792,7 +4912,7 @@
    "deadline": "2026-10-31",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6oazl96XwO",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=57eZmiAJfz",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4812,7 +4932,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=60DQacRjix",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1Cuf3uNr0W",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4832,7 +4952,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4ow3cOfWXx",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6fpkYqiDD0",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4852,7 +4972,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2EdQzV4FGs",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=77JVvSZv9Q",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4871,7 +4991,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=57FtrOUOOr",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4A75Udzy00",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4891,7 +5011,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5dJZGWKOHk",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=zAh6Bz4Sv",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4910,7 +5030,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=40YQvdOygk",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=18KcDkY4Cz",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4929,7 +5049,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5BpntuJkOA",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2AS44UAmBN",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4949,7 +5069,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=25TVrxgBIC",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3LjWKGYa2n",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4969,7 +5089,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2NnM6xYtBA",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3CZbCeZ7Wp",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4989,7 +5109,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5dJcmo61PU",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=21IEEOMuwJ",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5010,7 +5130,7 @@
    "deadline": "2026-12-20",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=76uq0DeKQy",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5GoUuFPYTT",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5027,7 +5147,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6N7AsByrrm",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=25s6VhrbDo",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5047,7 +5167,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2pH7TY4yuc",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2OC22B6oyC",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5066,7 +5186,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=76uq05uytg",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypiWIfYfE",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5087,7 +5207,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1CVvcN3gRQ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1CuZmSNtTI",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5106,7 +5226,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6DxJGzrlsm",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1HUcckWF2n",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5125,7 +5245,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3GksqG2JTI",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7BtTUE9zfx",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5146,7 +5266,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1CVz8kVeG8",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4A75UjEfbg",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5165,7 +5285,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4fm4yY6SqV",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6bFhicDJY9",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5185,7 +5305,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5vdT1pGwoW",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4A75Ucg7rE",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5206,7 +5326,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6oazl8zBMK",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypiWQJu8K",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5246,7 +5366,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=69NLiD1jdv",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1eOQQZY4AE",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5267,7 +5387,7 @@
    "deadline": "2026-10-17",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6IXDJSHsbR",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5LONBYDgZE",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5288,7 +5408,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2JDL1qvwJ5",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1M4UtwrkDe",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5308,7 +5428,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4y5vDdQgVr",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5GoPcnL3ah",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5327,7 +5447,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3rOVo6kgpy",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ypdEyKSPg",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5348,7 +5468,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6N7AsD5cMy",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6Wfk9pi0P6",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5369,7 +5489,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2yR2bAWNBw",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4X0tIXz6LR",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5389,7 +5509,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3vyTMr9pzJ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3CZVvG1fBb",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5408,7 +5528,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5vdT1t1ZZo",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2l5pq5ALdV",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5428,7 +5548,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2yQz4t5VWm",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2uFfgClZMz",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5447,7 +5567,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3moYFLGUzj",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7BtOCmIGBJ",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5467,7 +5587,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6Rh8QzQ9dx",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2uFfgBkviV",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5486,7 +5606,7 @@
    "deadline": "2026-10-25",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=52fsmL9YoC",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3ZTJj3ZMwC",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5507,7 +5627,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3LKmsasufd",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5diDQVDyR2",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5526,7 +5646,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6xkrMMMi2Q",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=33PaniTFC5",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5635,6 +5755,117 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122561",
    "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-147va3v",
+   "dk": "147va3v",
+   "source": "chongshin",
+   "title": "신광교회에서 전임 목사님을 모십니다",
+   "church": "신광교회",
+   "region": "경기",
+   "area": "경기 광명시",
+   "positions": [
+    "부목사"
+   ],
+   "denomination": "예장합동",
+   "date": "2026-10-12",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122564",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "ds-1k3dk0f",
+   "dk": "1k3dk0f",
+   "source": "daeshin",
+   "title": "대구 대현교회에서 함께 동역할 사역자 초빙합니다(준전임 or 파트)....",
+   "church": "대현교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "전임전도사",
+    "교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-11",
+   "deadline": null,
+   "closed": false,
+   "truncated": true,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562599999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-17ah9q1",
+   "dk": "17ah9q1",
+   "source": "daeshin",
+   "title": "대구성문교회에서 전임사역자를 모십니다.",
+   "church": "대구성문교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "전임전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-11",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562499999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-36qiqi",
+   "dk": "36qiqi",
+   "source": "daeshin",
+   "title": "울산두레교회에서 동역자(전임)를 정중히 모십니다....",
+   "church": "울산두레교회",
+   "region": "울산",
+   "area": null,
+   "positions": [],
+   "denomination": null,
+   "date": "2026-10-11",
+   "deadline": null,
+   "closed": false,
+   "truncated": true,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562299999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-1bg4n4",
+   "dk": "1bg4n4",
+   "source": "daeshin",
+   "title": "{끌어올림} 자인교회에서 부교역자를 초빙합니다.",
+   "church": "자인교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-11",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562199999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "cj-9rfm8j",
+   "dk": "9rfm8j",
+   "source": "cjob",
+   "title": "목회자를 청빙합니다",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [],
+   "denomination": "예장 합동",
+   "date": "2026-10-11",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.cjob.co.kr/bbs/board.php?bo_table=offerKG&wr_id=8648",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
   },
   {
    "id": "kt-1eqimeo",
@@ -7212,6 +7443,23 @@
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
+   "id": "ds-1nfd6r0",
+   "dk": "1nfd6r0",
+   "source": "daeshin",
+   "title": "행복한 수원동부교회에서 함께할 동역자를 모십니다(전임)...",
+   "church": "수원동부교회",
+   "region": "경기",
+   "area": null,
+   "positions": [],
+   "denomination": null,
+   "date": "2026-10-11",
+   "deadline": null,
+   "closed": false,
+   "truncated": true,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562399999999",
+   "firstSeen": "2026-10-07T07:29:44.219Z"
+  },
+  {
    "id": "hi-1ko5nmz",
    "dk": "1ko5nmz",
    "source": "hanil",
@@ -7530,25 +7778,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122481",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "cs-147va3v",
-   "dk": "147va3v",
-   "source": "chongshin",
-   "title": "신광교회에서 전임 목사님을 모십니다",
-   "church": "신광교회",
-   "region": "경기",
-   "area": "경기 광명시",
-   "positions": [
-    "부목사"
-   ],
-   "denomination": "예장합동",
-   "date": "2026-10-11",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122448",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -7987,6 +8216,101 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1122483",
    "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "ds-zzkgx5",
+   "dk": "zzkgx5",
+   "source": "daeshin",
+   "title": "전임, 준전임, 파트사역자를 모십니다.",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임전도사",
+    "교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-10",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001562099999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-15z963b",
+   "dk": "15z963b",
+   "source": "daeshin",
+   "title": "인천 검단중앙교회에서 전임사역자를 모십니다.",
+   "church": "검단중앙교회",
+   "region": "인천",
+   "area": null,
+   "positions": [
+    "전임전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-10",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001561999999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-1vocfkr",
+   "dk": "1vocfkr",
+   "source": "daeshin",
+   "title": "서울 성원교회에서 2027년을 함께 할 동역자를 청빙합니다.",
+   "church": "성원교회",
+   "region": "서울",
+   "area": null,
+   "positions": [],
+   "denomination": null,
+   "date": "2026-10-10",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001561899999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-de6yh7",
+   "dk": "de6yh7",
+   "source": "daeshin",
+   "title": "약목교회에서 동역자(전임사역자)님을 모십니다.",
+   "church": "약목교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-10",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001561799999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ds-1yaxew4",
+   "dk": "1yaxew4",
+   "source": "daeshin",
+   "title": "(재공지)대구서문교회에서 동역자( 파트 : 영아부, 유아부, 찬양사역자)를 정중히 모십니다....",
+   "church": "대구서문교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교육전도사",
+    "찬양·예배"
+   ],
+   "denomination": null,
+   "date": "2026-10-10",
+   "deadline": null,
+   "closed": false,
+   "truncated": true,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001561699999999",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
   },
   {
    "id": "kt-1dnwtm6",
@@ -11211,6 +11535,25 @@
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
+   "id": "ks-cqvstl",
+   "dk": "cqvstl",
+   "source": "kwangshin",
+   "title": "여수새중앙교회에서 동역의 기쁨을 나눌 전임사역자를 정중히 청빙합니다.",
+   "church": "여수새중앙교회",
+   "region": "전남",
+   "area": null,
+   "positions": [
+    "전임전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-08",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43092",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
    "id": "wg-hlnomx",
    "dk": "hlnomx",
    "source": "wgst",
@@ -11772,6 +12115,101 @@
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
+   "id": "ks-1h8tfn5",
+   "dk": "1h8tfn5",
+   "source": "kwangshin",
+   "title": "일로제일교회에서 부목사님을 청빙합니다.",
+   "church": "일로제일교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-07",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43088",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "ks-qthplh",
+   "dk": "qthplh",
+   "source": "kwangshin",
+   "title": "[고현충현교회 - 전임 및 파트 교역자 청빙]",
+   "church": "고현충현교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-07",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43087",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "cj-mwguow",
+   "dk": "mwguow",
+   "source": "cjob",
+   "title": "교육전도사 모심",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [
+    "교육전도사"
+   ],
+   "denomination": "예장 합동",
+   "date": "2026-10-07",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.cjob.co.kr/bbs/board.php?bo_table=offerKG&wr_id=8646",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "cj-eexfaz",
+   "dk": "eexfaz",
+   "source": "cjob",
+   "title": "부목사님을 모십니다.",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [
+    "부목사"
+   ],
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-07",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.cjob.co.kr/bbs/board.php?bo_table=offerKG&wr_id=8645",
+   "firstSeen": "2026-10-12T05:41:19.741Z"
+  },
+  {
+   "id": "mt-ixm1md",
+   "dk": "ixm1md",
+   "source": "mtu",
+   "title": "[서울/중구용산] 광희문교회에서 동역할 교육전도사님을 정중히 모십니다.",
+   "church": "광희문교회",
+   "region": "서울",
+   "area": null,
+   "positions": [
+    "교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-07",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.mtu.ac.kr/mtu/board/view.do?mId=162&page=1&brdIdx=20785",
+   "firstSeen": "2026-10-12T05:41:19.740Z"
+  },
+  {
    "id": "wg-1c7y9fl",
    "dk": "1c7y9fl",
    "source": "wgst",
@@ -12013,23 +12451,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001559899999999",
-   "firstSeen": "2026-10-07T07:29:44.219Z"
-  },
-  {
-   "id": "ds-1nfd6r0",
-   "dk": "1nfd6r0",
-   "source": "daeshin",
-   "title": "행복한 수원동부교회에서 함께할 동역자를 모십니다(전임)",
-   "church": "수원동부교회",
-   "region": "경기",
-   "area": null,
-   "positions": [],
-   "denomination": null,
-   "date": "2026-10-07",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001559799999999",
    "firstSeen": "2026-10-07T07:29:44.219Z"
   },
   {
@@ -12458,25 +12879,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43089",
-   "firstSeen": "2026-10-07T07:28:05.758Z"
-  },
-  {
-   "id": "ks-1hbhnii",
-   "dk": "1hbhnii",
-   "source": "kwangshin",
-   "title": "[고현충현교회 - 전임 및 파트 교역자 청빙]",
-   "church": "고현충현교회",
-   "region": null,
-   "area": null,
-   "positions": [
-    "교육전도사"
-   ],
-   "denomination": null,
-   "date": "2026-10-07",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43087",
    "firstSeen": "2026-10-07T07:28:05.758Z"
   },
   {
@@ -14874,25 +15276,6 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1121875",
    "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "mt-1qetqqa",
-   "source": "mtu",
-   "title": "[서울연회/중구용산지방] 광희문교회에서 동역할 교육전도사님을 정중히 모십니다.",
-   "church": "광희문교회",
-   "region": "서울",
-   "area": null,
-   "positions": [
-    "교육전도사"
-   ],
-   "denomination": null,
-   "date": "2026-10-07",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.mtu.ac.kr/mtu/board/view.do?mId=162&page=1&brdIdx=20785",
-   "firstSeen": "2026-10-07T06:34:51.990Z",
-   "dk": "1qetqqa"
   },
   {
    "id": "mt-1rtwka3",
@@ -23511,8 +23894,8 @@
    "firstSeen": "2026-10-07T07:28:05.758Z"
   },
   {
-   "id": "cj-1c848ow",
-   "dk": "1c848ow",
+   "id": "cj-177bk31",
+   "dk": "177bk31",
    "source": "cjob",
    "title": "[인도네시아 자카르타 소재 참빛교회] 담임목사를 청빙합니다",
    "church": "참빛교회",
@@ -23527,7 +23910,7 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.cjob.co.kr/bbs/board.php?bo_table=offerKG&wr_id=8621",
-   "firstSeen": "2026-10-07T07:28:05.758Z"
+   "firstSeen": "2026-10-12T05:41:19.741Z"
   },
   {
    "id": "cj-15in9f",

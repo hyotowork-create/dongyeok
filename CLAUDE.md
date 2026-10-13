@@ -330,7 +330,7 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 ## 남은 일
 | 일 | 담당 | 비고 |
 |---|---|---|
-| 외부 예약 토큰 교체 | 운영자 → Claude | Supabase pg_cron `dongyeok-wake`(06~23시 매시 17·47분 UTC 크론 `17,47 21-23,0-14`)가 Vault `gh_dispatch_token`으로 workflow_dispatch(wake=true)를 부름(10/13 12:47 시험 호출 204 → guard 건너뜀 확인). **지금 토큰은 채팅에 노출된 값이라 새로 발급해 Vault 값만 바꾸는 것을 권장.** 만료일 확인 필요(30일이면 11/12에 멈춤) |
+| 외부 예약 토큰 만료 전 교체 | 운영자 → Claude | Supabase pg_cron `dongyeok-wake`(UTC `17,47 21-23,0-14`)가 Vault `gh_dispatch_token`으로 workflow_dispatch(wake=true)를 부름(10/13 시험 호출 204·guard 건너뜀 확인). 토큰(fine-grained `dongyeok-wake`, Actions 쓰기, dongyeok만)은 **2027년 만료** — 만료 전 새로 발급해 Vault 값만 교체. 채팅에 한 번 노출됐으나 운영자 결정으로 그대로 사용(10/13) |
 | 운영자 전용 로그인으로 바꿀지 | 운영자 → Claude | 지금은 운영자 로그인 화면에 아무 메일이나 넣으면 계정이 만들어짐(`signInWithOtp`의 `shouldCreateUser: true`). 바꾸면 `false`로, 새 운영자는 대시보드에서 초대 |
 | Supabase 조직에 공개 메일 초대 | 운영자 | 팀 화면 → Invite members → seraphim7997@gmail.com, Administrator |
 | 세라핌 0.2.0 소스 공개 여부 | 운영자 | 시험용 파일에 찬송가·CCM 가사와 실제 예배 PPT가 있어 그대로 공개하면 저작권 문제. 공개하려면 그 파일을 빼고 올림 |

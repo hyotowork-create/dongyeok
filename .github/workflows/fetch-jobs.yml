@@ -98,7 +98,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/jobs.json data/jobs.js
+          node scripts/hero-stats.mjs || true   # 첫 화면 숫자 줄: 2일에 한 번만 다시 계산
+          git add data/jobs.json data/jobs.js data/hero-stats.json
           if git diff --cached --quiet; then echo "변경 없음"; exit 0; fi
           git commit -m "청빙 공고 갱신 $(TZ=Asia/Seoul date +'%Y-%m-%d %H:%M')"
           git pull --rebase -q origin main   # 그사이 맥이 보충 파일(jobs-local.json)을 올렸을 수 있음(파일이 달라 충돌 없음)

@@ -1887,14 +1887,12 @@ function renderHeroLive() {
   const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const nToday = JOBS.filter(j => j.date === today).length;
   $('#live-text').textContent = !JOBS.length ? '청빙 공고 보기' : nToday ? `오늘 새로 올라오거나 갱신된 청빙 공고 ${nToday.toLocaleString()}건` : `최근 90일 청빙 공고 ${JOBS.length.toLocaleString()}건`;
-  // 숫자 줄: 공고(같은 공고 묶은 수)·오늘 공고·누적 방문(GoatCounter 공개 카운터, 실패하면 빼고 보임)
-  const stat = (n, label) => `<div><b>${n}</b><span>${label}</span></div>`;
-  const nJobs = new Set(JOBS.map(j => j.dk || j.id)).size;
-  const hs = $('#hero-stats'), base = JOBS.length ? stat(nJobs.toLocaleString() + '건', '최근 90일 청빙 공고') + stat(nToday.toLocaleString() + '건', '오늘 올라오거나 갱신된 공고') : '';
-  if (base) { hs.innerHTML = base; hs.hidden = false; }
-  if (C.goatcounter) fetch(`https://${C.goatcounter}.goatcounter.com/counter/TOTAL.json`).then(r => r.ok ? r.json() : null).then(d => {
-    if (!d || !d.count) return;
-    hs.innerHTML = base + stat(String(d.count).replace(/[\s\u202f]/g, ',') + '회', '누적 방문'); hs.hidden = false;
+  // 숫자 줄: data/hero-stats.json(수집 작업이 2일에 한 번 갱신 — scripts/hero-stats.mjs). 없거나 못 읽으면 숨김
+  const hs = $('#hero-stats'), stat = (n, label) => n == null ? '' : `<div><b>${Number(n).toLocaleString()}${label[0]}</b><span>${label[1]}</span></div>`;
+  fetch('data/hero-stats.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(d => {
+    if (!d || !d.jobs) return;
+    hs.innerHTML = stat(d.jobs, ['건', '청빙 공고(최근 90일)']) + stat(d.newJobs, ['건', '최근 2일 올라온 공고']) + stat(d.visits, ['회', '누적 방문']);
+    hs.hidden = false;
   }).catch(() => {});
   const pick = JOBS.filter(j => !j.closed).slice(0, 18);
   const ticker = $('#ticker');

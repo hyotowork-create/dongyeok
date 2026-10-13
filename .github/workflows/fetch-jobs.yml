@@ -18,6 +18,10 @@ on:
         description: '수집기 옵션(비우면 전체 수집). 예: --only=chongshin,mokwon --dry --detail=0'
         required: false
         default: ''
+      wake:
+        description: '외부 예약(Supabase pg_cron)이 부를 때 true — 예약 실행처럼 이번 시간대에 이미 모았으면 건너뜀'
+        required: false
+        default: 'false'
   push:
     branches: [main]
 permissions:
@@ -38,7 +42,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main          # 예약 시점의 커밋이 아니라 지금의 main — 앞 회차가 늦게 돌아 대기열에서 겹쳐도 그 결과를 보고 건너뛰게
-      - name: 이번 시간대에 수집이 필요한지 확인(예약 실행만)
+      - name: 이번 시간대에 수집이 필요한지 확인(예약 실행·외부 예약만)
         id: guard
         run: |
           up=$(jq -r .updatedAt data/jobs.json); upd=$(date -d "$up" +%s); now=$(date +%s)
@@ -51,7 +55,7 @@ jobs:
           start=$(date -d "$d $s +0900" +%s)
           last=$(TZ=Asia/Seoul date -d "$up" '+%m/%d %H:%M')
           echo "마지막 갱신 $last(KST), 이번 시간대 시작 $d $s"
-          if [ "${{ github.event_name }}" = "schedule" ] && [ "$upd" -ge "$start" ]; then
+          if { [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.wake }}" = "true" ]; } && [ "$upd" -ge "$start" ]; then
             echo "skip=true" >> "$GITHUB_OUTPUT"
             echo "::notice title=건너뜀::이번 시간대($s~)에 이미 수집함(마지막 갱신 $last)"
           else echo "skip=false" >> "$GITHUB_OUTPUT"; fi

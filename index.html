@@ -1890,7 +1890,7 @@ function renderHeroLive() {
   // 숫자 줄: 공고(같은 공고 묶은 수)·오늘 공고·누적 방문(GoatCounter 공개 카운터, 실패하면 빼고 보임)
   const stat = (n, label) => `<div><b>${n}</b><span>${label}</span></div>`;
   const nJobs = new Set(JOBS.map(j => j.dk || j.id)).size;
-  const hs = $('#hero-stats'), base = JOBS.length ? stat(nJobs.toLocaleString() + '건', '최근 90일 청빙 공고') + stat(nToday.toLocaleString() + '건', '오늘 새로 올라온 공고') : '';
+  const hs = $('#hero-stats'), base = JOBS.length ? stat(nJobs.toLocaleString() + '건', '최근 90일 청빙 공고') + stat(nToday.toLocaleString() + '건', '오늘 올라오거나 갱신된 공고') : '';
   if (base) { hs.innerHTML = base; hs.hidden = false; }
   if (C.goatcounter) fetch(`https://${C.goatcounter}.goatcounter.com/counter/TOTAL.json`).then(r => r.ok ? r.json() : null).then(d => {
     if (!d || !d.count) return;

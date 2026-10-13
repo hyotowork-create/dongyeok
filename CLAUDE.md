@@ -143,6 +143,7 @@
 
 ```
 index.html                 사이트 전체(단일 파일 SPA, 화면 21개). 라우터: #pg-화면?키=값 + hashchange
+manifest.webmanifest, icons/  홈 화면에 추가(앱 아이콘 192·512·apple-touch 180). 배포 단계에서 함께 복사됨
 config.js                  이름·주소·Supabase 공개값·통계·도구 목록·업로드 한도 (공개돼도 되는 값만)
 404.html
 data/jobs.json, jobs.js    수집 결과(자동 생성, 직접 고치지 않음). jobs.js = file://로 열어도 읽히는 사본
@@ -359,3 +360,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 | 2026-10-13 | 클라우드 세션 유지보수 정비: `scripts/cloud-setup.sh`(준비), `scripts/status.mjs`(상태 점검 한 번에), 「상태 확인」 워크플로 `health.yml`(사이트·Supabase·서울 중계 응답을 annotation으로), 수집 워크플로에 결과 요약 annotation, `mobile-check.mjs`가 Chromium·로컬 파일로도 동작. 운영자 파일은 구글 드라이브 사본 |
 | 2026-10-13 | 07:33 실수로 수동 수집 1회 시작(`gh workflow run`이 `--ref` 확인용으로 부른 `-f args=--help`를 모르는 옵션으로 무시하고 전체 수집 시작) → 약 90초 만에 취소(run 38317298802, 커밋·배포 없음). 재발 방지: 수집기가 모르는 옵션이면 멈춤(exit 2) |
 | 2026-10-13 | 06:07·06:47 예약 누락 확인 → 예약을 06~23시 매시 17·47분 + 수집 시간대 guard로 변경(10/12의 90분 guard·보조 47분 회차 대체). `status.mjs`에 「이번 수집 시간대 수집됨/대기/누락」 점검 추가 |
+| 2026-10-13 | 맥 세션: 외부 예약(Supabase pg_cron `dongyeok-wake`) 켬 — 15:17부터 자동 실행 확인. 첫 화면 숫자 줄(2일 주기, hero-stats). 휴대폰 편의(baf45b6): 하단 탭바·맨 위로, 홈 화면에 추가(manifest·아이콘·앱 안 브라우저 안내), 공고·교회 공유, 관심 공고·필터 기억(localStorage `dy.saved`·`dy.jobf`·`dy.tipClosed`, 서버 전송 없음). GoatCounter 공개 카운터 켬(총 방문 수만 공개) |

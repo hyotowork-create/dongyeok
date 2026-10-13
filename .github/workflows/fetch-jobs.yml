@@ -119,7 +119,8 @@ jobs:
       - name: 공개할 파일만 모으기
         run: |
           mkdir _site
-          cp index.html config.js 404.html _site/
+          cp index.html config.js 404.html manifest.webmanifest _site/
+          cp -r icons _site/
           cp -r data _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

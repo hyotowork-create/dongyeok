@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <!-- 보안 정책: 정해 둔 곳의 스크립트·글꼴·사진만 불러오고, 데이터는 Supabase·통계로만 보냄 -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https://images.unsplash.com https://*.supabase.co https://*.goatcounter.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -27,6 +27,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://images.unsplash.com">
 <meta name="theme-color" content="#0e1230">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="동역">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <style>
 /* ── 디자인 토큰 (동역 디자인 시스템 v2 — 성막의 밤 · 무대 조명 금빛 · 대림절 보라) ── */
 :root{
@@ -251,6 +256,26 @@ fieldset{border:0;margin-bottom:18px}
 .chip{padding:6px 14px;border:1.5px solid var(--border);border-radius:999px;background:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:all var(--t)}
 .chip:hover{border-color:var(--ink-3)}
 .chip.on{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+/* 휴대폰: 하단 탭바·맨 위로·홈 화면 추가 안내·관심 공고 */
+.tabbar{display:none}
+.to-top{position:fixed;right:16px;bottom:24px;z-index:60;width:44px;height:44px;border-radius:50%;border:0;background:var(--indigo);color:#fff;font-size:20px;box-shadow:0 6px 18px rgba(14,18,48,.3);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s}
+.to-top.show{opacity:.92;pointer-events:auto}
+.install-tip{position:fixed;left:12px;right:12px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:70;display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:14px;background:#0e1230;color:#fff;font-size:14px;line-height:1.5;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.install-tip[hidden]{display:none}
+.install-tip p{flex:1;min-width:0;margin:0}.install-tip b{color:var(--gold)}
+.install-tip button{border:0;background:none;color:#fff;font-size:20px;padding:4px 6px;cursor:pointer}
+.install-tip .btn{font-size:13px;padding:6px 12px}
+.save-btn.on{background:var(--gold);border-color:var(--gold);color:#0e1230}
+@media(max-width:760px){
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:65;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom)}
+  .tabbar a,.tabbar button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:56px;min-width:0;border:0;background:none;font:inherit;font-size:11.5px;font-weight:600;color:var(--ink-3);text-decoration:none;cursor:pointer}
+  .tabbar svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .tabbar .on{color:var(--indigo)}
+  body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}
+  .to-top{bottom:calc(70px + env(safe-area-inset-bottom))}
+  .toast{bottom:calc(72px + env(safe-area-inset-bottom))}
+}
+@media(display-mode:standalone){.install-tip{display:none}}
 .tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:1px solid var(--border);margin-bottom:18px;scrollbar-width:none}
 .tabs button{padding:10px 14px;border:0;background:none;font-weight:700;color:var(--muted);border-bottom:3px solid transparent;margin-bottom:-1px;cursor:pointer;white-space:nowrap}
 .tabs button.on{color:var(--ink);border-bottom-color:var(--violet)}
@@ -1273,7 +1298,7 @@ function routeFromHash() {
   if (!ALL_PAGES.includes(id)) { id = 'pg-home'; params = {}; }
   ALL_PAGES.forEach(p => document.getElementById(p).classList.remove('active'));
   const t = document.getElementById(id); t.classList.add('active');
-  $$('.gnb a').forEach(a => a.classList.toggle('on', a.dataset.group === GROUP[id]));
+  $$('.gnb a, .tabbar a').forEach(a => a.classList.toggle('on', a.dataset.group === GROUP[id]));
   closeDrawer();
   window.scrollTo({ top: 0, behavior: 'instant' });
   $$('.reveal', t).forEach(el => { if (revealObs) { el.classList.remove('visible'); revealObs.observe(el); } else el.classList.add('visible'); });
@@ -1322,9 +1347,29 @@ function payFor(j, pos) {
   const v = [j.pay.min, j.pay.max].filter(ok);
   return v.length ? { lo: Math.min(...v), hi: Math.max(...v) } : null;
 }
-const jobState = { q: '', pos: '', region: '', src: '', pay: '', sort: 'new', shown: 30 };
+const jobState = { q: '', pos: '', region: '', src: '', pay: '', sort: 'new', shown: 30, saved: false };
+// 이 기기에만 저장(서버로 보내지 않음): 관심 공고 id 목록과 마지막 필터
+const store = { get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? d : v; } catch { return d; } }, set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} } };
+const SAVED = new Set(store.get('dy.saved', []));
+const JOB_PREF_KEYS = ['pos', 'region', 'pay', 'sort', 'src'];
+function saveJobPrefs() { store.set('dy.jobf', Object.fromEntries(JOB_PREF_KEYS.map(k => [k, jobState[k]]))); }
+function toggleSaved(id, btn) {
+  SAVED.has(id) ? SAVED.delete(id) : SAVED.add(id);
+  store.set('dy.saved', [...SAVED]);
+  if (btn) { const on = SAVED.has(id); btn.classList.toggle('on', on); btn.textContent = on ? '★ 관심 공고에 담김' : '☆ 관심 공고 담기'; }
+  toast(SAVED.has(id) ? '관심 공고에 담았습니다. 공고 목록의 「★ 관심」에서 볼 수 있어요.' : '관심 공고에서 뺐습니다.');
+  updateSavedChip();
+}
+function updateSavedChip() { const c = $('#jobs-saved'); if (c) c.textContent = `★ 관심 ${JOBS.filter(j => SAVED.has(j.id)).length}`; }
+// 휴대폰 공유창(카톡·문자·스레드), 안 되면 주소 복사
+async function shareLink(title) {
+  const url = location.href;
+  if (navigator.share) { try { await navigator.share({ title, url }); } catch {} return; }
+  try { await navigator.clipboard.writeText(url); toast('주소를 복사했습니다.'); } catch { prompt('이 주소를 복사하세요', url); }
+}
 function jobMatches(j) {
   const s = jobState;
+  if (s.saved && !SAVED.has(j.id)) return false;
   if (s.src && j.source !== s.src && !(j.alt || []).some(a => a.source === s.src)) return false;
   if (s.pos && !(j.positions || []).includes(s.pos)) return false;
   if (s.region && j.region !== s.region) return false;
@@ -1366,11 +1411,20 @@ function initJobFilters() {
   $('#jobs-region').insertAdjacentHTML('beforeend', regs.map(r => `<option>${esc(r)}</option>`).join(''));
   const srcs = (JOB_DATA.sources || []).filter(s => JOBS_RAW.some(j => j.source === s.id));
   $('#jobs-src').innerHTML = `<button type="button" class="chip on" data-src="">전체 ${JOBS.length}</button>` + srcs.map(s => `<button type="button" class="chip" data-src="${esc(s.id)}">${esc(s.name)} ${JOBS_RAW.filter(j => j.source === s.id).length}</button>`).join('');
-  $('#jobs-src').addEventListener('click', e => { const b = e.target.closest('.chip'); if (!b) return; jobState.src = b.dataset.src; jobState.shown = 30; $$('#jobs-src .chip').forEach(c => c.classList.toggle('on', c === b)); renderJobs(); });
+  $('#jobs-src').addEventListener('click', e => { const b = e.target.closest('.chip[data-src]'); if (!b) return; jobState.src = b.dataset.src; jobState.shown = 30; $$('#jobs-src .chip[data-src]').forEach(c => c.classList.toggle('on', c === b)); renderJobs(); });
   $('#jobs-q').addEventListener('input', e => { jobState.q = e.target.value.trim(); jobState.shown = 30; renderJobs(); });
   $('#jobs-pos').addEventListener('change', e => { jobState.pos = e.target.value; jobState.shown = 30; renderJobs(); });
   $('#jobs-region').addEventListener('change', e => { jobState.region = e.target.value; jobState.shown = 30; renderJobs(); });
   $('#jobs-more').addEventListener('click', () => { jobState.shown += 30; renderJobs(); });
+  // 관심 공고 칩 + 마지막 필터 복원(이 기기에만 저장)
+  $('#jobs-src').insertAdjacentHTML('afterbegin', '<button type="button" class="chip" id="jobs-saved"></button>');
+  updateSavedChip();
+  $('#jobs-saved').addEventListener('click', e => { e.stopPropagation(); jobState.saved = !jobState.saved; e.currentTarget.classList.toggle('on', jobState.saved); jobState.shown = 30; renderJobs(); });
+  const pref = store.get('dy.jobf', {});
+  [['pos', '#jobs-pos'], ['region', '#jobs-region'], ['pay', '#jobs-pay'], ['sort', '#jobs-sort']].forEach(([k, sel]) => { const el = $(sel); if (pref[k] && [...el.options].some(o => o.value === pref[k])) { el.value = pref[k]; jobState[k] = pref[k]; } });
+  if (pref.src) { const b = $(`#jobs-src .chip[data-src="${CSS.escape(pref.src)}"]`); if (b) { jobState.src = pref.src; $$('#jobs-src .chip[data-src]').forEach(c => c.classList.toggle('on', c === b)); } }
+  ['#jobs-pos', '#jobs-region', '#jobs-pay', '#jobs-sort'].forEach(sel => $(sel).addEventListener('change', saveJobPrefs));
+  $('#jobs-src').addEventListener('click', e => { if (e.target.closest('.chip[data-src]')) saveJobPrefs(); });
   const links = (JOB_DATA.links || []).filter(l => /^https?:\/\//.test(l.url));
   if (links.length) {
     $('#jobs-links-list').innerHTML = links.map(l => `<li><a class="row-link" href="${esc(l.url)}" target="_blank" rel="noopener" aria-label="${esc(l.name)} 새 창에서 열기"><div class="row-main"><p class="row-title">${esc(l.name)} ↗</p><p class="meta">${l.group ? `<span>${esc(l.group)}</span>` : ''}${l.reason ? `<span>${esc(l.reason)}</span>` : ''}</p></div></a></li>`).join('');
@@ -1426,10 +1480,13 @@ HOOKS['pg-job'] = async ({ id }) => {
       ${j.truncated ? '<p class="hint" style="margin-bottom:10px">출처 목록에서 제목이 잘려 있어 전체 제목은 원문에서 볼 수 있습니다.</p>' : ''}
       <div class="btn-row"><a class="btn btn-main" href="${esc(safeUrl(j.url))}" target="_blank" rel="noopener" aria-label="원문 공고 새 창에서 열기">원문 공고 보기 ↗</a>${(j.alt || []).map(a => `<a class="btn btn-line" href="${esc(safeUrl(a.url))}" target="_blank" rel="noopener" aria-label="${esc(SRC_NAME[a.source] || a.source)} 게시판의 같은 공고 새 창에서 열기">${esc(SRC_NAME[a.source] || a.source)} ↗</a>`).join('')}</div>
       ${(j.alt || []).length ? `<p class="hint" style="margin-top:8px">같은 공고가 ${j.alt.length + 1}개 게시판에 올라와 있습니다.</p>` : ''}
+      <div class="btn-row" style="margin-top:12px"><button type="button" class="btn btn-line btn-sm save-btn${SAVED.has(j.id) ? ' on' : ''}" id="job-save">${SAVED.has(j.id) ? '★ 관심 공고에 담김' : '☆ 관심 공고 담기'}</button><button type="button" class="btn btn-line btn-sm" id="job-share">공유하기</button></div>
       <p class="hint" style="margin-top:10px">지원 자격·제출 서류·마감일은 원문에서 확인하세요.</p>
     </article>
     <section id="job-church"></section>
     ${same.length ? `<section style="margin-top:28px"><div class="sec-head"><h2>같은 교회의 다른 공고</h2></div><ul class="list box">${same.slice(0, 10).map(x => jobRow(x)).join('')}</ul></section>` : ''}`;
+  $('#job-save').addEventListener('click', e => toggleSaved(j.id, e.currentTarget));
+  $('#job-share').addEventListener('click', () => shareLink(`${j.title} — 동역 청빙 공고`));
   const sec = $('#job-church');
   if (j.church) renderChurchReviews(sec, j.church, j.region);
   else {
@@ -1490,8 +1547,9 @@ HOOKS['pg-church'] = async ({ name }) => {
   if (!name) { box.innerHTML = '<p class="empty">교회 이름이 없습니다.</p>'; return; }
   const key = churchKey(name);
   const jobs = JOBS.filter(j => j.church && churchKey(j.church) === key);
-  box.innerHTML = `<h1 class="page-title">${esc(name)}</h1><section id="church-reviews"></section>
+  box.innerHTML = `<h1 class="page-title">${esc(name)}</h1><div class="btn-row" style="margin:-6px 0 16px"><button type="button" class="btn btn-line btn-sm" id="church-share">공유하기</button></div><section id="church-reviews"></section>
     <section style="margin-top:24px"><div class="sec-head"><h2>이 교회의 청빙 공고</h2></div><ul class="list box">${jobs.length ? jobs.map(j => jobRow(j)).join('') : empty('현재 수집된 공고가 없습니다.')}</ul></section>`;
+  $('#church-share').addEventListener('click', () => shareLink(`${name} 교역자 평가 — 동역`));
   renderChurchReviews($('#church-reviews'), name, jobs[0] && jobs[0].region);
 };
 $('#church-search').addEventListener('submit', async e => {
@@ -1881,6 +1939,25 @@ function initPresenter() {
   document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && $('#stage').classList.contains('on')) $('#stage').classList.remove('on', 'black'); });
 }
 
+/* ═══════════════════════════ 휴대폰 ═══════════════════════════ */
+// 맨 위로 버튼, 홈 화면에 추가 안내(스레드 등 앱 안 브라우저 → 외부 브라우저 안내 / 아이폰 Safari → 공유 → 홈 화면 / 안드로이드 → 설치 버튼). 닫으면 다시 안 띄움
+function initMobile() {
+  const tt = $('#to-top');
+  addEventListener('scroll', () => tt.classList.toggle('show', scrollY > 1200), { passive: true });
+  const tip = $('#install-tip'), ua = navigator.userAgent;
+  if (store.get('dy.tipClosed', false) || matchMedia('(display-mode: standalone)').matches || navigator.standalone || innerWidth > 760) return;
+  const show = (html, act) => {
+    tip.innerHTML = `<p>${html}</p>${act ? '<button type="button" class="btn btn-main" id="tip-act">설치</button>' : ''}<button type="button" id="tip-x" aria-label="안내 닫기">×</button>`;
+    tip.hidden = false;
+    $('#tip-x').onclick = () => { tip.hidden = true; store.set('dy.tipClosed', true); };
+    if (act) $('#tip-act').onclick = act;
+  };
+  const later = f => setTimeout(f, 6000);   // 첫 화면을 가리지 않게 잠시 뒤
+  if (/Barcelona|Instagram|FBAN|FBAV|KAKAOTALK|NAVER|Line\//i.test(ua)) later(() => show(`앱 안에서 보고 계세요. 오른쪽 위 <b>⋯</b> → <b>${/iPhone|iPad/.test(ua) ? 'Safari' : '브라우저'}로 열기</b>를 하면 동역을 <b>홈 화면에 앱처럼</b> 추가할 수 있어요.`));
+  else if (/iPhone|iPad/.test(ua)) later(() => show('아래 <b>공유 버튼(□↑)</b> → <b>홈 화면에 추가</b>를 누르면 동역을 앱처럼 열 수 있어요.'));
+  else addEventListener('beforeinstallprompt', e => { e.preventDefault(); show('동역을 <b>홈 화면에 앱처럼</b> 추가할 수 있어요.', async () => { e.prompt(); tip.hidden = true; store.set('dy.tipClosed', true); }); });
+}
+
 /* ═══════════════════════════ 홈 ═══════════════════════════ */
 // 첫 화면의 "오늘 공고" 알림과 흘러가는 공고 띠 — 한 번만 그림
 function renderHeroLive() {
@@ -1996,7 +2073,7 @@ function applyConfig() {
 }
 (async function start() {
   applyConfig();
-  renderHeroLive(); initJobFilters(); initReviewForm(); initReport(); initBamboo(); initLibrary(); initSetlistBuilder(); initPresenter();
+  initMobile(); renderHeroLive(); initJobFilters(); initReviewForm(); initReport(); initBamboo(); initLibrary(); initSetlistBuilder(); initPresenter();
   try { await API.init(); }
   catch (e) { console.error(e); toast('서버에 연결하지 못했습니다. 잠시 후 새로고침해 주세요.', true); }
   $('#demo-bar').hidden = API.mode !== 'demo';
@@ -2008,5 +2085,14 @@ function applyConfig() {
 })();
 </script>
 <noscript><p style="padding:20px;text-align:center">이 사이트는 자바스크립트가 필요합니다.</p></noscript>
+<nav class="tabbar" aria-label="하단 메뉴">
+  <a href="#pg-jobs" data-group="jobs"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>청빙</a>
+  <a href="#pg-churches" data-group="churches"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></svg>교회 평가</a>
+  <a href="#pg-worship" data-group="worship"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>예배 도구</a>
+  <a href="#pg-bamboo" data-group="bamboo"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>대나무숲</a>
+  <button type="button" onclick="openDrawer()" aria-label="전체 메뉴 열기"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>메뉴</button>
+</nav>
+<button class="to-top" id="to-top" type="button" aria-label="맨 위로" onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div class="install-tip" id="install-tip" hidden></div>
 </body>
 </html>

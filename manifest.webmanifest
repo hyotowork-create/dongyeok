@@ -1,0 +1,15 @@
+{
+  "name": "동역 · 부교역자 라운지",
+  "short_name": "동역",
+  "description": "부교역자 청빙 공고·교회 평가·예배 도구·익명 나눔",
+  "lang": "ko",
+  "start_url": "./#pg-home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0e1230",
+  "theme_color": "#0e1230",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

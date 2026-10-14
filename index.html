@@ -1801,7 +1801,7 @@ function renderTools() {
   $('#tool-list').innerHTML = tools.length ? tools.map(t => `<article class="tool">
       <div><h3>${esc(t.name)}</h3><p class="sum">${esc(t.summary)}</p><ul>${(t.features || []).map(f => `<li>${esc(f)}</li>`).join('')}</ul>
         <p class="meta" style="margin-top:12px"><span>${esc(t.platforms || '')}</span><span>${esc(t.license || '')}</span></p></div>
-      <div class="btn-row">${t.download ? `<a class="btn btn-main" href="${esc(safeUrl(t.download))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 내려받기 새 창에서 열기">내려받기 ↗</a>` : ''}${t.source ? `<a class="btn btn-line" href="${esc(safeUrl(t.source))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 소스 코드 새 창에서 열기">소스·설명서 ↗</a>` : ''}</div>
+      <div class="btn-row">${t.open ? `<a class="btn btn-main" href="${esc(t.open)}">바로 열기 →</a>` : ''}${t.download ? `<a class="btn btn-main" href="${esc(safeUrl(t.download))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 내려받기 새 창에서 열기">내려받기 ↗</a>` : ''}${t.source ? `<a class="btn btn-line" href="${esc(safeUrl(t.source))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 소스 코드 새 창에서 열기">소스·설명서 ↗</a>` : ''}</div>
     </article>`).join('') : '<p class="empty">등록된 도구가 없습니다. config.js의 tools에 추가하세요.</p>';
 }
 function slRow(s) {

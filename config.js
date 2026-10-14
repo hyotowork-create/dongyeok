@@ -29,15 +29,6 @@ window.SITE_CONFIG = {
       license: 'MIT 무료',
       download: 'https://github.com/hyotowork-create/Seraphim/releases/latest',   // 0.2.0 공개(2026-10-12): Windows 설치형·포터블, Mac Apple Silicon
       source: 'https://github.com/hyotowork-create/Seraphim'
-    },
-    {
-      id: 'sermon',
-      name: '서먼인사이트 · 설교 분석',
-      summary: '설교 원고·유튜브 링크·음성 파일을 넣으면 본문 충실도, 은혜와 결단의 균형, 전개 구조, 묵상·나눔 질문을 정리해 줍니다',
-      features: ['설교문·유튜브 스크립트 붙여넣기', '공개 유튜브 링크 바로 분석', '설교 녹음 파일(mp3·m4a) 분석', '소그룹 나눔 질문·이번 주 실천 과제'],
-      platforms: '웹(설치 없음) · 본인 Gemini API 키 필요',
-      license: '무료 · 키와 설교 내용은 이 브라우저에서 Google로만 전송',
-      open: 'tools/sermon.html'     // 동역 안의 독립 페이지(2026-10-14 추가)
     }
   ],
 

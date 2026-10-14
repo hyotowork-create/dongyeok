@@ -155,7 +155,7 @@ fieldset{border:0;margin-bottom:18px}
 .hero-stats{display:flex;flex-wrap:wrap;gap:10px 28px;margin:-4px 0 26px;animation:rise .8s .15s both}
 .hero-stats div{min-width:0}
 .hero-stats b{display:block;font-size:26px;font-weight:800;color:var(--gold);line-height:1.15;font-variant-numeric:tabular-nums}
-.hero-asof{flex-basis:100%;margin:0;font-size:12px;color:rgba(255,255,255,.55)}
+.hero-asof{flex-basis:100%;margin:0;font-size:13px;font-weight:600;color:rgba(255,255,255,.7)}
 .hero-stats span{font-size:13px;color:rgba(255,255,255,.75)}
 @media(max-width:640px){.hero-stats{gap:8px 20px}.hero-stats b{font-size:21px}}
 .live-pill .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(255,194,75,.7);animation:pulse 2.2s infinite}
@@ -1969,7 +1969,11 @@ function renderHeroLive() {
   const hs = $('#hero-stats'), stat = (n, label) => n == null ? '' : `<div><b>${Number(n).toLocaleString()}${label[0]}</b><span>${label[1]}</span></div>`;
   fetch('data/hero-stats.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(d => {
     if (!d || !d.jobs) return;
-    hs.innerHTML = stat(d.jobs, ['건', '청빙 공고(최근 90일)']) + stat(d.newJobs, ['건', '최근 2일 올라온 공고']) + stat(d.visits, ['회', '누적 방문']) + `<p class="hero-asof">${new Date(new Date(d.updatedAt).getTime() + 9 * 3600e3).toISOString().slice(5, 10).replace('-', '/')} 기준</p>`;
+    // 기준일(KST)과 오픈(2026-10-12)부터 며칠째인지
+    const k = new Date(new Date(d.updatedAt).getTime() + 9 * 3600e3), ymd = k.toISOString().slice(0, 10);
+    const day = Math.round((Date.parse(ymd) - Date.parse('2026-10-12')) / 864e5) + 1;
+    const asof = `${ymd.replace(/-/g, '.')}(${'일월화수목금토'[k.getUTCDay()]})`;
+    hs.innerHTML = stat(d.jobs, ['건', '청빙 공고(최근 90일)']) + stat(d.newJobs, ['건', '최근 2일 올라온 공고']) + stat(d.visits, ['회', `누적 방문 · 오픈 ${day}일째`]) + `<p class="hero-asof">${asof} 기준</p>`;
     hs.hidden = false;
   }).catch(() => {});
   const pick = JOBS.filter(j => !j.closed).slice(0, 18);

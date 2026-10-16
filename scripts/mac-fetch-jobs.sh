@@ -14,7 +14,9 @@ LOG="scripts/mac-fetch-jobs.log"
   echo "── $(date '+%Y-%m-%d %H:%M:%S') 시작"
   # 잠자기에서 깨어나자마자 launchd가 부르면 네트워크가 아직 없음(10/14 두 번 github.com 주소 못 찾음) → 최대 3분 기다림
   for i in {1..18}; do /usr/bin/nc -z -G 3 github.com 443 >/dev/null 2>&1 && break; [ "$i" = 18 ] && echo "네트워크 없음 — 이번 회차 건너뜀"; sleep 10; done
-  git pull --ff-only --quiet
+  # 지난 회차가 커밋만 하고 올리지 못했을 수 있음(10/15 올리는 중 잠들어 끊김 → 그 뒤 --ff-only가 계속 멈춤) → 최신 위에 다시 얹고 남은 것 올림
+  git pull --rebase --quiet origin main
+  [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { git push -q origin main && echo "지난 회차 커밋 올림"; }
   [ -d scraper/node_modules ] || (cd scraper && npm ci --no-audit --no-fund)
   node scraper/test-parsers.mjs > /dev/null
   # GitHub(해외)에서 막히는 출처만 맥(한국 회선)에서 보충 수집 → data/jobs-local.json

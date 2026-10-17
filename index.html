@@ -1626,13 +1626,26 @@ HOOKS['pg-church'] = async ({ name, region, denom }) => {
   const box = $('#church-detail');
   if (!name) { box.innerHTML = '<p class="empty">교회 이름이 없습니다.</p>'; return; }
   const key = churchKey(name);
+  // 이름만으로 들어왔는데 같은 이름의 교회(평가·공고의 지역·교단 기준)가 여럿이면 먼저 고르게 함
+  if (!regionKey(region) && !denomKey(denom)) {
+    await stats();
+    const ids = [];
+    const add = (r, d, label) => { const id = idOf(r, d); let g = ids.find(x => sameChurch(x, id)); if (!g) ids.push(g = { ...id, r, d, n: 0, jobs: 0 }); g.rk = g.rk || id.rk; g.dk = g.dk || id.dk; if (label === 'r') g.n++; else g.jobs++; };
+    (STATS || []).filter(x => x.church_key === key).forEach(x => { for (let i = 0; i < x.n; i++) add(x.region, x.denomination, 'r'); });
+    JOBS.filter(j => j.church && churchKey(j.church) === key).forEach(j => add(j.region, jobDenom(j), 'j'));
+    if (ids.length > 1) {
+      box.innerHTML = `<h1 class="page-title">${esc(name)}</h1><p style="margin-bottom:12px">이름이 같은 교회가 여럿 있습니다. 지역·교단을 골라 주세요.</p><ul class="list box">${ids.map(g => `<li><a class="row-link" href="${churchHref(name, g.rk, g.dk)}"><div class="row-main"><p class="row-title">${esc(name)} · ${esc([g.rk, denomLabel(g.dk)].filter(Boolean).join(' · ') || '지역·교단 미상')}</p><p class="meta"><span>평가 ${g.n}건</span><span>공고 ${g.jobs}건</span></p></div></a></li>`).join('')}</ul>`;
+      return;
+    }
+    if (ids.length === 1) { region = ids[0].rk; denom = ids[0].dk; }
+  }
   const me = idOf(region, denom);
   const jobs = JOBS.filter(j => j.church && churchKey(j.church) === key && sameChurch(me, idOf(j.region, jobDenom(j))));
   const sub = [regionKey(region), denomLabel(denomKey(denom))].filter(Boolean).join(' · ');
   box.innerHTML = `<h1 class="page-title">${esc(name)}</h1>${sub ? `<p class="hint" style="margin:-8px 0 12px">${esc(sub)}</p>` : ''}<div class="btn-row" style="margin:-6px 0 16px"><button type="button" class="btn btn-line btn-sm" id="church-share">공유하기</button></div><section id="church-reviews"></section>
     <section style="margin-top:24px"><div class="sec-head"><h2>이 교회의 청빙 공고</h2></div><ul class="list box">${jobs.length ? jobs.map(j => jobRow(j)).join('') : empty('현재 수집된 공고가 없습니다.')}</ul></section>`;
   $('#church-share').addEventListener('click', () => shareLink(`${name} 교역자 평가 — 동역`));
-  renderChurchReviews($('#church-reviews'), name, region || (jobs[0] && jobs[0].region), denom || (jobs[0] && jobDenom(jobs[0])));
+  renderChurchReviews($('#church-reviews'), name, region, denom);
 };
 $('#church-search').addEventListener('submit', async e => {
   e.preventDefault();

@@ -157,14 +157,36 @@ fieldset{border:0;margin-bottom:18px}
 .hero-stats b{display:block;font-size:26px;font-weight:800;color:var(--gold);line-height:1.15;font-variant-numeric:tabular-nums}
 .hero-asof{flex-basis:100%;margin:0;font-size:13px;font-weight:600;color:rgba(255,255,255,.7)}
 .hero-stats span{font-size:13px;color:rgba(255,255,255,.75)}
-@media(max-width:640px){.hero-stats{gap:8px 20px}.hero-stats b{font-size:21px}}
+.lead-short{display:none}
+@media(max-width:640px){.hero .lead-long{display:none}.hero .lead-short{display:inline}}
+.hero-cta .is-soon{opacity:.55;cursor:default;flex-direction:column;gap:0}
+.hero-cta .is-soon small{font-size:11px;font-weight:600;color:var(--gold);line-height:1.2}
+/* 휴대폰 첫 화면 정리(10/16): 한 화면에 메시지 하나·숫자 한 줄·버튼 하나만. 중복된 알림 띠·조명은 숨기고 배경을 더 어둡게 해 글자를 또렷하게 */
+@media(max-width:640px){
+  .hero.hero{min-height:auto;align-items:flex-start}
+  .hero-in{padding-top:88px;padding-bottom:40px}
+  .hero .live-pill,.hero .verse{display:none}
+  .hero-shade{background:linear-gradient(0deg,rgba(14,18,48,.97) 0%,rgba(14,18,48,.88) 55%,rgba(14,18,48,.6) 100%)}
+  .hero .hero-title{font-size:clamp(24px,7.4vw,30px);margin-bottom:14px}
+  .hero .hero-title span{white-space:nowrap}
+  .hero .lead{font-size:15px;line-height:1.65;margin-bottom:22px;color:rgba(255,255,255,.82)}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 0 22px;padding:14px 4px 10px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .hero-stats div{text-align:center;padding:0 6px}
+  .hero-stats div+div{border-left:1px solid rgba(255,255,255,.12)}
+  .hero-stats b{font-size:19px}
+  .hero-stats span{display:block;font-size:11.5px;line-height:1.35;margin-top:3px;word-break:keep-all}
+  .hero-asof{grid-column:1/-1;text-align:center;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.55);margin-top:10px}
+  .hero .hero-cta{grid-template-columns:1fr 1fr;gap:8px}
+  .hero .hero-cta .btn{width:100%;min-width:0;min-height:48px;padding:10px 8px;font-size:14px;justify-content:center;text-align:center;word-break:keep-all;line-height:1.3}
+}
 .live-pill .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(255,194,75,.7);animation:pulse 2.2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 11px rgba(255,194,75,0)}100%{box-shadow:0 0 0 0 rgba(255,194,75,0)}}
 .hero-title{font-size:clamp(40px,6.8vw,92px);line-height:1.06;font-weight:900;letter-spacing:-.05em;color:#fff;margin-bottom:26px;max-width:12.5em}
 .hero-title span{display:block;animation:rise .95s cubic-bezier(.2,.7,.2,1) both}
 .hero-title span:nth-child(2){animation-delay:.14s}
 .hero .lead{max-width:33em;font-size:clamp(16px,1.6vw,19px);color:#d5d8f2;margin-bottom:34px;animation:rise .95s .28s both}
-.hero-cta{display:flex;flex-wrap:wrap;gap:10px;animation:rise .95s .38s both}
+.hero-cta{display:grid;grid-template-columns:repeat(2,minmax(0,260px));grid-auto-rows:1fr;gap:10px;animation:rise .95s .38s both}
+.hero-cta .btn{justify-content:center;text-align:center}
 @keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
 .verse{position:absolute;right:20px;bottom:80px;max-width:290px;text-align:right;color:#eceeff;animation:rise 1s .7s both}
 .verse blockquote{font-family:var(--serif);font-size:20px;line-height:1.65;font-weight:500}
@@ -450,7 +472,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
 @media (max-width:640px){
   .wrap{padding:0 16px}
   .hero{min-height:88svh}
-  .hero-in{padding-top:96px;padding-bottom:52px}
+  .hero-in{padding-top:32px;padding-bottom:28px}
   .hero-shade{background:linear-gradient(0deg,rgba(14,18,48,.97) 0%,rgba(14,18,48,.72) 55%,rgba(14,18,48,.45) 100%)}
   .beams i{min-width:200px}
   .sec{padding:44px 16px}
@@ -530,9 +552,9 @@ dialog h2{font-size:20px;margin-bottom:6px}
     <div class="wrap hero-in">
       <a class="live-pill" href="#pg-jobs"><span class="dot" aria-hidden="true"></span><span id="live-text">청빙 공고 보기</span></a>
       <h1 class="hero-title" id="hero-title"><span>다음 사역지,</span><span>먼저 걸어간 동역자에게 묻다</span></h1>
-      <p class="lead">신학교와 교단, 기독교 사이트의 청빙 공고를 하루 세 번 모으고, 그 교회에서 사역했던 교역자들의 평가를 공고 바로 아래에 보여 드립니다.</p>
+      <p class="lead"><span class="lead-long">신학교와 교단, 기독교 사이트의 청빙 공고를 하루 세 번 모으고, 그 교회에서 사역했던 교역자들의 평가를 공고 바로 아래에 보여 드립니다.</span><span class="lead-short">신학교·교단·기독 사이트의 청빙 공고를 하루 세 번 모으고, 그 교회 출신 교역자의 평가를 함께 보여 드립니다.</span></p>
       <div class="hero-stats" id="hero-stats" hidden></div>
-      <div class="hero-cta"><a class="btn btn-main btn-lg" href="#pg-jobs">청빙 공고 보기</a><a class="btn btn-ghost btn-lg" href="#pg-review-new">사역했던 교회 평가하기</a></div>
+      <div class="hero-cta"><a class="btn btn-main btn-lg" href="#pg-jobs">청빙 공고 보기</a><a class="btn btn-ghost btn-lg" href="#pg-review-new">사역했던 교회 평가하기</a><a class="btn btn-ghost btn-lg" href="https://github.com/hyotowork-create/Seraphim/releases/latest" target="_blank" rel="noopener" aria-label="세라핌 내려받기 새 창에서 열기">세라핌 다운로드 ↗</a><span class="btn btn-ghost btn-lg is-soon" aria-disabled="true" title="준비 중입니다">설교 평가하기<small>공개 예정</small></span></div>
       <figure class="verse"><blockquote>추수할 것은 많되<br>일군이 적으니</blockquote><figcaption>마태복음 9장 37절</figcaption></figure>
     </div>
   </section>
@@ -878,6 +900,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
       <tr><td>(이용자) 이메일·이름·연락처</td><td colspan="2"><b>받지 않습니다.</b> 회원 가입과 로그인 없이 이용합니다.</td></tr>
       <tr><td>(이용자) 익명 식별값</td><td>처음 글을 쓸 때 브라우저에 발급되는 무작위 값. 내 글 삭제, 1인 1공감, 도배 방지에만 씀. 사람을 알아볼 수 없는 값</td><td>글이 남아 있는 동안</td></tr>
       <tr><td>작성한 글·평가·댓글·자료</td><td>서비스 제공(익명 표시)</td><td>삭제 시까지</td></tr>
+      <tr><td>도배 방지 값</td><td>같은 곳에서 30분 안에 글을 반복해 올리는 것을 막기 위해, 접속 IP와 브라우저 정보를 <b>되돌릴 수 없게 바꾼 값(해시)</b>. IP 원문은 저장하지 않음</td><td>1일 후 자동 삭제</td></tr>
       <tr><td>방문 통계</td><td>이용 현황 파악 — 본 화면, 들어온 경로, 기기·브라우저 종류, 국가. 쿠키를 쓰지 않고 사람을 알아볼 수 없게 합산(GoatCounter)</td><td>통계로만 보관</td></tr>
       <tr><td>접속 기록(IP 등 서버 로그)</td><td>보안·장애 대응 — 서비스 제공 업체가 자동으로 남김</td><td>업체 정책에 따른 짧은 기간</td></tr>
       <tr><td>(운영자) 이메일</td><td>운영자 로그인</td><td>운영 기간</td></tr>
@@ -933,7 +956,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
     <h2 id="report-h">신고하기</h2>
     <p class="hint" style="margin-bottom:14px">신고는 익명으로 처리됩니다. 서로 다른 신고가 3건 모이면 자동으로 가려집니다.</p>
     <div class="seg" id="report-reasons" style="margin-bottom:12px"></div>
-    <div class="field"><label for="report-detail">자세한 내용(선택)</label><textarea id="report-detail" maxlength="500" style="min-height:80px"></textarea></div>
+    <div class="field"><label for="report-detail" id="report-detail-label">자세한 내용(선택)</label><textarea id="report-detail" maxlength="500" style="min-height:80px"></textarea><p class="hint" id="report-detail-hint" hidden>교회 평가 신고는 <b>어느 부분이 사실과 다른지, 누구의 어떤 권리가 침해되는지</b>를 20자 이상 적어 주세요. 구체적인 사유가 없는 신고는 접수되지 않습니다.</p></div>
     <div class="btn-row"><button class="btn btn-main" value="ok">신고</button><button class="btn btn-line" value="cancel" formnovalidate>취소</button></div>
   </form>
 </dialog>
@@ -1659,6 +1682,10 @@ document.addEventListener('click', async e => {
   } else if (act === 'report') {
     reportTarget = { type, id };
     $('#report-detail').value = '';
+    const isRv = type === 'review';
+    $('#report-detail-label').textContent = isRv ? '구체적인 사유(필수, 20자 이상)' : '자세한 내용(선택)';
+    $('#report-detail-hint').hidden = !isRv;
+    $('#report-detail').placeholder = isRv ? '예: 「담임목사가 사례비를 미지급」은 사실이 아닙니다. 계약서상 매월 정상 지급했습니다.' : '';
     $$('#report-reasons input').forEach(i => { i.checked = false; });
     $('#report-dlg').showModal();
   } else if (act === 'del') {
@@ -1675,6 +1702,7 @@ function initReport() {
     if ($('#report-dlg').returnValue !== 'ok' || !reportTarget) return;
     const reason = ($$('#report-reasons input').find(i => i.checked) || {}).value;
     if (!reason) { toast('신고 사유를 골라 주세요.', true); $('#report-dlg').showModal(); return; }
+    if (reportTarget.type === 'review' && $('#report-detail').value.trim().length < 20) { toast('교회 평가 신고는 구체적인 사유를 20자 이상 적어 주세요.', true); $('#report-dlg').showModal(); return; }
     const t = reportTarget; reportTarget = null;
     const ok = await safe(() => API.report(t.type, t.id, reason, $('#report-detail').value.trim() || null).then(() => true), false);
     if (ok) toast('신고가 접수되었습니다. 감사합니다.');
@@ -2104,7 +2132,7 @@ function applyConfig() {
 }
 (async function start() {
   applyConfig();
-  initMobile(); renderHeroLive(); initJobFilters(); initReviewForm(); initReport(); initBamboo(); initLibrary(); initSetlistBuilder(); initPresenter();
+  document.readyState === 'loading' ? addEventListener('DOMContentLoaded', initMobile) : initMobile(); renderHeroLive(); initJobFilters(); initReviewForm(); initReport(); initBamboo(); initLibrary(); initSetlistBuilder(); initPresenter();
   try { await API.init(); }
   catch (e) { console.error(e); toast('서버에 연결하지 못했습니다. 잠시 후 새로고침해 주세요.', true); }
   $('#demo-bar').hidden = API.mode !== 'demo';

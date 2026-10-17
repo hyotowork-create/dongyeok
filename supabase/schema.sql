@@ -186,6 +186,27 @@ create table if not exists public.moderation_log (
 
 -- ── 3. 트리거 ──────────────────────────────────────────────────────
 -- 3-1. 글 작성 전: 작성자·상태·익명 이름을 서버가 정하고, 도배를 막는다
+-- 같은 접속(인터넷 연결+브라우저)에서 반복 글쓰기 제한(30분) — IP 원문은 저장하지 않고, 되돌릴 수 없는 해시만 1일 보관
+create table if not exists public.app_secret (k text primary key, v text not null);
+alter table public.app_secret enable row level security;
+revoke all on public.app_secret from anon, authenticated;
+insert into public.app_secret values ('ip_salt', md5(random()::text || clock_timestamp()::text)) on conflict (k) do nothing;
+create table if not exists public.write_guard (fp text not null, tbl text not null, created_at timestamptz not null default now());
+create index if not exists write_guard_idx on public.write_guard (fp, tbl, created_at);
+alter table public.write_guard enable row level security;
+revoke all on public.write_guard from anon, authenticated;
+create or replace function public.client_fp() returns text
+language plpgsql stable security definer set search_path = public as $$
+declare h json; ip text;
+begin
+  begin h := nullif(current_setting('request.headers', true), '')::json; exception when others then h := null; end;
+  if h is null then return null; end if;
+  ip := btrim(split_part(coalesce(h->>'cf-connecting-ip', h->>'x-real-ip', h->>'x-forwarded-for', ''), ',', 1));
+  if ip = '' then return null; end if;
+  return encode(sha256(convert_to(ip || '|' || coalesce(h->>'user-agent', '') || '|' || (select v from public.app_secret where k = 'ip_salt'), 'UTF8')), 'hex');
+end $$;
+revoke execute on function public.client_fp() from public, anon, authenticated;
+
 create or replace function public.tg_content_before_insert() returns trigger
 language plpgsql security definer set search_path = public as $$
 declare recent int; t_author uuid; t_status text;
@@ -195,6 +216,19 @@ begin
   execute format('select count(*) from public.%I where author_id = $1 and created_at > now() - interval ''1 minute''', tg_table_name)
     into recent using new.author_id;
   if recent >= 5 then raise exception '잠시 후 다시 시도해 주세요(도배 방지)'; end if;
+  -- 댓글을 뺀 글(평가·대나무숲·자료·콘티)은 같은 접속에서 30분에 한 번. 운영자는 제외
+  if tg_table_name <> 'comments' and not public.is_admin() then
+    declare v_fp text := public.client_fp();
+    begin
+      if v_fp is not null then
+        delete from public.write_guard where created_at < now() - interval '1 day';
+        if exists (select 1 from public.write_guard g where g.fp = v_fp and g.tbl = tg_table_name and g.created_at > now() - interval '30 minutes') then
+          raise exception '같은 곳에서는 30분에 한 번만 글을 올릴 수 있습니다. 잠시 후 다시 시도해 주세요';
+        end if;
+        insert into public.write_guard (fp, tbl) values (v_fp, tg_table_name);
+      end if;
+    end;
+  end if;
   new.created_at := now();
   new.report_count := 0;
   if tg_table_name = 'reviews' then
@@ -286,6 +320,10 @@ begin
   if new.reporter_id is null then raise exception '로그인이 필요합니다'; end if;
   execute format('select status from public.%I where id = $1', public.target_table(new.target_type)) into t_status using new.target_id;
   if t_status is null or t_status = 'removed' then raise exception '글을 찾을 수 없습니다'; end if;
+  -- 교회 평가 신고는 구체적인 사유가 있어야 함(근거 없는 반복 신고로 정상 평가가 가려지는 것 방지)
+  if new.target_type = 'review' and char_length(btrim(coalesce(new.detail, ''))) < 20 then
+    raise exception '교회 평가 신고는 어떤 내용이 왜 문제인지 20자 이상 구체적으로 적어 주세요';
+  end if;
   new.resolved := false;
   new.created_at := now();
   return new;

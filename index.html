@@ -1046,6 +1046,7 @@ async function safe(fn, fallback) {
 function errMsg(e) {
   const m = (e && (e.message || e.error_description)) || String(e);
   if (/JWT|not authenticated|로그인/.test(m)) return '로그인이 필요합니다.';
+  if (/Signups not allowed|signup.*disabled|User not found/i.test(m)) return '운영자로 등록된 메일만 로그인할 수 있습니다.';
   if (/rate limit|도배/.test(m)) return '잠시 후 다시 시도해 주세요.';
   if (/row-level security|permission denied/.test(m)) return '권한이 없습니다.';
   if (/Failed to fetch|NetworkError/.test(m)) return '네트워크 연결을 확인해 주세요.';
@@ -1271,7 +1272,7 @@ const LiveAPI = {
   },
   async signInEmail(email) {
     const redirect = C.url && location.href.startsWith(C.url) ? C.url : location.origin + location.pathname;
-    this.ok(await this.sb.auth.signInWithOtp({ email, options: { emailRedirectTo: redirect, shouldCreateUser: true } }));
+    this.ok(await this.sb.auth.signInWithOtp({ email, options: { emailRedirectTo: redirect, shouldCreateUser: false } }));   // 운영자 전용: 등록된 메일만 로그인, 새 계정은 만들지 않음(10/17)
   },
   async verifyCode(email, token) { this.ok(await this.sb.auth.verifyOtp({ email, token, type: 'email' })); const { data } = await this.sb.auth.getSession(); this.user = data.session ? data.session.user : null; },
   async signOut() { await this.sb.auth.signOut(); this.user = null; this._admin = null; },

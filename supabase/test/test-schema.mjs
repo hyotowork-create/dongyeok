@@ -158,22 +158,6 @@ await fails(as(U1, `select content_of('post', 1)`), /permission denied/);
 ok('내부 함수 API 호출 차단');
 console.log('\n모든 점검 통과');
 
-// 같은 접속 30분 제한(평가·대나무숲 등), 교회 평가 신고 사유 필수
-{
-  const hdr = ip => db.query(`select set_config('request.headers', $1, false)`, [JSON.stringify({ 'x-forwarded-for': ip + ', 10.0.0.1', 'user-agent': 'UA-test' })]);
-  await db.exec(`reset role; update posts set created_at = created_at - interval '2 minutes'`);   // 앞 점검의 1분 5건 제한 영향 제거
-  await hdr('9.9.9.9');
-  await as(U3, `insert into posts (category, title, body) values ('고민','IP1','본문입니다 다섯자')`);
-  await fails(as(U4, `insert into posts (category, title, body) values ('고민','IP2','본문입니다 다섯자')`), /30분/);
-  await hdr('8.8.8.8');
-  await as(U4, `insert into posts (category, title, body) values ('고민','IP3','본문입니다 다섯자')`);
-  const g = (await db.query(`select count(*)::int n, bool_or(fp like '%9.9.9.9%') raw from write_guard`)).rows[0];
-  assert.equal(g.raw, false);
-  await fails(as(U3, `select * from write_guard`), /permission denied/);
-  await db.query(`select set_config('request.headers', '', false)`);
-  ok('같은 접속(IP+브라우저)은 30분에 한 글, 다른 접속은 가능, IP 원문 미저장·API로 못 읽음');
-}
-
 // 교회 평가 신고는 구체적인 사유 20자 이상
 {
   const [rv] = (await db.query(`select id from reviews where status = 'published' limit 1`)).rows;
@@ -183,5 +167,31 @@ console.log('\n모든 점검 통과');
     await as(U4, `insert into reports (target_type, target_id, reason, detail) values ('review', ${rv.id}, '허위 사실', '평가의 사례비 미지급 내용은 사실과 다르며 계약서대로 매월 지급했습니다')`);
     ok('교회 평가 신고: 사유 20자 미만 거절, 구체적 사유는 접수');
   } else console.log('· 공개 평가가 없어 신고 사유 점검 생략');
+}
+
+// 같은 접속 30분 제한은 교회 평가 신고에만 — 글·댓글은 제한 없음
+{
+  const hdr = ip => db.query(`select set_config('request.headers', $1, false)`, [JSON.stringify({ 'x-forwarded-for': ip + ', 10.0.0.1', 'user-agent': 'UA-test' })]);
+  await db.exec(`reset role; update posts set created_at = created_at - interval '2 minutes'; update comments set created_at = created_at - interval '2 minutes'`);
+  await hdr('9.9.9.9');
+  const [a1] = await as(U3, `insert into posts (category, title, body) values ('고민','같은IP1','본문입니다 다섯자') returning id`);
+  await as(U4, `insert into posts (category, title, body) values ('고민','같은IP2','본문입니다 다섯자')`);
+  await as(U3, `insert into comments (target_type, target_id, body) values ('post', ${a1.id}, '댓글1')`);
+  await as(U4, `insert into comments (target_type, target_id, body) values ('post', ${a1.id}, '댓글2')`);
+  const rvs = (await db.query(`select id from reviews where status = 'published' order by id`)).rows;
+  const why = '평가의 사례비 미지급 내용은 사실과 다르며 계약서대로 매월 지급했습니다';
+  const reps = new Set((await db.query(`select target_id, reporter_id from reports where target_type='review'`)).rows.map(r => r.target_id + ':' + r.reporter_id));
+  const pick = uid => rvs.find(r => !reps.has(r.id + ':' + uid));
+  if (rvs.length) {
+    await as(U2, `insert into reports (target_type, target_id, reason, detail) values ('review', ${pick(U2).id}, '허위 사실', '${why}')`);
+    await fails(as(U3, `insert into reports (target_type, target_id, reason, detail) values ('review', ${pick(U3).id}, '허위 사실', '${why}')`), /30분/);
+    await hdr('8.8.8.8');
+    await as(U3, `insert into reports (target_type, target_id, reason, detail) values ('review', ${pick(U3).id}, '허위 사실', '${why}')`);
+  }
+  const g = (await db.query(`select bool_or(fp like '%9.9.9.9%') raw, count(*) filter (where tbl <> 'report_review')::int other from write_guard`)).rows[0];
+  assert.equal(g.raw, false); assert.equal(g.other, 0);
+  await fails(as(U3, `select * from write_guard`), /permission denied/);
+  await db.query(`select set_config('request.headers', '', false)`);
+  ok('같은 접속: 글·댓글은 제한 없음, 교회 평가 신고만 30분에 한 번, IP 원문 미저장·API로 못 읽음');
 }
 

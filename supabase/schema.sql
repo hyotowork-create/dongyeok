@@ -186,7 +186,7 @@ create table if not exists public.moderation_log (
 
 -- ── 3. 트리거 ──────────────────────────────────────────────────────
 -- 3-1. 글 작성 전: 작성자·상태·익명 이름을 서버가 정하고, 도배를 막는다
--- 같은 접속(인터넷 연결+브라우저)에서 반복 글쓰기 제한(30분) — IP 원문은 저장하지 않고, 되돌릴 수 없는 해시만 1일 보관
+-- 같은 접속(인터넷 연결+브라우저)에서 교회 평가 반복 신고 제한(30분) — IP 원문은 저장하지 않고, 되돌릴 수 없는 해시만 1일 보관
 create table if not exists public.app_secret (k text primary key, v text not null);
 alter table public.app_secret enable row level security;
 revoke all on public.app_secret from anon, authenticated;
@@ -216,19 +216,6 @@ begin
   execute format('select count(*) from public.%I where author_id = $1 and created_at > now() - interval ''1 minute''', tg_table_name)
     into recent using new.author_id;
   if recent >= 5 then raise exception '잠시 후 다시 시도해 주세요(도배 방지)'; end if;
-  -- 댓글을 뺀 글(평가·대나무숲·자료·콘티)은 같은 접속에서 30분에 한 번. 운영자는 제외
-  if tg_table_name <> 'comments' and not public.is_admin() then
-    declare v_fp text := public.client_fp();
-    begin
-      if v_fp is not null then
-        delete from public.write_guard where created_at < now() - interval '1 day';
-        if exists (select 1 from public.write_guard g where g.fp = v_fp and g.tbl = tg_table_name and g.created_at > now() - interval '30 minutes') then
-          raise exception '같은 곳에서는 30분에 한 번만 글을 올릴 수 있습니다. 잠시 후 다시 시도해 주세요';
-        end if;
-        insert into public.write_guard (fp, tbl) values (v_fp, tg_table_name);
-      end if;
-    end;
-  end if;
   new.created_at := now();
   new.report_count := 0;
   if tg_table_name = 'reviews' then
@@ -323,6 +310,19 @@ begin
   -- 교회 평가 신고는 구체적인 사유가 있어야 함(근거 없는 반복 신고로 정상 평가가 가려지는 것 방지)
   if new.target_type = 'review' and char_length(btrim(coalesce(new.detail, ''))) < 20 then
     raise exception '교회 평가 신고는 어떤 내용이 왜 문제인지 20자 이상 구체적으로 적어 주세요';
+  end if;
+  -- 교회 평가 신고는 같은 접속(인터넷 연결+브라우저)에서 30분에 한 번(익명 계정을 바꿔 가며 몰아 신고하는 것 방지). 운영자 제외. 글·댓글 작성에는 적용하지 않음
+  if new.target_type = 'review' and not public.is_admin() then
+    declare v_fp text := public.client_fp();
+    begin
+      if v_fp is not null then
+        delete from public.write_guard where created_at < now() - interval '1 day';
+        if exists (select 1 from public.write_guard g where g.fp = v_fp and g.tbl = 'report_review' and g.created_at > now() - interval '30 minutes') then
+          raise exception '같은 곳에서는 교회 평가 신고를 30분에 한 번만 할 수 있습니다. 잠시 후 다시 시도해 주세요';
+        end if;
+        insert into public.write_guard (fp, tbl) values (v_fp, 'report_review');
+      end if;
+    end;
   end if;
   new.resolved := false;
   new.created_at := now();

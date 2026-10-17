@@ -1004,10 +1004,13 @@ const churchKey = n => String(n || '').replace(/[^가-힣a-zA-Z0-9]/g, '').toLow
 // 같은 이름이라도 지역(시·도)이나 교단이 다르면 다른 교회로 본다. 한쪽이 모르면(빈 값) 같은 교회일 수 있다고 봄
 const REGION_FULL = [['서울', '서울'], ['부산', '부산'], ['대구', '대구'], ['인천', '인천'], ['광주', '광주'], ['대전', '대전'], ['울산', '울산'], ['세종', '세종'], ['경기', '경기'], ['강원', '강원'], ['충청북', '충북'], ['충북', '충북'], ['충청남', '충남'], ['충남', '충남'], ['전라북', '전북'], ['전북', '전북'], ['전라남', '전남'], ['전남', '전남'], ['경상북', '경북'], ['경북', '경북'], ['경상남', '경남'], ['경남', '경남'], ['제주', '제주'], ['해외', '해외']];
 const regionKey = r => { const t = String(r || '').replace(/\s/g, ''); const m = REGION_FULL.find(([p]) => t.startsWith(p)); return m ? m[1] : ''; };
-const DENOM_KEYS = [[/합동/, '합동'], [/통합/, '통합'], [/고신/, '고신'], [/합신/, '합신'], [/백석/, '백석'], [/대신/, '대신'], [/기장|기독교장로회/, '기장'], [/감리/, '감리'], [/예성|예수교대한성결/, '예성'], [/기성|성결/, '기성'], [/침례/, '침례'], [/순복음|하나님의성회|기하성/, '기하성'], [/나사렛/, '나사렛'], [/구세군/, '구세군']];
-const denomKey = d => { const t = String(d || '').replace(/\s/g, ''); if (!t || /초교파|참조|참고/.test(t)) return ''; const m = DENOM_KEYS.find(([re]) => re.test(t)); return m ? m[1] : ''; };
+const DENOM_KEYS = [[/웨신|웨스트민스터/, '웨신'], [/초교파/, '초교파'], [/합동/, '합동'], [/통합/, '통합'], [/고신/, '고신'], [/합신/, '합신'], [/백석/, '백석'], [/대신/, '대신'], [/기장|기독교장로회/, '기장'], [/감리/, '감리'], [/예성|예수교대한성결/, '예성'], [/기성|성결/, '기성'], [/침례/, '침례'], [/순복음|하나님의성회|기하성/, '기하성'], [/나사렛/, '나사렛'], [/구세군/, '구세군']];
+const denomKey = d => { const t = String(d || '').replace(/\s/g, ''); if (!t || /참조|참고/.test(t)) return ''; const m = DENOM_KEYS.find(([re]) => re.test(t)); return m ? m[1] : ''; };
 // 이름이 같아도: 지역(시·도)이 둘 다 있는데 다르면, 교단이 둘 다 있는데 다르면 다른 교회.
 // 해외 교회는 해외끼리만 같은 교회로 봄(예: 공고 "버지니아 지구촌교회"는 지역 모르는 국내 지구촌교회 평가와 묶지 않음)
+// 화면에 보이는 교단 이름
+const DENOM_LABEL = { 기장: '기독교장로회', 침례: '침례교', 기성: '성결교(기성)', 예성: '성결교(예성)', 기하성: '순복음(기하성)', 감리: '감리교' };
+const denomLabel = k => DENOM_LABEL[k] || k;
 const sameChurch = (a, b) => (!a.rk || !b.rk || a.rk === b.rk) && (!a.dk || !b.dk || a.dk === b.dk) && ((a.rk === '해외') === (b.rk === '해외'));
 const idOf = (region, denom) => ({ rk: regionKey(region), dk: denomKey(denom) });
 // 공개 평가를 교회(이름+지역+교단) 단위로 묶어 통계를 만든다
@@ -1340,6 +1343,10 @@ let STATS = null;   // 교회별 평가 요약(캐시)
 async function stats(force) { if (!STATS || force) STATS = await safe(() => API.churchStats(), []) || []; return STATS; }
 // 공고·이름에 맞는 교회 통계 하나. 같은 이름의 교회가 여럿이라 하나로 정할 수 없으면 null
 const statFor = (name, region, denom) => { const id = idOf(region, denom), k = churchKey(name); const c = (STATS || []).filter(s => s.church_key === k && sameChurch(s, id)); return c.length === 1 ? c[0] : null; };
+// 공고에 교단이 비어 있으면 출처의 교단으로 봄(10/17 신내교회: 감신대 게시판 공고 ≠ 예장통합 평가). 운영자 분류: 횃불·아신=초교파, 웨신=웨신, 광신=합동.
+// 갓피플·기독일보·청빙넷(언론·포털)은 여러 교단이 섞여 있어 추정하지 않음
+const SRC_DENOM = { ttgu: '초교파', acts: '초교파', wgst: '웨신', kwangshin: '합동', chongshin: '합동', mtu: '감리', mokwon: '감리', uhs: '감리', kts: '고신', hapdong: '합신', repress: '합신', daeshin: '대신', hanil: '통합', ytus: '통합', bpu: '통합', sjs: '통합', pck: '통합', pckworld: '통합', bu: '백석', hansei: '기하성', prok: '기장', kbaptist: '침례', kehc: '기성' };
+const jobDenom = j => j.denomination || SRC_DENOM[j.source] || '';
 const churchHref = (name, region, denom) => href('pg-church', { name, region: regionKey(region), denom: denomKey(denom) });
 
 /* ═══════════════════════════ 화면 전환(라우터) ═══════════════════════════
@@ -1450,7 +1457,7 @@ function jobMatches(j) {
   return true;
 }
 function jobRow(j, mini) {
-  const st = j.church ? statFor(j.church, j.region, j.denomination) : null;
+  const st = j.church ? statFor(j.church, j.region, jobDenom(j)) : null;
   return `<li><a class="row-link" href="${href('pg-job', { id: j.id })}">
     <div class="row-main"><p class="row-title">${esc(j.title)}</p>
       <p class="meta"><span class="src-badge">${esc(SRC_NAME[j.source] || j.source)}${(j.alt || []).length ? ` 외 ${j.alt.length}곳` : ''}</span>${j.closed ? '<span class="tag">초빙완료</span>' : ''}${j.church && !String(j.title).replace(/\s/g, '').includes(j.church) ? `<b style="color:var(--ink-2)">${esc(j.church)}</b>` : ''}<span>${fmtDate(j.date)}</span>${j.region ? `<span>${esc(j.area || j.region)}</span>` : ''}${!mini && (j.positions || []).length ? `<span>${esc(j.positions.join(', '))}</span>` : ''}${j.pay && j.pay.min ? `<span class="pay-tag">${esc(j.pay.label)}</span>` : ''}</p></div>
@@ -1529,12 +1536,12 @@ HOOKS['pg-job'] = async ({ id }) => {
   const box = $('#job-detail');
   const j = JOBS.find(x => x.id === id);
   if (!j) { box.innerHTML = `<div class="detail"><p class="empty">공고를 찾을 수 없습니다. 목록이 갱신되어 빠졌을 수 있습니다.</p></div>`; return; }
-  const same = j.church ? JOBS.filter(x => x.id !== j.id && x.church && churchKey(x.church) === churchKey(j.church) && sameChurch(idOf(x.region, x.denomination), idOf(j.region, j.denomination))) : [];
+  const same = j.church ? JOBS.filter(x => x.id !== j.id && x.church && churchKey(x.church) === churchKey(j.church) && sameChurch(idOf(x.region, jobDenom(x)), idOf(j.region, jobDenom(j)))) : [];
   box.innerHTML = `<article class="detail">
       <p class="meta"><span class="src-badge">${esc(SRC_NAME[j.source] || j.source)}</span><span>게시 ${fmtDate(j.date)}</span></p>
       <h1>${esc(j.title)}</h1>
       <dl class="kv">
-        <dt>교회</dt><dd>${j.church ? `<a href="${churchHref(j.church, j.region, j.denomination)}">${esc(j.church)}</a> <span class="hint">(제목에서 자동 추출)</span>` : '<span class="hint">제목에서 교회명을 찾지 못했습니다</span>'}</dd>
+        <dt>교회</dt><dd>${j.church ? `<a href="${churchHref(j.church, j.region, jobDenom(j))}">${esc(j.church)}</a> <span class="hint">(제목에서 자동 추출)</span>` : '<span class="hint">제목에서 교회명을 찾지 못했습니다</span>'}</dd>
         ${j.region ? `<dt>지역</dt><dd>${esc(j.area || j.region)}</dd>` : ''}
         ${j.denomination ? `<dt>교단</dt><dd>${esc(j.denomination)}</dd>` : ''}
         ${(j.positions || []).length ? `<dt>직책</dt><dd>${esc(j.positions.join(', '))} <span class="hint">(제목·모집부서에서 추정)</span></dd>` : ''}
@@ -1554,7 +1561,7 @@ HOOKS['pg-job'] = async ({ id }) => {
   $('#job-save').addEventListener('click', e => toggleSaved(j.id, e.currentTarget));
   $('#job-share').addEventListener('click', () => shareLink(`${j.title} — 동역 청빙 공고`));
   const sec = $('#job-church');
-  if (j.church) renderChurchReviews(sec, j.church, j.region, j.denomination);
+  if (j.church) renderChurchReviews(sec, j.church, j.region, jobDenom(j));
   else {
     sec.innerHTML = `<div class="detail"><h2 style="font-size:19px;margin-bottom:10px">이 교회의 평가 찾기</h2><form class="toolbar" id="job-church-form"><input type="search" placeholder="교회 이름 입력" style="flex:1;max-width:none" aria-label="교회 이름"><button class="btn btn-ink">찾기</button></form></div>`;
     $('#job-church-form').addEventListener('submit', e => { e.preventDefault(); const v = e.target.querySelector('input').value.trim(); if (v) go('pg-church', { name: v }); });
@@ -1597,7 +1604,7 @@ async function renderChurchReviews(box, name, region, denom) {
         <div class="rv-big"><strong>${a.overall.toFixed(1)}</strong><span class="stars lg" style="--v:${a.overall}"></span><p>평가 ${a.n}건 · 추천 ${a.rec}%</p></div>
         <div class="bars">${RATINGS.map(([k, l]) => `<div class="bar"><span>${l}</span><div class="bar-track"><div class="bar-fill" style="width:${a.avg[k] / 5 * 100}%"></div></div><b>${a.avg[k].toFixed(1)}</b></div>`).join('')}</div>
       </div>
-      ${others.length ? `<div class="notice">${!me.rk && !me.dk ? '이름이 같은 교회가 여럿입니다. 지역·교단을 골라 보세요' : '이름이 같은 다른 교회'}: ${others.map(o => `<a href="${churchHref(o.church_name, o.region, o.denomination)}">${esc([o.rk, o.dk].filter(Boolean).join(' · ') || '지역·교단 미상')} (${o.n}건)</a>`).join(', ')}</div>` : ''}
+      ${others.length ? `<div class="notice">${!me.rk && !me.dk ? '이름이 같은 교회가 여럿입니다. 지역·교단을 골라 보세요' : '이름이 같은 다른 교회'}: ${others.map(o => `<a href="${churchHref(o.church_name, o.region, o.denomination)}">${esc([o.rk, denomLabel(o.dk)].filter(Boolean).join(' · ') || '지역·교단 미상')} (${o.n}건)</a>`).join(', ')}</div>` : ''}
       ${regions.length > 1 ? `<div class="notice warn">이 이름의 평가에 지역이 여러 개(${regions.map(esc).join(', ')}) 있습니다. 같은 이름의 다른 교회일 수 있으니 각 평가의 지역을 확인하세요.</div>` : ''}
       ${a.n < 3 ? `<p class="hint" style="margin-bottom:14px">평가가 ${a.n}건뿐이라 개인 경험에 치우칠 수 있습니다.</p>` : ''}`
       : `<p class="empty" style="padding:20px 0">아직 공개된 평가가 없습니다. 이 교회에서 사역하셨다면 첫 평가를 남겨 주세요.</p>`}
@@ -1620,12 +1627,12 @@ HOOKS['pg-church'] = async ({ name, region, denom }) => {
   if (!name) { box.innerHTML = '<p class="empty">교회 이름이 없습니다.</p>'; return; }
   const key = churchKey(name);
   const me = idOf(region, denom);
-  const jobs = JOBS.filter(j => j.church && churchKey(j.church) === key && sameChurch(me, idOf(j.region, j.denomination)));
-  const sub = [regionKey(region), denomKey(denom)].filter(Boolean).join(' · ');
+  const jobs = JOBS.filter(j => j.church && churchKey(j.church) === key && sameChurch(me, idOf(j.region, jobDenom(j))));
+  const sub = [regionKey(region), denomLabel(denomKey(denom))].filter(Boolean).join(' · ');
   box.innerHTML = `<h1 class="page-title">${esc(name)}</h1>${sub ? `<p class="hint" style="margin:-8px 0 12px">${esc(sub)}</p>` : ''}<div class="btn-row" style="margin:-6px 0 16px"><button type="button" class="btn btn-line btn-sm" id="church-share">공유하기</button></div><section id="church-reviews"></section>
     <section style="margin-top:24px"><div class="sec-head"><h2>이 교회의 청빙 공고</h2></div><ul class="list box">${jobs.length ? jobs.map(j => jobRow(j)).join('') : empty('현재 수집된 공고가 없습니다.')}</ul></section>`;
   $('#church-share').addEventListener('click', () => shareLink(`${name} 교역자 평가 — 동역`));
-  renderChurchReviews($('#church-reviews'), name, region || (jobs[0] && jobs[0].region), denom || (jobs[0] && jobs[0].denomination));
+  renderChurchReviews($('#church-reviews'), name, region || (jobs[0] && jobs[0].region), denom || (jobs[0] && jobDenom(jobs[0])));
 };
 $('#church-search').addEventListener('submit', async e => {
   e.preventDefault();

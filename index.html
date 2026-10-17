@@ -165,19 +165,22 @@ fieldset{border:0;margin-bottom:18px}
 @media(max-width:640px){
   .hero.hero{min-height:auto;align-items:flex-start}
   .hero-in{padding-top:88px;padding-bottom:40px}
-  .hero .live-pill,.hero .verse{display:none}
+  .hero .verse{display:none}
+  /* 오늘 공고 알림을 맨 위에, 제목과는 넉넉히 띄움(10/17) */
+  .hero .live-pill{display:flex;width:fit-content;max-width:100%;font-size:13px;padding:6px 14px 6px 11px;margin-bottom:34px}
+  .hero .live-pill #live-text{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .hero-shade{background:linear-gradient(0deg,rgba(14,18,48,.97) 0%,rgba(14,18,48,.88) 55%,rgba(14,18,48,.6) 100%)}
-  .hero .hero-title{font-size:clamp(24px,7.4vw,30px);margin-bottom:14px}
+  .hero .hero-title{font-size:clamp(25px,7.6vw,31px);line-height:1.22;letter-spacing:-.04em;margin-bottom:16px}
   .hero .hero-title span{white-space:nowrap}
-  .hero .lead{font-size:15px;line-height:1.65;margin-bottom:22px;color:rgba(255,255,255,.82)}
-  .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 0 22px;padding:14px 4px 10px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .hero .lead{font-size:14.5px;line-height:1.7;margin-bottom:26px;color:rgba(255,255,255,.82)}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:0 0 26px;padding:14px 4px 10px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(255,255,255,.06);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
   .hero-stats div{text-align:center;padding:0 6px}
   .hero-stats div+div{border-left:1px solid rgba(255,255,255,.12)}
-  .hero-stats b{font-size:19px}
-  .hero-stats span{display:block;font-size:11.5px;line-height:1.35;margin-top:3px;word-break:keep-all}
+  .hero-stats b{font-size:21px;letter-spacing:-.02em}
+  .hero-stats span{display:block;font-size:11px;color:rgba(255,255,255,.68);line-height:1.35;margin-top:3px;word-break:keep-all}
   .hero-asof{grid-column:1/-1;text-align:center;font-size:11.5px;font-weight:500;color:rgba(255,255,255,.55);margin-top:10px}
   .hero .hero-cta{grid-template-columns:1fr 1fr;gap:8px}
-  .hero .hero-cta .btn{width:100%;min-width:0;min-height:48px;padding:10px 8px;font-size:14px;justify-content:center;text-align:center;word-break:keep-all;line-height:1.3}
+  .hero .hero-cta .btn{width:100%;min-width:0;min-height:50px;padding:10px 8px;font-size:14.5px;font-weight:700;justify-content:center;text-align:center;word-break:keep-all;line-height:1.3}
 }
 .live-pill .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 0 rgba(255,194,75,.7);animation:pulse 2.2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 11px rgba(255,194,75,0)}100%{box-shadow:0 0 0 0 rgba(255,194,75,0)}}
@@ -472,8 +475,9 @@ dialog h2{font-size:20px;margin-bottom:6px}
 @media (max-width:640px){
   .wrap{padding:0 16px}
   .hero{min-height:88svh}
-  .hero-in{padding-top:32px;padding-bottom:28px}
-  .hero-shade{background:linear-gradient(0deg,rgba(14,18,48,.97) 0%,rgba(14,18,48,.72) 55%,rgba(14,18,48,.45) 100%)}
+  .hero-in{padding-top:24px;padding-bottom:32px}
+  .hero-shade{background:linear-gradient(0deg,rgba(14,18,48,.98) 0%,rgba(14,18,48,.9) 45%,rgba(14,18,48,.7) 75%,rgba(14,18,48,.5) 100%)}
+  .hero-media img{filter:blur(1.5px) saturate(.85)}
   .beams i{min-width:200px}
   .sec{padding:44px 16px}
   .bento{grid-template-columns:1fr;grid-template-rows:none;grid-auto-rows:220px}
@@ -542,10 +546,10 @@ dialog h2{font-size:20px;margin-bottom:6px}
 <div class="page active" id="pg-home">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-media" aria-hidden="true">
-      <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async" fetchpriority="high">
-      <img src="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1438232992991-995b7058bbb3?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async">
-      <img src="https://images.unsplash.com/photo-1522158637959-30385a09e0da?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1522158637959-30385a09e0da?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1522158637959-30385a09e0da?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1522158637959-30385a09e0da?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async">
-      <img src="https://images.unsplash.com/photo-1632230997264-b2bfc65cb8b4?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1632230997264-b2bfc65cb8b4?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1632230997264-b2bfc65cb8b4?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1632230997264-b2bfc65cb8b4?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async">
+      <img src="https://images.unsplash.com/photo-1437603568260-1950d3ca6eab?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1437603568260-1950d3ca6eab?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1437603568260-1950d3ca6eab?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1437603568260-1950d3ca6eab?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async" fetchpriority="high">
+      <img src="https://images.unsplash.com/photo-1678891936578-dede40bf7e60?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1678891936578-dede40bf7e60?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1678891936578-dede40bf7e60?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1678891936578-dede40bf7e60?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async">
+      <img src="https://images.unsplash.com/photo-1704386651981-0729a60da579?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1704386651981-0729a60da579?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1704386651981-0729a60da579?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1704386651981-0729a60da579?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async">
+      <img src="https://images.unsplash.com/photo-1533659124865-d6072dc035e1?auto=format&fit=crop&w=1400&q=70" srcset="https://images.unsplash.com/photo-1533659124865-d6072dc035e1?auto=format&fit=crop&w=800&q=70 800w, https://images.unsplash.com/photo-1533659124865-d6072dc035e1?auto=format&fit=crop&w=1400&q=70 1400w, https://images.unsplash.com/photo-1533659124865-d6072dc035e1?auto=format&fit=crop&w=2200&q=70 2200w" sizes="100vw" alt="" decoding="async">
       <div class="hero-shade"></div>
       <div class="beams"><i></i><i></i><i></i></div>
     </div>
@@ -2018,7 +2022,8 @@ function initMobile() {
 function renderHeroLive() {
   const today = new Date(Date.now() + 9 * 3600e3).toISOString().slice(0, 10);
   const nToday = JOBS.filter(j => j.date === today).length;
-  $('#live-text').textContent = !JOBS.length ? '청빙 공고 보기' : nToday ? `오늘 새로 올라오거나 갱신된 청빙 공고 ${nToday.toLocaleString()}건` : `최근 90일 청빙 공고 ${JOBS.length.toLocaleString()}건`;
+  const kd = new Date(Date.now() + 9 * 3600e3), dl = `${kd.getUTCMonth() + 1}월 ${kd.getUTCDate()}일(${'일월화수목금토'[kd.getUTCDay()]})`;   // 오늘 날짜(한국 시간)를 알림 띠 앞에
+  $('#live-text').textContent = !JOBS.length ? '청빙 공고 보기' : nToday ? `${dl} 새로 올라오거나 갱신된 청빙 공고 ${nToday.toLocaleString()}건` : `${dl} · 최근 90일 청빙 공고 ${JOBS.length.toLocaleString()}건`;
   // 숫자 줄: data/hero-stats.json(수집 작업이 2일에 한 번 갱신 — scripts/hero-stats.mjs). 없거나 못 읽으면 숨김
   const hs = $('#hero-stats'), stat = (n, label) => n == null ? '' : `<div><b>${Number(n).toLocaleString()}${label[0]}</b><span>${label[1]}</span></div>`;
   fetch('data/hero-stats.json', { cache: 'no-cache' }).then(r => r.ok ? r.json() : null).then(d => {
@@ -2027,7 +2032,7 @@ function renderHeroLive() {
     const k = new Date(new Date(d.updatedAt).getTime() + 9 * 3600e3), ymd = k.toISOString().slice(0, 10);
     const day = Math.round((Date.parse(ymd) - Date.parse('2026-10-12')) / 864e5) + 1;
     const asof = `${ymd.replace(/-/g, '.')}(${'일월화수목금토'[k.getUTCDay()]})`;
-    hs.innerHTML = stat(d.jobs, ['건', '청빙 공고(최근 90일)']) + stat(d.newJobs, ['건', '최근 2일 올라온 공고']) + stat(d.visits, ['회', `누적 방문 · 오픈 ${day}일째`]) + `<p class="hero-asof">${asof} 기준</p>`;
+    hs.innerHTML = stat(d.jobs, ['건', '청빙 공고(최근 90일)']) + stat(d.newJobs, ['건', '최근 2일 올라온 공고']) + stat(d.visits, ['회', `누적 방문 · 오픈 ${day}일째`]);
     hs.hidden = false;
   }).catch(() => {});
   const pick = JOBS.filter(j => !j.closed).slice(0, 18);

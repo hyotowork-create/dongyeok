@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// 첫 화면 숫자 줄(data/hero-stats.json)을 2일에 한 번 갱신 — 수집 작업 끝에 불림. 48시간이 안 지났으면 그대로 둠(--force면 바로 갱신)
+// 첫 화면 숫자 줄(data/hero-stats.json)을 하루 한 번 갱신 — 수집 작업 끝에 불림. 오늘(한국 날짜) 이미 갱신했으면 그대로 둠(--force면 바로 갱신)
 //   jobs     최근 90일 청빙 공고(같은 공고 묶은 수)
 //   newJobs  최근 2일(KST 오늘·어제) 게시된 공고(묶은 수)
 //   visits   GoatCounter 누적 방문(공개 카운터). 못 읽으면 이전 값 유지
@@ -7,8 +7,9 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 
 const OUT = 'data/hero-stats.json';
 const prev = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : {};
-if (!process.argv.includes('--force') && prev.updatedAt && Date.now() - new Date(prev.updatedAt) < 47 * 3600e3) {
-  console.log(`첫 화면 숫자: ${prev.updatedAt} 갱신분 유지(2일 주기)`); process.exit(0);
+const kstDay = t => new Date(new Date(t).getTime() + 9 * 3600e3).toISOString().slice(0, 10);
+if (!process.argv.includes('--force') && prev.updatedAt && kstDay(prev.updatedAt) === kstDay(Date.now())) {
+  console.log(`첫 화면 숫자: 오늘(${kstDay(Date.now())}) 이미 갱신함`); process.exit(0);
 }
 const { items = [] } = JSON.parse(readFileSync('data/jobs.json', 'utf8'));
 const kst = ms => new Date(ms + 9 * 3600e3).toISOString().slice(0, 10);

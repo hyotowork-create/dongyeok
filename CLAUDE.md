@@ -161,7 +161,7 @@ supabase/schema.sql        DB·열 단위 권한·RLS·트리거·RPC(SQL Editor
 supabase/test/             PGlite로 schema.sql 점검(17개)
 supabase/functions/kr-relay/   서울 중계 함수 index.ts + 점검 test.ts(Deno, 7개)
 scripts/mac-fetch-jobs.sh  맥 보충 수집 → data/jobs-local.json 커밋·푸시(launchd는 별도 사본에서 실행)
-scripts/hero-stats.mjs     첫 화면 숫자 줄(data/hero-stats.json: 공고·최근 2일 공고·누적 방문) — 수집 작업이 48시간마다 갱신, 바로 바꾸려면 --force
+scripts/hero-stats.mjs     첫 화면 숫자 줄(data/hero-stats.json: 공고·최근 2일 공고·누적 방문) — 수집 작업이 하루 한 번(그날 첫 수집) 갱신, 바로 바꾸려면 --force
 scripts/status.mjs         상태 점검 한 번에(맥·클라우드 공용, --health면 「상태 확인」 워크플로까지)
 scripts/cloud-setup.sh     클라우드 세션 준비(작성자·의존성·Deno·글꼴)
 scripts/mobile-check.mjs   휴대폰 폭 21개 화면 점검

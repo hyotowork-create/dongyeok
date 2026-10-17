@@ -437,6 +437,7 @@ dialog{border:0;border-radius:18px;padding:0;box-shadow:var(--shadow-lg);width:m
 dialog::backdrop{background:rgba(8,10,28,.55)}
 dialog form{padding:26px}
 dialog h2{font-size:20px;margin-bottom:6px}
+.song-list .listen{margin-left:6px;font-size:12.5px;font-weight:600;color:var(--indigo);text-decoration:none;white-space:nowrap}
 #sermon-dlg{max-height:calc(100svh - 32px);overflow:auto}
 #sermon-dlg h2 .tag{font-size:12px;vertical-align:middle}
 .hero-cta button.is-soon{font:inherit;color:inherit;cursor:pointer}
@@ -1992,6 +1993,7 @@ function initSetlistBuilder() {
     const songs = SL.songs.filter(s => s.title.trim()).map(s => ({ title: s.title.trim().slice(0, 80), category: s.category, key: s.key, bpm: String(s.bpm || '').replace(/\D/g, '').slice(0, 3), note: s.note.trim().slice(0, 100) }));
     if ((SL.title || '').trim().length < 2) { toast('콘티 제목을 적어 주세요.', true); return; }
     if (!songs.length) { toast('곡을 하나 이상 넣어 주세요.', true); return; }
+    if (!songs.some(x => x.key || x.bpm || x.note) && !confirm('키·BPM·흐름 메모가 비어 있어 곡 이름만 공유됩니다.\n키나 메모를 적으면 다른 사역자에게 더 도움이 됩니다.\n\n이대로 올릴까요?')) return;
     const d = { title: SL.title.trim(), service_type: SL.service_type, theme: SL.theme.trim() || null, note: SL.note.trim() || null, songs };   // 가사는 보내지 않음
     const id = await safe(() => API.createSetlist(d), null);
     if (id) { MINE.add('setlist:' + id); toast('콘티 나눔에 올렸습니다(가사 제외).'); go('pg-setlist', { id }); }
@@ -2004,7 +2006,8 @@ HOOKS['pg-setlist'] = async ({ id }) => {
   if (!s || s.status === 'removed') { box.innerHTML = '<div class="detail"><p class="empty">콘티를 찾을 수 없습니다.</p></div>'; return; }
   box.innerHTML = `<article class="detail"><p class="meta"><span class="tag ink">${esc(s.service_type || '예배')}</span><span>${esc(s.anon_name)}</span><span>${fmtDate(s.created_at)}</span></p>
     <h1>${esc(s.title)}</h1>${s.theme ? `<p class="hint" style="font-size:15px">주제·본문: ${esc(s.theme)}</p>` : ''}
-    <ol class="song-list" style="margin:14px 0">${(s.songs || []).map(x => `<li><div><p class="t">${esc(x.title)}</p>${x.note ? `<p class="n">${esc(x.note)}</p>` : ''}</div><div class="meta">${x.key ? `<span class="key">${esc(x.key)}</span>` : ''}${x.bpm ? `<span>${esc(x.bpm)} bpm</span>` : ''}<span>${esc(x.category || '')}</span></div></li>`).join('')}</ol>
+    <p class="hint" style="margin-top:12px">가사는 저작권 보호를 위해 나누지 않습니다. 「내 콘티로 가져오기」 후 가사를 직접 넣어 웹 가사 화면이나 세라핌에서 쓰세요.</p>
+    <ol class="song-list" style="margin:10px 0 14px">${(s.songs || []).map(x => `<li><div><p class="t">${esc(x.title)} <a class="listen" href="https://www.youtube.com/results?search_query=${encodeURIComponent(x.title)}" target="_blank" rel="noopener" aria-label="${esc(x.title)} 유튜브에서 듣기(새 창)">▶ 듣기</a></p>${x.note ? `<p class="n">${esc(x.note)}</p>` : ''}</div><div class="meta">${x.key ? `<span class="key">${esc(x.key)}</span>` : ''}${x.bpm ? `<span>${esc(x.bpm)} bpm</span>` : ''}<span>${esc(x.category || '')}</span></div></li>`).join('')}</ol>
     ${s.note ? `<div class="notice">${nl2br(s.note)}</div>` : ''}
     <div class="btn-row" style="margin-bottom:16px"><button class="btn btn-ink btn-sm" type="button" id="sl-import">내 콘티로 가져오기</button></div>
     ${actBar('setlist', s)}</article><div id="sl-cmts"></div>`;

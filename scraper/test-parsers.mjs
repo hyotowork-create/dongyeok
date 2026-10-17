@@ -3,7 +3,7 @@
 // 사이트 구조가 바뀌어 수집이 0건이 되면, 표본을 새로 저장하고 이 점검부터 맞춘다.
 import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
-import { classifyPositions, parseSalary, parseRobots, robotsAllows, normRegion, extractChurch, extractPositions, cleanTitle, titleKey, parseDate, areaOf } from './lib.mjs';
+import { isNotJob, classifyPositions, parseSalary, parseRobots, robotsAllows, normRegion, extractChurch, extractPositions, cleanTitle, titleKey, parseDate, areaOf } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import mtu from './sources/mtu.mjs';
 import godpeople from './sources/godpeople.mjs';
@@ -133,5 +133,11 @@ await t('사례비 읽기 — 수당 제외·연봉 환산·전화번호 무시'
   assert.deepEqual(parseSalary('사례 및 예우 교회 내규에 따름'), { note: '내규·협의' });
   assert.equal(parseSalary('80', { dedicated: true }).min, 80);
   assert.equal(parseSalary('제출서류 2부, 모집 3명, 2027년'), null);
+});
+await t('청빙 아닌 글 거르기', () => {
+  for (const x of ['죽고싶은 심정으로 마지막 도움청합니다..제발도와주세요', '노숙중인데 제발 도와주세요', '[WILSHIRE JAY PARK 종합보험] 메디케어 보험', '서초이혼전문변호사 선택의 중요성', '3040 이렇게 목회하라! 세미나 안내_10월 16일(금) 오후 2시', '갓피플 테스트'])
+    assert.equal(isNotJob(x), true, x);
+  for (const x of ['[경기도 부천시] 부천열방교회', '부목사 청빙 (4대보험 가입)', 'Kindergarten Pastor (Part-time, Los Angeles)', '찬양사역 및 교육', '영진교회에서 함께 동역할 동역자를 모습니다', '수원제일교회 영어예배부 사역자 청빙공고'])
+    assert.equal(isNotJob(x), false, x);
 });
 console.log(`\n${n}개 점검 통과`);

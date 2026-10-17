@@ -227,6 +227,16 @@ const POS_RULES = [
   ['반주자', /반주|오르간|피아노/],
   ['간사', /간사/]
 ];
+// 청빙 게시판에 올라오는 청빙 아닌 글(구걸·광고·행사 안내·시험 글) 거르기. 제목만 봄.
+// 구걸·시험 글은 무조건, 광고·행사는 제목에 청빙 낱말이 없을 때만 거름(예: "부목사 청빙(4대보험)"은 남김)
+const JOB_WORD = /청빙|모집|채용|구인|구함|구합니다|초빙|모십니다|모심|모셔|모습니다|기다립니다|찾습니다|사역자|동역자|전도사|목사|강도사|간사|반주|지휘|교역자|파트|전임|pastor|minister/i;
+const NOT_JOB_ALWAYS = /도와\s*주세요|도움\s*청|죽고\s*싶|노숙|살아\s*보고\s*싶|급전|개인\s*회생|^\s*(갓피플\s*)?테스트\s*$/;
+const NOT_JOB_UNLESS = /보험|장례|변호사|이혼|철거|견적|고객\s*유입|마케팅|분양|대출|임플란트|렌탈|세미나|컨퍼런스|콘퍼런스|특강|설명회|부흥회|집회\s*안내|합격자|결과\s*발표|공지사항/;
+export function isNotJob(title) {
+  const t = String(title || '');
+  return NOT_JOB_ALWAYS.test(t) || (NOT_JOB_UNLESS.test(t) && !JOB_WORD.test(t));
+}
+
 export function extractPositions(text) {
   const t = String(text || '');
   const out = POS_RULES.filter(([, re]) => re.test(t)).map(([l]) => l);

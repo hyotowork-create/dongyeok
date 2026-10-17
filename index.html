@@ -954,6 +954,28 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': 
 const nl2br = s => esc(s).replace(/\n/g, '<br>');
 const safeUrl = u => /^https?:\/\//i.test(String(u || '')) ? String(u) : '#';
 const churchKey = n => String(n || '').replace(/[^가-힣a-zA-Z0-9]/g, '').toLowerCase();
+// 같은 이름이라도 지역(시·도)이나 교단이 다르면 다른 교회로 본다. 한쪽이 모르면(빈 값) 같은 교회일 수 있다고 봄
+const REGION_FULL = [['서울', '서울'], ['부산', '부산'], ['대구', '대구'], ['인천', '인천'], ['광주', '광주'], ['대전', '대전'], ['울산', '울산'], ['세종', '세종'], ['경기', '경기'], ['강원', '강원'], ['충청북', '충북'], ['충북', '충북'], ['충청남', '충남'], ['충남', '충남'], ['전라북', '전북'], ['전북', '전북'], ['전라남', '전남'], ['전남', '전남'], ['경상북', '경북'], ['경북', '경북'], ['경상남', '경남'], ['경남', '경남'], ['제주', '제주'], ['해외', '해외']];
+const regionKey = r => { const t = String(r || '').replace(/\s/g, ''); const m = REGION_FULL.find(([p]) => t.startsWith(p)); return m ? m[1] : ''; };
+const DENOM_KEYS = [[/합동/, '합동'], [/통합/, '통합'], [/고신/, '고신'], [/합신/, '합신'], [/백석/, '백석'], [/대신/, '대신'], [/기장|기독교장로회/, '기장'], [/감리/, '감리'], [/예성|예수교대한성결/, '예성'], [/기성|성결/, '기성'], [/침례/, '침례'], [/순복음|하나님의성회|기하성/, '기하성'], [/나사렛/, '나사렛'], [/구세군/, '구세군']];
+const denomKey = d => { const t = String(d || '').replace(/\s/g, ''); if (!t || /초교파|참조|참고/.test(t)) return ''; const m = DENOM_KEYS.find(([re]) => re.test(t)); return m ? m[1] : ''; };
+// 이름이 같아도: 지역(시·도)이 둘 다 있는데 다르면, 교단이 둘 다 있는데 다르면 다른 교회.
+// 해외 교회는 해외끼리만 같은 교회로 봄(예: 공고 "버지니아 지구촌교회"는 지역 모르는 국내 지구촌교회 평가와 묶지 않음)
+const sameChurch = (a, b) => (!a.rk || !b.rk || a.rk === b.rk) && (!a.dk || !b.dk || a.dk === b.dk) && ((a.rk === '해외') === (b.rk === '해외'));
+const idOf = (region, denom) => ({ rk: regionKey(region), dk: denomKey(denom) });
+// 공개 평가를 교회(이름+지역+교단) 단위로 묶어 통계를 만든다
+function clusterStats(rows) {
+  const groups = [];
+  [...rows].sort((a, b) => String(a.created_at).localeCompare(String(b.created_at))).forEach(r => {
+    const id = idOf(r.region, r.denomination);
+    let g = groups.find(x => x.church_key === r.church_key && sameChurch(x, id));
+    if (!g) groups.push(g = { church_key: r.church_key, rk: '', dk: '', list: [] });
+    g.rk = g.rk || id.rk; g.dk = g.dk || id.dk; g.list.push(r);
+    g.church_name = r.church_name; g.last_at = r.created_at;
+    if (r.region) g.region = r.region; if (r.denomination) g.denomination = r.denomination;
+  });
+  return groups.map(g => { const a = aggregate(g.list); return { church_key: g.church_key, church_name: g.church_name, region: g.region || '', denomination: g.denomination || '', rk: g.rk, dk: g.dk, n: a.n, overall: a.overall, rec_pct: a.rec, last_at: g.last_at }; });
+}
 const href = (id, params) => { const qs = new URLSearchParams(params || {}).toString(); return '#' + id + (qs ? '?' + qs : ''); };
 const empty = msg => `<li class="empty">${esc(msg)}</li>`;
 const loading = () => `<li class="loading">불러오는 중…</li>`;
@@ -1047,15 +1069,8 @@ const DemoAPI = {
   async isAdmin() { return !!this.user; },   // 체험 모드에서는 로그인하면 운영 화면까지 써 볼 수 있음
   async mine() { const s = new Set(); if (!this.user) return s; for (const t of ['reviews', 'posts', 'comments', 'resources', 'setlists']) this.db[t].forEach(x => { if (x.author_id === this.user.id) s.add(t.slice(0, -1) + ':' + x.id); }); return s; },
   visible(x) { return x.status === 'published' || (this.user && x.author_id === this.user.id) ; },
-  async churchStats() {
-    const m = new Map();
-    this.db.reviews.filter(r => r.status === 'published').forEach(r => {
-      const g = m.get(r.church_key) || { church_key: r.church_key, church_name: r.church_name, region: r.region, list: [], last_at: r.created_at };
-      g.list.push(r); if (r.created_at > g.last_at) { g.last_at = r.created_at; g.church_name = r.church_name; g.region = r.region || g.region; }
-      m.set(r.church_key, g);
-    });
-    return [...m.values()].map(g => { const a = aggregate(g.list); return { church_key: g.church_key, church_name: g.church_name, region: g.region, n: a.n, overall: a.overall, rec_pct: a.rec, last_at: g.last_at }; });
-  },
+  async churchStats() { return clusterStats(this.db.reviews.filter(r => r.status === 'published')); },
+
   async reviews(key) { return this.db.reviews.filter(r => r.church_key === key && this.visible(r) && r.status !== 'removed').sort((a, b) => b.created_at.localeCompare(a.created_at)); },
   async createReview(d) {
     this.need();
@@ -1215,7 +1230,7 @@ const LiveAPI = {
   async signOut() { await this.sb.auth.signOut(); this.user = null; this._admin = null; },
   async isAdmin() { if (!this.user) return false; if (this._admin === null) { const { data } = await this.sb.rpc('is_admin'); this._admin = !!data; } return this._admin; },
   async mine() { const s = new Set(); if (!this.user) return s; const rows = this.ok(await this.sb.rpc('my_items')) || []; rows.forEach(r => s.add(r.target_type + ':' + r.target_id)); return s; },
-  async churchStats() { return this.ok(await this.sb.from('church_stats').select('church_key,church_name,region,n,overall,rec_pct,last_at').order('last_at', { ascending: false }).limit(500)) || []; },
+  async churchStats() { return clusterStats(this.ok(await this.sb.from('reviews').select('church_key,church_name,region,denomination,r_pay,r_workload,r_contract,r_respect,r_leadership,r_growth,recommend,status,created_at').eq('status', 'published').order('created_at', { ascending: false }).limit(3000)) || []); },
   async reviews(key) { return this.ok(await this.sb.from('reviews').select(this.COLS.reviews).eq('church_key', key).neq('status', 'removed').order('created_at', { ascending: false }).limit(200)) || []; },
   async createReview(d) { await this.ensureUser(); const r = this.ok(await this.sb.from('reviews').insert(d).select('id').single()); return r.id; },
   async list(table, { category, sort, q, offset = 0, limit = 20 } = {}) {
@@ -1275,7 +1290,9 @@ const API = (C.supabaseUrl && C.supabaseAnonKey) ? LiveAPI : DemoAPI;
 let MINE = new Set();
 let STATS = null;   // 교회별 평가 요약(캐시)
 async function stats(force) { if (!STATS || force) STATS = await safe(() => API.churchStats(), []) || []; return STATS; }
-const statByKey = k => (STATS || []).find(s => s.church_key === k);
+// 공고·이름에 맞는 교회 통계 하나. 같은 이름의 교회가 여럿이라 하나로 정할 수 없으면 null
+const statFor = (name, region, denom) => { const id = idOf(region, denom), k = churchKey(name); const c = (STATS || []).filter(s => s.church_key === k && sameChurch(s, id)); return c.length === 1 ? c[0] : null; };
+const churchHref = (name, region, denom) => href('pg-church', { name, region: regionKey(region), denom: denomKey(denom) });
 
 /* ═══════════════════════════ 화면 전환(라우터) ═══════════════════════════
    주소 형식: #pg-화면ID?키=값  (예: #pg-church?name=은혜숲교회)
@@ -1385,7 +1402,7 @@ function jobMatches(j) {
   return true;
 }
 function jobRow(j, mini) {
-  const st = j.church ? statByKey(churchKey(j.church)) : null;
+  const st = j.church ? statFor(j.church, j.region, j.denomination) : null;
   return `<li><a class="row-link" href="${href('pg-job', { id: j.id })}">
     <div class="row-main"><p class="row-title">${esc(j.title)}</p>
       <p class="meta"><span class="src-badge">${esc(SRC_NAME[j.source] || j.source)}${(j.alt || []).length ? ` 외 ${j.alt.length}곳` : ''}</span>${j.closed ? '<span class="tag">초빙완료</span>' : ''}${j.church && !String(j.title).replace(/\s/g, '').includes(j.church) ? `<b style="color:var(--ink-2)">${esc(j.church)}</b>` : ''}<span>${fmtDate(j.date)}</span>${j.region ? `<span>${esc(j.area || j.region)}</span>` : ''}${!mini && (j.positions || []).length ? `<span>${esc(j.positions.join(', '))}</span>` : ''}${j.pay && j.pay.min ? `<span class="pay-tag">${esc(j.pay.label)}</span>` : ''}</p></div>
@@ -1464,12 +1481,12 @@ HOOKS['pg-job'] = async ({ id }) => {
   const box = $('#job-detail');
   const j = JOBS.find(x => x.id === id);
   if (!j) { box.innerHTML = `<div class="detail"><p class="empty">공고를 찾을 수 없습니다. 목록이 갱신되어 빠졌을 수 있습니다.</p></div>`; return; }
-  const same = j.church ? JOBS.filter(x => x.id !== j.id && x.church && churchKey(x.church) === churchKey(j.church)) : [];
+  const same = j.church ? JOBS.filter(x => x.id !== j.id && x.church && churchKey(x.church) === churchKey(j.church) && sameChurch(idOf(x.region, x.denomination), idOf(j.region, j.denomination))) : [];
   box.innerHTML = `<article class="detail">
       <p class="meta"><span class="src-badge">${esc(SRC_NAME[j.source] || j.source)}</span><span>게시 ${fmtDate(j.date)}</span></p>
       <h1>${esc(j.title)}</h1>
       <dl class="kv">
-        <dt>교회</dt><dd>${j.church ? `<a href="${href('pg-church', { name: j.church })}">${esc(j.church)}</a> <span class="hint">(제목에서 자동 추출)</span>` : '<span class="hint">제목에서 교회명을 찾지 못했습니다</span>'}</dd>
+        <dt>교회</dt><dd>${j.church ? `<a href="${churchHref(j.church, j.region, j.denomination)}">${esc(j.church)}</a> <span class="hint">(제목에서 자동 추출)</span>` : '<span class="hint">제목에서 교회명을 찾지 못했습니다</span>'}</dd>
         ${j.region ? `<dt>지역</dt><dd>${esc(j.area || j.region)}</dd>` : ''}
         ${j.denomination ? `<dt>교단</dt><dd>${esc(j.denomination)}</dd>` : ''}
         ${(j.positions || []).length ? `<dt>직책</dt><dd>${esc(j.positions.join(', '))} <span class="hint">(제목·모집부서에서 추정)</span></dd>` : ''}
@@ -1489,7 +1506,7 @@ HOOKS['pg-job'] = async ({ id }) => {
   $('#job-save').addEventListener('click', e => toggleSaved(j.id, e.currentTarget));
   $('#job-share').addEventListener('click', () => shareLink(`${j.title} — 동역 청빙 공고`));
   const sec = $('#job-church');
-  if (j.church) renderChurchReviews(sec, j.church, j.region);
+  if (j.church) renderChurchReviews(sec, j.church, j.region, j.denomination);
   else {
     sec.innerHTML = `<div class="detail"><h2 style="font-size:19px;margin-bottom:10px">이 교회의 평가 찾기</h2><form class="toolbar" id="job-church-form"><input type="search" placeholder="교회 이름 입력" style="flex:1;max-width:none" aria-label="교회 이름"><button class="btn btn-ink">찾기</button></form></div>`;
     $('#job-church-form').addEventListener('submit', e => { e.preventDefault(); const v = e.target.querySelector('input').value.trim(); if (v) go('pg-church', { name: v }); });
@@ -1513,19 +1530,26 @@ function reviewCard(r) {
       <button class="txt-btn" data-act="report" data-type="review" data-id="${r.id}">신고</button></footer>
   </article>`;
 }
-async function renderChurchReviews(box, name, region) {
+async function renderChurchReviews(box, name, region, denom) {
   box.innerHTML = `<div class="detail"><p class="loading">평가를 불러오는 중…</p></div>`;
-  const key = churchKey(name);
-  const list = await safe(() => API.reviews(key), []) || [];
+  const key = churchKey(name), me = idOf(region, denom);
+  // 같은 이름이라도 지역·교단이 다른 교회의 평가는 뺀다
+  const all = await safe(() => API.reviews(key), []) || [];
+  const list = all.filter(r => sameChurch(me, idOf(r.region, r.denomination)));
+  await stats();
+  const clusters = (STATS || []).filter(s => s.church_key === key);
+  // 지역·교단을 모르고 들어왔는데 같은 이름의 교회가 여럿이면 모두 보여 주고 고르게 함
+  const others = !me.rk && !me.dk ? (clusters.length > 1 ? clusters : []) : clusters.filter(s => !sameChurch(me, s));
   const a = aggregate(list);
   const regions = [...new Set(list.filter(r => r.status === 'published').map(r => r.region).filter(Boolean))];
-  const writeHref = href('pg-review-new', { name, region: region || '' });
+  const writeHref = href('pg-review-new', { name, region: region || '', denom: denom || '' });
   box.innerHTML = `<div class="detail">
     <div class="sec-head" style="margin-bottom:14px"><h2 style="font-size:20px">${esc(name)} 사역자 평가</h2><a class="btn btn-main btn-sm" href="${writeHref}">평가 쓰기</a></div>
     ${a.n ? `<div class="rv-summary">
         <div class="rv-big"><strong>${a.overall.toFixed(1)}</strong><span class="stars lg" style="--v:${a.overall}"></span><p>평가 ${a.n}건 · 추천 ${a.rec}%</p></div>
         <div class="bars">${RATINGS.map(([k, l]) => `<div class="bar"><span>${l}</span><div class="bar-track"><div class="bar-fill" style="width:${a.avg[k] / 5 * 100}%"></div></div><b>${a.avg[k].toFixed(1)}</b></div>`).join('')}</div>
       </div>
+      ${others.length ? `<div class="notice">${!me.rk && !me.dk ? '이름이 같은 교회가 여럿입니다. 지역·교단을 골라 보세요' : '이름이 같은 다른 교회'}: ${others.map(o => `<a href="${churchHref(o.church_name, o.region, o.denomination)}">${esc([o.rk, o.dk].filter(Boolean).join(' · ') || '지역·교단 미상')} (${o.n}건)</a>`).join(', ')}</div>` : ''}
       ${regions.length > 1 ? `<div class="notice warn">이 이름의 평가에 지역이 여러 개(${regions.map(esc).join(', ')}) 있습니다. 같은 이름의 다른 교회일 수 있으니 각 평가의 지역을 확인하세요.</div>` : ''}
       ${a.n < 3 ? `<p class="hint" style="margin-bottom:14px">평가가 ${a.n}건뿐이라 개인 경험에 치우칠 수 있습니다.</p>` : ''}`
       : `<p class="empty" style="padding:20px 0">아직 공개된 평가가 없습니다. 이 교회에서 사역하셨다면 첫 평가를 남겨 주세요.</p>`}
@@ -1533,7 +1557,7 @@ async function renderChurchReviews(box, name, region) {
   </div>`;
 }
 function churchRow(s) {
-  return `<li><a class="row-link" href="${href('pg-church', { name: s.church_name })}"><div class="row-main"><p class="row-title">${esc(s.church_name)}</p><p class="meta">${s.region ? `<span>${esc(s.region)}</span>` : ''}<span>평가 ${s.n}건</span><span>추천 ${s.rec_pct}%</span><span>${timeAgo(s.last_at)}</span></p></div><div class="row-side"><span class="stars" style="--v:${s.overall}"></span><b style="font-size:14px">${Number(s.overall).toFixed(1)}</b></div></a></li>`;
+  return `<li><a class="row-link" href="${churchHref(s.church_name, s.region, s.denomination)}"><div class="row-main"><p class="row-title">${esc(s.church_name)}</p><p class="meta">${s.region ? `<span>${esc(s.region)}</span>` : ''}${s.denomination ? `<span>${esc(s.denomination)}</span>` : ''}<span>평가 ${s.n}건</span><span>추천 ${s.rec_pct}%</span><span>${timeAgo(s.last_at)}</span></p></div><div class="row-side"><span class="stars" style="--v:${s.overall}"></span><b style="font-size:14px">${Number(s.overall).toFixed(1)}</b></div></a></li>`;
 }
 HOOKS['pg-churches'] = async () => {
   $('#church-recent').innerHTML = loading(); $('#church-top').innerHTML = loading();
@@ -1543,15 +1567,17 @@ HOOKS['pg-churches'] = async () => {
   $('#church-recent').innerHTML = recent.length ? recent.map(churchRow).join('') : empty('아직 평가가 없습니다.');
   $('#church-top').innerHTML = top.length ? top.map(churchRow).join('') : empty('아직 평가가 없습니다.');
 };
-HOOKS['pg-church'] = async ({ name }) => {
+HOOKS['pg-church'] = async ({ name, region, denom }) => {
   const box = $('#church-detail');
   if (!name) { box.innerHTML = '<p class="empty">교회 이름이 없습니다.</p>'; return; }
   const key = churchKey(name);
-  const jobs = JOBS.filter(j => j.church && churchKey(j.church) === key);
-  box.innerHTML = `<h1 class="page-title">${esc(name)}</h1><div class="btn-row" style="margin:-6px 0 16px"><button type="button" class="btn btn-line btn-sm" id="church-share">공유하기</button></div><section id="church-reviews"></section>
+  const me = idOf(region, denom);
+  const jobs = JOBS.filter(j => j.church && churchKey(j.church) === key && sameChurch(me, idOf(j.region, j.denomination)));
+  const sub = [regionKey(region), denomKey(denom)].filter(Boolean).join(' · ');
+  box.innerHTML = `<h1 class="page-title">${esc(name)}</h1>${sub ? `<p class="hint" style="margin:-8px 0 12px">${esc(sub)}</p>` : ''}<div class="btn-row" style="margin:-6px 0 16px"><button type="button" class="btn btn-line btn-sm" id="church-share">공유하기</button></div><section id="church-reviews"></section>
     <section style="margin-top:24px"><div class="sec-head"><h2>이 교회의 청빙 공고</h2></div><ul class="list box">${jobs.length ? jobs.map(j => jobRow(j)).join('') : empty('현재 수집된 공고가 없습니다.')}</ul></section>`;
   $('#church-share').addEventListener('click', () => shareLink(`${name} 교역자 평가 — 동역`));
-  renderChurchReviews($('#church-reviews'), name, jobs[0] && jobs[0].region);
+  renderChurchReviews($('#church-reviews'), name, region || (jobs[0] && jobs[0].region), denom || (jobs[0] && jobs[0].denomination));
 };
 $('#church-search').addEventListener('submit', async e => {
   e.preventDefault();
@@ -1599,7 +1625,7 @@ HOOKS['pg-guide'] = () => {
     <td>${srcs.filter(x => (x.group || '신학교') === g && x.status !== 'off').map(x => `<a href="${esc(safeUrl(x.home))}" target="_blank" rel="noopener">${esc(x.name)}</a>${x.status !== 'ok' ? ` <span class="hint">(${st(x)})</span>` : ''}`).join(', ') || '—'}</td>
     <td>${links.filter(x => (x.group || '기타') === g).map(x => `<a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">${esc(x.name)}</a>`).join(', ') || '—'}</td></tr>`).join('')}</table>`;
 };
-HOOKS['pg-review-new'] = ({ name, region }) => { if (name) $('#rv-church').value = name; if (region) $('#rv-region').value = region; };
+HOOKS['pg-review-new'] = ({ name, region, denom }) => { if (name) $('#rv-church').value = name; if (region) $('#rv-region').value = region; if (denom) $('#rv-denom').value = denom; };
 
 /* ═══════════════════════════ 공감·신고·삭제 공통 ═══════════════════════════ */
 let reportTarget = null;

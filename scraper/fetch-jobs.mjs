@@ -12,7 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
-import { Http, KrRelay, BlockedError, RobotsError, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
+import { Http, KrRelay, BlockedError, RobotsError, isNotJob, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import puts from './sources/puts.mjs';
 import mtu from './sources/mtu.mjs';
@@ -132,7 +132,7 @@ async function main() {
     if (!src.enabled) { Object.assign(st, { status: 'off', note: src.disabledReason || '꺼짐' }); statuses.push(st); console.log(`- ${src.name}: 꺼짐 (${st.note})`); continue; }
     try {
       const raws = await src.collect({ http, today });
-      const items = raws.map(r => toItem(src, r, today)).filter(x => x && /^https?:\/\//.test(x.url));
+      const items = raws.map(r => toItem(src, r, today)).filter(x => x && /^https?:\/\//.test(x.url) && !isNotJob(x.title));   // 청빙 아닌 글은 처음부터 받지 않음(본문도 안 읽음)
       fresh.push(...items);
       Object.assign(st, { status: 'ok', count: items.length });
       const robots = http.robots.get(new URL(src.home).origin);
@@ -197,6 +197,7 @@ async function main() {
   const enabledIds = new Set(SOURCES.filter(s => s.enabled).map(s => s.id));
   const items = [...byId.values()]
     .filter(it => it.date >= cutoff && enabledIds.has(it.source))       // 꺼진 출처(허락 철회 등)의 공고는 즉시 제거
+    .filter(it => !isNotJob(it.title))                                 // 청빙 아닌 글(구걸·광고·행사 안내) 제거
     .sort((a, b) => b.date.localeCompare(a.date) || String(b.firstSeen).localeCompare(String(a.firstSeen)))
     .slice(0, MAX_ITEMS);
 

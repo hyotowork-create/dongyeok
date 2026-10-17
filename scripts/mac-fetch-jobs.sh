@@ -15,7 +15,7 @@ LOG="scripts/mac-fetch-jobs.log"
   # 잠자기에서 깨어나자마자 launchd가 부르면 네트워크가 아직 없음(10/14 두 번 github.com 주소 못 찾음) → 최대 3분 기다림
   for i in {1..18}; do /usr/bin/nc -z -G 3 github.com 443 >/dev/null 2>&1 && break; [ "$i" = 18 ] && echo "네트워크 없음 — 이번 회차 건너뜀"; sleep 10; done
   # 지난 회차가 커밋만 하고 올리지 못했을 수 있음(10/15 올리는 중 잠들어 끊김 → 그 뒤 --ff-only가 계속 멈춤) → 최신 위에 다시 얹고 남은 것 올림
-  git pull --rebase --quiet origin main
+  git pull --rebase --autostash --quiet origin main
   [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { git push -q origin main && echo "지난 회차 커밋 올림"; }
   [ -d scraper/node_modules ] || (cd scraper && npm ci --no-audit --no-fund)
   node scraper/test-parsers.mjs > /dev/null
@@ -26,7 +26,7 @@ LOG="scripts/mac-fetch-jobs.log"
   git add data/jobs-local.json
   if git diff --cached --quiet; then echo "변경 없음"; else
     git commit -q -m "청빙 공고 보충 수집(맥) $(date '+%Y-%m-%d %H:%M')"
-    git pull --rebase -q origin main   # 그사이 GitHub이 공고를 커밋했을 수 있음(파일이 달라 충돌 없음)
+    git pull --rebase --autostash -q origin main   # 그사이 GitHub이 공고를 커밋했을 수 있음(파일이 달라 충돌 없음)
     git push -q
     echo "올림 완료"
   fi

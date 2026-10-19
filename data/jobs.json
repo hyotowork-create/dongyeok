@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-19T01:22:43.171Z",
+ "updatedAt": "2026-10-19T03:19:53.078Z",
  "sources": [
   {
    "id": "chongshin",
@@ -7,7 +7,7 @@
    "group": "신학교",
    "home": "https://www.csu.ac.kr/?m1=page&menu_id=1110",
    "status": "ok",
-   "count": 149,
+   "count": 150,
    "note": "서울 중계 서버 경유(해외 접속 차단 출처)"
   },
   {
@@ -33,7 +33,7 @@
    "group": "구인 사이트",
    "home": "https://recruit.godpeople.com/?GO=recruit_find&rc_tab=1",
    "status": "ok",
-   "count": 200
+   "count": 199
   },
   {
    "id": "kts",
@@ -66,7 +66,7 @@
    "group": "신학교",
    "home": "https://www.kwangshin.ac.kr/front/boardList.do?brd_mgrno=184&menu_no=467",
    "status": "ok",
-   "note": "맥에서 보충 수집(2026-10-18) — 해외 접속 차단",
+   "note": "맥에서 보충 수집(2026-10-19) — 해외 접속 차단",
    "count": 10
   },
   {
@@ -83,7 +83,7 @@
    "group": "신학교",
    "home": "https://www.hanil.ac.kr/portal/default/bbs/list.do?menuId=M0004000500000000",
    "status": "ok",
-   "count": 13
+   "count": 15
   },
   {
    "id": "ytus",
@@ -91,7 +91,7 @@
    "group": "신학교",
    "home": "https://www.ytus.ac.kr/board/trXXR",
    "status": "ok",
-   "count": 18
+   "count": 15
   },
   {
    "id": "bpu",
@@ -108,7 +108,7 @@
    "group": "신학교",
    "home": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php",
    "status": "ok",
-   "count": 13
+   "count": 14
   },
   {
    "id": "bu",
@@ -173,7 +173,7 @@
    "group": "교단",
    "home": "https://www.prok.org/Board/Index/176244",
    "status": "ok",
-   "count": 15
+   "count": 13
   },
   {
    "id": "kbaptist",
@@ -197,7 +197,7 @@
    "group": "구인 사이트",
    "home": "https://www.cjob.co.kr/bbs/board.php?bo_table=offerKG",
    "status": "ok",
-   "count": 40,
+   "count": 39,
    "note": "서울 중계 서버 경유(해외 접속 차단 출처)"
   },
   {
@@ -222,7 +222,7 @@
    "group": "기독교 언론",
    "home": "https://bbs.kr.christianitydaily.com/?bo_table=minister",
    "status": "ok",
-   "count": 13,
+   "count": 11,
    "note": "robots.txt 내용 확인 불가(규칙 없음으로 처리) — 기관에 허락 받기 권장"
   },
   {
@@ -231,7 +231,7 @@
    "group": "구인 사이트",
    "home": "https://minitries.co.kr/",
    "status": "ok",
-   "count": 14
+   "count": 15
   }
  ],
  "links": [
@@ -316,6 +316,862 @@
  ],
  "items": [
   {
+   "id": "kb-bz3e55",
+   "dk": "bz3e55",
+   "source": "kbaptist",
+   "title": "날마다 교회 교역자(파트) 청빙 공고",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 110,
+    "max": 110,
+    "label": "월 110만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사",
+    "전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.koreabaptist.or.kr/Board/Detail/21317/705016",
+   "firstSeen": "2026-10-19T03:19:22.830Z"
+  },
+  {
+   "id": "ks-1o22sow",
+   "dk": "1o22sow",
+   "source": "kwangshin",
+   "title": "우리목포교회에서 함께하실 부목사님, 강도사님, 졸업(예정)자를 모십니다.",
+   "church": "우리목포교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사",
+    "강도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43138",
+   "firstSeen": "2026-10-19T03:19:22.830Z"
+  },
+  {
+   "id": "ks-r55tnw",
+   "dk": "r55tnw",
+   "source": "kwangshin",
+   "title": "풍암겨자씨교회 교육파트교역자를 모십니다.",
+   "church": "풍암겨자씨교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43137",
+   "firstSeen": "2026-10-19T03:19:22.830Z"
+  },
+  {
+   "id": "ks-6xcxp1",
+   "dk": "6xcxp1",
+   "source": "kwangshin",
+   "title": "대구성도교회 교역자 청빙공고",
+   "church": "대구성도교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사",
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사",
+    "전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43136",
+   "firstSeen": "2026-10-19T03:19:22.830Z"
+  },
+  {
+   "id": "ks-nsnsn8",
+   "dk": "nsnsn8",
+   "source": "kwangshin",
+   "title": "우리중앙교회는 다음세대 사역에 동역하실 파트 교역자를 다음과 같이 초빙하고자 합니다.",
+   "church": "우리중앙교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 150,
+    "label": "월 100~150만원",
+    "roles": [
+     {
+      "role": "교육전도사",
+      "v": 100
+     },
+     {
+      "role": "교육목사",
+      "v": 150
+     }
+    ]
+   },
+   "payChecked": true,
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43135",
+   "firstSeen": "2026-10-19T03:19:22.830Z"
+  },
+  {
+   "id": "mt-1aur7cb",
+   "dk": "1aur7cb",
+   "source": "mtu",
+   "title": "(중부/논현) 인천제일교회에서 사역자(부목사 또는 전도사)를 모십니다.",
+   "church": "인천제일교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.mtu.ac.kr/mtu/board/view.do?mId=162&page=1&brdIdx=20810",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "mt-caww9g",
+   "dk": "caww9g",
+   "source": "mtu",
+   "title": "[서울/강북] 우이교회에서 파트전도사님을 모십니다.",
+   "church": "우이교회",
+   "region": "서울",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.mtu.ac.kr/mtu/board/view.do?mId=162&page=1&brdIdx=20808",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "gp-1j4fi7z",
+   "dk": "1j4fi7z",
+   "source": "godpeople",
+   "title": "시흥 예심교회에서 함께할 사역자를 모집합니다.",
+   "church": "예심교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [
+    "행정목사",
+    "장년부"
+   ],
+   "pay": {
+    "min": 250,
+    "max": 250,
+    "label": "월 250만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": "채용시까지",
+   "closed": false,
+   "truncated": false,
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5gaubmZ9eO",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "gp-1g05fwo",
+   "dk": "1g05fwo",
+   "source": "godpeople",
+   "title": "중고등부 전도사님 속초은혜의교회",
+   "church": "은혜의교회",
+   "region": "강원",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [
+    "교육전도사"
+   ],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": "채용시까지",
+   "closed": false,
+   "truncated": false,
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7Em5Nv4jdn",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "gp-10q3zd3",
+   "dk": "10q3zd3",
+   "source": "godpeople",
+   "title": "군포큰나무교회와 함께하실 분을 모십니다.(교육목사, 준전임 총…",
+   "church": "군포큰나무교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "파트 목사",
+    "준전임 전도사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [
+    "교육목사",
+    "부목사",
+    "청년부"
+   ],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": "채용시까지",
+   "closed": false,
+   "truncated": true,
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1lqzt3F1Oz",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "gp-1ftf45r",
+   "dk": "1ftf45r",
+   "source": "godpeople",
+   "title": "교육파트 사역자를 모십니다.",
+   "church": "꿈소망교회",
+   "region": "서울",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "dept": null,
+   "tags": [
+    "교육목사",
+    "교육전도사",
+    "찬양사역"
+   ],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": "채용시까지",
+   "closed": false,
+   "truncated": false,
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4wnJ05uAjO",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "gp-7d7h3t",
+   "dk": "7d7h3t",
+   "source": "godpeople",
+   "title": "유초등부를 맡을 파트타임사역자를 모집합니다. 이중직가능하며 …",
+   "church": "동행하는교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [
+    "교육전도사",
+    "아동부",
+    "유초등부"
+   ],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": "채용시까지",
+   "closed": false,
+   "truncated": true,
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1qQxRojpGu",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "gp-4lyas5",
+   "dk": "4lyas5",
+   "source": "godpeople",
+   "title": "송파 오금동 \"평강교회\" 에서 청년부 파트 사역자분을…",
+   "church": "평강교회",
+   "region": "서울",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [
+    "교육전도사",
+    "청년부"
+   ],
+   "pay": {
+    "min": 100,
+    "max": 100,
+    "label": "월 100만원",
+    "roles": [
+     {
+      "role": "파트",
+      "v": 100
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": "채용시까지",
+   "closed": false,
+   "truncated": true,
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=31iKQ720l2",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "ds-x64dio",
+   "dk": "x64dio",
+   "source": "daeshin",
+   "title": "하양교회에서 동역자를 모십니다.",
+   "church": "하양교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001569799999999",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "ds-5jwatm",
+   "dk": "5jwatm",
+   "source": "daeshin",
+   "title": "대구문화교회에서 전임사역자를 초빙합니다",
+   "church": "대구문화교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001569699999999",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "ds-1r9ubqx",
+   "dk": "1r9ubqx",
+   "source": "daeshin",
+   "title": "김천제일교회에서 동역자를 초빙합니다",
+   "church": "김천제일교회",
+   "region": "경북",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001569599999999",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "yt-1qiuf49",
+   "dk": "1qiuf49",
+   "source": "ytus",
+   "title": "석산교회에서 담임목사님을 청빙합니다",
+   "church": "석산교회",
+   "region": "대구",
+   "area": "대구 군위군",
+   "positions": [
+    "담임목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "denomination": "예장통합교회주소 : 대구시 군위군 삼국유사면 석산길13",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.ytus.ac.kr/board/view/trXXR/26190",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "yt-1r89yiv",
+   "dk": "1r89yiv",
+   "source": "ytus",
+   "title": "영천제일교회에서 부목사님을 청빙합니다.",
+   "church": "영천제일교회",
+   "region": null,
+   "area": "(38853) 경북",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "교구와 교육부서모집인원 : 1명지원자격 : 교단 목사안수 받은 분 (35",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "denomination": "예장 통합담임목사 : 변상민 목사교회주소 : (3885",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.ytus.ac.kr/board/view/trXXR/26189",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "sj-1ewqmaf",
+   "dk": "1ewqmaf",
+   "source": "sjs",
+   "title": "경기 광주 한소망교회에서 부목사님을 모십니다.",
+   "church": "한소망교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 220,
+    "max": 220,
+    "label": "월 220만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50750&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "sj-1a85ooq",
+   "dk": "1a85ooq",
+   "source": "sjs",
+   "title": "경기도 광주 한소망교회에서 유치부를 담당할 교육목사님 또는 교육전도사님을 모십니다.",
+   "church": "한소망교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 100,
+    "label": "월 100만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50748&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
+   "id": "cs-191wrbc",
+   "dk": "191wrbc",
+   "source": "chongshin",
+   "title": "의정부함께하는교회 전임사역자를 모십니다.",
+   "church": "함께하는교회",
+   "region": "경기",
+   "area": "경기 의정부시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "유초등부, 청년부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "denomination": "합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123509",
+   "firstSeen": "2026-10-19T03:19:22.828Z"
+  },
+  {
+   "id": "cs-eje2rk",
+   "dk": "eje2rk",
+   "source": "chongshin",
+   "title": "★과천약수교회에서 파트 사역자를 모십니다(영아부, 유치부)",
+   "church": "과천약수교회",
+   "region": "경기",
+   "area": "경기 과천시",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "영아부, 유치부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123507",
+   "firstSeen": "2026-10-19T03:19:22.828Z"
+  },
+  {
+   "id": "cs-1wq23kb",
+   "dk": "1wq23kb",
+   "source": "chongshin",
+   "title": "대구문화교회에서 말씀 사역을 함께 할 전임사역자를 초빙합니다.",
+   "church": "대구문화교회",
+   "region": "대구",
+   "area": "대구 남구",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "아래 참고",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123503",
+   "firstSeen": "2026-10-19T03:19:22.828Z"
+  },
+  {
+   "id": "cs-1h3anqb",
+   "dk": "1h3anqb",
+   "source": "chongshin",
+   "title": "강남교회(노량진)에서 동역자를 모십니다 [전임여전도사/파트/인턴]",
+   "church": "강남교회",
+   "region": "서울",
+   "area": "서울 동작구",
+   "positions": [
+    "파트 교육전도사",
+    "심방전도사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 전도사",
+    "심방전도사"
+   ],
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123501",
+   "firstSeen": "2026-10-19T03:19:22.828Z"
+  },
+  {
+   "id": "cs-1asmdj1",
+   "dk": "1asmdj1",
+   "source": "chongshin",
+   "title": "화원교회에서 동역자(교구 전임)를 초빙합니다.",
+   "church": "화원교회",
+   "region": "대구",
+   "area": "대구 달성군",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "교구 목양",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "denomination": "합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123500",
+   "firstSeen": "2026-10-19T03:19:22.828Z"
+  },
+  {
+   "id": "cs-1ktn6gi",
+   "dk": "1ktn6gi",
+   "source": "chongshin",
+   "title": "예수가족교회에서(담임목사 백금산) 함께 사역할 전임 부목사님을 모십니다.",
+   "church": "예수가족교회",
+   "region": "서울",
+   "area": "서울 마포구",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "청년2부",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사",
+    "강도사"
+   ],
+   "denomination": "예장 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123496",
+   "firstSeen": "2026-10-19T03:19:22.828Z"
+  },
+  {
+   "id": "cs-1etcd0c",
+   "dk": "1etcd0c",
+   "source": "chongshin",
+   "title": "2027년 평택중앙교회에서 동역할 사역자를 정중히 모십니다.",
+   "church": "평택중앙교회",
+   "region": "경기",
+   "area": "경기 평택시",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "dept": "-",
+   "tags": [],
+   "pay": {
+    "min": 150,
+    "max": 150,
+    "label": "월 150만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123490",
+   "firstSeen": "2026-10-19T03:19:22.828Z"
+  },
+  {
+   "id": "cs-s2puwu",
+   "dk": "s2puwu",
+   "source": "chongshin",
+   "title": "배곧동산교회에서 2027년 함께 할 전임교역자를 모십니다.",
+   "church": "배곧동산교회",
+   "region": "경기",
+   "area": "경기 시흥시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "아래참조",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "denomination": "장로교 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123480",
+   "firstSeen": "2026-10-19T03:19:22.828Z"
+  },
+  {
+   "id": "cs-ua0j9z",
+   "dk": "ua0j9z",
+   "source": "chongshin",
+   "title": "잠실새내교회 교구 전임목사, 교육부서 파트전도사 모집합니다.",
+   "church": "잠실새내교회",
+   "region": "서울",
+   "area": "서울 송파구",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "dept": "아래",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123478",
+   "firstSeen": "2026-10-19T03:19:22.828Z"
+  },
+  {
    "id": "gp-1mk6fdd",
    "dk": "1mk6fdd",
    "source": "godpeople",
@@ -373,7 +1229,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5ENgaqsNzO",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=24Aq87nIgF",
    "firstSeen": "2026-10-18T21:19:24.464Z"
   },
   {
@@ -406,7 +1262,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=50dnuY4JgB",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6iiMSXbBf8",
    "firstSeen": "2026-10-18T21:19:24.464Z"
   },
   {
@@ -439,7 +1295,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=23RNToE6ZX",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1TX9dyk3Ol",
    "firstSeen": "2026-10-18T21:19:24.464Z"
   },
   {
@@ -472,7 +1328,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=436JcYdll0",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2sYPIZzbjG",
    "firstSeen": "2026-10-18T21:19:24.464Z"
   },
   {
@@ -619,7 +1475,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3X2ahB6h5f",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3lVw1nizX4",
    "firstSeen": "2026-10-18T09:19:21.352Z"
   },
   {
@@ -654,7 +1510,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5ENgaqw5Pa",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5AXBgOyDRR",
    "firstSeen": "2026-10-18T09:19:21.352Z"
   },
   {
@@ -690,7 +1546,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=23RNTo9s0V",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5uKnI5PFlb",
    "firstSeen": "2026-10-18T03:19:28.929Z"
   },
   {
@@ -727,7 +1583,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5NXbiOCaYW",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6iiMSXVPpe",
    "firstSeen": "2026-10-18T03:19:28.929Z"
   },
   {
@@ -766,7 +1622,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4dk06hgusE",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4HZexB8qXZ",
    "firstSeen": "2026-10-17T21:19:33.581Z"
   },
   {
@@ -802,7 +1658,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6L560NX65n",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=75cAGNfV7L",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -834,7 +1690,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2LlDisfMMB",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7AC7p9J10u",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -866,7 +1722,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6mYrMzEEND",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4sDLRK83HB",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -895,7 +1751,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6hytoDkP4k",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4VJXdU3z2W",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -933,7 +1789,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4iJxfTJD2d",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7AC7p9IXAu",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -962,7 +1818,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1ODjQp1ebS",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5uKnI15W8B",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -994,7 +1850,7 @@
    "deadline": "2026-10-23",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2nEz5UVc9t",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6iiMSXPTfq",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -1020,7 +1876,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=55DlTJV6Ge",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=123OHMg2Jp",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -1060,7 +1916,67 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6Pf3Z97EyI",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5OH4MhlKUS",
+   "firstSeen": "2026-10-17T09:19:22.443Z"
+  },
+  {
+   "id": "cs-dg6i31",
+   "dk": "dg6i31",
+   "source": "chongshin",
+   "title": "새소망교회에서 파트사역자를 정중히 모십니다.",
+   "church": "새소망교회",
+   "region": "인천",
+   "area": "인천 미추홀구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "주일학교+학생부",
+   "tags": [],
+   "pay": {
+    "min": 120,
+    "max": 120,
+    "label": "월 120만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123498",
+   "firstSeen": "2026-10-17T09:19:22.443Z"
+  },
+  {
+   "id": "cs-7vr6d6",
+   "dk": "7vr6d6",
+   "source": "chongshin",
+   "title": "부산동부교회에서 전임 여 전도사님을 정중히 모십니다!(끌어올림)",
+   "church": "동부교회",
+   "region": "부산",
+   "area": "부산 금정구",
+   "positions": [
+    "심방전도사"
+   ],
+   "dept": "아래참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "강도사",
+    "심방전도사"
+   ],
+   "denomination": "예장합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123488",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -1093,7 +2009,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=50dnuXpQDL",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2sYPIZn0h4",
    "firstSeen": "2026-10-17T03:19:25.386Z"
   },
   {
@@ -1121,7 +2037,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4ZA2Xvwuon",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4wnJ05rL3S",
    "firstSeen": "2026-10-17T03:19:25.386Z"
   },
   {
@@ -1153,7 +2069,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1uHSMGhCxd",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=684fyOB1UU",
    "firstSeen": "2026-10-16T21:19:31.681Z"
   },
   {
@@ -1190,7 +2106,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5frRxSCrwS",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7JM2wg5cRC",
    "firstSeen": "2026-10-16T21:19:31.681Z"
   },
   {
@@ -1223,7 +2139,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2roweG395S",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=43pmGs3m5u",
    "firstSeen": "2026-10-16T09:19:28.073Z"
   },
   {
@@ -1257,7 +2173,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1uHSMGeMjp",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1v0v0aKRxB",
    "firstSeen": "2026-10-16T09:19:28.073Z"
   },
   {
@@ -1293,7 +2209,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1uHSMGd51t",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1v0v0aJMWX",
    "firstSeen": "2026-10-16T09:19:28.073Z"
   },
   {
@@ -1322,7 +2238,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4Q07QOXRx1",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4ndPdi1TbA",
    "firstSeen": "2026-10-16T09:19:28.073Z"
   },
   {
@@ -1358,7 +2274,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2LlHFBQzOV",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1lr5AVWdEz",
    "firstSeen": "2026-10-16T09:19:28.073Z"
   },
   {
@@ -1393,6 +2309,48 @@
    "firstSeen": "2026-10-16T09:19:28.073Z"
   },
   {
+   "id": "cs-1gf415p",
+   "dk": "1gf415p",
+   "source": "chongshin",
+   "title": "송파 서광교회에서 2027년 함께 동역할 동역자를 모집합니다.",
+   "church": "서광교회",
+   "region": "서울",
+   "area": "서울 송파구",
+   "positions": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "dept": "아래참조",
+   "tags": [],
+   "pay": {
+    "min": 200,
+    "max": 250,
+    "label": "월 200~250만원",
+    "roles": [
+     {
+      "role": "목사",
+      "v": 250
+     },
+     {
+      "role": "전도사",
+      "v": 200
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123483",
+   "firstSeen": "2026-10-16T09:19:28.073Z"
+  },
+  {
    "id": "gp-qcpskn",
    "dk": "qcpskn",
    "source": "godpeople",
@@ -1423,7 +2381,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3bcYFwRsam",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4Qja4iEPFb",
    "firstSeen": "2026-10-16T03:19:22.587Z"
   },
   {
@@ -1459,7 +2417,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6mYrMzCca7",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3lVxmwziPy",
    "firstSeen": "2026-10-16T03:19:22.587Z"
   },
   {
@@ -1497,7 +2455,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4LQ9rcsw5W",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=31iMBGWbv2",
    "firstSeen": "2026-10-16T03:19:22.587Z"
   },
   {
@@ -1534,7 +2492,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=30yrlnEVoS",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=31iPhZe5nM",
    "firstSeen": "2026-10-16T03:19:22.587Z"
   },
   {
@@ -1568,7 +2526,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=62lFlG5T2L",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=24AvPXdag3",
    "firstSeen": "2026-10-16T03:19:22.587Z"
   },
   {
@@ -1598,8 +2556,40 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1phUnUszU8",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7EmAfNQf6L",
    "firstSeen": "2026-10-16T03:19:22.587Z"
+  },
+  {
+   "id": "cs-1hhkykp",
+   "dk": "1hhkykp",
+   "source": "chongshin",
+   "title": "고양동산교회에서 파트 전도사님을 모십니다. (중고등부, 찬양인도)",
+   "church": "고양동산교회",
+   "region": "경기",
+   "area": "경기 고양시",
+   "positions": [
+    "파트 교육전도사",
+    "찬양인도자"
+   ],
+   "dept": "중고등부, 찬양인도",
+   "tags": [],
+   "pay": {
+    "min": 120,
+    "max": 120,
+    "label": "월 120만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123489",
+   "firstSeen": "2026-10-16T03:19:22.586Z"
   },
   {
    "id": "gp-13ey2ct",
@@ -1632,7 +2622,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=30yvI3Q91k",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1lr5AShv7f",
    "firstSeen": "2026-10-15T21:19:41.632Z"
   },
   {
@@ -1665,7 +2655,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=67LGqNTJAQ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4QjfMAt0Df",
    "firstSeen": "2026-10-15T21:19:41.632Z"
   },
   {
@@ -1700,7 +2690,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3SSgeiE0WA",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=16dR7apFZS",
    "firstSeen": "2026-10-15T21:19:41.632Z"
   },
   {
@@ -1729,7 +2719,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5p1QbIsTD4",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2MUleenHix",
    "firstSeen": "2026-10-15T21:19:41.632Z"
   },
   {
@@ -1767,7 +2757,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6dOzlkyJst",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=123TYpAUz3",
    "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
@@ -1806,7 +2796,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2e57UFyopL",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1hH7bjqgUo",
    "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
@@ -1839,7 +2829,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=67LGqNRi02",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2MUleemR4R",
    "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
@@ -1873,7 +2863,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3pMUSTL74J",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5gazt9jcya",
    "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
@@ -1906,7 +2896,7 @@
    "deadline": "2026-10-25",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=62lJHYBVIn",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=stYREFe2x",
    "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
@@ -1946,7 +2936,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=67LGqNPNWy",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1FnMF83LzQ",
    "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
@@ -1979,7 +2969,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2CbM7eB6sj",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6Lodw9aK0D",
    "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
@@ -2009,7 +2999,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=30yrlinlzg",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1qQxRk9tQC",
    "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
@@ -2044,7 +3034,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3bcYFwGcby",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2MUgNByDtr",
    "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
@@ -2080,8 +3070,94 @@
    "deadline": "2026-11-15",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=50drQqfVGZ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=712Hz4M6GM",
    "firstSeen": "2026-10-15T09:19:25.772Z"
+  },
+  {
+   "id": "cs-1ixrh6t",
+   "dk": "1ixrh6t",
+   "source": "chongshin",
+   "title": "하늘소망교회에서 동역자(전임교역자)를 모십니다",
+   "church": "하늘소망교회",
+   "region": "경기",
+   "area": "경기 남양주시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "교구 및 유초등부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "denomination": "예장합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123493",
+   "firstSeen": "2026-10-15T09:19:25.772Z"
+  },
+  {
+   "id": "cs-qmflw",
+   "dk": "qmflw",
+   "source": "chongshin",
+   "title": "장성교회에서 함께 교회를 세워 갈 귀한 교구 여 전임 동역자를 정중히 모십니다.",
+   "church": "장성교회",
+   "region": "서울",
+   "area": "서울 동작구",
+   "positions": [
+    "전임 전도사",
+    "심방전도사"
+   ],
+   "dept": "교구 여 전임",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "심방전도사"
+   ],
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123497",
+   "firstSeen": "2026-10-15T09:19:25.772Z"
+  },
+  {
+   "id": "sj-c49ypq",
+   "dk": "c49ypq",
+   "source": "sjs",
+   "title": "대구신암교회에서 교구 및 교육부서를 담당할 사역자를 모십니다",
+   "church": "대구신암교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "준전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50745&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
+   "firstSeen": "2026-10-15T03:19:26.863Z"
   },
   {
    "id": "gp-1cfzc3p",
@@ -2116,7 +3192,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3NsfZco7tz",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=36IHyruACv",
    "firstSeen": "2026-10-15T03:19:26.862Z"
   },
   {
@@ -2163,7 +3239,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4LQ9raxhLW",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=684fyM8coI",
    "firstSeen": "2026-10-15T03:19:26.862Z"
   },
   {
@@ -2203,7 +3279,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=35YsqrqFEf",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4sDQimakmf",
    "firstSeen": "2026-10-15T03:19:26.862Z"
   },
   {
@@ -2241,7 +3317,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4Q0AwhNMCt",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3K2Fwdws7y",
    "firstSeen": "2026-10-15T03:19:26.862Z"
   },
   {
@@ -2277,7 +3353,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7NCXr8agI3",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=63UiPceSwT",
    "firstSeen": "2026-10-15T03:19:26.862Z"
   },
   {
@@ -2307,7 +3383,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=59nmYNufzp",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7Nw5muXIR1",
    "firstSeen": "2026-10-14T21:19:31.834Z"
   },
   {
@@ -2341,7 +3417,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=70InZb2wIu",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6UyZ3gmpJ1",
    "firstSeen": "2026-10-14T21:19:31.834Z"
   },
   {
@@ -2380,7 +3456,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2if531aGWW",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5JhC5ORMkZ",
    "firstSeen": "2026-10-14T09:19:31.448Z"
   },
   {
@@ -2416,7 +3492,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=sA41oNaFL",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1lr5AVNpPf",
    "firstSeen": "2026-10-14T09:19:31.448Z"
   },
   {
@@ -2454,8 +3530,31 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=281OYsLUZM",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5F7EWcikRG",
    "firstSeen": "2026-10-14T09:19:31.448Z"
+  },
+  {
+   "id": "ks-15lq5zk",
+   "dk": "15lq5zk",
+   "source": "kwangshin",
+   "title": "여수 은광교회에서 함께하실 전임사역자를 모집합니다.",
+   "church": "은광교회",
+   "region": "전남",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43134",
+   "firstSeen": "2026-10-14T03:19:17.306Z"
   },
   {
    "id": "gp-o61jil",
@@ -2493,7 +3592,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=47gMSmJe4R",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1KNJntSstl",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2533,7 +3632,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=79SkSHmKPy",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5JhC5OJmx9",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2566,7 +3665,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5ENlsIzLus",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1v10I2c6hp",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2601,7 +3700,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1phUnPQpFg",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1BDJOoIoLX",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2636,7 +3735,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4dk06h4t2k",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6rsHa47obk",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2671,7 +3770,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1l7XEgAaT9",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2HuioNMq8M",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2707,7 +3806,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5IxjR4bPpP",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7JM8E8iUE6",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2740,7 +3839,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2if52u5rL6",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6wSKQB9dRd",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2778,7 +3877,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7E2gFtn957",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5yuq8J4las",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2817,7 +3916,41 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1ATw22QEjT",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=63Unh4iI4X",
+   "firstSeen": "2026-10-14T03:19:17.305Z"
+  },
+  {
+   "id": "cs-1tnz24b",
+   "dk": "1tnz24b",
+   "source": "chongshin",
+   "title": "서울 우이중앙교회에서 교구(전임), 중고등부(파트) 교역자님을 모십니다.",
+   "church": "우이중앙교회",
+   "region": "서울",
+   "area": "서울 강북구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "교구(전임), 중고등부(파트)",
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 100,
+    "label": "월 100만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "강도사"
+   ],
+   "denomination": "대한예수교장로회(합동)",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123491",
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
@@ -2848,7 +3981,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3kmTNTHUcQ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6CedX9GZvL",
    "firstSeen": "2026-10-13T21:19:27.748Z"
   },
   {
@@ -2882,7 +4015,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3yWRLBt2oH",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5uKsZULwg3",
    "firstSeen": "2026-10-13T21:19:27.748Z"
   },
   {
@@ -2916,7 +4049,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4CGK1XqQAm",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1OxHMezZHG",
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
@@ -2949,7 +4082,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3gCb6AJtiP",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3lW1JFeG9C",
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
@@ -2975,7 +4108,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2rp1viDLde",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=stYRHSZux",
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
@@ -3003,7 +4136,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3JIi0rKzHI",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3ufr9KBcIa",
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
@@ -3039,7 +4172,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4mu0VgyTlQ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6ZYWcS9Rby",
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
@@ -3075,7 +4208,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2e53xwVBUB",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6UyTmDkxeB",
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
@@ -3108,7 +4241,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7E2i13Gdmx",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=123TYoiaGD",
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
@@ -3147,7 +4280,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3Nsj5rZo8P",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3cM6Bdm53w",
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
@@ -3182,7 +4315,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4w3vdEEVac",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4HZkEd6cxN",
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
@@ -3213,7 +4346,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2rp1vi6ZdK",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1zaxqo2UBq",
    "firstSeen": "2026-10-13T05:58:35.919Z"
   },
   {
@@ -3247,8 +4380,36 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5IxjR2GeW3",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=stYRFDH55",
    "firstSeen": "2026-10-13T05:58:35.919Z"
+  },
+  {
+   "id": "bp-c49ypq",
+   "dk": "c49ypq",
+   "source": "bpu",
+   "title": "대구신암교회에서 교구 및 교육부서를 담당할 사역자를 모십니다",
+   "church": "대구신암교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "준전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=101953&BoardMstNo=6",
+   "firstSeen": "2026-10-13T03:14:56.486Z"
   },
   {
    "id": "gp-aw1igx",
@@ -3282,7 +4443,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4Q0Chqe8gN",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6CeiobouL5",
    "firstSeen": "2026-10-13T03:14:56.485Z"
   },
   {
@@ -3314,7 +4475,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6L5BHlXcvR",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7ACD6XJzr2",
    "firstSeen": "2026-10-13T03:14:56.485Z"
   },
   {
@@ -3349,7 +4510,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6hyz5fcobq",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3gw3kTqCGr",
    "firstSeen": "2026-10-13T03:14:56.485Z"
   },
   {
@@ -3385,7 +4546,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4mu0VcygZg",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3AsKp2SBOs",
    "firstSeen": "2026-10-13T03:14:56.485Z"
   },
   {
@@ -3422,7 +4583,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2QLGZ6B6wG",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1TXEvQT0Vn",
    "firstSeen": "2026-10-13T03:14:56.485Z"
   },
   {
@@ -3450,7 +4611,38 @@
    "deadline": "2026-11-11",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1SnmH6loqt",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3TCB4Ast14",
+   "firstSeen": "2026-10-13T03:14:56.485Z"
+  },
+  {
+   "id": "cs-1ivug08",
+   "dk": "1ivug08",
+   "source": "chongshin",
+   "title": "김포성문교회에서 함께 사역할 교역자분을 모십니다. (전임, 파트)",
+   "church": "김포성문교회",
+   "region": "경기",
+   "area": "경기 김포시",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "아래 참고",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 목사",
+    "전임 부목사"
+   ],
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123502",
    "firstSeen": "2026-10-13T03:14:56.485Z"
   },
   {
@@ -3482,7 +4674,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2QLBHWwTOu",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3zFohzBAb7",
    "firstSeen": "2026-10-12T18:54:09.121Z"
   },
   {
@@ -3586,7 +4778,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3kmTNSrcc2",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5XQzUE2DYE",
    "firstSeen": "2026-10-12T06:07:59.970Z"
   },
   {
@@ -3643,7 +4835,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=na8EBE8FS",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6iiRjyYjeM",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3674,7 +4866,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5ENgaq9zEQ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7AC7p8cuVI",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3704,7 +4896,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1phYJn94dw",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1qR2jGOtPc",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3734,7 +4926,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2QLBHbm0mi",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2R4dvvS2EC",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3767,7 +4959,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4rTsmzEqKn",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1KNEWPw241",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3800,7 +4992,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5IxjR0CP8Z",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3Xm8csO6cF",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3826,7 +5018,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2CbIbKALyb",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5F79F9Jxja",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3864,7 +5056,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4Ua8VMH5Js",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=75cFXj82Lx",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3899,7 +5091,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=23RNTmkguN",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3zFoi5Dr8f",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3931,7 +5123,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3EikS54Ll1",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=51NGYqFDep",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3964,7 +5156,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2UvCMeeF5p",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=36INGH4fZN",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -3991,7 +5183,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3SSd8PAePu",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6UyVXNtjMh",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -4026,7 +5218,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7E2cjUyF3Z",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6QOWDMYNoQ",
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
@@ -4085,7 +5277,7 @@
    "deadline": "2026-11-12",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6r8ovjlzMK",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6HEb5uHtNM",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4255,7 +5447,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2LlDir3nB5",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1qQxRnDcDk",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4292,7 +5484,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6GV8RaKRxo",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4eTSkzoBne",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4330,7 +5522,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=30yx3FRYSO",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=28ksyLNKNQ",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4377,7 +5569,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2nF2blGEBJ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1chA2wC4Iv",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4410,7 +5602,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1Jdls67GAH",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6Ceiob8rhn",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4447,7 +5639,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3A8mtGT9xS",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1BDJOpig8R",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4484,7 +5676,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=na8E9ZgOw",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4ndT9y7gHw",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4521,7 +5713,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2LlDiraarn",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=43pmGr7HLq",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4554,7 +5746,7 @@
    "deadline": "2026-10-25",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4LQ9rc0gaQ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6CedX8plqx",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -4586,8 +5778,210 @@
    "deadline": "2026-10-25",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6BvAsp9Adj",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=oJVb2hUna",
    "firstSeen": "2026-10-12T05:26:53.698Z"
+  },
+  {
+   "id": "gp-1osoxmn",
+   "dk": "1osoxmn",
+   "source": "godpeople",
+   "title": "부교역자(파트) 청빙",
+   "church": "충심교회",
+   "region": "서울",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "dept": null,
+   "tags": [
+    "교육목사",
+    "교육전도사",
+    "유초등부"
+   ],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사",
+    "전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": "채용시까지",
+   "closed": false,
+   "truncated": false,
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=36IHyrlxox",
+   "firstSeen": "2026-10-12T05:26:53.698Z"
+  },
+  {
+   "id": "cs-22jdsn",
+   "dk": "22jdsn",
+   "source": "chongshin",
+   "title": "(울산)태화교회에서 함께 복음의 사역을 감당할 신실한 동역자를 청빙합니다.",
+   "church": "태화교회",
+   "region": "울산",
+   "area": "울산 중구",
+   "positions": [
+    "심방전도사"
+   ],
+   "dept": "교구(심방 / 제자훈련 및 양육)",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123505",
+   "firstSeen": "2026-10-12T05:26:53.698Z"
+  },
+  {
+   "id": "cs-1qsp32i",
+   "dk": "1qsp32i",
+   "source": "chongshin",
+   "title": "(경기) 광주사랑의교회에서 함께 할 전임 부목사님을 정중히 모십니다.",
+   "church": "광주사랑의교회",
+   "region": "경기",
+   "area": "경기 광주시",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "아래 참고",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "denomination": "예장합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123494",
+   "firstSeen": "2026-10-12T05:26:53.698Z"
+  },
+  {
+   "id": "cs-1l50sq7",
+   "dk": "1l50sq7",
+   "source": "chongshin",
+   "title": "컴앤씨교회에서 전임 부목사님을 모십니다.",
+   "church": "컴앤씨교회",
+   "region": "서울",
+   "area": "서울 서초구",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "교구",
+   "tags": [],
+   "pay": {
+    "min": 50,
+    "max": 50,
+    "label": "월 50만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "denomination": "대한예수교장로회(합동)",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123486",
+   "firstSeen": "2026-10-12T05:26:53.698Z"
+  },
+  {
+   "id": "yt-c49ypq",
+   "dk": "c49ypq",
+   "source": "ytus",
+   "title": "대구신암교회에서 교구 및 교육부서를 담당할 사역자를 모십니다",
+   "church": "대구신암교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "denomination": "예장통합노회명 : 대구동노회담임목사 : 곽숭기주소 : ",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.ytus.ac.kr/board/view/trXXR/26188",
+   "firstSeen": "2026-10-07T07:28:05.758Z"
+  },
+  {
+   "id": "hi-c49ypq",
+   "dk": "c49ypq",
+   "source": "hanil",
+   "title": "대구신암교회에서 교구 및 교육부서를 담당할 사역자를 모십니다",
+   "church": "대구신암교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hanil.ac.kr/portal/default/bbs/view.do?menuId=M0004000500000000&boardSeq=105041",
+   "firstSeen": "2026-10-07T07:28:05.758Z"
+  },
+  {
+   "id": "ke-1njs3mc",
+   "dk": "1njs3mc",
+   "source": "kehc",
+   "title": "정읍성결교회 전임 교역자 청빙",
+   "church": "정읍성결교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [
+    "목사"
+   ],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kehc.org/home/recruit/read_post/27913/page/0",
+   "firstSeen": "2026-10-07T07:28:05.758Z"
   },
   {
    "id": "gp-8rp8em",
@@ -4624,7 +6018,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=wk1aa8r7s",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3AsKp6lkTS",
    "firstSeen": "2026-10-07T07:28:05.757Z"
   },
   {
@@ -4661,7 +6055,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3twOUun2hY",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3Xm3LOFR79",
    "firstSeen": "2026-10-07T07:28:05.757Z"
   },
   {
@@ -4695,7 +6089,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=50drQohxTD",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=xTW01SRjU",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4732,7 +6126,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4Q07QMg0Al",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2jOUB0Vlg8",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4766,7 +6160,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6BvEP7BSO3",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=24AvPYI6CZ",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4804,7 +6198,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6L560NOsbh",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4HZexB0DJh",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4833,7 +6227,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=sA5muR7pn",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2jOZSRFvW0",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4870,7 +6264,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5tbKdk1OCV",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2eoWcFIL1v",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4907,7 +6301,7 @@
    "deadline": "2026-10-31",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5bHXuxx8YR",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2MUlecnyAl",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4941,7 +6335,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1SngzdHRbj",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2MUledRPOz",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -4975,7 +6369,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=79SfAmUAXQ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6QOWDPi6cU",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5014,7 +6408,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6Pf75PszCw",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1lr5ATT9S7",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5050,7 +6444,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=67LDJy2V7G",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1KNEWKktmv",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5081,7 +6475,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5p1N4v5QOU",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6HEb5qdp5g",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5115,7 +6509,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2roweAi3qk",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7AC7p3prO0",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5149,7 +6543,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1XNeYOhMzo",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=75cAGLnoKR",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5183,7 +6577,7 @@
    "deadline": "2026-11-15",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2ZVBgdQ4X0",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3OcDVPCXHt",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5216,7 +6610,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1ODjQr97CY",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3ufr9Im6ki",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5253,7 +6647,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5yBICV95ZI",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4VJcuueMwe",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5291,7 +6685,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7IcaIGS3cs",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6CedX3RXNP",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5325,7 +6719,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=35YsqkOMS1",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=55xJOy4x0O",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5364,7 +6758,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2nF4MwSjgD",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4sDQimDx33",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5394,7 +6788,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=62lL2kt2Tr",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=63Unh4ZGOX",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5431,7 +6825,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5IxjR4OxfD",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3AsKp6MJQ2",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5468,7 +6862,7 @@
    "deadline": "2026-10-31",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3JIlX9TD6a",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=51NLqIa5Jj",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5503,7 +6897,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2Uv8qJ8PVR",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4ZtaTbcpIj",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5538,7 +6932,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3gCVodkIm1",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2eoWcCO61v",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5577,7 +6971,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5p1SMRyEUU",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7JM8E8YnbO",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5612,7 +7006,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1l7cWBSIeZ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4VJcuw1Jse",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5646,7 +7040,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4LQF952kYA",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2nyX1GABo5",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5681,7 +7075,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6UF17umMbj",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5AXBgOq1gn",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5718,7 +7112,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=62lFlFTh9Z",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6nIK1FcMaF",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5754,7 +7148,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2Uv8qMVCYz",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1qQxRlNByC",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5788,7 +7182,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6L5BHmG7nR",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4sDQij1duf",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5858,7 +7252,7 @@
    "deadline": "2026-10-25",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6hytoBIAL8",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=43prYISZOo",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5890,7 +7284,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=436JcVO0t0",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4HZex80DTV",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5957,7 +7351,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1uHXdgFvBJ",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6CeioZNgcv",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -5993,7 +7387,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3pMUSS5L3n",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5XR4lbBof8",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6026,7 +7420,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3twS1Frd5I",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=28ksyHd2DY",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6059,7 +7453,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1Sngzaz4gN",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1FnGxbjLnk",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6095,7 +7489,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7NCXr2tprL",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2x8MrFqPlr",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6132,7 +7526,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3JIi0q5zQG",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1lqzt1DhIp",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6169,7 +7563,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3EinyP4HCp",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1chA2y7dMb",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6202,7 +7596,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=67LGqNFfyo",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1hH7bjm2J4",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6239,7 +7633,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4w3qLjRGSA",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6iiMSUc6dW",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6268,7 +7662,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6dOwFPG2fB",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=55xE7aNh3c",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6303,7 +7697,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6vimUUF7dd",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=75cAGLDH5H",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6333,7 +7727,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2LlHFBQ6qF",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3AsFXectfC",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6363,7 +7757,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3twTmQcR36",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=31iPhWYD9Q",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6395,7 +7789,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=50dtBwt5ah",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4eTY2QLR0o",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6421,7 +7815,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=281QK03JEa",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=28ksyJjVJk",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6450,7 +7844,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1ATw22JnxH",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=16dR7aLtXW",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6475,7 +7869,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5WhaME167e",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3cM6BiUdCS",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6505,7 +7899,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3pMUSWF86B",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6QObUt5n8k",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6533,7 +7927,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5S7cnSS2Of",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6QObUv6a1q",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6560,7 +7954,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=wk1aUHn3g",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1lr5APeBW7",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6585,7 +7979,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1XNi4ckm0O",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5uKsZR6Dpr",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6614,7 +8008,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1bxc7Bq7An",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3zFoi6BJIb",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6641,7 +8035,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=11Jvd0toi9",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=24Aq85cK51",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6666,7 +8060,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3pMUSSA8M3",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=684lFkQeso",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6691,7 +8085,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4mtykVnG88",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=28ksyJoXxc",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6720,7 +8114,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7IcaIMlkXO",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2nyRjo4EOP",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6747,7 +8141,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=7NCXr8PJ2F",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3Oc8DxELDl",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6774,7 +8168,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=5Ixe9UZ26h",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1KNEWJNo29",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6803,7 +8197,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3A8mtEqEsk",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4ZtVC9n9E5",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6836,7 +8230,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": true,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2Uv8qNtgjp",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4sDLRIEezx",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6862,7 +8256,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3SSd8MewPW",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3q5taWZHBT",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6892,7 +8286,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6hytoC87hK",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1zasZKURhy",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -6982,7 +8376,7 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=1gXZfsRUWI",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6LoYebnMQb",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -7009,8 +8403,377 @@
    "deadline": "채용시까지",
    "closed": false,
    "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=70Ik3IUJb8",
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=55xE7dNmJI",
    "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-8vyx43",
+   "dk": "8vyx43",
+   "source": "chongshin",
+   "title": "진주성북교회에서 전임 사역자를 모십니다.",
+   "church": "진주성북교회",
+   "region": "경남",
+   "area": "경남 진주시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "교구 및 주일학교 부서",
+   "tags": [],
+   "pay": {
+    "min": 290,
+    "max": 290,
+    "label": "월 290만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "강도사"
+   ],
+   "denomination": "예장 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123481",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-127lifs",
+   "dk": "127lifs",
+   "source": "chongshin",
+   "title": "삼락교회에서 동역자를 모십니다.",
+   "church": "삼락교회",
+   "region": "서울",
+   "area": "서울 노원구",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사"
+   ],
+   "denomination": "대한예수교 장로회 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123508",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-1kkptze",
+   "dk": "1kkptze",
+   "source": "chongshin",
+   "title": "양곡제일교회에서 사역자를 모집합니다",
+   "church": "양곡제일교회",
+   "region": "경기",
+   "area": "경기 김포시",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "dept": "아래 내용 참조",
+   "tags": [],
+   "pay": {
+    "min": 120,
+    "max": 270,
+    "label": "월 120~270만원",
+    "roles": [
+     {
+      "role": "전임",
+      "v": 270
+     },
+     {
+      "role": "파트",
+      "v": 120
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "denomination": "예장 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123482",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-1ng6cb2",
+   "dk": "1ng6cb2",
+   "source": "chongshin",
+   "title": "충정교회에서 동역자를 모십니다",
+   "church": "충정교회",
+   "region": "경기",
+   "area": "경기 고양시",
+   "positions": [
+    "파트 교육전도사",
+    "전임 부목사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 부목사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123485",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-1ut1bu3",
+   "dk": "1ut1bu3",
+   "source": "chongshin",
+   "title": "원동교회에서 전임 부목사님을 정중하게 모십니다.",
+   "church": "원동교회",
+   "region": "서울",
+   "area": "서울 용산구",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "교구",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123492",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-1lyabm3",
+   "dk": "1lyabm3",
+   "source": "chongshin",
+   "title": "연제제일교회에서 전임 목사를 청빙합니다.",
+   "church": "연제제일교회",
+   "region": "부산",
+   "area": "부산 연제구",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "면접시",
+   "tags": [],
+   "pay": {
+    "min": 260,
+    "max": 300,
+    "label": "월 260~300만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "denomination": "예장 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123479",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-oevez3",
+   "dk": "oevez3",
+   "source": "chongshin",
+   "title": "소사제일교회에서 동역할 전임교역자를 모십니다.",
+   "church": "소사제일교회",
+   "region": "경기",
+   "area": "경기 부천시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "행정+중고등부, 유초등부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 전도사"
+   ],
+   "denomination": "예장 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123495",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-1vh71x0",
+   "dk": "1vh71x0",
+   "source": "chongshin",
+   "title": "예담교회에서 전임사역자(부목사,여전도사)를 모십니다.",
+   "church": "예담교회",
+   "region": "경기",
+   "area": "경기 고양시",
+   "positions": [
+    "전임 전도사",
+    "전임 부목사",
+    "심방전도사"
+   ],
+   "dept": "본문 참고",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 부목사",
+    "강도사",
+    "심방전도사"
+   ],
+   "denomination": "예장합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123506",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "gp-1w4les7",
+   "dk": "1w4les7",
+   "source": "godpeople",
+   "title": "미금중앙교회 초등부(파트) 교역자 청빙",
+   "church": "미금중앙교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "dept": null,
+   "tags": [
+    "교육목사",
+    "교육전도사",
+    "유초등부"
+   ],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": "채용시까지",
+   "closed": false,
+   "truncated": false,
+   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=684fyMcb7o",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-qpubqk",
+   "dk": "qpubqk",
+   "source": "chongshin",
+   "title": "양문교회'(서울 동작구)에서 동역자를 정중히 모십니다.",
+   "church": "양문교회",
+   "region": "서울",
+   "area": "서울 동작구",
+   "positions": [
+    "전임 전도사",
+    "심방전도사"
+   ],
+   "dept": "교구 전임 여전도사",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "심방전도사"
+   ],
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123487",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-emwqf8",
+   "dk": "emwqf8",
+   "source": "chongshin",
+   "title": "옥수중앙교회에서 동역할 청년부(전임) 교역자를 모십니다.",
+   "church": "옥수중앙교회",
+   "region": "서울",
+   "area": "서울 성동구",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "청년부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123484",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-1t2udmm",
+   "dk": "1t2udmm",
+   "source": "chongshin",
+   "title": "[와~우리교회]에서 귀한 동역자(교구전임)를 모십니다(사택제공)",
+   "church": "와~우리교회",
+   "region": "경기",
+   "area": "경기 화성시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "아래",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사"
+   ],
+   "denomination": "합동",
+   "date": "2026-10-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123465",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
   },
   {
    "id": "bp-d3zizf",
@@ -8569,7 +10332,7 @@
    "positions": [
     "전임 전도사"
    ],
-   "dept": "아래",
+   "dept": "교구 전임",
    "tags": [],
    "pay": {
     "note": "내규·협의"
@@ -8585,7 +10348,7 @@
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123465",
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123353",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -8815,64 +10578,6 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123450",
    "firstSeen": "2026-10-16T03:19:22.586Z"
-  },
-  {
-   "id": "cs-1ixrh6t",
-   "dk": "1ixrh6t",
-   "source": "chongshin",
-   "title": "하늘소망교회에서 동역자(전임교역자)를 모십니다",
-   "church": "하늘소망교회",
-   "region": "경기",
-   "area": "경기 남양주시",
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": "교구 및 유초등부",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사"
-   ],
-   "denomination": "대한예수교장로회(합동)",
-   "date": "2026-10-18",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123451",
-   "firstSeen": "2026-10-15T09:19:25.772Z"
-  },
-  {
-   "id": "cs-qmflw",
-   "dk": "qmflw",
-   "source": "chongshin",
-   "title": "장성교회에서 함께 교회를 세워 갈 귀한 교구 여 전임 동역자를 정중히 모십니다.",
-   "church": "장성교회",
-   "region": "서울",
-   "area": "서울 동작구",
-   "positions": [
-    "전임 전도사",
-    "심방전도사"
-   ],
-   "dept": "교구 여 전임",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "심방전도사"
-   ],
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-10-18",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123413",
-   "firstSeen": "2026-10-15T09:19:25.772Z"
   },
   {
    "id": "bp-1q2gnix",
@@ -9374,37 +11079,6 @@
    "firstSeen": "2026-10-13T03:14:56.485Z"
   },
   {
-   "id": "cs-1ivug08",
-   "dk": "1ivug08",
-   "source": "chongshin",
-   "title": "김포성문교회에서 함께 사역할 교역자분을 모십니다. (전임, 파트)",
-   "church": "김포성문교회",
-   "region": "경기",
-   "area": "경기 김포시",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "아래 참고",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "준전임 목사",
-    "전임 부목사"
-   ],
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-10-18",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123462",
-   "firstSeen": "2026-10-13T03:14:56.485Z"
-  },
-  {
    "id": "sj-145we9t",
    "dk": "145we9t",
    "source": "sjs",
@@ -9549,42 +11223,6 @@
    "truncated": false,
    "url": "https://www.pck.or.kr/bbs/board.php?bo_table=SM05_05&wr_id=5689",
    "firstSeen": "2026-10-12T05:26:53.699Z"
-  },
-  {
-   "id": "gp-1osoxmn",
-   "dk": "1osoxmn",
-   "source": "godpeople",
-   "title": "부교역자(파트) 청빙",
-   "church": "충심교회",
-   "region": "서울",
-   "area": null,
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사"
-   ],
-   "dept": null,
-   "tags": [
-    "교육목사",
-    "교육전도사",
-    "유초등부"
-   ],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "준전임 전도사",
-    "전임 전도사"
-   ],
-   "denomination": null,
-   "date": "2026-10-18",
-   "deadline": "채용시까지",
-   "closed": false,
-   "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=2OsQXvNo48",
-   "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
    "id": "gp-4z1tfs",
@@ -9789,59 +11427,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4WETYBuC8v",
-   "firstSeen": "2026-10-12T05:26:53.698Z"
-  },
-  {
-   "id": "cs-22jdsn",
-   "dk": "22jdsn",
-   "source": "chongshin",
-   "title": "(울산)태화교회에서 함께 복음의 사역을 감당할 신실한 동역자를 청빙합니다.",
-   "church": "태화교회",
-   "region": "울산",
-   "area": "울산 중구",
-   "positions": [
-    "심방전도사"
-   ],
-   "dept": "교구(심방 / 제자훈련 및 양육)",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-10-18",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123420",
-   "firstSeen": "2026-10-12T05:26:53.698Z"
-  },
-  {
-   "id": "cs-1qsp32i",
-   "dk": "1qsp32i",
-   "source": "chongshin",
-   "title": "(경기) 광주사랑의교회에서 함께 할 전임 부목사님을 정중히 모십니다.",
-   "church": "광주사랑의교회",
-   "region": "경기",
-   "area": "경기 광주시",
-   "positions": [
-    "전임 부목사"
-   ],
-   "dept": "아래 참고",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 부목사"
-   ],
-   "denomination": "예장합동",
-   "date": "2026-10-18",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123443",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -10425,37 +12010,6 @@
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
-   "id": "cs-8vyx43",
-   "dk": "8vyx43",
-   "source": "chongshin",
-   "title": "진주성북교회에서 전임 사역자를 모십니다.",
-   "church": "진주성북교회",
-   "region": "경남",
-   "area": "경남 진주시",
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": "교구 및 주일학교 부서",
-   "tags": [],
-   "pay": {
-    "min": 290,
-    "max": 290,
-    "label": "월 290만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "강도사"
-   ],
-   "denomination": "예장 합동",
-   "date": "2026-10-18",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123401",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
    "id": "cs-p0uw3a",
    "dk": "p0uw3a",
    "source": "chongshin",
@@ -10904,6 +12458,39 @@
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
+   "id": "sj-16if6vv",
+   "dk": "16if6vv",
+   "source": "sjs",
+   "title": "(수정) 경기도 광주 한소망교회에서 유치부를 담당할 교육목사/전도사님을 모십니다.",
+   "church": "한소망교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 100,
+    "label": "월 100만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50738&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
+   "firstSeen": "2026-10-19T03:19:22.829Z"
+  },
+  {
    "id": "yt-xwkkay",
    "dk": "xwkkay",
    "source": "ytus",
@@ -11124,39 +12711,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50739&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
-   "firstSeen": "2026-10-17T21:19:33.582Z"
-  },
-  {
-   "id": "sj-14yctun",
-   "dk": "14yctun",
-   "source": "sjs",
-   "title": "경기도 광주 한소망교회에서 유치부를 담당할 준전임 교육목사/전도사님을 모십니다.",
-   "church": "한소망교회",
-   "region": "경기",
-   "area": null,
-   "positions": [
-    "파트 목사",
-    "준전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "min": 140,
-    "max": 140,
-    "label": "월 140만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 목사",
-    "준전임 전도사"
-   ],
-   "denomination": null,
-   "date": "2026-10-17",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50738&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
    "firstSeen": "2026-10-17T21:19:33.582Z"
   },
   {
@@ -12193,37 +13747,6 @@
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
-   "id": "cs-dg6i31",
-   "dk": "dg6i31",
-   "source": "chongshin",
-   "title": "새소망교회에서 파트 사역자를 정중히 모십니다.",
-   "church": "새소망교회",
-   "region": "인천",
-   "area": "인천 미추홀구",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "주일학교+학생부",
-   "tags": [],
-   "pay": {
-    "min": 120,
-    "max": 120,
-    "label": "월 120만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "denomination": "합동",
-   "date": "2026-10-17",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123375",
-   "firstSeen": "2026-10-17T09:19:22.443Z"
-  },
-  {
    "id": "cs-h4zwjs",
    "dk": "h4zwjs",
    "source": "chongshin",
@@ -12436,35 +13959,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123352",
-   "firstSeen": "2026-10-17T09:19:22.443Z"
-  },
-  {
-   "id": "cs-7vr6d6",
-   "dk": "7vr6d6",
-   "source": "chongshin",
-   "title": "부산동부교회에서 전임 여 전도사님을 정중히 모십니다!(끌어올림)",
-   "church": "동부교회",
-   "region": "부산",
-   "area": "부산 금정구",
-   "positions": [
-    "심방전도사"
-   ],
-   "dept": "아래참조",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "강도사",
-    "심방전도사"
-   ],
-   "denomination": "예장합동",
-   "date": "2026-10-17",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123341",
    "firstSeen": "2026-10-17T09:19:22.443Z"
   },
   {
@@ -13547,40 +15041,6 @@
    "firstSeen": "2026-10-14T03:19:17.305Z"
   },
   {
-   "id": "cs-1tnz24b",
-   "dk": "1tnz24b",
-   "source": "chongshin",
-   "title": "서울 우이중앙교회에서 교구(전임), 중고등부(파트) 교역자님을 모십니다.",
-   "church": "우이중앙교회",
-   "region": "서울",
-   "area": "서울 강북구",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "교구(전임), 중고등부(파트)",
-   "tags": [],
-   "pay": {
-    "min": 100,
-    "max": 100,
-    "label": "월 100만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "강도사"
-   ],
-   "denomination": "대한예수교장로회(합동)",
-   "date": "2026-10-17",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123345",
-   "firstSeen": "2026-10-14T03:19:17.305Z"
-  },
-  {
    "id": "cs-1kqf0yo",
    "dk": "1kqf0yo",
    "source": "chongshin",
@@ -14418,38 +15878,6 @@
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
-   "id": "cs-127lifs",
-   "dk": "127lifs",
-   "source": "chongshin",
-   "title": "삼락교회에서 동역자를 모십니다.",
-   "church": "삼락교회",
-   "region": "서울",
-   "area": "서울 노원구",
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사",
-    "준전임 전도사"
-   ],
-   "dept": "아래 참조",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "준전임 전도사"
-   ],
-   "denomination": "대한예수교 장로회 합동",
-   "date": "2026-10-17",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123383",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
    "id": "cs-1hmqwb",
    "dk": "1hmqwb",
    "source": "chongshin",
@@ -14565,50 +15993,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123289",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "cs-1kkptze",
-   "dk": "1kkptze",
-   "source": "chongshin",
-   "title": "양곡제일교회에서 사역자를 모집합니다",
-   "church": "양곡제일교회",
-   "region": "경기",
-   "area": "경기 김포시",
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사",
-    "강도사"
-   ],
-   "dept": "아래 내용 참조",
-   "tags": [],
-   "pay": {
-    "min": 120,
-    "max": 270,
-    "label": "월 120~270만원",
-    "roles": [
-     {
-      "role": "전임",
-      "v": 270
-     },
-     {
-      "role": "파트",
-      "v": 120
-     }
-    ]
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "강도사"
-   ],
-   "denomination": "예장 합동",
-   "date": "2026-10-17",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123370",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -14922,62 +16306,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123344",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "cs-1ng6cb2",
-   "dk": "1ng6cb2",
-   "source": "chongshin",
-   "title": "충정교회에서 동역자를 모십니다",
-   "church": "충정교회",
-   "region": "경기",
-   "area": "경기 고양시",
-   "positions": [
-    "파트 교육전도사",
-    "전임 부목사"
-   ],
-   "dept": "아래 참조",
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 부목사"
-   ],
-   "denomination": "합동",
-   "date": "2026-10-17",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123393",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "cs-1ut1bu3",
-   "dk": "1ut1bu3",
-   "source": "chongshin",
-   "title": "원동교회에서 전임 부목사님을 정중하게 모십니다.",
-   "church": "원동교회",
-   "region": "서울",
-   "area": "서울 용산구",
-   "positions": [
-    "전임 부목사"
-   ],
-   "dept": "교구",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 부목사"
-   ],
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-10-17",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123386",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -15939,48 +17267,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123206",
-   "firstSeen": "2026-10-16T09:19:28.073Z"
-  },
-  {
-   "id": "cs-1gf415p",
-   "dk": "1gf415p",
-   "source": "chongshin",
-   "title": "송파 서광교회에서 2027년 함께 동역할 동역자를 모집합니다.",
-   "church": "서광교회",
-   "region": "서울",
-   "area": "서울 송파구",
-   "positions": [
-    "전임 전도사",
-    "강도사"
-   ],
-   "dept": "아래참조",
-   "tags": [],
-   "pay": {
-    "min": 200,
-    "max": 250,
-    "label": "월 200~250만원",
-    "roles": [
-     {
-      "role": "목사",
-      "v": 250
-     },
-     {
-      "role": "전도사",
-      "v": 200
-     }
-    ]
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "강도사"
-   ],
-   "denomination": "합동",
-   "date": "2026-10-16",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123201",
    "firstSeen": "2026-10-16T09:19:28.073Z"
   },
   {
@@ -18471,38 +19757,6 @@
    "firstSeen": "2026-10-16T03:19:22.586Z"
   },
   {
-   "id": "cs-1hhkykp",
-   "dk": "1hhkykp",
-   "source": "chongshin",
-   "title": "고양동산교회에서 파트 전도사님을 모십니다. (중고등부, 찬양인도)",
-   "church": "고양동산교회",
-   "region": "경기",
-   "area": "경기 고양시",
-   "positions": [
-    "파트 교육전도사",
-    "찬양인도자"
-   ],
-   "dept": "중고등부, 찬양인도",
-   "tags": [],
-   "pay": {
-    "min": 120,
-    "max": 120,
-    "label": "월 120만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "denomination": "합동",
-   "date": "2026-10-16",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123133",
-   "firstSeen": "2026-10-16T03:19:22.586Z"
-  },
-  {
    "id": "cs-ktkqi4",
    "dk": "ktkqi4",
    "source": "chongshin",
@@ -19676,37 +20930,6 @@
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
-   "id": "cs-1l50sq7",
-   "dk": "1l50sq7",
-   "source": "chongshin",
-   "title": "컴앤씨교회에서 전임 부목사님을 모십니다.",
-   "church": "컴앤씨교회",
-   "region": "서울",
-   "area": "서울 서초구",
-   "positions": [
-    "전임 부목사"
-   ],
-   "dept": "교구",
-   "tags": [],
-   "pay": {
-    "min": 50,
-    "max": 50,
-    "label": "월 50만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 부목사"
-   ],
-   "denomination": "대한예수교장로회(합동)",
-   "date": "2026-10-16",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123084",
-   "firstSeen": "2026-10-12T05:26:53.698Z"
-  },
-  {
    "id": "cs-jx5ze",
    "dk": "jx5ze",
    "source": "chongshin",
@@ -20578,34 +21801,6 @@
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
-   "id": "cs-1lyabm3",
-   "dk": "1lyabm3",
-   "source": "chongshin",
-   "title": "연제제일교회에서 전임 목사를 청빙합니다.",
-   "church": "연제제일교회",
-   "region": "부산",
-   "area": "부산 연제구",
-   "positions": [
-    "전임 부목사"
-   ],
-   "dept": "면접시",
-   "tags": [],
-   "pay": {
-    "min": 260,
-    "max": 300,
-    "label": "월 260~300만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "denomination": "예장 합동",
-   "date": "2026-10-16",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123164",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
    "id": "cs-1cwgiq1",
    "dk": "1cwgiq1",
    "source": "chongshin",
@@ -21076,34 +22271,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123088",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "cs-oevez3",
-   "dk": "oevez3",
-   "source": "chongshin",
-   "title": "소사제일교회에서 동역할 전임교역자를 모십니다.",
-   "church": "소사제일교회",
-   "region": "경기",
-   "area": "경기 부천시",
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": "행정+중고등부",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사"
-   ],
-   "denomination": "예장 합동",
-   "date": "2026-10-16",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123217",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -22768,34 +23935,6 @@
    "firstSeen": "2026-10-15T03:19:26.863Z"
   },
   {
-   "id": "sj-c49ypq",
-   "dk": "c49ypq",
-   "source": "sjs",
-   "title": "대구신암교회에서 교구 및 교육부서를 담당할 사역자를 모십니다",
-   "church": "대구신암교회",
-   "region": "대구",
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "준전임 전도사"
-   ],
-   "denomination": null,
-   "date": "2026-10-15",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50712&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
-   "firstSeen": "2026-10-15T03:19:26.863Z"
-  },
-  {
    "id": "sj-eqxjoj",
    "dk": "eqxjoj",
    "source": "sjs",
@@ -23951,34 +25090,6 @@
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
-   "id": "bp-c49ypq",
-   "dk": "c49ypq",
-   "source": "bpu",
-   "title": "대구신암교회에서 교구 및 교육부서를 담당할 사역자를 모십니다",
-   "church": "대구신암교회",
-   "region": "대구",
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "준전임 전도사"
-   ],
-   "denomination": null,
-   "date": "2026-10-15",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=101927&BoardMstNo=6",
-   "firstSeen": "2026-10-13T03:14:56.486Z"
-  },
-  {
    "id": "yt-1oxnm14",
    "dk": "1oxnm14",
    "source": "ytus",
@@ -25016,56 +26127,6 @@
    "firstSeen": "2026-10-07T07:29:44.219Z"
   },
   {
-   "id": "yt-c49ypq",
-   "dk": "c49ypq",
-   "source": "ytus",
-   "title": "대구신암교회에서 교구 및 교육부서를 담당할 사역자를 모십니다",
-   "church": "대구신암교회",
-   "region": "대구",
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [],
-   "denomination": "예장통합노회명 : 대구동노회담임목사 : 곽숭기주소 : ",
-   "date": "2026-10-15",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.ytus.ac.kr/board/view/trXXR/26155",
-   "firstSeen": "2026-10-07T07:28:05.758Z"
-  },
-  {
-   "id": "hi-c49ypq",
-   "dk": "c49ypq",
-   "source": "hanil",
-   "title": "대구신암교회에서 교구 및 교육부서를 담당할 사역자를 모십니다",
-   "church": "대구신암교회",
-   "region": "대구",
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [],
-   "denomination": null,
-   "date": "2026-10-15",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.hanil.ac.kr/portal/default/bbs/view.do?menuId=M0004000500000000&boardSeq=105022",
-   "firstSeen": "2026-10-07T07:28:05.758Z"
-  },
-  {
    "id": "hs-x2nupn",
    "dk": "x2nupn",
    "source": "hapdong",
@@ -25574,39 +26635,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123027",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "cs-1vh71x0",
-   "dk": "1vh71x0",
-   "source": "chongshin",
-   "title": "예담교회에서 전임사역자(부목사,여전도사)를 모십니다.",
-   "church": "예담교회",
-   "region": "경기",
-   "area": "경기 고양시",
-   "positions": [
-    "전임 전도사",
-    "전임 부목사",
-    "심방전도사"
-   ],
-   "dept": "본문 참고",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "강도사",
-    "심방전도사"
-   ],
-   "denomination": "예장합동",
-   "date": "2026-10-15",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1123076",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -30627,34 +31655,6 @@
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
-   "id": "gp-1w4les7",
-   "dk": "1w4les7",
-   "source": "godpeople",
-   "title": "미금중앙교회 초등부(파트) 교역자 청빙",
-   "church": "미금중앙교회",
-   "region": null,
-   "area": null,
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사"
-   ],
-   "dept": null,
-   "tags": [
-    "교육목사",
-    "교육전도사",
-    "유초등부"
-   ],
-   "pay": null,
-   "payChecked": false,
-   "denomination": null,
-   "date": "2026-10-14",
-   "deadline": "채용시까지",
-   "closed": false,
-   "truncated": false,
-   "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6GJyXsFPJk",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
    "id": "gp-3b5saz",
    "dk": "3b5saz",
    "source": "godpeople",
@@ -31373,29 +32373,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43118",
-   "firstSeen": "2026-10-14T03:19:17.306Z"
-  },
-  {
-   "id": "ks-15lq5zk",
-   "dk": "15lq5zk",
-   "source": "kwangshin",
-   "title": "여수 은광교회에서 함께하실 전임사역자를 모집합니다.",
-   "church": "은광교회",
-   "region": "전남",
-   "area": null,
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "denomination": null,
-   "date": "2026-10-13",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43116",
    "firstSeen": "2026-10-14T03:19:17.306Z"
   },
   {
@@ -47272,7 +48249,7 @@
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.mtu.ac.kr/mtu/board/view.do?mId=162&page=1&brdIdx=20786",
+   "url": "https://www.mtu.ac.kr/mtu/board/view.do?mId=162&page=2&brdIdx=20786",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -47400,7 +48377,7 @@
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.mtu.ac.kr/mtu/board/view.do?mId=162&page=1&brdIdx=20785",
+   "url": "https://www.mtu.ac.kr/mtu/board/view.do?mId=162&page=2&brdIdx=20785",
    "firstSeen": "2026-10-12T05:41:19.740Z"
   },
   {
@@ -50078,28 +51055,6 @@
    "posHint": []
   },
   {
-   "id": "cs-qpubqk",
-   "dk": "qpubqk",
-   "source": "chongshin",
-   "title": "'양문교회'(서울 동작구)에서 동역자를 정중히 모십니다.",
-   "church": "양문교회",
-   "region": "서울",
-   "area": "서울 동작구",
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-10-07",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1121956",
-   "firstSeen": "2026-10-07T06:34:51.990Z",
-   "pay": null,
-   "payChecked": true,
-   "posHint": []
-  },
-  {
    "id": "cs-1jv0iqe",
    "dk": "1jv0iqe",
    "source": "chongshin",
@@ -50535,28 +51490,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1121887",
-   "firstSeen": "2026-10-07T06:34:51.990Z",
-   "pay": null,
-   "payChecked": true,
-   "posHint": []
-  },
-  {
-   "id": "cs-emwqf8",
-   "dk": "emwqf8",
-   "source": "chongshin",
-   "title": "옥수중앙교회에서 동역할 청년부(전임) 교역자를 모십니다.",
-   "church": "옥수중앙교회",
-   "region": "서울",
-   "area": "서울 성동구",
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-10-07",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1121884",
    "firstSeen": "2026-10-07T06:34:51.990Z",
    "pay": null,
    "payChecked": true,
@@ -57988,34 +58921,6 @@
     "max": 100,
     "label": "월 100만원",
     "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 부목사"
-   ]
-  },
-  {
-   "id": "ke-1njs3mc",
-   "dk": "1njs3mc",
-   "source": "kehc",
-   "title": "정읍성결교회 전임 교역자 청빙",
-   "church": "정읍성결교회",
-   "region": "전북",
-   "area": null,
-   "positions": [
-    "전임 전도사"
-   ],
-   "denomination": null,
-   "date": "2026-09-29",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kehc.org/home/recruit/read_post/27785/page/0",
-   "firstSeen": "2026-10-07T07:28:05.758Z",
-   "pay": {
-    "note": "내규·협의"
    },
    "payChecked": true,
    "posHint": [

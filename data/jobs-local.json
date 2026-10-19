@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-19T03:01:56.322Z",
+ "updatedAt": "2026-10-19T09:46:50.492Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -9,9 +9,76 @@
    "status": "ok",
    "count": 10,
    "note": "맥에서 보충 수집"
+  },
+  {
+   "id": "pckworld",
+   "name": "한국기독공보",
+   "group": "기독교 언론",
+   "home": "https://www.pckworld.com/adsearch/",
+   "status": "ok",
+   "count": 11,
+   "note": "맥에서 보충 수집"
   }
  ],
  "items": [
+  {
+   "id": "ks-5fi3gp",
+   "dk": "5fi3gp",
+   "source": "kwangshin",
+   "title": "따뜻한 동행, 무선중앙교회에서 귀한 동역자를 모십니다.",
+   "church": "무선중앙교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 333,
+    "max": 333,
+    "label": "월 333만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43140"
+  },
+  {
+   "id": "ks-1nuvjjy",
+   "dk": "1nuvjjy",
+   "source": "kwangshin",
+   "title": "광주샘물교회(대한예수교장로회 고신 · 전라노회)에서 교역자를 모십니다",
+   "church": "광주샘물교회",
+   "region": "광주",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "강도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-19",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43139"
+  },
   {
    "id": "ks-1o22sow",
    "dk": "1o22sow",
@@ -223,33 +290,207 @@
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43129"
   },
   {
-   "id": "ks-1pvegkb",
-   "dk": "1pvegkb",
-   "source": "kwangshin",
-   "title": "순천 대대교회 부목사 청빙 공고",
-   "church": "대대교회",
-   "region": "전남",
+   "id": "pw-3b26ma",
+   "dk": "3b26ma",
+   "source": "pckworld",
+   "title": "담임목사청빙(은혜로교회)",
+   "church": "은혜로교회",
+   "region": null,
    "area": null,
    "positions": [
-    "전임 부목사"
+    "담임목사"
    ],
    "dept": null,
    "tags": [],
    "pay": null,
-   "payChecked": true,
+   "payChecked": false,
    "denomination": null,
-   "date": "2026-10-16",
+   "date": "2026-10-14",
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43128"
+   "url": "https://www.pckworld.com/ad_view.php?aid=1594"
   },
   {
-   "id": "ks-u2hx77",
-   "dk": "u2hx77",
-   "source": "kwangshin",
-   "title": "첨단겨자씨교회 전임 부목사 청빙 공고",
-   "church": "첨단겨자씨교회",
+   "id": "pw-dd76ag",
+   "dk": "dd76ag",
+   "source": "pckworld",
+   "title": "담임목사청빙(남문교회)",
+   "church": "남문교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "담임목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-14",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.pckworld.com/ad_view.php?aid=1593"
+  },
+  {
+   "id": "pw-4gef4w",
+   "dk": "4gef4w",
+   "source": "pckworld",
+   "title": "담임목사청빙(신천교회)",
+   "church": "신천교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "담임목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-13",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.pckworld.com/ad_view.php?aid=1592"
+  },
+  {
+   "id": "pw-1j3pqca",
+   "dk": "1j3pqca",
+   "source": "pckworld",
+   "title": "담임목사청빙(웅치교회)",
+   "church": "웅치교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "담임목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-13",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.pckworld.com/ad_view.php?aid=1591"
+  },
+  {
+   "id": "pw-16d5r6s",
+   "dk": "16d5r6s",
+   "source": "pckworld",
+   "title": "교역자(수유동교회)",
+   "church": "수유동교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-13",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.pckworld.com/ad_view.php?aid=1590"
+  },
+  {
+   "id": "pw-1g7mt2t",
+   "dk": "1g7mt2t",
+   "source": "pckworld",
+   "title": "총장초빙(부산장신대)",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-13",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.pckworld.com/ad_view.php?aid=1589"
+  },
+  {
+   "id": "pw-1x07hfc",
+   "dk": "1x07hfc",
+   "source": "pckworld",
+   "title": "담임목사청빙(인도네시아주님의교회)",
+   "church": "인도네시아주님의교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "담임목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-06",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.pckworld.com/ad_view.php?aid=1588"
+  },
+  {
+   "id": "pw-1hsepsi",
+   "dk": "1hsepsi",
+   "source": "pckworld",
+   "title": "담임목사청빙(온유한교회)",
+   "church": "온유한교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "담임목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-06",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.pckworld.com/ad_view.php?aid=1587"
+  },
+  {
+   "id": "pw-z76xuo",
+   "dk": "z76xuo",
+   "source": "pckworld",
+   "title": "담임목사청빙(선교제일교회)",
+   "church": "선교제일교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "담임목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-06",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.pckworld.com/ad_view.php?aid=1586"
+  },
+  {
+   "id": "pw-x8ld9q",
+   "dk": "x8ld9q",
+   "source": "pckworld",
+   "title": "부목사청빙(소망교회)",
+   "church": "소망교회",
    "region": null,
    "area": null,
    "positions": [
@@ -257,16 +498,36 @@
    ],
    "dept": null,
    "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
+   "pay": null,
+   "payChecked": false,
    "denomination": null,
-   "date": "2026-10-16",
+   "date": "2026-10-06",
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43124"
+   "url": "https://www.pckworld.com/ad_view.php?aid=1585"
+  },
+  {
+   "id": "pw-s6guje",
+   "dk": "s6guje",
+   "source": "pckworld",
+   "title": "부교역자청빙(고성교회)",
+   "church": "고성교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-06",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.pckworld.com/ad_view.php?aid=1584"
   }
  ]
 }

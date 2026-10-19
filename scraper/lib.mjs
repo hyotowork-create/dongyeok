@@ -230,10 +230,18 @@ const POS_RULES = [
 // 청빙 게시판에 올라오는 청빙 아닌 글(구걸·광고·행사 안내·시험 글) 거르기. 제목만 봄.
 // 구걸·시험 글은 무조건, 광고·행사는 제목에 청빙 낱말이 없을 때만 거름(예: "부목사 청빙(4대보험)"은 남김)
 const JOB_WORD = /청빙|모집|채용|구인|구함|구합니다|초빙|모십니다|모심|모셔|모습니다|기다립니다|찾습니다|사역자|동역자|전도사|목사|강도사|간사|반주|지휘|교역자|파트|전임|pastor|minister/i;
-const NOT_JOB_ALWAYS = /도와\s*주세요|도움\s*청|죽고\s*싶|노숙|살아\s*보고\s*싶|급전|개인\s*회생|^\s*(갓피플\s*)?테스트\s*$/;
-const NOT_JOB_UNLESS = /보험|장례|변호사|이혼|철거|견적|고객\s*유입|마케팅|분양|대출|임플란트|렌탈|세미나|컨퍼런스|콘퍼런스|특강|설명회|부흥회|집회\s*안내|합격자|결과\s*발표|공지사항/;
-export function isNotJob(title) {
+const NOT_JOB_ALWAYS = /도와\s*주세요|도움\s*청|죽고\s*싶|노숙|살아\s*보고\s*싶|급전|개인\s*회생|^\s*(갓피플\s*)?(테스트|test)\s*\d*\s*$|장학생|플랫폼.*서비스|운전\s*연수|축제/i;
+// 광고가 많은 게시판(10/19 기독일보: 운전연수·건강 광고·전도축제)은 제목에 청빙·사역·부서 낱말이 있어야 받음. 제목이 잘려 오므로 넓게 봄
+// 「청빙이 완료되었습니다」 알림은 거름. 같은 제목에 지금 모집하는 말이 있으면 남김(예: "교육부 목사님을 모십니다 *교구담당청빙은 완료")
+const CLOSED_NOTICE = /청빙\s*[이은]?\s*(완료|마감)/;
+const STILL_OPEN = /모십|모집|구합|찾습|기다립|청빙합니다/;
+const STRICT_SOURCES = new Set(['cdaily']);
+const STRICT_JOB = /사역|youth|children|ministry|[가-힣]부(?![가-힣])/i;
+const NOT_JOB_UNLESS = /도와\s*주실|도와\s*줄|보험|장례|변호사|이혼|철거|견적|고객\s*유입|마케팅|분양|대출|임플란트|렌탈|세미나|컨퍼런스|콘퍼런스|특강|설명회|부흥회|집회\s*안내|합격자|결과\s*발표|공지사항/;
+export function isNotJob(title, source) {
   const t = String(title || '');
+  if (STRICT_SOURCES.has(source) && !JOB_WORD.test(t) && !STRICT_JOB.test(t)) return true;
+  if (CLOSED_NOTICE.test(t) && !STILL_OPEN.test(t)) return true;
   return NOT_JOB_ALWAYS.test(t) || (NOT_JOB_UNLESS.test(t) && !JOB_WORD.test(t));
 }
 

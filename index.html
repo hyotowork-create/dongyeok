@@ -1052,11 +1052,12 @@ dialog h2{font-size:20px;margin-bottom:6px}
   <form method="dialog">
     <h2 id="seraphim-h">세라핌 내려받기 <span class="tag" id="sd-ver"></span></h2>
     <p class="hint" style="margin-bottom:12px">무료 예배 송출 프로그램입니다. 내 컴퓨터에 맞는 파일 하나를 받으세요.</p>
+    <p class="notice warn" style="margin-bottom:12px"><b>Mac 버전 수정 중</b> — 지금 Mac 버전은 처음 열 때 「손상되었기 때문에 열 수 없습니다」가 나올 수 있어 고치고 있습니다. 그동안은 아래 「처음 열 때 경고가 나오면」의 방법(터미널 한 줄)으로 여시면 정상으로 쓸 수 있습니다. Windows 버전은 그대로 쓰시면 됩니다.</p>
     <div class="sd-list" id="sd-list"><p class="loading">최신 버전을 확인하는 중…</p></div>
     <details style="margin-top:14px"><summary><b>처음 열 때 경고가 나오면</b></summary>
       <p style="margin-top:8px"><b>Windows</b> — 「Windows의 PC 보호」 창이 뜨면 <b>추가 정보 → 실행</b>을 누르세요. 개인이 무료로 배포하는 프로그램이라 유료 인증서가 없어 나오는 안내입니다.</p>
       <p style="margin-top:8px"><b>Mac</b> — 받은 dmg를 열어 Seraphim을 <b>응용 프로그램</b> 폴더로 끌어 넣은 뒤 여세요. 「확인되지 않은 개발자」라고 나오면 <b>시스템 설정 → 개인정보 보호 및 보안</b> 아래쪽의 <b>「그래도 열기」</b>를 누르세요.</p>
-      <p style="margin-top:8px">「손상되었기 때문에 열 수 없습니다」가 나오면(예전 버전) 터미널에 아래 한 줄을 붙여 넣고 다시 여세요.<br><code style="user-select:all;display:block;margin-top:6px;padding:8px;border-radius:8px;background:rgba(0,0,0,.06);font-size:13px;word-break:break-all">xattr -cr /Applications/Seraphim.app</code></p>
+      <p style="margin-top:8px">「손상되었기 때문에 열 수 없습니다」가 나오면 <b>응용 프로그램 → 유틸리티 → 터미널</b>을 열고 아래 한 줄을 붙여 넣은 뒤 Enter를 누르고 다시 여세요.<br><code style="user-select:all;display:block;margin-top:6px;padding:8px;border-radius:8px;background:rgba(0,0,0,.06);font-size:13px;word-break:break-all">xattr -cr /Applications/Seraphim.app</code></p>
       <p style="margin-top:8px"><b>내 Mac 칩 확인</b>: 화면 왼쪽 위 Apple 메뉴 → 이 Mac에 관하여 → 「칩」이 Apple M1~M4면 Apple Silicon, 「프로세서」가 Intel이면 Intel입니다.</p>
     </details>
     <div class="btn-row" style="margin-top:14px"><a class="btn btn-line" href="https://github.com/hyotowork-create/Seraphim/releases/latest" target="_blank" rel="noopener">모든 파일 보기 ↗</a><button class="btn btn-line" value="close">닫기</button></div>

@@ -238,6 +238,7 @@ begin
     new.is_op := (t_author is not distinct from new.author_id);
     new.anon_name := case when new.is_op then '글쓴이'
                           else public.anon_handle(new.author_id::text || ':' || new.target_type || ':' || new.target_id) end;
+    if public.is_admin() then new.anon_name := '운영자'; end if;   -- 운영자 계정이 쓴 것은 이름 대신 「운영자」(사칭 방지, 10/21)
     new.status := 'published';
   else  -- posts, resources, setlists
     -- 익명 이용자(로그인 없이 쓰는 사람)는 파일 대신 링크로만 자료를 올린다(불법 파일·용량 악용 방지)
@@ -247,12 +248,18 @@ begin
       end if;
     end if;
     new.status := 'published';
-    new.anon_name := public.anon_handle(new.author_id::text || ':' || tg_table_name || ':' || new.id);
+    new.anon_name := case when public.is_admin() then '운영자' else public.anon_handle(new.author_id::text || ':' || tg_table_name || ':' || new.id) end;
     new.like_count := 0;
     new.comment_count := 0;
   end if;
   return new;
 end $$;
+
+-- 이미 운영자 계정으로 쓴 글·댓글도 「운영자」로(여러 번 실행해도 같음)
+update public.comments  c set anon_name = '운영자' from public.admins a where a.user_id = c.author_id and c.anon_name <> '운영자';
+update public.posts     c set anon_name = '운영자' from public.admins a where a.user_id = c.author_id and c.anon_name <> '운영자';
+update public.resources c set anon_name = '운영자' from public.admins a where a.user_id = c.author_id and c.anon_name <> '운영자';
+update public.setlists  c set anon_name = '운영자' from public.admins a where a.user_id = c.author_id and c.anon_name <> '운영자';
 
 drop trigger if exists before_insert on public.reviews;
 create trigger before_insert before insert on public.reviews for each row execute function public.tg_content_before_insert();

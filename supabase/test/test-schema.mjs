@@ -236,3 +236,14 @@ console.log('\n모든 점검 통과');
   assert.equal(r.church_reply, null); assert.equal(r.church_reply_by, null);
   ok('교회 측 답변: 운영자만 게시·삭제, 공개 읽기, 이용자 직접 수정 불가');
 }
+
+// 운영자 계정이 쓴 글·댓글은 이름이 「운영자」, 일반 이용자는 익명 이름
+{
+  await db.exec(`reset role; delete from write_guard; update posts set created_at = created_at - interval '2 minutes'; update comments set created_at = created_at - interval '2 minutes'`);
+  const [p] = await as(AD, `insert into posts (category, title, body) values ('자유','운영자 공지','운영자 공지 본문입니다') returning id, anon_name`);
+  assert.equal(p.anon_name, '운영자');
+  const [c1] = await as(AD, `insert into comments (target_type, target_id, body) values ('post', $1, '운영자 댓글') returning anon_name`, [p.id]);
+  const [c2] = await as(U2, `insert into comments (target_type, target_id, body) values ('post', $1, '이용자 댓글') returning anon_name`, [p.id]);
+  assert.equal(c1.anon_name, '운영자'); assert.notEqual(c2.anon_name, '운영자');
+  ok('운영자 표시: 운영자 계정의 글·댓글은 「운영자」, 이용자는 익명 이름');
+}

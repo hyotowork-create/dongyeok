@@ -438,6 +438,7 @@ dialog::backdrop{background:rgba(8,10,28,.55)}
 dialog form{padding:26px}
 dialog h2{font-size:20px;margin-bottom:6px}
 .song-list .listen{margin-left:6px;font-size:12.5px;font-weight:600;color:var(--indigo);text-decoration:none;white-space:nowrap}
+.by-admin{display:inline-block;padding:1px 8px;border-radius:999px;background:var(--gold);color:var(--night);font-weight:700;font-size:.92em}
 #sermon-dlg,#update-dlg,#creply-dlg{max-height:calc(100svh - 32px);overflow:auto}
 .church-reply{margin:12px 0 4px;padding:12px 14px;border-left:3px solid var(--gold);background:rgba(255,194,75,.08);border-radius:8px}
 .church-reply h4{margin-top:0}
@@ -1086,6 +1087,8 @@ function clusterStats(rows) {
   return groups.map(g => { const a = aggregate(g.list); return { church_key: g.church_key, church_name: g.church_name, region: g.region || '', denomination: g.denomination || '', rk: g.rk, dk: g.dk, n: a.n, overall: a.overall, rec_pct: a.rec, last_at: g.last_at }; });
 }
 const href = (id, params) => { const qs = new URLSearchParams(params || {}).toString(); return '#' + id + (qs ? '?' + qs : ''); };
+// 운영자 계정이 쓴 글·댓글은 서버가 이름을 「운영자」로 정함 → 눈에 띄게 표시
+const who = name => name === '운영자' ? '<span class="by-admin">✓ 운영자</span>' : esc(name);
 const empty = msg => `<li class="empty">${esc(msg)}</li>`;
 const loading = () => `<li class="loading">불러오는 중…</li>`;
 function fmtDate(iso) { const d = new Date(iso); if (isNaN(d)) return esc(iso || ''); return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`; }
@@ -1889,7 +1892,7 @@ async function renderComments(box, type, id) {
       : `<p class="hint" style="margin-top:12px"><a href="${href('pg-login', { next: location.hash.slice(1) })}">로그인</a>하면 댓글을 쓸 수 있습니다(익명 표시).</p>`}</div>`;
   const draw = async () => {
     const list = await safe(() => API.comments(type, id), []) || [];
-    box.querySelector('.cmt-list').innerHTML = list.length ? list.map(c => `<div class="cmt"><div class="cmt-head"><b class="${c.is_op ? 'op' : ''}">${esc(c.anon_name)}</b><span>${timeAgo(c.created_at)}</span>${c.status === 'hidden' ? '<span class="tag wait">가려짐</span>' : ''}
+    box.querySelector('.cmt-list').innerHTML = list.length ? list.map(c => `<div class="cmt"><div class="cmt-head"><b class="${c.is_op ? 'op' : ''}">${who(c.anon_name)}</b><span>${timeAgo(c.created_at)}</span>${c.status === 'hidden' ? '<span class="tag wait">가려짐</span>' : ''}
         <span class="cmt-tools">${MINE.has('comment:' + c.id) ? `<button class="txt-btn" data-act="del" data-type="comment" data-id="${c.id}">삭제</button>` : ''}<button class="txt-btn" data-act="report" data-type="comment" data-id="${c.id}">신고</button></span></div>
         <div class="cmt-body">${nl2br(c.body)}</div></div>`).join('') : '<p class="hint">첫 댓글을 남겨 주세요.</p>';
   };
@@ -1912,7 +1915,7 @@ function postRow(p, mini) {
   return `<li><a class="row-link" href="${href('pg-post', { id: p.id })}"><div class="row-main">
     <p class="row-title"><span class="tag cat-${esc(p.category)}">${esc(p.category)}</span> ${esc(p.title)}</p>
     ${mini ? '' : `<p class="row-ex">${esc(p.body)}</p>`}
-    <p class="meta"><span>${esc(p.anon_name)}</span><span>${timeAgo(p.created_at)}</span><span>♡ ${p.like_count}</span><span>💬 ${p.comment_count}</span></p></div></a></li>`;
+    <p class="meta"><span>${who(p.anon_name)}</span><span>${timeAgo(p.created_at)}</span><span>♡ ${p.like_count}</span><span>💬 ${p.comment_count}</span></p></div></a></li>`;
 }
 async function loadPosts(reset) {
   if (reset) { postState.offset = 0; $('#post-list').innerHTML = loading(); }
@@ -1945,7 +1948,7 @@ HOOKS['pg-post'] = async ({ id }) => {
   const box = $('#post-detail'); box.innerHTML = '<p class="loading">불러오는 중…</p>';
   const p = await safe(() => API.post(id), null);
   if (!p || p.status === 'removed') { box.innerHTML = '<div class="detail"><p class="empty">글을 찾을 수 없습니다. 삭제되었거나 가려진 글입니다.</p></div>'; return; }
-  box.innerHTML = `<article class="detail"><p class="meta"><span class="tag cat-${esc(p.category)}">${esc(p.category)}</span><span>${esc(p.anon_name)}</span><span>${timeAgo(p.created_at)}</span>${p.status !== 'published' ? '<span class="tag wait">가려짐</span>' : ''}</p>
+  box.innerHTML = `<article class="detail"><p class="meta"><span class="tag cat-${esc(p.category)}">${esc(p.category)}</span><span>${who(p.anon_name)}</span><span>${timeAgo(p.created_at)}</span>${p.status !== 'published' ? '<span class="tag wait">가려짐</span>' : ''}</p>
     <h1>${esc(p.title)}</h1><div class="body">${nl2br(p.body)}</div>${actBar('post', p)}</article><div id="post-cmts"></div>`;
   markLiked('post', p.id);
   renderComments($('#post-cmts'), 'post', p.id);
@@ -2011,7 +2014,7 @@ HOOKS['pg-resource'] = async ({ id }) => {
   const fileBtn = r.file_path ? `<a class="btn btn-main" href="${esc(API.fileUrl(r.file_path))}" target="_blank" rel="noopener" download>${fileIcon(r.file_name)} ${esc(r.file_name)} 내려받기 <span style="font-weight:500;opacity:.75">${fmtSize(r.file_size)}</span></a>`
     : r.demo_file ? `<span class="btn btn-line" aria-disabled="true">${fileIcon(r.file_name)} ${esc(r.file_name)} (체험 모드 — 파일 없음)</span>` : '';
   const linkBtn = r.link_url ? `<a class="btn btn-ink" href="${esc(safeUrl(r.link_url))}" target="_blank" rel="noopener nofollow" aria-label="자료 링크 새 창에서 열기">링크 열기 ↗</a>` : '';
-  box.innerHTML = `<article class="detail"><p class="meta"><span class="tag olive">${esc(r.category)}</span><span>${esc(r.anon_name)}</span><span>${fmtDate(r.created_at)}</span>${r.status !== 'published' ? '<span class="tag wait">가려짐</span>' : ''}</p>
+  box.innerHTML = `<article class="detail"><p class="meta"><span class="tag olive">${esc(r.category)}</span><span>${who(r.anon_name)}</span><span>${fmtDate(r.created_at)}</span>${r.status !== 'published' ? '<span class="tag wait">가려짐</span>' : ''}</p>
     <h1>${esc(r.title)}</h1>${r.description ? `<div class="body">${nl2br(r.description)}</div>` : ''}
     ${(r.tags || []).length ? `<p class="meta" style="margin-bottom:16px">${r.tags.map(t => `<span class="tag">#${esc(t)}</span>`).join('')}</p>` : ''}
     <div class="btn-row" style="margin-bottom:18px">${fileBtn}${linkBtn}</div>
@@ -2034,7 +2037,7 @@ function renderTools() {
 function slRow(s) {
   return `<li><a class="row-link" href="${href('pg-setlist', { id: s.id })}"><div class="row-main"><p class="row-title"><span class="tag ink">${esc(s.service_type || '예배')}</span> ${esc(s.title)}</p>
     <p class="meta"><span>${(s.songs || []).slice(0, 4).map(x => esc(x.title)).join(' · ')}${(s.songs || []).length > 4 ? ' …' : ''}</span></p>
-    <p class="meta"><span>${esc(s.anon_name)}</span><span>${timeAgo(s.created_at)}</span><span>♡ ${s.like_count}</span><span>💬 ${s.comment_count}</span></p></div></a></li>`;
+    <p class="meta"><span>${who(s.anon_name)}</span><span>${timeAgo(s.created_at)}</span><span>♡ ${s.like_count}</span><span>💬 ${s.comment_count}</span></p></div></a></li>`;
 }
 async function loadSetlists(reset) {
   if (reset) { slState.offset = 0; $('#setlist-list').innerHTML = loading(); }
@@ -2131,7 +2134,7 @@ HOOKS['pg-setlist'] = async ({ id }) => {
   const box = $('#setlist-detail'); box.innerHTML = '<p class="loading">불러오는 중…</p>';
   const s = await safe(() => API.setlist(id), null);
   if (!s || s.status === 'removed') { box.innerHTML = '<div class="detail"><p class="empty">콘티를 찾을 수 없습니다.</p></div>'; return; }
-  box.innerHTML = `<article class="detail"><p class="meta"><span class="tag ink">${esc(s.service_type || '예배')}</span><span>${esc(s.anon_name)}</span><span>${fmtDate(s.created_at)}</span></p>
+  box.innerHTML = `<article class="detail"><p class="meta"><span class="tag ink">${esc(s.service_type || '예배')}</span><span>${who(s.anon_name)}</span><span>${fmtDate(s.created_at)}</span></p>
     <h1>${esc(s.title)}</h1>${s.theme ? `<p class="hint" style="font-size:15px">주제·본문: ${esc(s.theme)}</p>` : ''}
     <p class="hint" style="margin-top:12px">가사는 저작권 보호를 위해 나누지 않습니다. 「내 콘티로 가져오기」 후 가사를 직접 넣어 웹 가사 화면이나 세라핌에서 쓰세요.</p>
     <ol class="song-list" style="margin:10px 0 14px">${(s.songs || []).map(x => `<li><div><p class="t">${esc(x.title)} <a class="listen" href="https://www.youtube.com/results?search_query=${encodeURIComponent(x.title)}" target="_blank" rel="noopener" aria-label="${esc(x.title)} 유튜브에서 듣기(새 창)">▶ 듣기</a></p>${x.note ? `<p class="n">${esc(x.note)}</p>` : ''}</div><div class="meta">${x.key ? `<span class="key">${esc(x.key)}</span>` : ''}${x.bpm ? `<span>${esc(x.bpm)} bpm</span>` : ''}<span>${esc(x.category || '')}</span></div></li>`).join('')}</ol>

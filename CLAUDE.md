@@ -5,7 +5,7 @@
 > 상세 운영 설명 = `docs/운영가이드.md`. 수집기 수리 절차 = `.claude/skills/dongyeok-scraper/SKILL.md`.
 > 운영자 관련 정보(호칭·보고 방식·계정·이 맥의 사정)는 `CLAUDE.local.md`(저장소에 안 올라감)에 있다. 있으면 반드시 함께 읽는다.
 > 저장소가 공개라서 이 파일에는 운영자 실명·개인 연락처를 적지 않는다.
-> 마지막 갱신: 2026-10-13 아침 (클라우드 세션에서도 유지보수할 수 있게 정비 — 아래 「클라우드 세션에서 유지보수」)
+> 마지막 갱신: 2026-10-21 오후 (교회 평가 투명성·교회 측 답변·운영자 표시·세라핌 내려받기 안내 — 아래 「작업 기록」)
 > 한 파일로 모은 인수인계서: 운영자 맥의 `인수인계.local.md`(운영자 정보 포함이라 저장소 제외). 다른 컴퓨터로 옮길 때는 이 파일과 `CLAUDE.local.md`를 함께 복사한다.
 
 ## 한 줄 요약
@@ -332,8 +332,9 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 ## 남은 일
 | 일 | 담당 | 비고 |
 |---|---|---|
+| 세라핌 0.3.1 릴리스(Mac 서명 수정) | 운영자 → Claude | Seraphim `fix/mac-signing`(main 미병합). 릴리스 뒤 동역 `index.html` 세라핌 내려받기 창의 「Mac 버전 수정 중」 문단 삭제, 작업 폴더 `~/Developer/seraphim-fix` 정리 |
+| Sermon Insight 공개 여부 | 운영자 | 첫 화면 「설교 평가하기(공개 예정)」 클릭 GoatCounter `event-sermon-soon`(10/21까지 11회). 코드는 `~/Developer/dongyeok-work` 브랜치 `feat/sermon-yt-parallel`(판정 기준 강화 포함, 미배포) |
 | 외부 예약 토큰 만료 전 교체 | 운영자 → Claude | Supabase pg_cron `dongyeok-wake`(UTC `17,47 21-23,0-14`)가 Vault `gh_dispatch_token`으로 workflow_dispatch(wake=true)를 부름(10/13 시험 호출 204·guard 건너뜀 확인). 토큰(fine-grained `dongyeok-wake`, Actions 쓰기, dongyeok만)은 **2027년 만료** — 만료 전 새로 발급해 Vault 값만 교체. 채팅에 한 번 노출됐으나 운영자 결정으로 그대로 사용(10/13) |
-| 운영자 전용 로그인으로 바꿀지 | 운영자 → Claude | 지금은 운영자 로그인 화면에 아무 메일이나 넣으면 계정이 만들어짐(`signInWithOtp`의 `shouldCreateUser: true`). 바꾸면 `false`로, 새 운영자는 대시보드에서 초대 |
 | Supabase 조직에 공개 메일 초대 | 운영자 | 팀 화면 → Invite members → seraphim7997@gmail.com, Administrator |
 | 세라핌 0.2.0 소스 공개 여부 | 운영자 | 시험용 파일에 찬송가·CCM 가사와 실제 예배 PPT가 있어 그대로 공개하면 저작권 문제. 공개하려면 그 파일을 빼고 올림 |
 | 개인정보처리방침·약관 법률 검토 | 운영자 | |
@@ -363,3 +364,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 | 2026-10-13 | 맥 세션: 외부 예약(Supabase pg_cron `dongyeok-wake`) 켬 — 15:17부터 자동 실행 확인. 첫 화면 숫자 줄(2일 주기, hero-stats). 휴대폰 편의(baf45b6): 하단 탭바·맨 위로, 홈 화면에 추가(manifest·아이콘·앱 안 브라우저 안내), 공고·교회 공유, 관심 공고·필터 기억(localStorage `dy.saved`·`dy.jobf`·`dy.tipClosed`, 서버 전송 없음). GoatCounter 공개 카운터 켬(총 방문 수만 공개) |
 | 2026-10-17 | 교회 구분(이름+지역·교단, 해외는 해외끼리, 95306e7), 청빙 아닌 글 수집 제외. 휴대폰 첫 화면 정리·버튼 4개, 교회 평가 신고 사유 20자 필수, 같은 접속(IP+브라우저 해시, 원문 미저장·1일 삭제) 30분에 한 글 — schema.sql 운영 DB 적용, 맨 위로·설치 안내 작동 수정(8905c6c). 이룸교회 평가 반복 신고(10/16, 글 없는 익명 계정 4개) 대응 배경. 운영자 아닌 이메일 계정 3개는 운영자가 직접 삭제 예정 |
 | 2026-10-18~21 | 맥 보충 수집 pull 재시도. 청빙 아닌 글 거르기 보강(36건 제외). 「설교 평가하기(공개 예정)」 클릭 집계(GoatCounter `event-sermon-soon`). **교회 평가 투명성(10/21)**: 신고만으로 안 가림·운영자 검토(명확한 사유 아니면 반려), 가린 이유 공개(`hidden_reviews()`), 평가된 교회 전체 목록·최근 평가 10건, 신고 사유 「홍보성 평가 의심」, **교회 측 답변**(교회 공식 이메일로 관계자 확인 후 운영자가 `set_church_reply`로 게시, 담임목사 작성 권고), 이용 안내 「교회 관계자분께」, 변경 안내 팝업(11/20까지 1회). 가려졌던 평가 2건(남현·이룸) 공개. schema.sql 운영 DB 적용 |
+| 2026-10-21 오후 | **운영자 표시**: 운영자 계정이 쓴 글·댓글은 서버가 이름을 「운영자」로 정하고 화면에 「✓ 운영자」(사칭 방지, 기존 글도 반영 — schema.sql 운영 DB 적용). 운영자 계정의 사적 댓글 3개(5·9·14번) 운영자 요청으로 삭제. 대나무숲 11번 글(운영자 비판, 작성자 실명) 실명만 가림 → 작성자가 직접 삭제. 운영자 답글(48번)·사과 글(12번)은 운영자가 직접 게시. 대나무숲 9번 글은 운영자 삭제 상태 유지(운영자 결정: 추가 조치 없음). **세라핌 내려받기 안내 창**(최신 릴리스를 운영체제별로, Windows·Mac 첫 실행 경고 대처, 「Mac 버전 수정 중」 안내, GoatCounter `event-seraphim-dl`, CSP에 api.github.com 추가). 세라핌 0.3.0 Mac 앱은 서명이 깨져 「손상된 앱」으로 막힐 수 있음 → 수정본(afterPack ad-hoc 서명, macos-13 제거)은 Seraphim `fix/mac-signing` 브랜치, CI 시험 빌드 서명 유효 확인, **릴리스는 운영자 결정 대기**(릴리스하면 사이트의 「Mac 수정 중」 안내 삭제). 첫 화면 숫자 수동 갱신. 스레드 글(조회 4,700명) 뒤 방문 급증(10시간 화면 열람 +2,269) |

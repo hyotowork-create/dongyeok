@@ -74,6 +74,9 @@ create table if not exists public.reviews (
   created_at    timestamptz not null default now(),
   moderated_at  timestamptz
 );
+-- 가려진 이유(공개 화면에 내용 없이 이유만 보임, 10/21 이용자 요청)
+alter table public.reviews add column if not exists hidden_reason text check (char_length(hidden_reason) <= 200);
+alter table public.reviews add column if not exists hidden_at timestamptz;
 create index if not exists reviews_church_idx on public.reviews (church_key, status);
 create index if not exists reviews_status_idx on public.reviews (status, created_at desc);
 
@@ -166,12 +169,14 @@ create table if not exists public.reports (
   target_type text not null check (target_type in ('review','post','comment','resource','setlist')),
   target_id   bigint not null,
   reporter_id uuid references auth.users(id) on delete set null,
-  reason      text not null check (reason in ('명예훼손·권리침해','개인정보 노출','욕설·비하','허위 사실','광고·도배','기타')),
+  reason      text not null check (reason in ('명예훼손·권리침해','개인정보 노출','욕설·비하','허위 사실','홍보성 평가 의심','광고·도배','기타')),
   detail      text check (char_length(detail) <= 500),
   resolved    boolean not null default false,
   created_at  timestamptz not null default now(),
   unique (target_type, target_id, reporter_id)
 );
+alter table public.reports drop constraint if exists reports_reason_check;
+alter table public.reports add constraint reports_reason_check check (reason in ('명예훼손·권리침해','개인정보 노출','욕설·비하','허위 사실','홍보성 평가 의심','광고·도배','기타'));
 create index if not exists reports_open_idx on public.reports (resolved, target_type, target_id);
 
 -- 2-8. 운영 처리 기록(임시조치 대장) — 관리자도 API로는 못 읽고 대시보드에서만 봄
@@ -336,6 +341,11 @@ language plpgsql security definer set search_path = public as $$
 declare n int;
 begin
   select count(*) into n from public.reports where target_type = new.target_type and target_id = new.target_id and not resolved;
+  -- 교회 평가는 신고가 쌓여도 자동으로 가리지 않고 운영자가 검토함(10/21: 교회 측 몰아 신고로 정상 평가가 가려지는 문제)
+  if new.target_type = 'review' then
+    update public.reviews set report_count = n where id = new.target_id;
+    return null;
+  end if;
   execute format('update public.%I set report_count = $1, status = case when $1 >= 3 and status = ''published'' then ''hidden'' else status end where id = $2',
                  public.target_table(new.target_type)) using n, new.target_id;
   return null;
@@ -397,7 +407,8 @@ begin
 end $$;
 
 -- 운영 처리: 공개 / 가림(임시조치) / 삭제·반려 — 처리 기록을 남김
-create or replace function public.moderate(p_type text, p_id bigint, p_status text) returns void
+drop function if exists public.moderate(text, bigint, text);
+create or replace function public.moderate(p_type text, p_id bigint, p_status text, p_reason text default null) returns void
 language plpgsql security definer set search_path = public as $$
 declare tbl text := public.target_table(p_type);
 begin
@@ -405,10 +416,23 @@ begin
   if tbl is null then raise exception '잘못된 대상입니다'; end if;
   if p_status not in ('published','hidden','removed','rejected') then raise exception '잘못된 상태입니다'; end if;
   execute format('update public.%I set status = $1, report_count = 0 where id = $2', tbl) using p_status, p_id;
-  if p_type = 'review' then update public.reviews set moderated_at = now() where id = p_id; end if;
+  if p_type = 'review' then
+    update public.reviews set moderated_at = now(),
+      hidden_reason = case when p_status = 'hidden' then left(coalesce(nullif(btrim(p_reason), ''), '운영자가 내용을 확인하고 있습니다'), 200) end,
+      hidden_at = case when p_status = 'hidden' then now() end
+    where id = p_id;
+  end if;
   update public.reports set resolved = true where target_type = p_type and target_id = p_id;
   insert into public.moderation_log (admin_id, target_type, target_id, new_status) values (auth.uid(), p_type, p_id, p_status);
 end $$;
+
+-- 가려진 교회 평가: 내용 없이 지역·교단·가린 이유·날짜만 공개(누구나)
+create or replace function public.hidden_reviews(p_key text) returns table (id bigint, region text, denomination text, hidden_reason text, hidden_at timestamptz)
+language sql stable security definer set search_path = public as $$
+  select r.id, r.region, r.denomination, coalesce(r.hidden_reason, '운영자가 내용을 확인하고 있습니다'), coalesce(r.hidden_at, r.moderated_at)
+  from public.reviews r where r.church_key = p_key and r.status = 'hidden' order by r.created_at desc limit 50
+$$;
+grant execute on function public.hidden_reviews(text) to anon, authenticated;
 
 -- 내부용 함수는 API로 직접 부를 수 없게
 revoke execute on function public.refresh_counts(text, bigint) from public, anon, authenticated;
@@ -420,10 +444,10 @@ revoke execute on function public.tg_after_reaction() from public, anon, authent
 revoke execute on function public.tg_before_report() from public, anon, authenticated;
 revoke execute on function public.tg_after_report() from public, anon, authenticated;
 revoke execute on function public.moderation_queue() from public, anon;
-revoke execute on function public.moderate(text, bigint, text) from public, anon;
+revoke execute on function public.moderate(text, bigint, text, text) from public, anon;
 revoke execute on function public.delete_own(text, bigint) from public, anon;
 revoke execute on function public.my_items() from public, anon;
-grant execute on function public.moderation_queue(), public.moderate(text, bigint, text), public.delete_own(text, bigint), public.my_items() to authenticated;
+grant execute on function public.moderation_queue(), public.moderate(text, bigint, text, text), public.delete_own(text, bigint), public.my_items() to authenticated;
 grant execute on function public.is_admin() to anon, authenticated;
 
 -- ── 5. 교회별 평가 요약(공개분만) ─────────────────────────────────
@@ -444,7 +468,7 @@ revoke all on public.reviews, public.posts, public.comments, public.resources, p
               public.reactions, public.reports, public.moderation_log from anon, authenticated;
 
 grant select (id, church_name, church_key, region, denomination, role, period, r_pay, r_workload, r_contract, r_respect,
-              r_leadership, r_growth, recommend, pros, cons, advice, status, created_at) on public.reviews to anon, authenticated;
+              r_leadership, r_growth, recommend, pros, cons, advice, status, created_at, hidden_reason, hidden_at) on public.reviews to anon, authenticated;
 grant insert (church_name, region, denomination, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership,
               r_growth, recommend, pros, cons, advice, attested) on public.reviews to authenticated;
 

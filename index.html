@@ -640,10 +640,15 @@ dialog h2{font-size:20px;margin-bottom:6px}
       <button class="btn btn-ink" type="submit">찾기</button>
     </form>
     <div id="church-search-res"></div>
-    <div class="two-col" style="margin-top:28px">
-      <div><div class="sec-head"><h2>최근 평가된 교회</h2></div><ul class="list box" id="church-recent"></ul></div>
-      <div><div class="sec-head"><h2>평가가 많은 교회</h2></div><ul class="list box" id="church-top"></ul></div>
+    <div class="sec-head" style="margin-top:28px"><h2>최근 올라온 평가</h2></div>
+    <ul class="list box" id="church-feed"></ul>
+    <div class="sec-head" style="margin-top:28px"><h2 id="church-all-h">평가된 교회 전체</h2></div>
+    <div class="toolbar">
+      <select id="church-sort" aria-label="정렬"><option value="recent">최근 평가순</option><option value="many">평가 많은 순</option><option value="score">점수 높은 순</option><option value="name">가나다순</option></select>
+      <select id="church-area" aria-label="지역"><option value="">지역 전체</option></select>
     </div>
+    <ul class="list box" id="church-all"></ul>
+    <div class="more-wrap"><button class="btn btn-line" id="church-more" type="button" hidden>더 보기</button></div>
   </div>
 </div>
 
@@ -888,7 +893,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
 
     <h2>6. 신고와 임시조치</h2>
     <ul>
-      <li>모든 글·댓글·평가에는 <b>신고</b> 버튼이 있습니다. 서로 다른 이용자의 신고가 <b>3건</b> 쌓이면 자동으로 가려지고 운영자가 확인합니다.</li>
+      <li>모든 글·댓글·평가에는 <b>신고</b> 버튼이 있습니다. 신고는 <b>운영자가 검토</b>하며, 명확한 사유가 아닌 신고는 반려됩니다. 대나무숲 글·댓글은 서로 다른 신고가 <b>3건</b> 쌓이면 확인 전까지 먼저 가려집니다. <b>교회 평가는 신고만으로 가려지지 않고</b>, 운영자가 가릴 때는 교회 페이지에 그 이유를 표시합니다.</li>
       <li>명예훼손·사생활 침해 등 권리를 침해당했다고 생각하는 분(교회·개인)은 아래 연락처로 <b>해당 글 주소, 침해 내용, 요청인 연락처</b>를 보내 주세요. 정보통신망법 제44조의2에 따라 확인 후 해당 글을 최대 30일간 가리고(임시조치), 작성자에게 소명 기회를 준 뒤 공개 또는 삭제를 결정합니다.</li>
       <li>신고·요청 연락처: <span data-cfg="contactEmail">운영자 이메일(설정 필요)</span></li>
     </ul>
@@ -979,7 +984,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
 <dialog id="report-dlg" aria-labelledby="report-h">
   <form method="dialog" id="report-form">
     <h2 id="report-h">신고하기</h2>
-    <p class="hint" style="margin-bottom:14px">신고는 익명으로 처리됩니다. 서로 다른 신고가 3건 모이면 자동으로 가려집니다.</p>
+    <p class="hint" style="margin-bottom:14px" id="report-intro">신고는 익명으로 처리되며 <b>운영자가 검토합니다. 명확한 사유가 아닌 신고는 반려됩니다.</b></p>
     <div class="seg" id="report-reasons" style="margin-bottom:12px"></div>
     <div class="field"><label for="report-detail" id="report-detail-label">자세한 내용(선택)</label><textarea id="report-detail" maxlength="500" style="min-height:80px"></textarea><p class="hint" id="report-detail-hint" hidden>교회 평가 신고는 <b>어느 부분이 사실과 다른지, 누구의 어떤 권리가 침해되는지</b>를 20자 이상 적어 주세요. 구체적인 사유가 없는 신고는 접수되지 않습니다.</p></div>
     <div class="btn-row"><button class="btn btn-main" value="ok">신고</button><button class="btn btn-line" value="cancel" formnovalidate>취소</button></div>
@@ -1085,7 +1090,7 @@ const KEYS = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B'];
 const KEY_ALIAS = { Db: 'C#', 'D#': 'Eb', Gb: 'F#', 'G#': 'Ab', 'A#': 'Bb', Cb: 'B', Fb: 'E', 'E#': 'F', 'B#': 'C' };
 const REGIONS = ['서울', '경기', '인천', '부산', '대구', '광주', '대전', '울산', '세종', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주', '해외'];
 const DENOMS = ['예장합동', '예장통합', '예장고신', '예장합신', '예장백석', '기감', '기성', '예성', '기침', '기장', '기하성(순복음)', '기타'];
-const REPORT_REASONS = ['명예훼손·권리침해', '개인정보 노출', '욕설·비하', '허위 사실', '광고·도배', '기타'];
+const REPORT_REASONS = ['명예훼손·권리침해', '개인정보 노출', '욕설·비하', '허위 사실', '홍보성 평가 의심', '광고·도배', '기타'];
 const TYPE_LABEL = { review: '교회 평가', post: '대나무숲 글', comment: '댓글', resource: '자료', setlist: '콘티' };
 
 /* ═══════════════════════════ 데이터 계층 ═══════════════════════════
@@ -1124,6 +1129,8 @@ const DemoAPI = {
   async churchStats() { return clusterStats(this.db.reviews.filter(r => r.status === 'published')); },
 
   async reviews(key) { return this.db.reviews.filter(r => r.church_key === key && this.visible(r) && r.status !== 'removed').sort((a, b) => b.created_at.localeCompare(a.created_at)); },
+  async hiddenReviews(key) { return this.db.reviews.filter(r => r.church_key === key && r.status === 'hidden').map(r => ({ id: r.id, region: r.region, denomination: r.denomination, hidden_reason: r.hidden_reason || '운영자가 내용을 확인하고 있습니다', hidden_at: r.hidden_at || r.created_at })); },
+  async recentReviews(n) { return this.db.reviews.filter(r => r.status === 'published').sort((a, b) => b.created_at.localeCompare(a.created_at)).slice(0, n); },
   async createReview(d) {
     this.need();
     const r = { ...d, id: this.nid(), church_key: churchKey(d.church_name), author_id: this.user.id, status: 'pending', report_count: 0, created_at: this.now() };
@@ -1187,7 +1194,7 @@ const DemoAPI = {
     const t = this.db[this.tableOf(type)].find(x => String(x.id) === String(id));
     if (t) {
       t.report_count = this.db.reports.filter(r => r.target_type === type && String(r.target_id) === String(id) && !r.resolved).length;
-      if (t.report_count >= 3 && t.status === 'published') t.status = 'hidden';
+      if (type !== 'review' && t.report_count >= 3 && t.status === 'published') t.status = 'hidden';   // 교회 평가는 운영자 검토
     }
     this.persist();
   },
@@ -1207,9 +1214,9 @@ const DemoAPI = {
     const flagged = [...groups.values()].map(g => ({ ...g, content: this.db[this.tableOf(g.target_type)].find(x => x.id === g.target_id) || null }));
     return { pending, flagged };
   },
-  async moderate(type, id, status) {
+  async moderate(type, id, status, reason) {
     const t = this.db[this.tableOf(type)].find(x => String(x.id) === String(id));
-    if (t) t.status = status;
+    if (t) { t.status = status; if (type === 'review') { t.hidden_reason = status === 'hidden' ? (reason || '운영자가 내용을 확인하고 있습니다') : null; t.hidden_at = status === 'hidden' ? this.now() : null; } }
     this.db.reports.forEach(r => { if (r.target_type === type && String(r.target_id) === String(id)) r.resolved = true; });
     if (type === 'comment' && t) { const p = this.db[this.tableOf(t.target_type)].find(x => x.id === t.target_id); if (p) p.comment_count = this.db.comments.filter(x => x.target_type === t.target_type && x.target_id === t.target_id && x.status === 'published').length; }
     this.persist();
@@ -1248,7 +1255,7 @@ function demoSeed() {
 const LiveAPI = {
   mode: 'live', user: null, sb: null, _admin: null,
   COLS: {
-    reviews: 'id,church_name,church_key,region,denomination,role,period,r_pay,r_workload,r_contract,r_respect,r_leadership,r_growth,recommend,pros,cons,advice,status,created_at',
+    reviews: 'id,church_name,church_key,region,denomination,role,period,r_pay,r_workload,r_contract,r_respect,r_leadership,r_growth,recommend,pros,cons,advice,status,created_at,hidden_reason,hidden_at',
     posts: 'id,category,title,body,anon_name,like_count,comment_count,status,created_at',
     comments: 'id,target_type,target_id,body,anon_name,is_op,status,created_at',
     resources: 'id,category,title,description,link_url,file_path,file_name,file_size,tags,anon_name,like_count,comment_count,status,created_at',
@@ -1284,6 +1291,7 @@ const LiveAPI = {
   async mine() { const s = new Set(); if (!this.user) return s; const rows = this.ok(await this.sb.rpc('my_items')) || []; rows.forEach(r => s.add(r.target_type + ':' + r.target_id)); return s; },
   async churchStats() { return clusterStats(this.ok(await this.sb.from('reviews').select('church_key,church_name,region,denomination,r_pay,r_workload,r_contract,r_respect,r_leadership,r_growth,recommend,status,created_at').eq('status', 'published').order('created_at', { ascending: false }).limit(3000)) || []); },
   async reviews(key) { return this.ok(await this.sb.from('reviews').select(this.COLS.reviews).eq('church_key', key).neq('status', 'removed').order('created_at', { ascending: false }).limit(200)) || []; },
+  async recentReviews(n) { return this.ok(await this.sb.from('reviews').select(this.COLS.reviews).eq('status', 'published').order('created_at', { ascending: false }).limit(n)) || []; },
   async createReview(d) { await this.ensureUser(); const r = this.ok(await this.sb.from('reviews').insert(d).select('id').single()); return r.id; },
   async list(table, { category, sort, q, offset = 0, limit = 20 } = {}) {
     let qb = this.sb.from(table).select(this.COLS[table]).eq('status', 'published');
@@ -1334,7 +1342,8 @@ const LiveAPI = {
   },
   async deleteOwn(type, id) { return !!this.ok(await this.sb.rpc('delete_own', { p_type: type, p_id: Number(id) })); },
   async moderationQueue() { return this.ok(await this.sb.rpc('moderation_queue')); },
-  async moderate(type, id, status) { this.ok(await this.sb.rpc('moderate', { p_type: type, p_id: Number(id), p_status: status })); }
+  async moderate(type, id, status, reason) { this.ok(await this.sb.rpc('moderate', { p_type: type, p_id: Number(id), p_status: status, p_reason: reason || null })); },
+  async hiddenReviews(key) { return this.ok(await this.sb.rpc('hidden_reviews', { p_key: key })) || []; }
 };
 const MIME = { pdf: 'application/pdf', hwp: 'application/x-hwp', hwpx: 'application/vnd.hancom.hwpx', doc: 'application/msword', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', ppt: 'application/vnd.ms-powerpoint', pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', xls: 'application/vnd.ms-excel', xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', txt: 'text/plain', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' };
 
@@ -1577,6 +1586,7 @@ function reviewCard(r) {
       <span class="tag ink">${esc(r.role)}</span><span class="tag">${esc(r.period)}</span>
       ${r.recommend ? '<span class="tag ok">추천</span>' : '<span class="tag no">비추천</span>'}
       ${r.status === 'pending' ? '<span class="tag wait">검수 대기 · 나와 운영자만 보임</span>' : ''}${r.status === 'hidden' ? '<span class="tag wait">가려짐</span>' : ''}</header>
+    ${r.status === 'hidden' ? `<p class="notice warn" style="margin:8px 0">이 평가는 가려져 나와 운영자만 봅니다. 이유: ${esc(r.hidden_reason || '운영자가 내용을 확인하고 있습니다')}${r.hidden_at ? ` (${fmtDate(r.hidden_at)}부터)` : ''}</p>` : ''}
     <div class="rv-scores">${RATINGS.map(([k, l]) => `<span>${l} <b>${r[k]}</b></span>`).join('')}</div>
     <h4>좋았던 점</h4><p>${nl2br(r.pros)}</p>
     <h4>아쉬웠던 점</h4><p>${nl2br(r.cons)}</p>
@@ -1592,6 +1602,10 @@ async function renderChurchReviews(box, name, region, denom) {
   // 같은 이름이라도 지역·교단이 다른 교회의 평가는 뺀다
   const all = await safe(() => API.reviews(key), []) || [];
   const list = all.filter(r => sameChurch(me, idOf(r.region, r.denomination)));
+  // 가려진 평가: 내용 없이 이유만(10/21 「가려졌다면 이유라도 알아야」 요청). 내가 쓴 것은 위 목록에 이미 있음
+  const shown = new Set(list.map(r => r.id));
+  const hidden = ((await safe(() => API.hiddenReviews(key), [])) || []).filter(h => !shown.has(h.id) && sameChurch(me, idOf(h.region, h.denomination)));
+  const hiddenBox = hidden.length ? `<div class="notice" style="margin:14px 0"><b>가려진 평가 ${hidden.length}건</b><br>${hidden.map(h => `· ${esc(h.hidden_reason)}${h.hidden_at ? ` (${fmtDate(h.hidden_at)}부터)` : ''}`).join('<br>')}<br><span class="hint">가려진 평가는 운영자가 확인한 뒤 다시 공개하거나 삭제합니다(최대 30일).</span></div>` : '';
   await stats();
   const clusters = (STATS || []).filter(s => s.church_key === key);
   // 지역·교단을 모르고 들어왔는데 같은 이름의 교회가 여럿이면 모두 보여 주고 고르게 함
@@ -1609,20 +1623,38 @@ async function renderChurchReviews(box, name, region, denom) {
       ${regions.length > 1 ? `<div class="notice warn">이 이름의 평가에 지역이 여러 개(${regions.map(esc).join(', ')}) 있습니다. 같은 이름의 다른 교회일 수 있으니 각 평가의 지역을 확인하세요.</div>` : ''}
       ${a.n < 3 ? `<p class="hint" style="margin-bottom:14px">평가가 ${a.n}건뿐이라 개인 경험에 치우칠 수 있습니다.</p>` : ''}`
       : `<p class="empty" style="padding:20px 0">아직 공개된 평가가 없습니다. 이 교회에서 사역하셨다면 첫 평가를 남겨 주세요.</p>`}
-    ${list.map(reviewCard).join('')}
+    ${hiddenBox}${list.map(reviewCard).join('')}
   </div>`;
 }
 function churchRow(s) {
   return `<li><a class="row-link" href="${churchHref(s.church_name, s.region, s.denomination)}"><div class="row-main"><p class="row-title">${esc(s.church_name)}</p><p class="meta">${s.region ? `<span>${esc(s.region)}</span>` : ''}${s.denomination ? `<span>${esc(s.denomination)}</span>` : ''}<span>평가 ${s.n}건</span><span>추천 ${s.rec_pct}%</span><span>${timeAgo(s.last_at)}</span></p></div><div class="row-side"><span class="stars" style="--v:${s.overall}"></span><b style="font-size:14px">${Number(s.overall).toFixed(1)}</b></div></a></li>`;
 }
+// 교회 평가 화면: 검색하지 않아도 최근 평가와 평가된 교회 전체를 볼 수 있게(10/21 이용자 요청)
+let CHURCH_SHOW = 20;
+const churchArea = s => String(s.region || '').trim().split(/\s+/)[0] || '';
+function renderChurchAll() {
+  const st = STATS || [], area = $('#church-area').value, sort = $('#church-sort').value;
+  const by = { recent: (a, b) => String(b.last_at).localeCompare(String(a.last_at)), many: (a, b) => b.n - a.n || String(b.last_at).localeCompare(String(a.last_at)), score: (a, b) => b.overall - a.overall || b.n - a.n, name: (a, b) => a.church_name.localeCompare(b.church_name, 'ko') }[sort];
+  const list = st.filter(s => !area || churchArea(s) === area).sort(by);
+  $('#church-all-h').textContent = `평가된 교회 전체 (${list.length}곳)`;
+  $('#church-all').innerHTML = list.length ? list.slice(0, CHURCH_SHOW).map(churchRow).join('') : empty('아직 평가가 없습니다.');
+  $('#church-more').hidden = list.length <= CHURCH_SHOW;
+}
+function feedRow(r) {
+  return `<li><a class="row-link" href="${churchHref(r.church_name, r.region, r.denomination)}"><div class="row-main"><p class="row-title">${esc(r.church_name)}</p><p class="row-ex">${esc(r.pros)}</p><p class="meta">${r.region ? `<span>${esc(r.region)}</span>` : ''}<span>${esc(r.role)}</span><span>${r.recommend ? '추천' : '비추천'}</span><span>${timeAgo(r.created_at)}</span></p></div><div class="row-side"><span class="stars" style="--v:${reviewOverall(r)}"></span><b style="font-size:14px">${reviewOverall(r).toFixed(1)}</b></div></a></li>`;
+}
 HOOKS['pg-churches'] = async () => {
-  $('#church-recent').innerHTML = loading(); $('#church-top').innerHTML = loading();
-  const st = await stats(true);
-  const recent = [...st].sort((a, b) => String(b.last_at).localeCompare(String(a.last_at))).slice(0, 10);
-  const top = [...st].sort((a, b) => b.n - a.n).slice(0, 10);
-  $('#church-recent').innerHTML = recent.length ? recent.map(churchRow).join('') : empty('아직 평가가 없습니다.');
-  $('#church-top').innerHTML = top.length ? top.map(churchRow).join('') : empty('아직 평가가 없습니다.');
+  $('#church-all').innerHTML = loading(); $('#church-feed').innerHTML = loading();
+  const [st, feed] = await Promise.all([stats(true), safe(() => API.recentReviews(5), [])]);
+  $('#church-feed').innerHTML = (feed || []).length ? feed.map(feedRow).join('') : empty('아직 평가가 없습니다.');
+  const areas = [...new Set(st.map(churchArea).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ko'));
+  const cur = $('#church-area').value;
+  $('#church-area').innerHTML = '<option value="">지역 전체</option>' + areas.map(a => `<option${a === cur ? ' selected' : ''}>${esc(a)}</option>`).join('');
+  CHURCH_SHOW = 20; renderChurchAll();
 };
+$('#church-sort').addEventListener('change', () => { CHURCH_SHOW = 20; renderChurchAll(); });
+$('#church-area').addEventListener('change', () => { CHURCH_SHOW = 20; renderChurchAll(); });
+$('#church-more').addEventListener('click', () => { CHURCH_SHOW += 20; renderChurchAll(); });
 HOOKS['pg-church'] = async ({ name, region, denom }) => {
   const box = $('#church-detail');
   if (!name) { box.innerHTML = '<p class="empty">교회 이름이 없습니다.</p>'; return; }
@@ -1731,6 +1763,7 @@ document.addEventListener('click', async e => {
     const isRv = type === 'review';
     $('#report-detail-label').textContent = isRv ? '구체적인 사유(필수, 20자 이상)' : '자세한 내용(선택)';
     $('#report-detail-hint').hidden = !isRv;
+    $('#report-intro').innerHTML = '신고는 익명으로 처리되며 <b>운영자가 검토합니다. 명확한 사유가 아닌 신고는 반려됩니다.</b>' + (isRv ? ' 교회 평가는 신고만으로 가려지지 않습니다.' : ' 서로 다른 신고가 3건 모이면 운영자 확인 전까지 먼저 가려집니다.');
     $('#report-detail').placeholder = isRv ? '예: 「담임목사가 사례비를 미지급」은 사실이 아닙니다. 계약서상 매월 정상 지급했습니다.' : '';
     $$('#report-reasons input').forEach(i => { i.checked = false; });
     $('#report-dlg').showModal();
@@ -2151,7 +2184,7 @@ function modContent(type, c) {
   if (type === 'setlist') return `<p><b>${esc(c.title)}</b></p><pre>${esc((c.songs || []).map(s => s.title).join('\n'))}${c.note ? '\n\n' + esc(c.note) : ''}</pre>`;
   return `${c.title ? `<p><b>${esc(c.title)}</b></p>` : ''}<pre>${esc(c.body || c.description || '')}</pre>`;
 }
-const modBtns = (type, id) => `<div class="btn-row"><button class="btn btn-main btn-sm" data-mod="published" data-type="${type}" data-id="${id}">공개</button><button class="btn btn-line btn-sm" data-mod="hidden" data-type="${type}" data-id="${id}">가림(임시조치)</button><button class="btn btn-danger btn-sm" data-mod="${type === 'review' ? 'rejected' : 'removed'}" data-type="${type}" data-id="${id}">${type === 'review' ? '반려' : '삭제'}</button></div>`;
+const modBtns = (type, id, flagged) => `<div class="btn-row"><button class="btn btn-main btn-sm" data-mod="published" data-type="${type}" data-id="${id}">${flagged ? '신고 반려(공개 유지)' : '공개'}</button><button class="btn btn-line btn-sm" data-mod="hidden" data-type="${type}" data-id="${id}">가림(임시조치)</button><button class="btn btn-danger btn-sm" data-mod="${type === 'review' ? 'rejected' : 'removed'}" data-type="${type}" data-id="${id}">${type === 'review' ? '반려' : '삭제'}</button></div>`;
 HOOKS['pg-admin'] = async () => {
   const box = $('#admin-body');
   if (!API.user) { box.innerHTML = `<p class="empty"><a href="${href('pg-login', { next: 'pg-admin' })}">로그인</a>이 필요합니다.</p>`; return; }
@@ -2163,13 +2196,19 @@ HOOKS['pg-admin'] = async () => {
     ${pending.length ? pending.map(r => `<div class="mod-item"><p class="meta"><span class="tag wait">검수 대기</span><span>${fmtDate(r.created_at)}</span></p>${modContent('review', r)}${modBtns('review', r.id)}</div>`).join('') : '<p class="empty">대기 중인 평가가 없습니다.</p>'}
     <div class="sec-head" style="margin-top:36px"><h2>신고된 글 (${flagged.length})</h2></div>
     ${flagged.length ? flagged.map(f => `<div class="mod-item"><p class="meta"><span class="tag no">${esc(TYPE_LABEL[f.target_type] || f.target_type)}</span><span>신고 ${f.reports.length}건</span>${f.content ? `<span class="tag ${f.content.status === 'published' ? 'ok' : 'wait'}">현재: ${esc(f.content.status)}</span>` : ''}</p>
-        <div class="reports">${f.reports.map(r => `· ${esc(r.reason)}${r.detail ? ' — ' + esc(r.detail) : ''}`).join('<br>')}</div>${modContent(f.target_type, f.content)}${modBtns(f.target_type, f.target_id)}</div>`).join('') : '<p class="empty">처리할 신고가 없습니다.</p>'}
+        <div class="reports">${f.reports.map(r => `· ${esc(r.reason)}${r.detail ? ' — ' + esc(r.detail) : ''}`).join('<br>')}</div>${modContent(f.target_type, f.content)}${modBtns(f.target_type, f.target_id, true)}</div>`).join('') : '<p class="empty">처리할 신고가 없습니다.</p>'}
     <div class="notice" style="margin-top:28px"><h3>권리침해 신고(임시조치) 처리 순서</h3>① 요청 메일 확인(글 주소·침해 내용·요청인) → ② 「가림」으로 임시조치(최대 30일) → ③ 작성자에게 소명 기회(사이트 공지 또는 메일) → ④ 공개 또는 삭제 결정 → ⑤ 처리 결과를 요청인에게 회신. 기록은 docs/운영가이드.md의 처리 대장에 남깁니다.</div>`;
 };
 document.addEventListener('click', async e => {
   const b = e.target.closest('[data-mod]'); if (!b) return;
+  let reason = null;
+  if (b.dataset.mod === 'hidden' && b.dataset.type === 'review') {
+    // 교회 평가를 가리면 이 이유가 교회 페이지에 공개됨(내용은 비공개)
+    reason = prompt('가리는 이유(교회 페이지에 공개됩니다)', '권리침해 신고가 접수되어 운영자가 확인하고 있습니다');
+    if (reason === null) return;
+  }
   b.disabled = true;
-  const ok = await safe(() => API.moderate(b.dataset.type, b.dataset.id, b.dataset.mod).then(() => true), false);
+  const ok = await safe(() => API.moderate(b.dataset.type, b.dataset.id, b.dataset.mod, reason).then(() => true), false);
   if (ok) { toast('처리했습니다.'); STATS = null; HOOKS['pg-admin'](); } else b.disabled = false;
 });
 

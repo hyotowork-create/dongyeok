@@ -195,3 +195,30 @@ console.log('\n모든 점검 통과');
   ok('같은 접속: 글·댓글은 제한 없음, 교회 평가 신고만 30분에 한 번, IP 원문 미저장·API로 못 읽음');
 }
 
+
+// 교회 평가: 신고가 쌓여도 자동으로 가리지 않음(운영자 검토), 운영자가 가리면 이유가 공개(내용은 비공개), 다시 공개하면 이유 지움
+{
+  await db.exec(`reset role; delete from reports where target_type = 'review'; delete from write_guard`);
+  const [rv] = await as(U1, `insert into reviews (church_name, region, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership, r_growth, recommend, pros, cons, attested)
+    values ('투명교회','서울','부목사','최근 2년 이내',3,3,3,3,3,3,true,'좋았던 점 열 글자 이상','아쉬운 점 열 글자 이상',true) returning id, church_key`);
+  await as(AD, `select moderate('review', $1, 'published')`, [rv.id]);
+  const why = '평가의 사례비 미지급 내용은 사실과 다르며 계약서대로 매월 지급했습니다';
+  for (const [i, u] of [U2, U3, U4].entries()) {
+    await db.query(`select set_config('request.headers', $1, false)`, [JSON.stringify({ 'x-forwarded-for': `7.7.7.${i}`, 'user-agent': 'UA' })]);
+    await as(u, `insert into reports (target_type, target_id, reason, detail) values ('review', ${rv.id}, '홍보성 평가 의심', '${why}')`);
+  }
+  await db.query(`select set_config('request.headers', '', false)`);
+  await db.exec(`reset role`);
+  let r = (await db.query(`select status, report_count from reviews where id = $1`, [rv.id])).rows[0];
+  assert.equal(r.status, 'published'); assert.equal(r.report_count, 3);
+  await as(AD, `select moderate('review', $1, 'hidden', '권리침해 신고가 접수되어 확인 중입니다')`, [rv.id]);
+  const stub = await as(null, `select * from hidden_reviews($1)`, [rv.church_key]);
+  assert.equal(stub.length, 1); assert.equal(stub[0].hidden_reason, '권리침해 신고가 접수되어 확인 중입니다'); assert.ok(!('pros' in stub[0]));
+  assert.equal((await as(null, `select id from reviews where id = $1`, [rv.id])).length, 0);
+  await as(AD, `select moderate('review', $1, 'published')`, [rv.id]);
+  await db.exec(`reset role`);
+  r = (await db.query(`select status, hidden_reason from reviews where id = $1`, [rv.id])).rows[0];
+  assert.equal(r.status, 'published'); assert.equal(r.hidden_reason, null);
+  assert.equal((await as(null, `select * from hidden_reviews($1)`, [rv.church_key])).length, 0);
+  ok('교회 평가: 신고 3건에도 자동 가림 없음, 운영자 가림 이유만 공개, 다시 공개하면 이유 지움, 「홍보성 평가 의심」 사유');
+}

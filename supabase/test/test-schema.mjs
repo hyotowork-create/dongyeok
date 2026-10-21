@@ -222,3 +222,17 @@ console.log('\n모든 점검 통과');
   assert.equal((await as(null, `select * from hidden_reviews($1)`, [rv.church_key])).length, 0);
   ok('교회 평가: 신고 3건에도 자동 가림 없음, 운영자 가림 이유만 공개, 다시 공개하면 이유 지움, 「홍보성 평가 의심」 사유');
 }
+
+// 교회 측 답변: 운영자만 게시, 누구나 읽음, 빈 글이면 지움
+{
+  const [rv] = (await db.query(`select id from reviews where church_name = '투명교회'`)).rows;
+  await fails(as(U2, `select set_church_reply($1, '교회 측 답변입니다', '담임목사')`, [rv.id]), /관리자/);
+  await fails(as(U2, `update reviews set church_reply = 'x' where id = $1`, [rv.id]), /permission denied/);
+  await as(AD, `select set_church_reply($1, '말씀해 주신 부분을 무겁게 받습니다. 사례비는 이후 계약서대로 지급하고 있습니다.', '담임목사')`, [rv.id]);
+  let [r] = await as(null, `select church_reply, church_reply_by, church_reply_at from reviews where id = $1`, [rv.id]);
+  assert.match(r.church_reply, /무겁게/); assert.equal(r.church_reply_by, '담임목사'); assert.ok(r.church_reply_at);
+  await as(AD, `select set_church_reply($1, '  ')`, [rv.id]);
+  [r] = await as(null, `select church_reply, church_reply_by from reviews where id = $1`, [rv.id]);
+  assert.equal(r.church_reply, null); assert.equal(r.church_reply_by, null);
+  ok('교회 측 답변: 운영자만 게시·삭제, 공개 읽기, 이용자 직접 수정 불가');
+}

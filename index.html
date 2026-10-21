@@ -438,7 +438,10 @@ dialog::backdrop{background:rgba(8,10,28,.55)}
 dialog form{padding:26px}
 dialog h2{font-size:20px;margin-bottom:6px}
 .song-list .listen{margin-left:6px;font-size:12.5px;font-weight:600;color:var(--indigo);text-decoration:none;white-space:nowrap}
-#sermon-dlg{max-height:calc(100svh - 32px);overflow:auto}
+#sermon-dlg,#update-dlg,#creply-dlg{max-height:calc(100svh - 32px);overflow:auto}
+.church-reply{margin:12px 0 4px;padding:12px 14px;border-left:3px solid var(--gold);background:rgba(255,194,75,.08);border-radius:8px}
+.church-reply h4{margin-top:0}
+#update-dlg ol{padding-left:20px;margin:8px 0}#update-dlg li{margin-bottom:8px}
 #sermon-dlg h2 .tag{font-size:12px;vertical-align:middle}
 .hero-cta button.is-soon{font:inherit;color:inherit;cursor:pointer}
 
@@ -642,6 +645,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
     <div id="church-search-res"></div>
     <div class="sec-head" style="margin-top:28px"><h2>최근 올라온 평가</h2></div>
     <ul class="list box" id="church-feed"></ul>
+    <div class="more-wrap"><button class="btn btn-line" id="church-feed-all" type="button" hidden>평가 전체 보기</button></div>
     <div class="sec-head" style="margin-top:28px"><h2 id="church-all-h">평가된 교회 전체</h2></div>
     <div class="toolbar">
       <select id="church-sort" aria-label="정렬"><option value="recent">최근 평가순</option><option value="many">평가 많은 순</option><option value="score">점수 높은 순</option><option value="name">가나다순</option></select>
@@ -898,6 +902,16 @@ dialog h2{font-size:20px;margin-bottom:6px}
       <li>신고·요청 연락처: <span data-cfg="contactEmail">운영자 이메일(설정 필요)</span></li>
     </ul>
 
+    <h2 id="for-church">교회 관계자분께</h2>
+    <p>평가로 마음이 상하셨을 수 있다는 점, 운영자로서 무겁게 받습니다. 동역의 교회 평가가 어떻게 운영되는지와 교회가 하실 수 있는 일을 정중히 안내드립니다.</p>
+    <ul>
+      <li><b>평가의 성격</b>: 그 교회에서 사역한 교역자가 자신의 경험을 바탕으로 쓴 의견이며, 운영자가 검수한 뒤 공개합니다. 사실을 단정하거나 특정인을 비방하는 글은 공개하지 않습니다.</li>
+      <li><b>설명·해명은 「교회 측 답변」으로</b>: 평가 아래 「교회 관계자 답변」을 누르면 답변 보내는 방법이 나옵니다. 운영자가 교회의 공개 대표 전화번호로 관계자를 확인한 뒤 평가 바로 아래에 함께 게시합니다. 교회를 대표해 책임 있게 답하실 수 있도록 <b>되도록 담임목사님께서 직접 작성해 주시기를 권합니다.</b></li>
+      <li><b>권리침해는 임시조치 요청으로</b>: 명예훼손·개인정보 노출처럼 권리를 침해하는 내용은 위 「6. 신고와 임시조치」의 연락처로 해당 글 주소, 침해 내용, 요청인 연락처를 보내 주세요. 확인 후 최대 30일간 가리고 작성자에게 소명 기회를 드린 뒤 결정합니다.</li>
+      <li><b>신고는 운영자가 검토합니다</b>: 교회 평가는 신고 건수만으로 가려지지 않습니다. 같은 취지의 신고를 여러 번 하시기보다 어떤 부분이 왜 사실과 다른지 구체적으로 한 번 적어 주시는 것이 가장 빠릅니다. 사유가 분명하지 않은 신고는 반려됩니다.</li>
+      <li><b>작성자 정보는 드릴 수 없습니다</b>: 동역은 이용자의 개인정보를 받지 않으며, 운영자도 작성자가 누구인지 알 수 없습니다. 작성자를 추정하거나 불이익을 주는 일은 삼가 주시기를 부탁드립니다.</li>
+    </ul>
+
     <h2>7. 이용 제한</h2>
     <p>원칙을 반복해서 어기거나 도배·광고·타인 사칭을 하면 글쓰기를 제한할 수 있습니다. 같은 사람이 1분에 5건 넘게 올리면 잠시 막힙니다(도배 방지).</p>
   </div>
@@ -988,6 +1002,45 @@ dialog h2{font-size:20px;margin-bottom:6px}
     <div class="seg" id="report-reasons" style="margin-bottom:12px"></div>
     <div class="field"><label for="report-detail" id="report-detail-label">자세한 내용(선택)</label><textarea id="report-detail" maxlength="500" style="min-height:80px"></textarea><p class="hint" id="report-detail-hint" hidden>교회 평가 신고는 <b>어느 부분이 사실과 다른지, 누구의 어떤 권리가 침해되는지</b>를 20자 이상 적어 주세요. 구체적인 사유가 없는 신고는 접수되지 않습니다.</p></div>
     <div class="btn-row"><button class="btn btn-main" value="ok">신고</button><button class="btn btn-line" value="cancel" formnovalidate>취소</button></div>
+  </form>
+</dialog>
+<dialog id="creply-dlg" aria-labelledby="creply-h">
+  <form method="dialog">
+    <h2 id="creply-h">교회 측 답변 보내기</h2>
+    <p style="margin-bottom:10px">이 평가에 대해 교회가 설명하거나 해명할 내용이 있으면 답변을 보내 주세요. 운영자가 교회 관계자임을 확인한 뒤 <b>평가 바로 아래에 함께 게시</b>합니다. 평가 내용을 삭제하지는 않습니다.</p>
+    <ol style="padding-left:20px;margin-bottom:10px">
+      <li><b>되도록 담임목사님께서 직접 작성해 주시기를 권합니다.</b> 교회를 대표해 책임 있게 답하실 수 있고, 사칭을 막을 수 있기 때문입니다. 다른 분이 쓰시면 담임목사님 확인을 받아 주세요.</li>
+      <li>운영자가 교회의 <b>공개 대표 전화번호</b>로 연락해 담임목사님(또는 교회가 정한 대표자)께 확인한 뒤 게시합니다.</li>
+      <li>답변은 2,000자 이내로, 평가자가 누구인지 추정하는 내용·비방·개인정보는 빼 주세요. 이런 내용이 있으면 고쳐 달라고 요청드립니다.</li>
+      <li>평가 1건에 답변 1건을 게시하며, 고칠 내용이 있으면 다시 보내 주시면 됩니다.</li>
+    </ol>
+    <p class="hint" style="margin-bottom:12px">명예훼손·개인정보 노출 등 권리침해는 이용 안내 「교회 관계자분께」의 임시조치 요청 절차를 따라 주세요.</p>
+    <div class="btn-row"><a class="btn btn-main" id="creply-mail" href="#">메일로 답변 보내기</a><a class="btn btn-line" href="#pg-guide" id="creply-guide">교회 관계자 안내</a><button class="btn btn-line" value="close">닫기</button></div>
+  </form>
+</dialog>
+<dialog id="creply-admin-dlg" aria-labelledby="creply-admin-h">
+  <form method="dialog" id="creply-admin-form">
+    <h2 id="creply-admin-h">교회 측 답변 입력(운영자)</h2>
+    <p class="hint" style="margin-bottom:10px">관계자 확인(교회 공개 대표번호로 연락)을 마친 답변만 그대로 옮겨 주세요. 비우고 저장하면 답변을 내립니다.</p>
+    <div class="field"><label for="creply-by">작성자 직분</label><input id="creply-by" maxlength="30" value="담임목사"></div>
+    <div class="field"><label for="creply-text">답변</label><textarea id="creply-text" maxlength="2000" style="min-height:140px"></textarea></div>
+    <div class="btn-row"><button class="btn btn-main" value="ok">저장</button><button class="btn btn-line" value="cancel" formnovalidate>취소</button></div>
+  </form>
+</dialog>
+<dialog id="update-dlg" aria-labelledby="update-h">
+  <form method="dialog">
+    <h2 id="update-h">교회 평가 운영 방식이 바뀌었습니다</h2>
+    <p class="hint" style="margin-bottom:10px">2026년 10월 21일</p>
+    <p>동역을 아껴 주시고 소중한 의견을 남겨 주신 모든 분께 감사드립니다. 보내 주신 의견을 바탕으로 교회 평가 운영을 다음과 같이 바꿨습니다.</p>
+    <ol>
+      <li><b>교회 평가는 신고만으로 가려지지 않습니다.</b><br>그동안은 신고가 3건 모이면 자동으로 가려져, 몇 건의 신고가 몰리면 정당한 경험담도 가려질 수 있었습니다. 이제 모든 신고는 운영자가 직접 검토하며, <b>명확한 사유가 없는 신고는 반려</b>합니다.</li>
+      <li><b>가려진 평가는 그 이유를 알려 드립니다.</b><br>「가려졌다면 이유라도 알고 싶다」는 의견이 있었습니다. 평가 내용은 보호하되, 가린 이유와 날짜를 교회 페이지에 표시합니다. 지금까지 가려졌던 평가 2건은 새 기준에 따라 다시 공개했습니다.</li>
+      <li><b>교회도 설명하고 해명할 수 있습니다.</b><br>평가가 한쪽의 이야기로만 남지 않도록, 교회가 공식 연락처로 답변을 보내면 운영자가 관계자를 확인한 뒤 평가 아래에 함께 게시합니다. 교회를 대표해 책임 있게 답하실 수 있도록 <b>담임목사님의 직접 작성을 권합니다.</b></li>
+      <li><b>검색하지 않아도 평가를 볼 수 있습니다.</b><br>교회 평가 화면에서 최근 평가 10건과 평가된 교회 전체 목록을 바로 볼 수 있습니다.</li>
+      <li><b>신고 사유에 「홍보성 평가 의심」을 더했습니다.</b><br>지나치게 후한 평가가 올라올 수 있다는 우려를 반영했습니다.</li>
+    </ol>
+    <p>동역은 부교역자와 교회가 서로를 더 정직하게 알고 건강하게 만나도록 돕는 곳이 되고자 합니다. 평가를 쓰실 때는 경험한 사실을 차분하게, 답변하실 때는 설명과 해명 중심으로 남겨 주시기를 부탁드립니다.</p>
+    <div class="btn-row" style="margin-top:14px"><button class="btn btn-main" value="ok">확인했습니다</button><a class="btn btn-line" href="#pg-guide" id="update-guide">교회 관계자 안내</a></div>
   </form>
 </dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1130,6 +1183,7 @@ const DemoAPI = {
 
   async reviews(key) { return this.db.reviews.filter(r => r.church_key === key && this.visible(r) && r.status !== 'removed').sort((a, b) => b.created_at.localeCompare(a.created_at)); },
   async hiddenReviews(key) { return this.db.reviews.filter(r => r.church_key === key && r.status === 'hidden').map(r => ({ id: r.id, region: r.region, denomination: r.denomination, hidden_reason: r.hidden_reason || '운영자가 내용을 확인하고 있습니다', hidden_at: r.hidden_at || r.created_at })); },
+  async setChurchReply(id, text, by) { const r = this.db.reviews.find(x => String(x.id) === String(id)); const t = (text || '').trim(); if (r) Object.assign(r, { church_reply: t || null, church_reply_by: t ? (by || '교회 대표') : null, church_reply_at: t ? this.now() : null }); this.persist(); },
   async recentReviews(n) { return this.db.reviews.filter(r => r.status === 'published').sort((a, b) => b.created_at.localeCompare(a.created_at)).slice(0, n); },
   async createReview(d) {
     this.need();
@@ -1255,7 +1309,7 @@ function demoSeed() {
 const LiveAPI = {
   mode: 'live', user: null, sb: null, _admin: null,
   COLS: {
-    reviews: 'id,church_name,church_key,region,denomination,role,period,r_pay,r_workload,r_contract,r_respect,r_leadership,r_growth,recommend,pros,cons,advice,status,created_at,hidden_reason,hidden_at',
+    reviews: 'id,church_name,church_key,region,denomination,role,period,r_pay,r_workload,r_contract,r_respect,r_leadership,r_growth,recommend,pros,cons,advice,status,created_at,hidden_reason,hidden_at,church_reply,church_reply_by,church_reply_at',
     posts: 'id,category,title,body,anon_name,like_count,comment_count,status,created_at',
     comments: 'id,target_type,target_id,body,anon_name,is_op,status,created_at',
     resources: 'id,category,title,description,link_url,file_path,file_name,file_size,tags,anon_name,like_count,comment_count,status,created_at',
@@ -1343,11 +1397,13 @@ const LiveAPI = {
   async deleteOwn(type, id) { return !!this.ok(await this.sb.rpc('delete_own', { p_type: type, p_id: Number(id) })); },
   async moderationQueue() { return this.ok(await this.sb.rpc('moderation_queue')); },
   async moderate(type, id, status, reason) { this.ok(await this.sb.rpc('moderate', { p_type: type, p_id: Number(id), p_status: status, p_reason: reason || null })); },
-  async hiddenReviews(key) { return this.ok(await this.sb.rpc('hidden_reviews', { p_key: key })) || []; }
+  async hiddenReviews(key) { return this.ok(await this.sb.rpc('hidden_reviews', { p_key: key })) || []; },
+  async setChurchReply(id, text, by) { this.ok(await this.sb.rpc('set_church_reply', { p_id: Number(id), p_text: text, p_by: by })); }
 };
 const MIME = { pdf: 'application/pdf', hwp: 'application/x-hwp', hwpx: 'application/vnd.hancom.hwpx', doc: 'application/msword', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', ppt: 'application/vnd.ms-powerpoint', pptx: 'application/vnd.openxmlformats-officedocument.presentationml.presentation', xls: 'application/vnd.ms-excel', xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', txt: 'text/plain', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png' };
 
 const API = (C.supabaseUrl && C.supabaseAnonKey) ? LiveAPI : DemoAPI;
+let IS_ADMIN = false;   // 교회 측 답변 입력 버튼 표시용(실제 권한은 DB가 확인)
 let MINE = new Set();
 let STATS = null;   // 교회별 평가 요약(캐시)
 async function stats(force) { if (!STATS || force) STATS = await safe(() => API.churchStats(), []) || []; return STATS; }
@@ -1591,8 +1647,11 @@ function reviewCard(r) {
     <h4>좋았던 점</h4><p>${nl2br(r.pros)}</p>
     <h4>아쉬웠던 점</h4><p>${nl2br(r.cons)}</p>
     ${r.advice ? `<h4>후임자에게 한마디</h4><p>${nl2br(r.advice)}</p>` : ''}
+    ${r.church_reply ? `<div class="church-reply"><h4>교회 측 답변 <span class="tag">${esc(r.church_reply_by || '교회 대표')} · 운영자 확인</span></h4><p>${nl2br(r.church_reply)}</p><p class="hint">${fmtDate(r.church_reply_at)} 게시 · 교회가 공식 연락처로 보낸 답변을 운영자가 관계자 확인 후 그대로 옮겼습니다.</p></div>` : ''}
     <footer><span>${fmtDate(r.created_at)}</span>${r.region ? `<span>· ${esc(r.region)}</span>` : ''}${r.denomination ? `<span>· ${esc(r.denomination)}</span>` : ''}<span class="sp"></span>
       ${mine ? `<button class="txt-btn" data-act="del" data-type="review" data-id="${r.id}">삭제</button>` : ''}
+      ${r.status === 'published' ? `<button class="txt-btn" data-creply="${r.id}" data-church="${esc(r.church_name)}">교회 관계자 답변</button>` : ''}
+      ${IS_ADMIN && r.status === 'published' ? `<button class="txt-btn" data-creply-admin="${r.id}">답변 입력(운영)</button>` : ''}
       <button class="txt-btn" data-act="report" data-type="review" data-id="${r.id}">신고</button></footer>
   </article>`;
 }
@@ -1645,8 +1704,9 @@ function feedRow(r) {
 }
 HOOKS['pg-churches'] = async () => {
   $('#church-all').innerHTML = loading(); $('#church-feed').innerHTML = loading();
-  const [st, feed] = await Promise.all([stats(true), safe(() => API.recentReviews(5), [])]);
-  $('#church-feed').innerHTML = (feed || []).length ? feed.map(feedRow).join('') : empty('아직 평가가 없습니다.');
+  const [st, feed] = await Promise.all([stats(true), safe(() => API.recentReviews(11), [])]);
+  $('#church-feed').innerHTML = (feed || []).length ? feed.slice(0, 10).map(feedRow).join('') : empty('아직 평가가 없습니다.');
+  $('#church-feed-all').hidden = (feed || []).length <= 10;
   const areas = [...new Set(st.map(churchArea).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ko'));
   const cur = $('#church-area').value;
   $('#church-area').innerHTML = '<option value="">지역 전체</option>' + areas.map(a => `<option${a === cur ? ' selected' : ''}>${esc(a)}</option>`).join('');
@@ -1655,6 +1715,40 @@ HOOKS['pg-churches'] = async () => {
 $('#church-sort').addEventListener('change', () => { CHURCH_SHOW = 20; renderChurchAll(); });
 $('#church-area').addEventListener('change', () => { CHURCH_SHOW = 20; renderChurchAll(); });
 $('#church-more').addEventListener('click', () => { CHURCH_SHOW += 20; renderChurchAll(); });
+$('#church-feed-all').addEventListener('click', async e => {
+  e.target.disabled = true;
+  const all = await safe(() => API.recentReviews(1000), []) || [];
+  $('#church-feed').innerHTML = all.map(feedRow).join('');
+  e.target.hidden = true; e.target.disabled = false;
+});
+// 교회 측 답변: 안내(누구나) · 입력(운영자)
+let creplyId = null;
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-creply]');
+  if (a) {
+    const id = a.dataset.creply, church = a.dataset.church || '';
+    const to = C.contactEmail || '';
+    const subject = `[동역] 교회 측 답변 — ${church} 평가 #${id}`;
+    const body = `교회명: ${church}\n평가 번호: #${id}\n평가 주소: ${location.href}\n교회 공개 대표 전화번호(관계자 확인용):\n작성자 직분·성함(담임목사님 작성 권고):\n\n답변 내용(2,000자 이내, 평가자 추정·비방·개인정보 제외):\n`;
+    $('#creply-mail').href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    $('#creply-dlg').showModal(); return;
+  }
+  const b = e.target.closest('[data-creply-admin]');
+  if (b) { creplyId = b.dataset.creplyAdmin; $('#creply-text').value = ''; $('#creply-by').value = '담임목사'; $('#creply-admin-dlg').showModal(); }
+});
+$('#creply-guide').addEventListener('click', () => { $('#creply-dlg').close(); setTimeout(() => $('#for-church')?.scrollIntoView(), 300); });
+$('#creply-admin-dlg').addEventListener('close', async () => {
+  if ($('#creply-admin-dlg').returnValue !== 'ok' || !creplyId) return;
+  const ok = await safe(() => API.setChurchReply(creplyId, $('#creply-text').value, $('#creply-by').value).then(() => true), false);
+  creplyId = null;
+  if (ok) { toast('교회 측 답변을 저장했습니다.'); routeFromHash(); }
+});
+// 운영 방식 변경 안내(브라우저마다 한 번, 11월 20일까지)
+if (Date.now() < Date.parse('2026-11-20') && !store.get('dy.notice1021', false)) {
+  setTimeout(() => { const d = $('#update-dlg'); if (d && !document.querySelector('dialog[open]')) d.showModal(); }, 1200);
+}
+$('#update-dlg').addEventListener('close', () => store.set('dy.notice1021', true));
+$('#update-guide').addEventListener('click', () => { store.set('dy.notice1021', true); $('#update-dlg').close(); setTimeout(() => $('#for-church')?.scrollIntoView(), 300); });
 HOOKS['pg-church'] = async ({ name, region, denom }) => {
   const box = $('#church-detail');
   if (!name) { box.innerHTML = '<p class="empty">교회 이름이 없습니다.</p>'; return; }
@@ -2174,6 +2268,7 @@ async function refreshAuth() {
   $('#who').textContent = real ? maskEmail(u.email) : '';
   const admin = u ? await safe(() => API.isAdmin(), false) : false;
   $$('.admin-only').forEach(el => { el.hidden = !admin; });
+  IS_ADMIN = admin;
   MINE = u ? (await safe(() => API.mine(), new Set()) || new Set()) : new Set();
 }
 

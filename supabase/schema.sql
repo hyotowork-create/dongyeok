@@ -77,6 +77,10 @@ create table if not exists public.reviews (
 -- 가려진 이유(공개 화면에 내용 없이 이유만 보임, 10/21 이용자 요청)
 alter table public.reviews add column if not exists hidden_reason text check (char_length(hidden_reason) <= 200);
 alter table public.reviews add column if not exists hidden_at timestamptz;
+-- 교회 측 답변(교회가 공식 연락처로 보내고 운영자가 관계자 확인 뒤 게시. 담임목사 작성 권고, 10/21)
+alter table public.reviews add column if not exists church_reply text check (char_length(church_reply) <= 2000);
+alter table public.reviews add column if not exists church_reply_by text check (char_length(church_reply_by) <= 30);
+alter table public.reviews add column if not exists church_reply_at timestamptz;
 create index if not exists reviews_church_idx on public.reviews (church_key, status);
 create index if not exists reviews_status_idx on public.reviews (status, created_at desc);
 
@@ -426,6 +430,22 @@ begin
   insert into public.moderation_log (admin_id, target_type, target_id, new_status) values (auth.uid(), p_type, p_id, p_status);
 end $$;
 
+-- 교회 측 답변 게시·수정·삭제(운영자만). 빈 글이면 지움. 처리 기록을 남김
+create or replace function public.set_church_reply(p_id bigint, p_text text, p_by text default '담임목사') returns void
+language plpgsql security definer set search_path = public as $$
+begin
+  if not public.is_admin() then raise exception '관리자만 할 수 있습니다'; end if;
+  update public.reviews set
+    church_reply = nullif(btrim(p_text), ''),
+    church_reply_by = case when nullif(btrim(p_text), '') is null then null else left(coalesce(nullif(btrim(p_by), ''), '교회 대표'), 30) end,
+    church_reply_at = case when nullif(btrim(p_text), '') is null then null else now() end
+  where id = p_id;
+  if not found then raise exception '평가를 찾을 수 없습니다'; end if;
+  insert into public.moderation_log (admin_id, target_type, target_id, new_status) values (auth.uid(), 'review', p_id, case when nullif(btrim(p_text), '') is null then 'church_reply_removed' else 'church_reply' end);
+end $$;
+revoke execute on function public.set_church_reply(bigint, text, text) from public, anon;
+grant execute on function public.set_church_reply(bigint, text, text) to authenticated;
+
 -- 가려진 교회 평가: 내용 없이 지역·교단·가린 이유·날짜만 공개(누구나)
 create or replace function public.hidden_reviews(p_key text) returns table (id bigint, region text, denomination text, hidden_reason text, hidden_at timestamptz)
 language sql stable security definer set search_path = public as $$
@@ -468,7 +488,7 @@ revoke all on public.reviews, public.posts, public.comments, public.resources, p
               public.reactions, public.reports, public.moderation_log from anon, authenticated;
 
 grant select (id, church_name, church_key, region, denomination, role, period, r_pay, r_workload, r_contract, r_respect,
-              r_leadership, r_growth, recommend, pros, cons, advice, status, created_at, hidden_reason, hidden_at) on public.reviews to anon, authenticated;
+              r_leadership, r_growth, recommend, pros, cons, advice, status, created_at, hidden_reason, hidden_at, church_reply, church_reply_by, church_reply_at) on public.reviews to anon, authenticated;
 grant insert (church_name, region, denomination, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership,
               r_growth, recommend, pros, cons, advice, attested) on public.reviews to authenticated;
 

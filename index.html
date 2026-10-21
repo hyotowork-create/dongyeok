@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <!-- 보안 정책: 정해 둔 곳의 스크립트·글꼴·사진만 불러오고, 데이터는 Supabase·통계로만 보냄 -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https://images.unsplash.com https://*.supabase.co https://*.goatcounter.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.goatcounter.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://gc.zgo.at; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net data:; img-src 'self' data: blob: https://images.unsplash.com https://*.supabase.co https://*.goatcounter.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://*.goatcounter.com https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>동역 | 부교역자 청빙 정보·교회 평가·예배 도구·익명 나눔</title>
 <meta name="description" content="신학교·기독교 사이트의 부교역자 청빙 공고를 한곳에서 보고, 그 교회에서 사역했던 교역자들의 평가를 함께 확인하세요. 예배 도구, 설교·신학 자료, 익명 대나무숲까지.">
@@ -439,9 +439,13 @@ dialog form{padding:26px}
 dialog h2{font-size:20px;margin-bottom:6px}
 .song-list .listen{margin-left:6px;font-size:12.5px;font-weight:600;color:var(--indigo);text-decoration:none;white-space:nowrap}
 .by-admin{display:inline-block;padding:1px 8px;border-radius:999px;background:var(--gold);color:var(--night);font-weight:700;font-size:.92em}
-#sermon-dlg,#update-dlg,#creply-dlg{max-height:calc(100svh - 32px);overflow:auto}
+#sermon-dlg,#update-dlg,#creply-dlg,#seraphim-dlg{max-height:calc(100svh - 32px);overflow:auto}
 .church-reply{margin:12px 0 4px;padding:12px 14px;border-left:3px solid var(--gold);background:rgba(255,194,75,.08);border-radius:8px}
 .church-reply h4{margin-top:0}
+#seraphim-dlg .sd-list{display:grid;gap:8px}
+#seraphim-dlg .sd-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border:1px solid var(--line,#e5e7eb);border-radius:12px;text-decoration:none;color:inherit}
+#seraphim-dlg .sd-item.me{border-color:var(--gold);background:rgba(255,194,75,.1)}
+#seraphim-dlg .sd-item small{display:block;color:var(--muted);font-size:12.5px}
 #update-dlg ol{padding-left:20px;margin:8px 0}#update-dlg li{margin-bottom:8px}
 #sermon-dlg h2 .tag{font-size:12px;vertical-align:middle}
 .hero-cta button.is-soon{font:inherit;color:inherit;cursor:pointer}
@@ -566,7 +570,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
       <h1 class="hero-title" id="hero-title"><span>다음 사역지,</span><span>먼저 걸어간 동역자에게 묻다</span></h1>
       <p class="lead"><span class="lead-long">신학교와 교단, 기독교 사이트의 청빙 공고를 하루 세 번 모으고, 그 교회에서 사역했던 교역자들의 평가를 공고 바로 아래에 보여 드립니다.</span><span class="lead-short">신학교·교단·기독 사이트의 청빙 공고를 하루 세 번 모으고, 그 교회 출신 교역자의 평가를 함께 보여 드립니다.</span></p>
       <div class="hero-stats" id="hero-stats" hidden></div>
-      <div class="hero-cta"><a class="btn btn-main btn-lg" href="#pg-jobs">청빙 공고 보기</a><a class="btn btn-ghost btn-lg" href="#pg-review-new">사역했던 교회 평가하기</a><a class="btn btn-ghost btn-lg" href="https://github.com/hyotowork-create/Seraphim/releases/latest" target="_blank" rel="noopener" aria-label="세라핌 내려받기 새 창에서 열기">세라핌 다운로드 ↗</a><button type="button" class="btn btn-ghost btn-lg is-soon" onclick="document.getElementById('sermon-dlg').showModal();window.goatcounter?.count?.({path:'event-sermon-soon',title:'설교 평가 안내 열기',event:true})" aria-haspopup="dialog">설교 평가하기<small>공개 예정 · 안내 보기</small></button></div>
+      <div class="hero-cta"><a class="btn btn-main btn-lg" href="#pg-jobs">청빙 공고 보기</a><a class="btn btn-ghost btn-lg" href="#pg-review-new">사역했던 교회 평가하기</a><a class="btn btn-ghost btn-lg" href="https://github.com/hyotowork-create/Seraphim/releases/latest" data-seraphim-dl aria-haspopup="dialog">세라핌 다운로드</a><button type="button" class="btn btn-ghost btn-lg is-soon" onclick="document.getElementById('sermon-dlg').showModal();window.goatcounter?.count?.({path:'event-sermon-soon',title:'설교 평가 안내 열기',event:true})" aria-haspopup="dialog">설교 평가하기<small>공개 예정 · 안내 보기</small></button></div>
       <figure class="verse"><blockquote>추수할 것은 많되<br>일군이 적으니</blockquote><figcaption>마태복음 9장 37절</figcaption></figure>
     </div>
   </section>
@@ -1042,6 +1046,20 @@ dialog h2{font-size:20px;margin-bottom:6px}
     </ol>
     <p>동역은 부교역자와 교회가 서로를 더 정직하게 알고 건강하게 만나도록 돕는 곳이 되고자 합니다. 평가를 쓰실 때는 경험한 사실을 차분하게, 답변하실 때는 설명과 해명 중심으로 남겨 주시기를 부탁드립니다.</p>
     <div class="btn-row" style="margin-top:14px"><button class="btn btn-main" value="ok">확인했습니다</button><a class="btn btn-line" href="#pg-guide" id="update-guide">교회 관계자 안내</a></div>
+  </form>
+</dialog>
+<dialog id="seraphim-dlg" aria-labelledby="seraphim-h">
+  <form method="dialog">
+    <h2 id="seraphim-h">세라핌 내려받기 <span class="tag" id="sd-ver"></span></h2>
+    <p class="hint" style="margin-bottom:12px">무료 예배 송출 프로그램입니다. 내 컴퓨터에 맞는 파일 하나를 받으세요.</p>
+    <div class="sd-list" id="sd-list"><p class="loading">최신 버전을 확인하는 중…</p></div>
+    <details style="margin-top:14px"><summary><b>처음 열 때 경고가 나오면</b></summary>
+      <p style="margin-top:8px"><b>Windows</b> — 「Windows의 PC 보호」 창이 뜨면 <b>추가 정보 → 실행</b>을 누르세요. 개인이 무료로 배포하는 프로그램이라 유료 인증서가 없어 나오는 안내입니다.</p>
+      <p style="margin-top:8px"><b>Mac</b> — 받은 dmg를 열어 Seraphim을 <b>응용 프로그램</b> 폴더로 끌어 넣은 뒤 여세요. 「확인되지 않은 개발자」라고 나오면 <b>시스템 설정 → 개인정보 보호 및 보안</b> 아래쪽의 <b>「그래도 열기」</b>를 누르세요.</p>
+      <p style="margin-top:8px">「손상되었기 때문에 열 수 없습니다」가 나오면(예전 버전) 터미널에 아래 한 줄을 붙여 넣고 다시 여세요.<br><code style="user-select:all;display:block;margin-top:6px;padding:8px;border-radius:8px;background:rgba(0,0,0,.06);font-size:13px;word-break:break-all">xattr -cr /Applications/Seraphim.app</code></p>
+      <p style="margin-top:8px"><b>내 Mac 칩 확인</b>: 화면 왼쪽 위 Apple 메뉴 → 이 Mac에 관하여 → 「칩」이 Apple M1~M4면 Apple Silicon, 「프로세서」가 Intel이면 Intel입니다.</p>
+    </details>
+    <div class="btn-row" style="margin-top:14px"><a class="btn btn-line" href="https://github.com/hyotowork-create/Seraphim/releases/latest" target="_blank" rel="noopener">모든 파일 보기 ↗</a><button class="btn btn-line" value="close">닫기</button></div>
   </form>
 </dialog>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -1746,6 +1764,39 @@ $('#creply-admin-dlg').addEventListener('close', async () => {
   creplyId = null;
   if (ok) { toast('교회 측 답변을 저장했습니다.'); routeFromHash(); }
 });
+// 세라핌 내려받기: 최신 릴리스 파일을 운영체제별로 보여 주고, 처음 열 때 경고 대처법을 안내
+const SD_REPO = 'hyotowork-create/Seraphim';
+let SD_CACHE = null;
+function sdGuessOS() {
+  const ua = navigator.userAgent, pf = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
+  if (/Win/i.test(pf) || /Windows/i.test(ua)) return 'win';
+  if (/Mac/i.test(pf) || /Mac OS X/i.test(ua)) return 'mac';
+  return '';
+}
+async function openSeraphimDl() {
+  const dlg = $('#seraphim-dlg'); dlg.showModal();
+  const os = sdGuessOS();
+  try {
+    SD_CACHE = SD_CACHE || await fetch(`https://api.github.com/repos/${SD_REPO}/releases/latest`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+    const a = SD_CACHE.assets || [], find = re => a.find(x => re.test(x.name));
+    const mb = x => x ? ` · ${Math.round(x.size / 1048576)}MB` : '';
+    const items = [
+      ['win', find(/Setup-.*\.exe$/i), 'Windows (설치형) — 권장', 'Windows 10·11, 64비트'],
+      ['win', find(/portable\.exe$/i), 'Windows (설치 없이 실행)', '설치 권한이 없는 교회 컴퓨터용'],
+      ['mac', find(/arm64\.dmg$/i), 'Mac (Apple Silicon: M1~M4)', '2020년 말 이후 대부분의 Mac'],
+      ['mac', find(/^(?!.*arm64).*\.dmg$/i), 'Mac (Intel)', '2020년 이전 Mac']
+    ].filter(x => x[1]);
+    $('#sd-ver').textContent = SD_CACHE.tag_name || '';
+    const pick = items.find(x => x[0] === os);   // 이 운영체제의 첫 항목(Windows 설치형, Mac은 Apple Silicon)만 추천 표시
+    $('#sd-list').innerHTML = items.length ? items.map(x => { const [, f, t, d] = x, me = x === pick; return `<a class="sd-item${me ? ' me' : ''}" href="${esc(f.browser_download_url)}" rel="noopener"><span><b>${esc(t)}</b><small>${esc(d)}${mb(f)}</small></span><span>${me ? '<span class="tag ok">추천</span>' : '↓'}</span></a>`; }).join('')
+      : '<p class="empty">파일을 찾지 못했습니다. 아래 「모든 파일 보기」에서 받아 주세요.</p>';
+    window.goatcounter?.count?.({ path: 'event-seraphim-dl', title: '세라핌 내려받기 안내 열기', event: true });
+  } catch {
+    $('#sd-list').innerHTML = '<p class="empty">최신 버전 정보를 불러오지 못했습니다. 아래 「모든 파일 보기」에서 받아 주세요.</p>';
+  }
+}
+document.addEventListener('click', e => { const a = e.target.closest('[data-seraphim-dl]'); if (!a) return; e.preventDefault(); openSeraphimDl(); });
+
 // 운영 방식 변경 안내(브라우저마다 한 번, 11월 20일까지)
 if (Date.now() < Date.parse('2026-11-20') && !store.get('dy.notice1021', false)) {
   setTimeout(() => { const d = $('#update-dlg'); if (d && !document.querySelector('dialog[open]')) d.showModal(); }, 1200);
@@ -2031,7 +2082,7 @@ function renderTools() {
   $('#tool-list').innerHTML = tools.length ? tools.map(t => `<article class="tool">
       <div><h3>${esc(t.name)}</h3><p class="sum">${esc(t.summary)}</p><ul>${(t.features || []).map(f => `<li>${esc(f)}</li>`).join('')}</ul>
         <p class="meta" style="margin-top:12px"><span>${esc(t.platforms || '')}</span><span>${esc(t.license || '')}</span></p></div>
-      <div class="btn-row">${t.download ? `<a class="btn btn-main" href="${esc(safeUrl(t.download))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 내려받기 새 창에서 열기">내려받기 ↗</a>` : ''}${t.source ? `<a class="btn btn-line" href="${esc(safeUrl(t.source))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 소스 코드 새 창에서 열기">소스·설명서 ↗</a>` : ''}</div>
+      <div class="btn-row">${t.download ? `<a class="btn btn-main" href="${esc(safeUrl(t.download))}"${t.id === 'seraphim' ? ' data-seraphim-dl aria-haspopup="dialog">내려받기' : ` target="_blank" rel="noopener" aria-label="${esc(t.name)} 내려받기 새 창에서 열기">내려받기 ↗`}</a>` : ''}${t.source ? `<a class="btn btn-line" href="${esc(safeUrl(t.source))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 소스 코드 새 창에서 열기">소스·설명서 ↗</a>` : ''}</div>
     </article>`).join('') : '<p class="empty">등록된 도구가 없습니다. config.js의 tools에 추가하세요.</p>';
 }
 function slRow(s) {

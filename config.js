@@ -27,7 +27,7 @@ window.SITE_CONFIG = {
       features: ['가사 입력 → 절 단위 자동 분할 송출', '예배별 플레이리스트', '성경 슬라이드(개역한글 내장)', '배경 영상·전환 효과', '온라인 주보 발행 + QR', '찬양 PPT·텍스트·JSON 곡 가져오기', 'YouTube 라이브 송출·녹화'],
       platforms: 'Windows · macOS(Apple Silicon)',
       license: 'MIT 무료',
-      download: 'https://github.com/hyotowork-create/Seraphim/releases/latest',   // 0.2.0 공개(2026-10-12): Windows 설치형·포터블, Mac Apple Silicon
+      download: 'https://github.com/hyotowork-create/Seraphim/releases/latest',   // 사이트에서는 내려받기 안내 창(운영체제별 파일·첫 실행 경고 대처)을 열고, 이 주소는 창을 못 열 때만 씀
       source: 'https://github.com/hyotowork-create/Seraphim'
     }
   ],

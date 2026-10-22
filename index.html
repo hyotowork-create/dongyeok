@@ -1810,10 +1810,10 @@ async function openSeraphimDl() {
 }
 document.addEventListener('click', e => { const a = e.target.closest('[data-seraphim-dl]'); if (!a) return; e.preventDefault(); openSeraphimDl(); });
 
-// 대나무숲 「글쓰기」를 누르면 운영자의 부탁 글을 먼저 보여 줌(「다시 보지 않기」 선택 시 생략)
+// 대나무숲 「글쓰기」·교회 「평가 쓰기」를 누르면 운영자의 부탁 글을 먼저 보여 줌(「다시 보지 않기」 선택 시 생략)
 let writeNext = null;
 document.addEventListener('click', e => {
-  const a = e.target.closest('a[href="#pg-post-new"]'); if (!a || store.get('dy.writeNoticeSkip', false)) return;
+  const a = e.target.closest('a[href="#pg-post-new"], a[href^="#pg-review-new"]'); if (!a || store.get('dy.writeNoticeSkip', false)) return;
   e.preventDefault(); writeNext = a.getAttribute('href'); $('#write-dlg-skip').checked = false; $('#write-dlg').showModal();
 });
 $('#write-dlg').addEventListener('close', () => {

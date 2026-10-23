@@ -333,8 +333,10 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 ## 남은 일
 | 일 | 담당 | 비고 |
 |---|---|---|
+| **10/30경: 교회 답변 표시(A)** | Claude → 운영자 승인 | 대나무숲 15번 건의. 교회 목록에 「교회 답변 ○건」 표시, 전체 목록에 「교회 답변 있는 곳만」, 교회 페이지 요약. DB 교회별 요약에 답변 수 1칸. 만들어 보여 준 뒤 승인받고 배포 |
+| **11/6경: 「이 교회 평가가 필요해요」(B 대안)** | Claude → 운영자 승인 | 대나무숲 16번 건의(교회 정보 묻기)를 검수 원칙 안에서 푼 안. 글 없이 누르는 요청 수만 세고(같은 사람 중복 금지·개인정보 없음), 교회 페이지·공고 상세에 「평가 요청 N명」과 평가 쓰기 연결, 「평가가 필요한 교회」 목록. 질문·댓글 게시판은 사전 검수 우회·명예훼손 위험으로 채택 안 함(10/23 검토) |
+| **11/22 이후: Sermon Insight 공개 검토** | 운영자 → Claude | 운영자 결정: 클릭 집계 30일 뒤 판단, 공개할 때는 **별도 도메인**으로(도메인 신청·구매는 운영자). 코드는 `~/Developer/dongyeok-work` `feat/sermon-yt-parallel` |
 | 세라핌 0.3.1 릴리스(Mac 서명 수정) | 운영자 → Claude | Seraphim `fix/mac-signing`(main 미병합). 릴리스 뒤 동역 `index.html` 세라핌 내려받기 창의 「Mac 버전 수정 중」 문단 삭제, 작업 폴더 `~/Developer/seraphim-fix` 정리 |
-| Sermon Insight 공개 여부 | 운영자 | 첫 화면 「설교 평가하기(공개 예정)」 클릭 GoatCounter `event-sermon-soon`(10/21까지 11회). 코드는 `~/Developer/dongyeok-work` 브랜치 `feat/sermon-yt-parallel`(판정 기준 강화 포함, 미배포) |
 | 외부 예약 토큰 만료 전 교체 | 운영자 → Claude | Supabase pg_cron `dongyeok-wake`(UTC `17,47 21-23,0-14`)가 Vault `gh_dispatch_token`으로 workflow_dispatch(wake=true)를 부름(10/13 시험 호출 204·guard 건너뜀 확인). 토큰(fine-grained `dongyeok-wake`, Actions 쓰기, dongyeok만)은 **2027년 만료** — 만료 전 새로 발급해 Vault 값만 교체. 채팅에 한 번 노출됐으나 운영자 결정으로 그대로 사용(10/13) |
 | Supabase 조직에 공개 메일 초대 | 운영자 | 팀 화면 → Invite members → seraphim7997@gmail.com, Administrator |
 | 세라핌 0.2.0 소스 공개 여부 | 운영자 | 시험용 파일에 찬송가·CCM 가사와 실제 예배 PPT가 있어 그대로 공개하면 저작권 문제. 공개하려면 그 파일을 빼고 올림 |

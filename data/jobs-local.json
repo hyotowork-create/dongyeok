@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-23T09:40:15.005Z",
+ "updatedAt": "2026-10-23T21:51:26.812Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -37,10 +37,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사"
-   ],
    "denomination": null,
    "date": "2026-10-22",
    "deadline": null,
@@ -90,7 +86,11 @@
    "dept": null,
    "tags": [],
    "pay": null,
-   "payChecked": false,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
    "denomination": null,
    "date": "2026-10-22",
    "deadline": null,
@@ -111,8 +111,14 @@
    ],
    "dept": null,
    "tags": [],
-   "pay": null,
-   "payChecked": false,
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "강도사"
+   ],
    "denomination": null,
    "date": "2026-10-22",
    "deadline": null,
@@ -133,8 +139,14 @@
    ],
    "dept": null,
    "tags": [],
-   "pay": null,
-   "payChecked": false,
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
    "denomination": null,
    "date": "2026-10-22",
    "deadline": null,
@@ -155,8 +167,14 @@
    ],
    "dept": null,
    "tags": [],
-   "pay": null,
-   "payChecked": false,
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 목사",
+    "전임 부목사"
+   ],
    "denomination": null,
    "date": "2026-10-22",
    "deadline": null,
@@ -179,8 +197,15 @@
    ],
    "dept": null,
    "tags": [],
-   "pay": null,
-   "payChecked": false,
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
    "denomination": null,
    "date": "2026-10-22",
    "deadline": null,
@@ -201,8 +226,16 @@
    ],
    "dept": null,
    "tags": [],
-   "pay": null,
-   "payChecked": false,
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "강도사"
+   ],
    "denomination": null,
    "date": "2026-10-22",
    "deadline": null,
@@ -223,8 +256,14 @@
    ],
    "dept": null,
    "tags": [],
-   "pay": null,
-   "payChecked": false,
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
    "denomination": null,
    "date": "2026-10-22",
    "deadline": null,
@@ -246,7 +285,12 @@
    "dept": null,
    "tags": [],
    "pay": null,
-   "payChecked": false,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
    "denomination": null,
    "date": "2026-10-22",
    "deadline": null,

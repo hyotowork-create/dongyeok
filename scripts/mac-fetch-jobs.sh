@@ -15,7 +15,7 @@ pull() { for n in 1 2 3; do git pull --rebase --autostash --quiet origin main &&
 {
   echo "── $(date '+%Y-%m-%d %H:%M:%S') 시작"
   # 잠자기에서 깨어나자마자 launchd가 부르면 네트워크가 아직 없음(10/14 두 번 github.com 주소 못 찾음) → 최대 3분 기다림
-  for i in {1..18}; do /usr/bin/nc -z -G 3 github.com 443 >/dev/null 2>&1 && break; [ "$i" = 18 ] && echo "네트워크 없음 — 이번 회차 건너뜀"; sleep 10; done
+  for i in {1..18}; do /usr/bin/nc -z -G 3 github.com 443 >/dev/null 2>&1 && break; [ "$i" = 18 ] && { echo "네트워크 없음 — 이번 회차 건너뜀"; exit 0; }; sleep 10; done   # 10/23: 건너뜀만 적고 계속 진행하던 것 수정
   # 지난 회차가 커밋만 하고 올리지 못했을 수 있음(10/15 올리는 중 잠들어 끊김 → 그 뒤 --ff-only가 계속 멈춤) → 최신 위에 다시 얹고 남은 것 올림
   pull
   [ "$(git rev-list --count origin/main..HEAD)" = 0 ] || { git push -q origin main && echo "지난 회차 커밋 올림"; }

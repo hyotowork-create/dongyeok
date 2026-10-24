@@ -1,5 +1,701 @@
 {
- "updatedAt": "2026-10-24T02:55:04.079Z",
- "sources": [],
- "items": []
+ "updatedAt": "2026-10-24T09:07:03.948Z",
+ "sources": [
+  {
+   "id": "kwangshin",
+   "name": "광신대",
+   "group": "신학교",
+   "home": "https://www.kwangshin.ac.kr/front/boardList.do?brd_mgrno=184&menu_no=467",
+   "status": "ok",
+   "count": 10,
+   "note": "맥에서 보충 수집"
+  },
+  {
+   "id": "sjs",
+   "name": "서울장신대",
+   "group": "신학교",
+   "home": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php",
+   "status": "ok",
+   "count": 14,
+   "note": "맥에서 보충 수집"
+  }
+ ],
+ "items": [
+  {
+   "id": "ks-1qjsrft",
+   "dk": "1qjsrft",
+   "source": "kwangshin",
+   "title": "삼례동부교회 교육 목사(전도사) 및 관리집사 모집 공고",
+   "church": "삼례동부교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 목사",
+    "사찰·관리집사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43164"
+  },
+  {
+   "id": "ks-pmba9g",
+   "dk": "pmba9g",
+   "source": "kwangshin",
+   "title": "광주서문교회에서 동역자를 모십니다.",
+   "church": "광주서문교회",
+   "region": "광주",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43163"
+  },
+  {
+   "id": "ks-15lq5zk",
+   "dk": "15lq5zk",
+   "source": "kwangshin",
+   "title": "여수 은광교회에서 함께하실 전임사역자를 모집합니다.",
+   "church": "은광교회",
+   "region": "전남",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43162"
+  },
+  {
+   "id": "ks-1nuvjjy",
+   "dk": "1nuvjjy",
+   "source": "kwangshin",
+   "title": "광주샘물교회(대한예수교장로회 고신 · 전라노회)에서 교역자를 모십니다",
+   "church": "광주샘물교회",
+   "region": "광주",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "강도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43161"
+  },
+  {
+   "id": "ks-arsexq",
+   "dk": "arsexq",
+   "source": "kwangshin",
+   "title": "예장합동 전주화산교회 전임사역자를 청빙합니다.",
+   "church": "전주화산교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43160"
+  },
+  {
+   "id": "ks-u2hx77",
+   "dk": "u2hx77",
+   "source": "kwangshin",
+   "title": "첨단겨자씨교회 전임 부목사 청빙 공고",
+   "church": "첨단겨자씨교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43159"
+  },
+  {
+   "id": "ks-iv8phh",
+   "dk": "iv8phh",
+   "source": "kwangshin",
+   "title": "[군산] 개복교회에서 전임사역자(부목사, 강도사)를 모십니다.",
+   "church": "개복교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43158"
+  },
+  {
+   "id": "ks-17th8xl",
+   "dk": "17th8xl",
+   "source": "kwangshin",
+   "title": "여수제일교회에서 전임(0명)/파트(0명) 사역자를 청빙합니다",
+   "church": "여수제일교회",
+   "region": "전남",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43157"
+  },
+  {
+   "id": "ks-zjvkh5",
+   "dk": "zjvkh5",
+   "source": "kwangshin",
+   "title": "성덕교회에서 사역자를 찾습니다.",
+   "church": "성덕교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43156"
+  },
+  {
+   "id": "ks-bei1b5",
+   "dk": "bei1b5",
+   "source": "kwangshin",
+   "title": "여수성도교회에서 전임 사역자를 모십니다.",
+   "church": "여수성도교회",
+   "region": "전남",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43155"
+  },
+  {
+   "id": "sj-qqh78d",
+   "dk": "qqh78d",
+   "source": "sjs",
+   "title": "서울베다니 교회에서 준전임 교역자 1분(목사 또는 전도사)을 청빙합니다.",
+   "church": null,
+   "region": "서울",
+   "area": null,
+   "positions": [
+    "준전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 180,
+    "max": 180,
+    "label": "월 180만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "준전임 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-24",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50817&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-hvxgwc",
+   "dk": "hvxgwc",
+   "source": "sjs",
+   "title": "부목사(전도사) 및 교육전도사 청빙",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-24",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50815&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-1ds2t1a",
+   "dk": "1ds2t1a",
+   "source": "sjs",
+   "title": "교육 전도사 청빙",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 100,
+    "label": "월 100만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-23",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50814&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-guihns",
+   "dk": "guihns",
+   "source": "sjs",
+   "title": "춘천동부교회 부목사 청빙",
+   "church": "춘천동부교회",
+   "region": "강원",
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "denomination": null,
+   "date": "2026-10-23",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50813&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-y9dm9k",
+   "dk": "y9dm9k",
+   "source": "sjs",
+   "title": "한성교회(서울 은평구)에서 동역할 사역자를 모십니다.",
+   "church": "한성교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-23",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50811&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-tokml3",
+   "dk": "tokml3",
+   "source": "sjs",
+   "title": "행신임마누엘교회 전임부목사, 준전임, 각 1명",
+   "church": "행신임마누엘교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "준전임 전도사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 목사",
+    "전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-23",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50810&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-1sx4tbi",
+   "dk": "1sx4tbi",
+   "source": "sjs",
+   "title": "새성남교회 교육부 교역자 청빙 공고(수정변경)",
+   "church": "새성남교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 180,
+    "label": "월 100~180만원",
+    "roles": [
+     {
+      "role": "목사",
+      "v": 120
+     },
+     {
+      "role": "목사",
+      "v": 180
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-23",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50809&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-agd5r1",
+   "dk": "agd5r1",
+   "source": "sjs",
+   "title": "인천 주안에교회에서 교회 공간 공유하실 목회자(교회) 모십니다.",
+   "church": "주안에교회",
+   "region": "인천",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50807&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-1gbe36d",
+   "dk": "1gbe36d",
+   "source": "sjs",
+   "title": "감전교회에서 부목사님(1명)과 교육전도사님(1명,영유아유치부)을 모십니다.",
+   "church": "감전교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50806&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-wumrd5",
+   "dk": "wumrd5",
+   "source": "sjs",
+   "title": "광주광림교회에서 부목사님 한 분과 전임전도사님 한 분을 청빙합니다",
+   "church": "광주광림교회",
+   "region": "광주",
+   "area": null,
+   "positions": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 250,
+    "max": 250,
+    "label": "월 250만원",
+    "roles": [
+     {
+      "role": "부목사",
+      "v": 250
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50805&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-pi5ys8",
+   "dk": "pi5ys8",
+   "source": "sjs",
+   "title": "평택 한일교회에서 부목사님(전임전도사 또는 준전임 목사, 전도사)을 모십니다.",
+   "church": "한일교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "준전임 목사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "준전임 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50803&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-1sn173q",
+   "dk": "1sn173q",
+   "source": "sjs",
+   "title": "동성교회에서 교역자를 청빙힙니다.(교육전도사)",
+   "church": "동성교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50802&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-5j3x67",
+   "dk": "5j3x67",
+   "source": "sjs",
+   "title": "[민잡] 여러 게시판의 청빙 공고를 한곳에 모아 두었습니다",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50801&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  },
+  {
+   "id": "sj-1l0zh9w",
+   "dk": "1l0zh9w",
+   "source": "sjs",
+   "title": "동고교회에서 교역자를(준전임 or 파트) 모십니다.",
+   "church": "동고교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "준전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50799&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600"
+  }
+ ]
 }

@@ -228,6 +228,10 @@ begin
   new.created_at := now();
   new.report_count := 0;
   if tg_table_name = 'reviews' then
+    -- 이름이 같은 교회와 구분하려고 지역·교단을 반드시 받음(10/24 이용자 건의)
+    if coalesce(btrim(new.region), '') = '' or coalesce(btrim(new.denomination), '') = '' then
+      raise exception '같은 이름의 다른 교회와 구분할 수 있도록 지역과 교단을 적어 주세요';
+    end if;
     new.status := 'pending';
     new.church_key := public.church_key(new.church_name);
     new.moderated_at := null;

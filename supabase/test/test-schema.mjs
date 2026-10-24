@@ -78,8 +78,8 @@ assert.equal((await as(null, `select like_count from posts where id=$1`, [p1.id]
 ok('공감: 1인 1회, 취소, 남의 공감 안 보임');
 
 // 교회 평가: 검수 전에는 본인·관리자만
-const rv = `insert into reviews (church_name, region, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership, r_growth, recommend, pros, cons, attested)
-            values ('은혜 숲 교회','서울','교육전도사','3~5년 전',4,3,5,4,3,4,true,'좋았던 점 열 글자 이상','아쉬운 점 열 글자 이상', true) returning id`;
+const rv = `insert into reviews (church_name, region, denomination, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership, r_growth, recommend, pros, cons, attested)
+            values ('은혜 숲 교회','서울','예장합동','교육전도사','3~5년 전',4,3,5,4,3,4,true,'좋았던 점 열 글자 이상','아쉬운 점 열 글자 이상', true) returning id`;
 const [r1] = await as(U1, rv);
 assert.equal((await as(U1, `select status, church_key from reviews`))[0].status, 'pending');
 assert.equal((await as(U1, `select church_key from reviews`))[0].church_key, '은혜숲교회');
@@ -199,8 +199,8 @@ console.log('\n모든 점검 통과');
 // 교회 평가: 신고가 쌓여도 자동으로 가리지 않음(운영자 검토), 운영자가 가리면 이유가 공개(내용은 비공개), 다시 공개하면 이유 지움
 {
   await db.exec(`reset role; delete from reports where target_type = 'review'; delete from write_guard`);
-  const [rv] = await as(U1, `insert into reviews (church_name, region, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership, r_growth, recommend, pros, cons, attested)
-    values ('투명교회','서울','부목사','최근 2년 이내',3,3,3,3,3,3,true,'좋았던 점 열 글자 이상','아쉬운 점 열 글자 이상',true) returning id, church_key`);
+  const [rv] = await as(U1, `insert into reviews (church_name, region, denomination, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership, r_growth, recommend, pros, cons, attested)
+    values ('투명교회','서울','예장통합','부목사','최근 2년 이내',3,3,3,3,3,3,true,'좋았던 점 열 글자 이상','아쉬운 점 열 글자 이상',true) returning id, church_key`);
   await as(AD, `select moderate('review', $1, 'published')`, [rv.id]);
   const why = '평가의 사례비 미지급 내용은 사실과 다르며 계약서대로 매월 지급했습니다';
   for (const [i, u] of [U2, U3, U4].entries()) {
@@ -246,4 +246,14 @@ console.log('\n모든 점검 통과');
   const [c2] = await as(U2, `insert into comments (target_type, target_id, body) values ('post', $1, '이용자 댓글') returning anon_name`, [p.id]);
   assert.equal(c1.anon_name, '운영자'); assert.notEqual(c2.anon_name, '운영자');
   ok('운영자 표시: 운영자 계정의 글·댓글은 「운영자」, 이용자는 익명 이름');
+}
+
+// 교회 평가는 지역·교단 필수(같은 이름 교회 구분)
+{
+  await db.exec(`reset role; update reviews set created_at = created_at - interval '2 minutes'`);
+  await fails(as(U3, `insert into reviews (church_name, region, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership, r_growth, recommend, pros, cons, attested)
+    values ('지역없는교회','','부목사','최근 2년 이내',3,3,3,3,3,3,true,'좋았던 점 열 글자 이상','아쉬운 점 열 글자 이상',true)`), /지역과 교단/);
+  await fails(as(U3, `insert into reviews (church_name, region, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership, r_growth, recommend, pros, cons, attested)
+    values ('교단없는교회','서울 강남구','부목사','최근 2년 이내',3,3,3,3,3,3,true,'좋았던 점 열 글자 이상','아쉬운 점 열 글자 이상',true)`), /지역과 교단/);
+  ok('교회 평가: 지역·교단이 없으면 거절');
 }

@@ -682,9 +682,11 @@ dialog h2{font-size:20px;margin-bottom:6px}
     <form class="form-card" id="review-form" novalidate>
       <div class="grid2">
         <div class="field"><label class="req" for="rv-church">교회 이름</label><input type="text" id="rv-church" name="church_name" maxlength="60" required placeholder="예: 은혜숲교회"></div>
-        <div class="field"><label for="rv-region">지역</label><input type="text" id="rv-region" name="region" maxlength="30" list="dl-region" placeholder="예: 서울 강남"></div>
+        <div class="field"><label class="req" for="rv-region">지역(시·군·구까지)</label><input type="text" id="rv-region" name="region" maxlength="30" list="dl-region" required placeholder="예: 서울 강남구, 경기 안양시"></div>
       </div>
-      <div class="field"><label for="rv-denom">교단</label><input type="text" id="rv-denom" name="denomination" maxlength="30" list="dl-denom" placeholder="선택 또는 직접 입력"></div>
+      <div id="rv-same" class="notice" hidden style="margin:-4px 0 14px"></div>
+      <div class="field"><label class="req" for="rv-denom">교단</label><input type="text" id="rv-denom" name="denomination" maxlength="30" list="dl-denom" required placeholder="선택 또는 직접 입력(모르면 「기타」)"></div>
+      <p class="hint" style="margin:-6px 0 14px">이름이 같은 교회가 많습니다. 다른 교회가 피해를 보지 않도록 지역과 교단을 꼭 적어 주세요.</p>
       <fieldset><legend class="req">사역 직책</legend>
         <div class="seg" id="rv-role"></div></fieldset>
       <div class="field"><label class="req" for="rv-period">사역 시기</label>
@@ -1903,6 +1905,9 @@ function initReviewForm() {
     const f = e.target; const fd = new FormData(f);
     const miss = [];
     if ((fd.get('church_name') || '').trim().length < 2) miss.push('교회 이름');
+    const rg = (fd.get('region') || '').trim();
+    if (!rg || (!/해외/.test(rg) && rg.split(/\s+/).length < 2)) miss.push('지역(시·군·구까지, 예: 서울 강남구)');
+    if (!(fd.get('denomination') || '').trim()) miss.push('교단');
     if (!fd.get('role')) miss.push('사역 직책');
     if (!fd.get('period')) miss.push('사역 시기');
     RATINGS.forEach(([k, l]) => { if (!fd.get(k)) miss.push(l); });
@@ -1931,7 +1936,22 @@ HOOKS['pg-guide'] = () => {
     <td>${srcs.filter(x => (x.group || '신학교') === g && x.status !== 'off').map(x => `<a href="${esc(safeUrl(x.home))}" target="_blank" rel="noopener">${esc(x.name)}</a>${x.status !== 'ok' ? ` <span class="hint">(${st(x)})</span>` : ''}`).join(', ') || '—'}</td>
     <td>${links.filter(x => (x.group || '기타') === g).map(x => `<a href="${esc(safeUrl(x.url))}" target="_blank" rel="noopener">${esc(x.name)}</a>`).join(', ') || '—'}</td></tr>`).join('')}</table>`;
 };
-HOOKS['pg-review-new'] = ({ name, region, denom }) => { if (name) $('#rv-church').value = name; if (region) $('#rv-region').value = region; if (denom) $('#rv-denom').value = denom; };
+HOOKS['pg-review-new'] = ({ name, region, denom }) => { if (name) $('#rv-church').value = name; if (region) $('#rv-region').value = region; if (denom) $('#rv-denom').value = denom; rvSameCheck(); };
+// 같은 이름 교회 고르기(10/24 대나무숲 17번 건의): 이미 평가·공고에 있는 같은 이름 교회를 보여 주고, 고르면 지역·교단을 채움
+async function rvSameCheck() {
+  const box = $('#rv-same'), name = $('#rv-church').value.trim();
+  if (name.length < 2) { box.hidden = true; return; }
+  const key = churchKey(name); const seen = new Map();
+  const add = (r, d) => { r = String(r || '').trim(); d = String(d || '').trim(); if (!r && !d) return; const k = regionKey(r) + '|' + r.replace(/\s/g, '') + '|' + denomKey(d); if (!seen.has(k)) seen.set(k, { r, d }); };
+  ((await safe(() => API.reviews(key), [])) || []).filter(x => x.status === 'published').forEach(x => add(x.region, x.denomination));
+  JOBS.filter(j => j.church && churchKey(j.church) === key).forEach(j => add(j.region, jobDenom(j)));
+  const list = [...seen.values()];
+  if (!list.length) { box.hidden = true; return; }
+  box.innerHTML = `<b>「${esc(name)}」이(가) 이미 ${list.length}곳 있습니다.</b> 해당하는 교회를 고르면 지역·교단이 채워집니다. 없으면 직접 적어 주세요.<div class="btn-row" style="margin-top:8px;flex-wrap:wrap">${list.map((x, i) => `<button type="button" class="btn btn-line btn-sm" data-same="${i}">${esc([x.r || '지역 미상', denomLabel(denomKey(x.d)) || x.d || '교단 미상'].join(' · '))}</button>`).join('')}</div>`;
+  box.querySelectorAll('[data-same]').forEach(b => b.addEventListener('click', () => { const x = list[b.dataset.same]; if (x.r) $('#rv-region').value = x.r; if (x.d) $('#rv-denom').value = x.d; box.querySelectorAll('[data-same]').forEach(o => o.classList.toggle('btn-main', o === b)); }));
+  box.hidden = false;
+}
+$('#rv-church').addEventListener('change', rvSameCheck);
 
 /* ═══════════════════════════ 공감·신고·삭제 공통 ═══════════════════════════ */
 let reportTarget = null;

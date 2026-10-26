@@ -1,5 +1,276 @@
 {
- "updatedAt": "2026-10-26T08:57:02.054Z",
- "sources": [],
- "items": []
+ "updatedAt": "2026-10-26T21:47:13.893Z",
+ "sources": [
+  {
+   "id": "kwangshin",
+   "name": "광신대",
+   "group": "신학교",
+   "home": "https://www.kwangshin.ac.kr/front/boardList.do?brd_mgrno=184&menu_no=467",
+   "status": "ok",
+   "count": 9,
+   "note": "맥에서 보충 수집"
+  }
+ ],
+ "items": [
+  {
+   "id": "ks-l50m8o",
+   "dk": "l50m8o",
+   "source": "kwangshin",
+   "title": "2027년 세종명성교회 전임 교역자 초빙",
+   "church": "세종명성교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43178"
+  },
+  {
+   "id": "ks-1f003pv",
+   "dk": "1f003pv",
+   "source": "kwangshin",
+   "title": "청복교회 전임 교역자 청빙 공고",
+   "church": "청복교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43174"
+  },
+  {
+   "id": "ks-1yzwmtj",
+   "dk": "1yzwmtj",
+   "source": "kwangshin",
+   "title": "고현교회 부목사 청빙광고",
+   "church": "고현교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43173"
+  },
+  {
+   "id": "ks-1cy58rq",
+   "dk": "1cy58rq",
+   "source": "kwangshin",
+   "title": "제31보병사단 삼일교회에서 군선교사역에 함께하실 귀한 동역자를 정중히 모십니다.",
+   "church": "삼일교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 150,
+    "max": 150,
+    "label": "월 150만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43172"
+  },
+  {
+   "id": "ks-1y50tev",
+   "dk": "1y50tev",
+   "source": "kwangshin",
+   "title": "송정중앙교회 점임 부목사 청빙 공고",
+   "church": "송정중앙교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43171"
+  },
+  {
+   "id": "ks-lfq39s",
+   "dk": "lfq39s",
+   "source": "kwangshin",
+   "title": "풍기제일교회에서 함께 사역하실 전임 부목사님을 모십니다.",
+   "church": "풍기제일교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 300,
+    "max": 300,
+    "label": "월 300만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43170"
+  },
+  {
+   "id": "ks-5h9fei",
+   "dk": "5h9fei",
+   "source": "kwangshin",
+   "title": "고암교회에서 함께 동역하실 전임 사역자 1분을 정중히 모십니다.",
+   "church": "고암교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 250,
+    "max": 250,
+    "label": "월 250만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 전도사",
+    "전임 부목사",
+    "심방전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43169"
+  },
+  {
+   "id": "ks-jg14qv",
+   "dk": "jg14qv",
+   "source": "kwangshin",
+   "title": "전주아멘교회 교역자 청빙 광고",
+   "church": "전주아멘교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43168"
+  },
+  {
+   "id": "ks-1p37v89",
+   "dk": "1p37v89",
+   "source": "kwangshin",
+   "title": "전주 더온누리교회에서 유치부 사역자를 모십니다.",
+   "church": "더온누리교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 30,
+    "max": 100,
+    "label": "월 30~100만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43166"
+  }
+ ]
 }

@@ -22,7 +22,7 @@ import denominations from './sources/denominations.mjs';
 
 const SOURCES = [chongshin, puts, mtu, godpeople, ...seminaries, ...denominations];
 const KEEP_DAYS = 90;      // 이보다 오래된 공고는 목록에서 뺌
-const MAX_ITEMS = 3000;
+const MAX_ITEMS = 6000;   // 10/27 3,000건에 닿아 44일치만 남던 것을 90일 유지로(운영자 결정)
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_JSON = join(ROOT, 'data', 'jobs.json');

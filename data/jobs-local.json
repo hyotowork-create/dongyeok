@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-27T08:52:07.111Z",
+ "updatedAt": "2026-10-27T22:04:03.571Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -36,10 +36,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "전임 부목사"
-   ],
    "denomination": null,
    "date": "2026-10-27",
    "deadline": null,
@@ -90,11 +86,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "전임 부목사",
-    "강도사",
-    "심방전도사"
-   ],
    "denomination": null,
    "date": "2026-10-27",
    "deadline": null,
@@ -117,11 +108,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "강도사"
-   ],
    "denomination": null,
    "date": "2026-10-27",
    "deadline": null,
@@ -251,9 +237,6 @@
     "roles": []
    },
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
    "denomination": null,
    "date": "2026-10-26",
    "deadline": null,
@@ -284,6 +267,28 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43171"
+  },
+  {
+   "id": "ac-egvv5d",
+   "dk": "egvv5d",
+   "source": "acts",
+   "title": "교육 파트 사역자 구인",
+   "church": null,
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-27",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2480&id=acts_csrd_guide&ca_no=1"
   },
   {
    "id": "ac-ptcmt1",
@@ -502,10 +507,6 @@
     ]
    },
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "준전임 전도사"
-   ],
    "denomination": null,
    "date": "2026-10-21",
    "deadline": null,
@@ -538,32 +539,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2469&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-tc5vw4",
-   "dk": "tc5vw4",
-   "source": "acts",
-   "title": "안산사랑샘교회 청빙 공고",
-   "church": "안산사랑샘교회",
-   "region": "경기",
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "강도사"
-   ],
-   "denomination": null,
-   "date": "2026-10-21",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2467&id=acts_csrd_guide&ca_no=1"
   }
  ]
 }

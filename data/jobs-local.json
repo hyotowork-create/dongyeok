@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-26T21:47:13.893Z",
+ "updatedAt": "2026-10-27T03:44:48.850Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -9,9 +9,51 @@
    "status": "ok",
    "count": 9,
    "note": "맥에서 보충 수집"
+  },
+  {
+   "id": "acts",
+   "name": "아신대",
+   "group": "신학교",
+   "home": "https://www.acts.ac.kr/modules/board/bd_list.asp?id=acts_csrd_guide&ca_no=1&left=unilife3_12",
+   "status": "ok",
+   "count": 10,
+   "note": "맥에서 보충 수집"
   }
  ],
  "items": [
+  {
+   "id": "ks-14oi9mj",
+   "dk": "14oi9mj",
+   "source": "kwangshin",
+   "title": "전주영생교회에서 함께 할 사역자(전임, 파트)를 청빙합니다.",
+   "church": "전주영생교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 120,
+    "label": "월 100~120만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-27",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43180"
+  },
   {
    "id": "ks-l50m8o",
    "dk": "l50m8o",
@@ -29,11 +71,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "전임 부목사",
-    "강도사"
-   ],
    "denomination": null,
    "date": "2026-10-26",
    "deadline": null,
@@ -58,12 +95,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "전임 부목사"
-   ],
    "denomination": null,
    "date": "2026-10-26",
    "deadline": null,
@@ -84,8 +115,16 @@
    ],
    "dept": null,
    "tags": [],
-   "pay": null,
-   "payChecked": false,
+   "pay": {
+    "min": 270,
+    "max": 270,
+    "label": "월 270만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
    "denomination": null,
    "date": "2026-10-26",
    "deadline": null,
@@ -140,10 +179,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "파트 목사",
-    "전임 부목사"
-   ],
    "denomination": null,
    "date": "2026-10-26",
    "deadline": null,
@@ -171,10 +206,6 @@
     "roles": []
    },
    "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "전임 부목사"
-   ],
    "denomination": null,
    "date": "2026-10-26",
    "deadline": null,
@@ -202,12 +233,6 @@
     "roles": []
    },
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 전도사",
-    "전임 부목사",
-    "심방전도사"
-   ],
    "denomination": null,
    "date": "2026-10-26",
    "deadline": null,
@@ -243,16 +268,68 @@
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43168"
   },
   {
-   "id": "ks-1p37v89",
-   "dk": "1p37v89",
-   "source": "kwangshin",
-   "title": "전주 더온누리교회에서 유치부 사역자를 모십니다.",
+   "id": "ac-ptcmt1",
+   "dk": "ptcmt1",
+   "source": "acts",
+   "title": "일산운정 벧엘교회 청빙 공고",
+   "church": "벧엘교회",
+   "region": "경기",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 267,
+    "max": 267,
+    "label": "월 267만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "심방전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2479&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-7ffrmm",
+   "dk": "7ffrmm",
+   "source": "acts",
+   "title": "은평교회 청빙 공고",
+   "church": "은평교회",
+   "region": null,
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "준전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-26",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2478&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-15b2fxo",
+   "dk": "15b2fxo",
+   "source": "acts",
+   "title": "전주 더온누리교회 청빙 공고",
    "church": "더온누리교회",
    "region": "전북",
    "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
+   "positions": [],
    "dept": null,
    "tags": [],
    "pay": {
@@ -266,11 +343,209 @@
     "파트 교육전도사"
    ],
    "denomination": null,
-   "date": "2026-10-26",
+   "date": "2026-10-25",
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43166"
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2477&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-1sgv1jm",
+   "dk": "1sgv1jm",
+   "source": "acts",
+   "title": "평안교회 청빙 공고",
+   "church": "평안교회",
+   "region": null,
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 120,
+    "max": 260,
+    "label": "월 120~260만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-24",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2476&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-hjtn0e",
+   "dk": "hjtn0e",
+   "source": "acts",
+   "title": "세광교회(안산) 청빙 공고",
+   "church": "세광교회",
+   "region": "경기",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2473&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-zp83pq",
+   "dk": "zp83pq",
+   "source": "acts",
+   "title": "은석교회 청빙 공고",
+   "church": "은석교회",
+   "region": null,
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 250,
+    "max": 250,
+    "label": "월 250만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-22",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2472&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-1osl2bo",
+   "dk": "1osl2bo",
+   "source": "acts",
+   "title": "부산사랑의교회 청빙 공고",
+   "church": "부산사랑의교회",
+   "region": "부산",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 30,
+    "max": 342,
+    "label": "월 30~342만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [],
+   "denomination": null,
+   "date": "2026-10-21",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2471&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-1md2td0",
+   "dk": "1md2td0",
+   "source": "acts",
+   "title": "포천 함께하는교회 청빙 공고",
+   "church": "함께하는교회",
+   "region": "경기",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 180,
+    "label": "월 100~180만원",
+    "roles": [
+     {
+      "role": "교육전도사",
+      "v": 100
+     },
+     {
+      "role": "준전임",
+      "v": 180
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "준전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-21",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2470&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-r2z8aa",
+   "dk": "r2z8aa",
+   "source": "acts",
+   "title": "영주제일교회 청빙 공고",
+   "church": "영주제일교회",
+   "region": "경북",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 130,
+    "max": 130,
+    "label": "월 130만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [],
+   "denomination": null,
+   "date": "2026-10-21",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2469&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-tc5vw4",
+   "dk": "tc5vw4",
+   "source": "acts",
+   "title": "안산사랑샘교회 청빙 공고",
+   "church": "안산사랑샘교회",
+   "region": "경기",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "강도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-21",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2467&id=acts_csrd_guide&ca_no=1"
   }
  ]
 }

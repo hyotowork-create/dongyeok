@@ -651,9 +651,12 @@ dialog h2{font-size:20px;margin-bottom:6px}
     <div class="sec-head" style="margin-top:28px"><h2>최근 올라온 평가</h2></div>
     <ul class="list box" id="church-feed"></ul>
     <div class="more-wrap"><button class="btn btn-line" id="church-feed-all" type="button" hidden>평가 전체 보기</button></div>
+    <div class="sec-head" style="margin-top:28px"><h2>평가가 필요한 교회</h2></div>
+    <p class="hint" style="margin:-6px 0 10px">동역자들이 평가를 기다리는 교회입니다. 이 중 사역하셨던 교회가 있다면 평가를 남겨 주세요.</p>
+    <ul class="list box" id="church-rq"></ul>
     <div class="sec-head" style="margin-top:28px"><h2 id="church-all-h">평가된 교회 전체</h2></div>
     <div class="toolbar">
-      <select id="church-sort" aria-label="정렬"><option value="recent">최근 평가순</option><option value="many">평가 많은 순</option><option value="score">점수 높은 순</option><option value="name">가나다순</option></select>
+      <select id="church-sort" aria-label="정렬"><option value="recent">최근 평가순</option><option value="many">평가 많은 순</option><option value="score">점수 높은 순</option><option value="name">가나다순</option><option value="replied">교회 답변 있는 곳만</option></select>
       <select id="church-area" aria-label="지역"><option value="">지역 전체</option></select>
     </div>
     <ul class="list box" id="church-all"></ul>
@@ -1131,7 +1134,7 @@ function clusterStats(rows) {
     g.church_name = r.church_name; g.last_at = r.created_at;
     if (r.region) g.region = r.region; if (r.denomination) g.denomination = r.denomination;
   });
-  return groups.map(g => { const a = aggregate(g.list); return { church_key: g.church_key, church_name: g.church_name, region: g.region || '', denomination: g.denomination || '', rk: g.rk, dk: g.dk, n: a.n, overall: a.overall, rec_pct: a.rec, last_at: g.last_at }; });
+  return groups.map(g => { const a = aggregate(g.list); return { church_key: g.church_key, church_name: g.church_name, region: g.region || '', denomination: g.denomination || '', rk: g.rk, dk: g.dk, n: a.n, overall: a.overall, rec_pct: a.rec, last_at: g.last_at, replies: g.list.filter(r => r.church_reply).length }; });
 }
 const href = (id, params) => { const qs = new URLSearchParams(params || {}).toString(); return '#' + id + (qs ? '?' + qs : ''); };
 // 운영자 계정이 쓴 글·댓글은 서버가 이름을 「운영자」로 정함 → 눈에 띄게 표시
@@ -1234,6 +1237,8 @@ const DemoAPI = {
   async reviews(key) { return this.db.reviews.filter(r => r.church_key === key && this.visible(r) && r.status !== 'removed').sort((a, b) => b.created_at.localeCompare(a.created_at)); },
   async hiddenReviews(key) { return this.db.reviews.filter(r => r.church_key === key && r.status === 'hidden').map(r => ({ id: r.id, region: r.region, denomination: r.denomination, hidden_reason: r.hidden_reason || '운영자가 내용을 확인하고 있습니다', hidden_at: r.hidden_at || r.created_at })); },
   async setChurchReply(id, text, by) { const r = this.db.reviews.find(x => String(x.id) === String(id)); const t = (text || '').trim(); if (r) Object.assign(r, { church_reply: t || null, church_reply_by: t ? (by || '교회 대표') : null, church_reply_at: t ? this.now() : null }); this.persist(); },
+  async requestReview(name, region) { this.need(); const k = churchKey(name); this.db.requests = this.db.requests || []; if (!this.db.requests.find(x => x.k === k && x.u === this.user.id)) this.db.requests.push({ k, name, region, u: this.user.id, at: this.now() }); this.persist(); return this.db.requests.filter(x => x.k === k).length; },
+  async reviewRequests() { const m = new Map(); (this.db.requests || []).forEach(x => { const g = m.get(x.k) || { church_key: x.k, church_name: x.name, region: x.region, n: 0 }; g.n++; m.set(x.k, g); }); return [...m.values()].sort((a, b) => b.n - a.n); },
   async recentReviews(n) { return this.db.reviews.filter(r => r.status === 'published').sort((a, b) => b.created_at.localeCompare(a.created_at)).slice(0, n); },
   async createReview(d) {
     this.need();
@@ -1393,8 +1398,10 @@ const LiveAPI = {
   async signOut() { await this.sb.auth.signOut(); this.user = null; this._admin = null; },
   async isAdmin() { if (!this.user) return false; if (this._admin === null) { const { data } = await this.sb.rpc('is_admin'); this._admin = !!data; } return this._admin; },
   async mine() { const s = new Set(); if (!this.user) return s; const rows = this.ok(await this.sb.rpc('my_items')) || []; rows.forEach(r => s.add(r.target_type + ':' + r.target_id)); return s; },
-  async churchStats() { return clusterStats(this.ok(await this.sb.from('reviews').select('church_key,church_name,region,denomination,r_pay,r_workload,r_contract,r_respect,r_leadership,r_growth,recommend,status,created_at').eq('status', 'published').order('created_at', { ascending: false }).limit(3000)) || []); },
+  async churchStats() { return clusterStats(this.ok(await this.sb.from('reviews').select('church_key,church_name,region,denomination,r_pay,r_workload,r_contract,r_respect,r_leadership,r_growth,recommend,status,created_at,church_reply').eq('status', 'published').order('created_at', { ascending: false }).limit(3000)) || []); },
   async reviews(key) { return this.ok(await this.sb.from('reviews').select(this.COLS.reviews).eq('church_key', key).neq('status', 'removed').order('created_at', { ascending: false }).limit(200)) || []; },
+  async requestReview(name, region) { await this.ensureUser(); return this.ok(await this.sb.rpc('request_review', { p_name: name, p_region: region || null })); },
+  async reviewRequests() { return this.ok(await this.sb.rpc('review_request_counts')) || []; },
   async recentReviews(n) { return this.ok(await this.sb.from('reviews').select(this.COLS.reviews).eq('status', 'published').order('created_at', { ascending: false }).limit(n)) || []; },
   async createReview(d) { await this.ensureUser(); const r = this.ok(await this.sb.from('reviews').insert(d).select('id').single()); return r.id; },
   async list(table, { category, sort, q, offset = 0, limit = 20 } = {}) {
@@ -1705,11 +1712,28 @@ function reviewCard(r) {
       <button class="txt-btn" data-rebut="${r.id}" data-name="${esc(r.church_name)}" data-region="${esc(r.region || '')}" data-denom="${esc(r.denomination || '')}">반론·신고</button></footer>
   </article>`;
 }
+// 「이 교회 평가가 필요해요」(10/28): 글 없이 요청 수만 모아, 그 교회 출신 사역자가 평가를 쓰게 이끎
+let RQ = null;
+async function rqCounts(force) { if (!RQ || force) RQ = await safe(() => API.reviewRequests(), []) || []; return RQ; }
+function rqBox(name, region, key, writeHref) {
+  const n = (RQ || []).find(x => x.church_key === key)?.n || 0, mine = store.get('dy.rq', []).includes(key);
+  return `<div class="notice rq-box" style="margin:14px 0" data-rq-key="${esc(key)}"><b>평가 요청 <span class="rq-n">${n}</span>명</b> — 이 교회가 궁금한 동역자들이 평가를 기다립니다. 이 교회에서 사역하셨다면 <a href="${writeHref}">평가를 남겨 주세요</a>.<div class="btn-row" style="margin-top:8px"><button type="button" class="btn ${mine ? 'btn-line' : 'btn-main'} btn-sm" data-rq="${esc(name)}" data-rq-region="${esc(region || '')}"${mine ? ' disabled' : ''}>${mine ? '요청했습니다' : '이 교회 평가가 필요해요'}</button></div></div>`;
+}
+document.addEventListener('click', async e => {
+  const b = e.target.closest('[data-rq]'); if (!b) return;
+  b.disabled = true;
+  const n = await safe(() => API.requestReview(b.dataset.rq, b.dataset.rqRegion), null);
+  if (n == null) { b.disabled = false; return; }
+  const box = b.closest('.rq-box'), key = box.dataset.rqKey;
+  store.set('dy.rq', [...new Set([...store.get('dy.rq', []), key])]);
+  box.querySelector('.rq-n').textContent = n; b.textContent = '요청했습니다'; b.classList.replace('btn-main', 'btn-line');
+  RQ = null; toast('평가 요청을 남겼습니다. 이 교회에서 사역한 분이 보시면 평가를 남겨 주실 거예요.');
+});
 async function renderChurchReviews(box, name, region, denom) {
   box.innerHTML = `<div class="detail"><p class="loading">평가를 불러오는 중…</p></div>`;
   const key = churchKey(name), me = idOf(region, denom);
   // 같은 이름이라도 지역·교단이 다른 교회의 평가는 뺀다
-  const all = await safe(() => API.reviews(key), []) || [];
+  const [all] = await Promise.all([safe(() => API.reviews(key), []).then(x => x || []), rqCounts()]);
   const list = all.filter(r => sameChurch(me, idOf(r.region, r.denomination)));
   // 가려진 평가: 내용 없이 이유만(10/21 「가려졌다면 이유라도 알아야」 요청). 내가 쓴 것은 위 목록에 이미 있음
   const shown = new Set(list.map(r => r.id));
@@ -1725,18 +1749,18 @@ async function renderChurchReviews(box, name, region, denom) {
   box.innerHTML = `<div class="detail">
     <div class="sec-head" style="margin-bottom:14px"><h2 style="font-size:20px">${esc(name)} 사역자 평가</h2><a class="btn btn-main btn-sm" href="${writeHref}">평가 쓰기</a></div>
     ${a.n ? `<div class="rv-summary">
-        <div class="rv-big"><strong>${a.overall.toFixed(1)}</strong><span class="stars lg" style="--v:${a.overall}"></span><p>평가 ${a.n}건 · 추천 ${a.rec}%</p></div>
+        <div class="rv-big"><strong>${a.overall.toFixed(1)}</strong><span class="stars lg" style="--v:${a.overall}"></span><p>평가 ${a.n}건 · 추천 ${a.rec}%${list.filter(r => r.status === 'published' && r.church_reply).length ? ` · 교회 답변 ${list.filter(r => r.status === 'published' && r.church_reply).length}건` : ''}</p></div>
         <div class="bars">${RATINGS.map(([k, l]) => `<div class="bar"><span>${l}</span><div class="bar-track"><div class="bar-fill" style="width:${a.avg[k] / 5 * 100}%"></div></div><b>${a.avg[k].toFixed(1)}</b></div>`).join('')}</div>
       </div>
       ${others.length ? `<div class="notice">${!me.rk && !me.dk ? '이름이 같은 교회가 여럿입니다. 지역·교단을 골라 보세요' : '이름이 같은 다른 교회'}: ${others.map(o => `<a href="${churchHref(o.church_name, o.region, o.denomination)}">${esc([o.rk, denomLabel(o.dk)].filter(Boolean).join(' · ') || '지역·교단 미상')} (${o.n}건)</a>`).join(', ')}</div>` : ''}
       ${regions.length > 1 ? `<div class="notice warn">이 이름의 평가에 지역이 여러 개(${regions.map(esc).join(', ')}) 있습니다. 같은 이름의 다른 교회일 수 있으니 각 평가의 지역을 확인하세요.</div>` : ''}
       ${a.n < 3 ? `<p class="hint" style="margin-bottom:14px">평가가 ${a.n}건뿐이라 개인 경험에 치우칠 수 있습니다.</p>` : ''}`
       : `<p class="empty" style="padding:20px 0">아직 공개된 평가가 없습니다. 이 교회에서 사역하셨다면 첫 평가를 남겨 주세요.</p>`}
-    ${hiddenBox}${list.map(reviewCard).join('')}
+    ${rqBox(name, region, key, writeHref)}${hiddenBox}${list.map(reviewCard).join('')}
   </div>`;
 }
 function churchRow(s) {
-  return `<li><a class="row-link" href="${churchHref(s.church_name, s.region, s.denomination)}"><div class="row-main"><p class="row-title">${esc(s.church_name)}</p><p class="meta">${s.region ? `<span>${esc(s.region)}</span>` : ''}${s.denomination ? `<span>${esc(s.denomination)}</span>` : ''}<span>평가 ${s.n}건</span><span>추천 ${s.rec_pct}%</span><span>${timeAgo(s.last_at)}</span></p></div><div class="row-side"><span class="stars" style="--v:${s.overall}"></span><b style="font-size:14px">${Number(s.overall).toFixed(1)}</b></div></a></li>`;
+  return `<li><a class="row-link" href="${churchHref(s.church_name, s.region, s.denomination)}"><div class="row-main"><p class="row-title">${esc(s.church_name)}</p><p class="meta">${s.region ? `<span>${esc(s.region)}</span>` : ''}${s.denomination ? `<span>${esc(s.denomination)}</span>` : ''}<span>평가 ${s.n}건</span><span>추천 ${s.rec_pct}%</span>${s.replies ? `<span class="tag ok">교회 답변 ${s.replies}건</span>` : ''}<span>${timeAgo(s.last_at)}</span></p></div><div class="row-side"><span class="stars" style="--v:${s.overall}"></span><b style="font-size:14px">${Number(s.overall).toFixed(1)}</b></div></a></li>`;
 }
 // 교회 평가 화면: 검색하지 않아도 최근 평가와 평가된 교회 전체를 볼 수 있게(10/21 이용자 요청)
 let CHURCH_SHOW = 20;
@@ -1744,7 +1768,7 @@ const churchArea = s => String(s.region || '').trim().split(/\s+/)[0] || '';
 function renderChurchAll() {
   const st = STATS || [], area = $('#church-area').value, sort = $('#church-sort').value;
   const by = { recent: (a, b) => String(b.last_at).localeCompare(String(a.last_at)), many: (a, b) => b.n - a.n || String(b.last_at).localeCompare(String(a.last_at)), score: (a, b) => b.overall - a.overall || b.n - a.n, name: (a, b) => a.church_name.localeCompare(b.church_name, 'ko') }[sort];
-  const list = st.filter(s => !area || churchArea(s) === area).sort(by);
+  const list = st.filter(s => (!area || churchArea(s) === area) && (sort !== 'replied' || s.replies)).sort(by || ((a, b) => String(b.last_at).localeCompare(String(a.last_at))));
   $('#church-all-h').textContent = `평가된 교회 전체 (${list.length}곳)`;
   $('#church-all').innerHTML = list.length ? list.slice(0, CHURCH_SHOW).map(churchRow).join('') : empty('아직 평가가 없습니다.');
   $('#church-more').hidden = list.length <= CHURCH_SHOW;
@@ -1754,7 +1778,9 @@ function feedRow(r) {
 }
 HOOKS['pg-churches'] = async () => {
   $('#church-all').innerHTML = loading(); $('#church-feed').innerHTML = loading();
-  const [st, feed] = await Promise.all([stats(true), safe(() => API.recentReviews(11), [])]);
+  $('#church-rq').innerHTML = loading();
+  const [st, feed, rq] = await Promise.all([stats(true), safe(() => API.recentReviews(11), []), rqCounts(true)]);
+  $('#church-rq').innerHTML = (rq || []).length ? rq.slice(0, 10).map(x => `<li><a class="row-link" href="${churchHref(x.church_name, x.region)}"><div class="row-main"><p class="row-title">${esc(x.church_name)}</p><p class="meta">${x.region ? `<span>${esc(x.region)}</span>` : ''}<span>평가 ${(st.filter(s => s.church_key === x.church_key).reduce((t, s) => t + s.n, 0))}건</span></p></div><div class="row-side"><b style="font-size:14px">요청 ${x.n}명</b></div></a></li>`).join('') : empty('아직 요청이 없습니다. 교회 페이지의 「이 교회 평가가 필요해요」를 눌러 주세요.');
   $('#church-feed').innerHTML = (feed || []).length ? feed.slice(0, 10).map(feedRow).join('') : empty('아직 평가가 없습니다.');
   $('#church-feed-all').hidden = (feed || []).length <= 10;
   const areas = [...new Set(st.map(churchArea).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ko'));

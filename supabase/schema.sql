@@ -465,6 +465,41 @@ language sql stable security definer set search_path = public as $$
 $$;
 grant execute on function public.hidden_reviews(text) to anon, authenticated;
 
+-- 「이 교회 평가가 필요해요」(10/28, 대나무숲 16번 건의를 검수 원칙 안에서): 글 없이 요청 수만 셈. 같은 계정은 한 교회에 1번
+create table if not exists public.review_requests (
+  church_key  text not null,
+  church_name text not null check (char_length(church_name) between 2 and 60),
+  region      text check (char_length(region) <= 30),
+  author_id   uuid not null references auth.users(id) on delete cascade,
+  created_at  timestamptz not null default now(),
+  primary key (church_key, author_id)
+);
+alter table public.review_requests enable row level security;
+revoke all on public.review_requests from anon, authenticated;
+
+create or replace function public.request_review(p_name text, p_region text default null) returns int
+language plpgsql security definer set search_path = public as $$
+declare k text := public.church_key(p_name); n int;
+begin
+  if auth.uid() is null then raise exception '로그인이 필요합니다'; end if;
+  if char_length(btrim(coalesce(p_name, ''))) < 2 then raise exception '교회 이름이 필요합니다'; end if;
+  insert into public.review_requests (church_key, church_name, region, author_id)
+    values (k, left(btrim(p_name), 60), nullif(left(btrim(coalesce(p_region, '')), 30), ''), auth.uid())
+    on conflict do nothing;
+  select count(*) into n from public.review_requests where church_key = k;
+  return n;
+end $$;
+
+create or replace function public.review_request_counts() returns table (church_key text, church_name text, region text, n int)
+language sql stable security definer set search_path = public as $$
+  select q.church_key, (array_agg(q.church_name order by q.created_at desc))[1],
+         (array_agg(q.region order by q.created_at desc) filter (where q.region is not null))[1], count(*)::int
+  from public.review_requests q group by q.church_key order by count(*) desc, max(q.created_at) desc limit 300
+$$;
+revoke execute on function public.request_review(text, text) from public, anon;
+grant execute on function public.request_review(text, text) to authenticated;
+grant execute on function public.review_request_counts() to anon, authenticated;
+
 -- 내부용 함수는 API로 직접 부를 수 없게
 revoke execute on function public.refresh_counts(text, bigint) from public, anon, authenticated;
 revoke execute on function public.content_of(text, bigint) from public, anon, authenticated;

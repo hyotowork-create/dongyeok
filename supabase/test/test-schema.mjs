@@ -257,3 +257,20 @@ console.log('\n모든 점검 통과');
     values ('교단없는교회','서울 강남구','부목사','최근 2년 이내',3,3,3,3,3,3,true,'좋았던 점 열 글자 이상','아쉬운 점 열 글자 이상',true)`), /지역과 교단/);
   ok('교회 평가: 지역·교단이 없으면 거절');
 }
+
+// 「이 교회 평가가 필요해요」: 같은 계정은 한 교회에 1번, 수만 공개, 표는 직접 못 읽음
+{
+  await db.exec(`reset role`);
+  let [r] = await as(U1, `select request_review('요청 교회', '서울 강남구') as n`);
+  assert.equal(r.n, 1);
+  [r] = await as(U1, `select request_review('요청 교회') as n`);
+  assert.equal(r.n, 1);
+  [r] = await as(U2, `select request_review('요청교회') as n`);
+  assert.equal(r.n, 2);
+  await fails(as(null, `select request_review('요청 교회')`), /permission denied|로그인/);
+  await fails(as(U1, `select * from review_requests`), /permission denied/);
+  const c = await as(null, `select * from review_request_counts()`);
+  const row = c.find(x => x.church_name.replace(/\s/g, '') === '요청교회');
+  assert.equal(row.n, 2); assert.equal(row.region, '서울 강남구'); assert.ok(!('author_id' in row));
+  ok('평가 요청: 계정당 한 교회 1번, 요청 수·교회 이름만 공개, 표 직접 읽기 차단');
+}

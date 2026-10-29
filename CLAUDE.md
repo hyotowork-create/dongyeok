@@ -5,7 +5,7 @@
 > 상세 운영 설명 = `docs/운영가이드.md`. 수집기 수리 절차 = `.claude/skills/dongyeok-scraper/SKILL.md`.
 > 운영자 관련 정보(호칭·보고 방식·계정·이 맥의 사정)는 `CLAUDE.local.md`(저장소에 안 올라감)에 있다. 있으면 반드시 함께 읽는다.
 > 저장소가 공개라서 이 파일에는 운영자 실명·개인 연락처를 적지 않는다.
-> 마지막 갱신: 2026-10-21 오후 (교회 평가 투명성·교회 측 답변·운영자 표시·세라핌 내려받기 안내 — 아래 「작업 기록」)
+> 마지막 갱신: 2026-10-29 (세라핌 0.3.1 릴리스 — 아래 「작업 기록」)
 > 한 파일로 모은 인수인계서: 운영자 맥의 `인수인계.local.md`(운영자 정보 포함이라 저장소 제외). 다른 컴퓨터로 옮길 때는 이 파일과 `CLAUDE.local.md`를 함께 복사한다.
 
 ## 작업 방식: ponytail(모든 대화·코드)
@@ -86,7 +86,7 @@
 | Supabase Storage | 버킷 `resources`(10MB, 문서·이미지) | 익명 이용자 업로드 금지(정책·트리거) |
 | Supabase Edge Function | **`kr-relay`**(서울 중계) — 코드 `supabase/functions/kr-relay/index.ts` | 대시보드에 붙여 넣어 배포. 시험용 `probe-kr`은 2026-10-12 삭제 |
 | 운영자 맥 launchd | `~/Library/LaunchAgents/kr.dongyeok.fetch.plist`(05:45·11:45·17:45) → `~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.sh` | 별도 git 클론. `~/Downloads`는 macOS 폴더 보호로 예약 작업이 못 읽음 |
-| 세라핌 | 저장소 `hyotowork-create/Seraphim`, 릴리스 **0.2.0**(2026-10-12, Windows 설치형·포터블, Mac Apple Silicon) | 사이트 「내려받기」 = `/releases/latest`. 0.2.0 소스는 아직 GitHub에 없음(운영자 맥의 작업 브랜치) |
+| 세라핌 | 저장소 `hyotowork-create/Seraphim`, 최신 릴리스 **0.3.1**(2026-10-29, Windows 설치형·포터블, Mac Apple Silicon·Intel dmg, ad-hoc 서명 — 공증 없음, 운영자 결정) | 사이트 「내려받기」 = `/releases/latest`. 0.2.0 소스는 아직 GitHub에 없음(운영자 맥의 작업 브랜치) |
 | 사진 | Unsplash 핫링크(`photo-…` 아이디) | 목록은 운영가이드 2-3 |
 | 방문 통계 | GoatCounter `dongyeok` — https://dongyeok.goatcounter.com (`config.js` `goatcounter`) | 2026-10-12 연결. 쿠키 없음. 운영자 계정(운영자가 가입). 화면 이동마다 `/dongyeok/#pg-…` 경로로 집계 |
 
@@ -343,7 +343,7 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 | **11/3: 중복 평가 정리 → 「같은 계정은 한 교회 1건」 제한** | 운영자 공지 → Claude | 같은 기기·브라우저에서 같은 교회에 2건(10/28 기준 남현교회·동도중앙침례교회). 공지에 11/3까지 작성자 직접 삭제 요청, 기한 뒤 교회별 최근 1건만 남기고 DB 제한 추가 |
 | **11/12경(공개 한 달): 한 달 통계 스레드 공개** | Claude 초안 → 운영자 게시 | 운영자 맥 `~/Downloads/dongyeok/promo/운영기록-첫달.md`(저장소 제외: 숫자·건의·논란·원칙·스레드 초안). 공개 한 달 시점에 숫자를 다시 뽑아 갱신(Supabase 커넥터 `execute_sql` 읽기 + GoatCounter). 그 뒤 Sermon Insight 개시 |
 | **11/22 이후: Sermon Insight 공개 검토** | 운영자 → Claude | 운영자 결정: 클릭 집계 30일 뒤 판단, 공개할 때는 **별도 도메인**으로(도메인 신청·구매는 운영자). 코드는 `~/Developer/dongyeok-work` `feat/sermon-yt-parallel` |
-| 세라핌 0.3.1 릴리스(Mac 서명 수정) | 운영자 → Claude | Seraphim `fix/mac-signing`(main 미병합). 릴리스 뒤 동역 `index.html` 세라핌 내려받기 창의 「Mac 버전 수정 중」 문단 삭제, 작업 폴더 `~/Developer/seraphim-fix` 정리 |
+| 운영자 맥 `~/Developer/seraphim-fix` 정리 | 운영자(맥 세션) | 세라핌 0.3.1 릴리스됨(10/29). 이 폴더는 이제 필요 없음 |
 | 외부 예약 토큰 만료 전 교체 | 운영자 → Claude | Supabase pg_cron `dongyeok-wake`(UTC `17,47 21-23,0-14`)가 Vault `gh_dispatch_token`으로 workflow_dispatch(wake=true)를 부름(10/13 시험 호출 204·guard 건너뜀 확인). 토큰(fine-grained `dongyeok-wake`, Actions 쓰기, dongyeok만)은 **2027년 만료** — 만료 전 새로 발급해 Vault 값만 교체. 채팅에 한 번 노출됐으나 운영자 결정으로 그대로 사용(10/13) |
 | Supabase 조직에 공개 메일 초대 | 운영자 | 팀 화면 → Invite members → seraphim7997@gmail.com, Administrator |
 | 세라핌 0.2.0 소스 공개 여부 | 운영자 | 시험용 파일에 찬송가·CCM 가사와 실제 예배 PPT가 있어 그대로 공개하면 저작권 문제. 공개하려면 그 파일을 빼고 올림 |
@@ -376,3 +376,4 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 | 2026-10-18~21 | 맥 보충 수집 pull 재시도. 청빙 아닌 글 거르기 보강(36건 제외). 「설교 평가하기(공개 예정)」 클릭 집계(GoatCounter `event-sermon-soon`). **교회 평가 투명성(10/21)**: 신고만으로 안 가림·운영자 검토(명확한 사유 아니면 반려), 가린 이유 공개(`hidden_reviews()`), 평가된 교회 전체 목록·최근 평가 10건, 신고 사유 「홍보성 평가 의심」, **교회 측 답변**(교회 공식 이메일로 관계자 확인 후 운영자가 `set_church_reply`로 게시, 담임목사 작성 권고), 이용 안내 「교회 관계자분께」, 변경 안내 팝업(11/20까지 1회). 가려졌던 평가 2건(남현·이룸) 공개. schema.sql 운영 DB 적용 |
 | 2026-10-21 오후 | **운영자 표시**: 운영자 계정이 쓴 글·댓글은 서버가 이름을 「운영자」로 정하고 화면에 「✓ 운영자」(사칭 방지, 기존 글도 반영 — schema.sql 운영 DB 적용). 운영자 계정의 사적 댓글 3개(5·9·14번) 운영자 요청으로 삭제. 대나무숲 11번 글(운영자 비판, 작성자 실명) 실명만 가림 → 작성자가 직접 삭제. 운영자 답글(48번)·사과 글(12번)은 운영자가 직접 게시. 대나무숲 9번 글은 운영자 삭제 상태 유지(운영자 결정: 추가 조치 없음). **세라핌 내려받기 안내 창**(최신 릴리스를 운영체제별로, Windows·Mac 첫 실행 경고 대처, 「Mac 버전 수정 중」 안내, GoatCounter `event-seraphim-dl`, CSP에 api.github.com 추가). 세라핌 0.3.0 Mac 앱은 서명이 깨져 「손상된 앱」으로 막힐 수 있음 → 수정본(afterPack ad-hoc 서명, macos-13 제거)은 Seraphim `fix/mac-signing` 브랜치, CI 시험 빌드 서명 유효 확인, **릴리스는 운영자 결정 대기**(릴리스하면 사이트의 「Mac 수정 중」 안내 삭제). 첫 화면 숫자 수동 갱신. 스레드 글(조회 4,700명) 뒤 방문 급증(10시간 화면 열람 +2,269) |
 | 2026-10-28 | 공고 보관 한도 3,000→6,000건(90일 유지). Supabase 커넥터 연결(조회·마이그레이션 가능, 조회 외 변경은 운영자 승인). **교회 답변 있는 교회 표시**(목록 「교회 답변 N건」, 「교회 답변 있는 곳만」, 교회 요약)와 **「이 교회 평가가 필요해요」**(`review_requests` 표·`request_review()`·`review_request_counts()`, 계정당 한 교회 1번, 요청 수만 공개, 교회 페이지·공고 상세·「평가가 필요한 교회」 목록) 배포 — 원래 10/30·11/6 예정을 운영자 지시로 앞당김. 평가 지역·교단 필수 DB 검사 적용 |
+| 2026-10-29 | **세라핌 0.3.1 릴리스**(Mac 「손상된 앱」 수정: 앱 전체 ad-hoc 서명, 빌드 중 서명 점검 — 못 맞추면 릴리스 중단, Seraphim main 361221e, Release run 40808130655). Apple 개발자 계정·공증은 계획 없음(운영자 결정) → Mac은 첫 실행 때 「그래도 열기」 1번. 사이트 내려받기 창의 「Mac 버전 수정 중」 문단 삭제, 터미널 방법은 0.3.0 이하용으로 표시 |

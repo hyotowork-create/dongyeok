@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-30T02:45:40.943Z",
+ "updatedAt": "2026-10-30T22:22:14.661Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -22,6 +22,53 @@
  ],
  "items": [
   {
+   "id": "ks-f4s4l7",
+   "dk": "f4s4l7",
+   "source": "kwangshin",
+   "title": "대산제일교회 교역자 청빙공고",
+   "church": "대산제일교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-10-30",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43207"
+  },
+  {
+   "id": "ks-1nhjcct",
+   "dk": "1nhjcct",
+   "source": "kwangshin",
+   "title": "전주 더온누리교회에서 전임 사역자를 청빙합니다.",
+   "church": "더온누리교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-30",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43206"
+  },
+  {
    "id": "ks-o9u1p6",
    "dk": "o9u1p6",
    "source": "kwangshin",
@@ -38,10 +85,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "전임 부목사"
-   ],
    "denomination": null,
    "date": "2026-10-30",
    "deadline": null,
@@ -102,10 +145,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사"
-   ],
    "denomination": null,
    "date": "2026-10-30",
    "deadline": null,
@@ -128,12 +167,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 목사",
-    "전임 전도사",
-    "전임 부목사",
-    "강도사"
-   ],
    "denomination": null,
    "date": "2026-10-30",
    "deadline": null,
@@ -237,68 +270,25 @@
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43195"
   },
   {
-   "id": "ks-1jafdrz",
-   "dk": "1jafdrz",
-   "source": "kwangshin",
-   "title": "목포영락교회에서 함께 사역할 귀한 동역자를 모십니다.",
-   "church": "목포영락교회",
-   "region": "전남",
+   "id": "ac-831fxq",
+   "dk": "831fxq",
+   "source": "acts",
+   "title": "분당하나교회 청빙 공고",
+   "church": "분당하나교회",
+   "region": "경기",
    "area": null,
-   "positions": [
-    "교역자(직책 미상)"
-   ],
+   "positions": [],
    "dept": null,
    "tags": [],
-   "pay": {
-    "min": 250,
-    "max": 250,
-    "label": "월 250만원",
-    "roles": []
-   },
+   "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 부목사",
-    "강도사"
-   ],
+   "posHint": [],
    "denomination": null,
-   "date": "2026-10-28",
+   "date": "2026-10-31",
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43194"
-  },
-  {
-   "id": "ks-1cvw9qa",
-   "dk": "1cvw9qa",
-   "source": "kwangshin",
-   "title": "여수충무동교회에서 동역자를 정중히 모십니다!",
-   "church": "여수충무동교회",
-   "region": "전남",
-   "area": null,
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "min": 292,
-    "max": 292,
-    "label": "월 292만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 부목사",
-    "강도사"
-   ],
-   "denomination": null,
-   "date": "2026-10-28",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43193"
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2485&id=acts_csrd_guide&ca_no=1"
   },
   {
    "id": "ac-580szy",
@@ -552,29 +542,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2476&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-hjtn0e",
-   "dk": "hjtn0e",
-   "source": "acts",
-   "title": "세광교회(안산) 청빙 공고",
-   "church": "세광교회",
-   "region": "경기",
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [],
-   "denomination": null,
-   "date": "2026-10-22",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2473&id=acts_csrd_guide&ca_no=1"
   }
  ]
 }

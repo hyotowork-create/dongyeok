@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-30T22:22:14.661Z",
+ "updatedAt": "2026-10-31T03:16:34.639Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -35,7 +35,13 @@
    "dept": null,
    "tags": [],
    "pay": null,
-   "payChecked": false,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
    "denomination": null,
    "date": "2026-10-30",
    "deadline": null,
@@ -58,9 +64,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "전임 전도사"
-   ],
    "denomination": null,
    "date": "2026-10-30",
    "deadline": null,
@@ -282,7 +285,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [],
    "denomination": null,
    "date": "2026-10-31",
    "deadline": null,

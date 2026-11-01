@@ -1,7 +1,7 @@
 // 총신대학교 사역게시판 — 화면은 자바스크립트로 그리고, 목록은 공개 JSON API에서 옴(로그인 불필요, robots.txt 없음)
 // ⚠ 응답에 연락처·이메일·담임목사 이름·작성자 정보가 함께 오므로, 아래에서 공개용 필드만 골라내고 나머지는 즉시 버린다.
 // 본문(body)은 사례비 숫자만 읽고 저장하지 않는다.
-import { parseSalary, classifyPositions, CLERGY } from '../lib.mjs';
+import { parseSalary, classifyPositions, CLERGY, parseAddress, parseInfo } from '../lib.mjs';
 const pickPay = (a, b) => (a && a.min ? a : b && b.min ? b : a || b || null);
 const strip = h => String(h || '').replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
 
@@ -9,6 +9,7 @@ export default {
   id: 'chongshin', short: 'cs', name: '총신대', group: '신학교',
   home: 'https://www.csu.ac.kr/?m1=page&menu_id=1110',
   enabled: true,
+  noDetail: true,    // 상세 화면은 자바스크립트로 그려 읽을 것이 없음 — 본문은 목록 API에서 받음
   viaKR: true,       // 해외(GitHub) 접속을 막음 → GitHub Actions에서는 서울 중계 함수(kr-relay)를 거침
   pages: 3,          // 1쪽 = 50건(약 4~5시간 분량). 하루 3번 × 3쪽 = 충분, 서버 부담을 줄이려 6→3
   async collect({ http }) {
@@ -37,6 +38,8 @@ export default {
           pay: pickPay(parseSalary(p.gratuity, { dedicated: true }), parseSalary(strip(it.body))),   // 사례비 칸 숫자 > 본문 숫자 > "내규·협의"
           payChecked: true,
           posHint: classifyPositions(strip(it.body).slice(0, 1500)).filter(p => CLERGY.includes(p)).slice(0, 4),
+          addr: parseAddress(strip(it.body)) || (p.location ? parseAddress('주소 ' + p.location) : null),
+          info: parseInfo(strip(it.body)),
           url: `https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=${encodeURIComponent(it.id)}`
         });
       }

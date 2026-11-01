@@ -359,3 +359,49 @@ export function parseSalary(raw, { dedicated = false } = {}) {
   const min = Math.min(...vals), max = Math.max(...vals);
   return { min, max, label: `${perTime ? '회당·주당 포함 ' : '월 '}${min === max ? min : `${min}~${max}`}만원`, roles: roles.slice(0, 6), perTime: perTime || undefined };
 }
+
+// ── 본문에서 교회 주소·조건 항목 뽑기(11/1 운영자 승인: 문장은 버리고 정해진 항목만 저장) ──
+const SIDO = '(서울특별시|서울시|서울|부산광역시|부산시|부산|대구광역시|대구시|대구|인천광역시|인천시|인천|광주광역시|광주|대전광역시|대전시|대전|울산광역시|울산시|울산|세종특별자치시|세종시|세종|경기도|경기|강원특별자치도|강원도|강원|충청북도|충북|충청남도|충남|전북특별자치도|전라북도|전북|전라남도|전남|경상북도|경북|경상남도|경남|제주특별자치도|제주도|제주)';
+const ADDR_RE = new RegExp(`(교회\\s*)?(?:주\\s*소|소재지|위\\s*치)\\s*[:：]?\\s*(?:\\(\\d{5}\\)\\s*)?${SIDO}\\s+((?:[가-힣]{1,6}(?:시|군|구)\\s+){0,2})((?:[가-힣0-9]{1,14}(?:로|길)(?:\\s*\\d{1,4}번?길)?|[가-힣0-9]{1,8}(?:동|읍|면|리|가))(?:\\s*\\d{1,5}(?:-\\d{1,5})?)?)?`, 'g');
+const ADDR_NEAR = new RegExp(`${SIDO}\\s+((?:[가-힣]{1,6}(?:시|군|구)\\s+){1,2})((?:[가-힣0-9]{1,8}(?:동|읍|면|리|가))?)\\s*(?:소재|에\\s*(?:위치|있))`);
+// 모집 안내가 시작되는 곳부터 4,000자(이전글·다음글 버튼이 본문 앞에 오는 게시판도 있어 자르지 않음)
+function postText(text) {
+  const all = String(text || '').replace(/\s+/g, ' ');
+  const i = Math.max(0, all.search(/모집|청빙|초빙|지원\s*자격/));
+  return all.slice(i, i + 4000);
+}
+/** 본문의 「교회 주소: …」에서 "시도 시군구 (도로명|읍면동) 번지"만. 학교·총회 등 바닥글 주소는 버림 */
+export function parseAddress(text) {
+  const t = String(text || '').replace(/\s+/g, ' ');
+  let best = null;
+  for (const m of t.matchAll(ADDR_RE)) {
+    if (!m[1] && /대학|신학|총회|본부|학교|캠퍼스|사무국|노회\s*$/.test(t.slice(Math.max(0, m.index - 20), m.index))) continue;
+    const sgg = m[3].trim(), rest = (m[4] || '').trim();
+    if (!sgg && !/^세종/.test(m[2])) continue;          // 세종 말고는 시·군·구가 있어야 함
+    const a = [normRegion(m[2]), sgg, rest].filter(Boolean).join(' ').replace(/\s+/g, ' ').slice(0, 40);
+    if (m[1]) return a;                                   // 「교회 주소」 표기가 가장 확실
+    best = best || a;
+  }
+  const n = best ? null : postText(t).match(ADDR_NEAR);   // 「서울시 강동구 길동 소재」처럼 표기만 있는 경우
+  return best || (n ? [normRegion(n[1]), n[2].trim(), n[3]].filter(Boolean).join(' ') : null);
+}
+const INFO_PERKS = [['사택', /사택(?!\s*(?:없|미제공|불가|보조|지원비))/], ['사택 보조', /사택\s*(?:보조|지원비)|주거\s*(?:비|지원)/], ['4대보험', /4\s*대\s*보험/], ['퇴직금', /퇴직\s*(?:금|연금)/], ['식대', /식대|식사\s*제공|중식\s*제공/], ['교통비', /교통비|차량\s*유지비|유류비/], ['휴가', /휴가|안식\s*(?:월|년)/]];
+const INFO_DOCS = [['이력서', /이력서/], ['자기소개서', /자기\s*소개서/], ['추천서', /추천서/], ['졸업·재학증명서', /(?:졸업|재학)\s*(?:증명서|예정)/], ['성적증명서', /성적\s*증명서/], ['신앙고백·간증', /신앙\s*고백|간증/], ['설교(영상·원고)', /설교\s*(?:영상|동영상|원고|문|녹화)/], ['목회·사역계획서', /(?:목회|사역)\s*계획/], ['가족관계증명서', /가족\s*관계/]];
+/** 사역 형태·처우·제출 서류·나이 상한만 짧은 낱말로(본문 문장은 저장하지 않음). 없으면 null */
+export function parseInfo(text) {
+  const t = postText(text);
+  const work = [];
+  for (const m of t.matchAll(/주\s*([3-6])\s*일/g)) work.push(`주${m[1]}일`);
+  if (/토(?:요일)?\s*[,·및~]?\s*주일|주일\s*[,·및]\s*토(?:요일)?/.test(t)) work.push('토·주일');
+  else if (/주일\s*(?:1\s*회|만|하루)|출근\s*(?:은|:)?\s*주일(?!\s*[,·및])/.test(t)) work.push('주일만');
+  const perks = INFO_PERKS.filter(([, re]) => re.test(t)).map(([k]) => k);
+  const d = t.search(/(?:제출|구비|지원)\s*서류|서류\s*(?:제출|접수)/);
+  const docs = d < 0 ? [] : INFO_DOCS.filter(([, re]) => re.test(t.slice(d, d + 300))).map(([k]) => k);
+  const age = t.match(/(\d{2})\s*세\s*(이하|미만|까지)/);
+  const info = {};
+  if (work.length) info.work = [...new Set(work)].slice(0, 3);
+  if (perks.length) info.perks = perks;
+  if (docs.length) info.docs = docs;
+  if (age && +age[1] >= 25 && +age[1] <= 70) info.maxAge = +age[1] - (age[2] === '미만' ? 1 : 0);
+  return Object.keys(info).length ? info : null;
+}

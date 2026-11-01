@@ -12,7 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
-import { Http, KrRelay, BlockedError, RobotsError, isNotJob, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
+import { Http, KrRelay, BlockedError, RobotsError, isNotJob, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, parseAddress, parseInfo, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import puts from './sources/puts.mjs';
 import mtu from './sources/mtu.mjs';
@@ -64,7 +64,8 @@ async function fillPay(http, items, okSources) {
     const src = bySrc.get(it.source);
     const unknownPos = !(it.positions || []).length || ((it.positions || []).length === 1 && it.positions[0] === '교역자(직책 미상)');
     const needHint = it.payChecked && unknownPos && it.posHint === undefined;   // 본문은 읽었지만 직책 힌트를 아직 안 뽑은 공고(한 번만)
-    if ((it.payChecked && !needHint) || !src || src.noDetail || !okSources.has(src.id) || it.date < since || !/^https?:/.test(it.url)) continue;
+    const needInfo = it.payChecked && it.info === undefined;                   // 주소·항목을 아직 안 뽑은 공고(11/1 이전에 읽었거나 목록에서 사례비만 받은 곳, 한 번만)
+    if ((it.payChecked && !needHint && !needInfo) || !src || src.noDetail || !okSources.has(src.id) || it.date < since || !/^https?:/.test(it.url)) continue;
     if (!queues.has(src.id)) queues.set(src.id, []);
     if (queues.get(src.id).length < DETAIL_PER_SOURCE) queues.get(src.id).push(it);
   }
@@ -80,6 +81,7 @@ async function fillPay(http, items, okSources) {
         const text = ($('body').text() || $.root().text()).replace(/\s+/g, ' ');
         it.pay = parseSalary(text); it.payChecked = true; done++;
         it.posHint = bodyHint(text);
+        it.addr = parseAddress(text) || it.addr || null; it.info = parseInfo(text);
         if (it.pay && it.pay.min) found++;
       } catch (e) { fails.set(sid, (fails.get(sid) || 0) + 1); if (e instanceof RobotsError || e instanceof BlockedError) fails.set(sid, 9); }
     }
@@ -108,6 +110,8 @@ function toItem(src, raw, today) {
     pay: raw.pay || null,
     payChecked: !!raw.payChecked,
     posHint: raw.posHint && raw.posHint.length ? raw.posHint : undefined,
+    addr: raw.addr !== undefined ? raw.addr : (raw.location && parseAddress('주소 ' + raw.location)) || undefined,
+    info: raw.info,
     denomination: raw.denomination ? String(raw.denomination).trim().slice(0, 30) : null,
     date,
     deadline: raw.deadline ? (/^\d/.test(raw.deadline) ? parseDate(raw.deadline, today) : String(raw.deadline).slice(0, 20)) : null,
@@ -153,7 +157,7 @@ async function main() {
     const ok = statuses.filter(s => s.status === 'ok' && (!ONLY || ONLY.has(s.id)));
     const okIds = new Set(ok.map(s => s.id));
     let prevLocal = []; try { prevLocal = JSON.parse(await readFile(OUT_LOCAL, 'utf8')).items || []; } catch { }
-    const localItems = fresh.filter(it => okIds.has(it.source)).map(it => { const o = prevLocal.find(x => x.id === it.id); return !it.payChecked && o && o.payChecked ? { ...it, pay: o.pay, payChecked: true } : it; });
+    const localItems = fresh.filter(it => okIds.has(it.source)).map(it => { const o = prevLocal.find(x => x.id === it.id); const k = o && it.info === undefined && o.info !== undefined ? { ...it, addr: it.addr || o.addr, info: o.info } : it; return !k.payChecked && o && o.payChecked ? { ...k, pay: o.pay, payChecked: true } : k; });
     await fillPay(http, localItems, okIds);
     const local = { updatedAt: new Date().toISOString(), sources: ok.map(({ checkedAt, ...s }) => ({ ...s, note: '맥에서 보충 수집' })), items: localItems };
     console.log(`맥 보충 수집: ${local.items.length}건 (${ok.map(s => s.name).join(', ') || '없음'})`);
@@ -191,7 +195,8 @@ async function main() {
     if (seenNow.has(it.id)) { if (it.date > byId.get(it.id).date) byId.set(it.id, { ...it, firstSeen: byId.get(it.id).firstSeen }); continue; }
     seenNow.add(it.id);
     const keepPay = !it.payChecked && old && old.payChecked ? { pay: old.pay, payChecked: true, posHint: old.posHint } : {};   // 본문에서 읽어 둔 사례비는 유지
-    byId.set(it.id, { ...it, ...keepPay, firstSeen: old ? old.firstSeen : new Date().toISOString(), date: old && old.date > it.date ? old.date : it.date });
+    const keepInfo = old && it.info === undefined && old.info !== undefined ? { addr: it.addr || old.addr, info: old.info } : {};   // 본문에서 뽑아 둔 주소·항목도 유지
+    byId.set(it.id, { ...it, ...keepPay, ...keepInfo, firstSeen: old ? old.firstSeen : new Date().toISOString(), date: old && old.date > it.date ? old.date : it.date });
   }
   const cutoff = new Date(Date.now() - KEEP_DAYS * 86400e3).toISOString().slice(0, 10);
   const enabledIds = new Set(SOURCES.filter(s => s.enabled).map(s => s.id));
@@ -207,6 +212,7 @@ async function main() {
     const p = classifyPositions(it.title, it.dept, (it.tags || []).join(' '));
     const hint = (it.posHint || []).filter(x => CLERGY.includes(x));
     it.positions = (!p.length || (p.length === 1 && p[0] === '교역자(직책 미상)')) && hint.length ? hint : p;
+    if (it.addr) { it.region = it.region || normRegion(it.addr); if (!it.area && /^\S+ \S+[시군구]( |$)/.test(it.addr)) it.area = areaOf(it.addr); }   // 세종(시·군·구 없음)은 시·도까지만
   }
   let links = [];
   try { links = (JSON.parse(await readFile(join(ROOT, 'scraper', 'link-only.json'), 'utf8')).links || []).filter(l => /^https?:\/\//.test(l.url)); } catch { /* 없으면 생략 */ }

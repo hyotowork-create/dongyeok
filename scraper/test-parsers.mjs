@@ -3,7 +3,7 @@
 // 사이트 구조가 바뀌어 수집이 0건이 되면, 표본을 새로 저장하고 이 점검부터 맞춘다.
 import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
-import { isNotJob, classifyPositions, parseSalary, parseRobots, robotsAllows, normRegion, extractChurch, extractPositions, cleanTitle, titleKey, parseDate, areaOf } from './lib.mjs';
+import { isNotJob, classifyPositions, parseSalary, parseRobots, robotsAllows, normRegion, extractChurch, extractPositions, cleanTitle, titleKey, parseDate, areaOf, parseAddress, parseInfo } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import mtu from './sources/mtu.mjs';
 import godpeople from './sources/godpeople.mjs';
@@ -143,5 +143,21 @@ await t('청빙 아닌 글 거르기', () => {
     assert.equal(isNotJob(x, 'cdaily'), true, x);
   for (const x of ['워싱턴 올네이션스 교회 - Youth, 어린이 사역…', '샌디에고 갈보리 장로교회 초등부·중등부 사…', 'Kindergarten Pastor (Part-time, Los Angeles)'])
     assert.equal(isNotJob(x, 'cdaily'), false, x);
+});
+await t('본문 주소·항목(지어낸 문장)', () => {
+  // 학교 바닥글 주소는 건너뛰고 「교회 주소」를 고름
+  assert.equal(parseAddress('목원신학교 주소 : (35349) 대전광역시 서구 도안북로 88 … 5. 교회 소재지 : 서울시 노원구 동일로 216길 47 6. 홈페이지'), '서울 노원구 동일로 216길 47');
+  assert.equal(parseAddress('교회주소 : 대구 수성구 상화로4길 9 노회명 : 대구동남'), '대구 수성구 상화로4길 9');
+  assert.equal(parseAddress('- 교회주소 : 경기도 부천시 원미구 역곡로 46번길 61- 홈페이지'), '경기 부천시 원미구 역곡로 46번길 61');
+  assert.equal(parseAddress('3. 교회 소재지 : 충청남도 천안시 동남구 수곡1길 12-1 (가나교회)'), '충남 천안시 동남구 수곡1길 12-1');
+  assert.equal(parseAddress('한빛교회(서울시 강동구 길동 소재)에서 모십니다'), '서울 강동구 길동');
+  assert.equal(parseAddress('주소: 세종특별자치시 한누리대로 100'), '세종 한누리대로 100');
+  assert.equal(parseAddress('수집 항목: 이름, 주소, 연락처'), null);
+  assert.equal(parseAddress('교회 주소: 미정(010-0000-0000)'), null);
+  const i = parseInfo('교역자 모집 1. 자격: 강도사 이상, 만 41세 이하 2. 복지: 아파트 사택 제공, 4대 보험, 퇴직금, 식대 지급 3. 출근: 토요일·주일 4. 제출서류 : 이력서, 자기소개서, 설교 영상 링크');
+  assert.deepEqual(i, { work: ['토·주일'], perks: ['사택', '4대보험', '퇴직금', '식대'], docs: ['이력서', '자기소개서', '설교(영상·원고)'], maxAge: 41 });
+  assert.deepEqual(parseInfo('전임 전도사 청빙: 주 5일 근무, 사택지원비 지급'), { work: ['주5일'], perks: ['사택 보조'] });
+  assert.deepEqual(parseInfo('파트 전도사 모집, 출근은 주일 1회, 개인정보 수집(만 14세 미만 제외)'), { work: ['주일만'] });
+  assert.equal(parseInfo('교회 소개 글입니다'), null);
 });
 console.log(`\n${n}개 점검 통과`);

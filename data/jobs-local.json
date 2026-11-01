@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-10-31T21:35:12.486Z",
+ "updatedAt": "2026-11-01T03:15:26.833Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -8,6 +8,15 @@
    "home": "https://www.kwangshin.ac.kr/front/boardList.do?brd_mgrno=184&menu_no=467",
    "status": "ok",
    "count": 10,
+   "note": "맥에서 보충 수집"
+  },
+  {
+   "id": "bpu",
+   "name": "부산장신대",
+   "group": "신학교",
+   "home": "https://www.bpu.ac.kr/Board/BoardList.aspx?CategoryNo=1&PageNo=1&KeyWord=&KeyField=&BoardMstNo=6",
+   "status": "ok",
+   "count": 9,
    "note": "맥에서 보충 수집"
   },
   {
@@ -273,6 +282,269 @@
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43195"
   },
   {
+   "id": "bp-gl7ug1",
+   "dk": "gl7ug1",
+   "source": "bpu",
+   "title": "감전교회에서 부목사님(1명), 교육목사님 혹 교육전도사님(중고등부 1명)을 모십니다",
+   "church": "감전교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-11-01",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102103&BoardMstNo=6"
+  },
+  {
+   "id": "bp-19ww5sa",
+   "dk": "19ww5sa",
+   "source": "bpu",
+   "title": "효자교회에서 교구담당 목사님을 모십니다.",
+   "church": "효자교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-31",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102102&BoardMstNo=6"
+  },
+  {
+   "id": "bp-3pzj15",
+   "dk": "3pzj15",
+   "source": "bpu",
+   "title": "효자교회에서 유아부 교역자를 모십니다.",
+   "church": "효자교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 120,
+    "max": 140,
+    "label": "월 120~140만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "denomination": null,
+   "date": "2026-10-31",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102101&BoardMstNo=6"
+  },
+  {
+   "id": "bp-kyy82h",
+   "dk": "kyy82h",
+   "source": "bpu",
+   "title": "군산개정교회에서 전임전도사/부목사를 청빙합니다",
+   "church": "군산개정교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "준전임 전도사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-31",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102100&BoardMstNo=6"
+  },
+  {
+   "id": "bp-q2v0u1",
+   "dk": "q2v0u1",
+   "source": "bpu",
+   "title": "광양제일교회에서 교육부 사역자를 1분 모십니다.",
+   "church": "광양제일교회",
+   "region": "전남",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "denomination": null,
+   "date": "2026-10-31",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102099&BoardMstNo=6"
+  },
+  {
+   "id": "bp-1o5ijvq",
+   "dk": "1o5ijvq",
+   "source": "bpu",
+   "title": "부산 신암교회 전임사역자와 교육파트에 동역할 분을 모십니다.",
+   "church": "신암교회",
+   "region": "부산",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-31",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102098&BoardMstNo=6"
+  },
+  {
+   "id": "bp-vju32b",
+   "dk": "vju32b",
+   "source": "bpu",
+   "title": "대구희락교회에서 교육전도사님을 청빙합니다.",
+   "church": "대구희락교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 110,
+    "label": "월 100~110만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-31",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102096&BoardMstNo=6"
+  },
+  {
+   "id": "bp-1qu1x8p",
+   "dk": "1qu1x8p",
+   "source": "bpu",
+   "title": "사천읍교회(경남 사천시)에서 전임교역자(부목사,전임전도사)를 청빙합니다.",
+   "church": "사천읍교회",
+   "region": "경남",
+   "area": null,
+   "positions": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-31",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102095&BoardMstNo=6"
+  },
+  {
+   "id": "bp-4h4q24",
+   "dk": "4h4q24",
+   "source": "bpu",
+   "title": "대구남산교회 교육목사(교육전도사)청빙",
+   "church": "대구남산교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "denomination": null,
+   "date": "2026-10-31",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102094&BoardMstNo=6"
+  },
+  {
    "id": "ac-831fxq",
    "dk": "831fxq",
    "source": "acts",
@@ -285,6 +557,7 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
+   "posHint": [],
    "denomination": null,
    "date": "2026-10-31",
    "deadline": null,

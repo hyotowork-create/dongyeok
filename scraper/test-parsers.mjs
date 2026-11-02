@@ -157,6 +157,7 @@ await t('본문 주소·항목(지어낸 문장)', () => {
   const i = parseInfo('교역자 모집 1. 자격: 강도사 이상, 만 41세 이하 2. 복지: 아파트 사택 제공, 4대 보험, 퇴직금, 식대 지급 3. 출근: 토요일·주일 4. 제출서류 : 이력서, 자기소개서, 설교 영상 링크');
   assert.deepEqual(i, { work: ['토·주일'], perks: ['사택', '4대보험', '퇴직금', '식대'], docs: ['이력서', '자기소개서', '설교(영상·원고)'], maxAge: 41 });
   assert.deepEqual(parseInfo('전임 전도사 청빙: 주 5일 근무, 사택지원비 지급'), { work: ['주5일'], perks: ['사택 보조'] });
+  assert.equal(parseInfo('교역자 모집: 여름 휴가철 행사 안내'), null);
   assert.deepEqual(parseInfo('파트 전도사 모집, 출근은 주일 1회, 개인정보 수집(만 14세 미만 제외)'), { work: ['주일만'] });
   assert.equal(parseInfo('교회 소개 글입니다'), null);
 });

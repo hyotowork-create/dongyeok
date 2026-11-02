@@ -12,7 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
-import { Http, KrRelay, BlockedError, RobotsError, isNotJob, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, parseAddress, parseInfo, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
+import { Http, KrRelay, BlockedError, RobotsError, isNotJob, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, parseAddress, parseInfo, PERK_NAMES, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import puts from './sources/puts.mjs';
 import mtu from './sources/mtu.mjs';
@@ -212,6 +212,11 @@ async function main() {
     const p = classifyPositions(it.title, it.dept, (it.tags || []).join(' '));
     const hint = (it.posHint || []).filter(x => CLERGY.includes(x));
     it.positions = (!p.length || (p.length === 1 && p[0] === '교역자(직책 미상)')) && hint.length ? hint : p;
+    if (it.info && it.info.perks) {   // 뺀 항목(예: 휴가)은 예전에 뽑아 둔 공고에서도 지움
+      it.info.perks = it.info.perks.filter(p => PERK_NAMES.includes(p));
+      if (!it.info.perks.length) delete it.info.perks;
+      if (!Object.keys(it.info).length) it.info = null;
+    }
     if (it.addr) { it.region = it.region || normRegion(it.addr); if (!it.area && /^\S+ \S+[시군구]( |$)/.test(it.addr)) it.area = areaOf(it.addr); }   // 세종(시·군·구 없음)은 시·도까지만
   }
   let links = [];

@@ -1684,8 +1684,8 @@ function jobInfo(i) {
 function mapLinks(j) {
   const q = j.addr || (j.church ? [j.area || j.region, j.church].filter(Boolean).join(' ') : '');
   if (!q) return '';
-  const u = encodeURIComponent(q);
-  return `<div class="btn-row" style="margin-top:12px"><a class="btn btn-line btn-sm" href="https://map.kakao.com/link/search/${u}" target="_blank" rel="noopener" aria-label="카카오맵에서 ${esc(q)} 길찾기, 새 창">카카오맵 길찾기 ↗</a><a class="btn btn-line btn-sm" href="https://map.naver.com/p/search/${u}" target="_blank" rel="noopener" aria-label="네이버지도에서 ${esc(q)} 길찾기, 새 창">네이버지도 길찾기 ↗</a></div>
+  const u = encodeURIComponent(q);   // 휴대폰은 카카오 모바일 웹(앱 연결 화면을 거치지 않음, 11/3)
+  return `<div class="btn-row" style="margin-top:12px"><a class="btn btn-line btn-sm" href="${/Android|iPhone|iPad|iPod/i.test(navigator.userAgent) ? 'https://m.map.kakao.com/actions/searchView?q=' : 'https://map.kakao.com/link/search/'}${u}" target="_blank" rel="noopener" aria-label="카카오맵에서 ${esc(q)} 길찾기, 새 창">카카오맵 길찾기 ↗</a><a class="btn btn-line btn-sm" href="https://map.naver.com/p/search/${u}" target="_blank" rel="noopener" aria-label="네이버지도에서 ${esc(q)} 길찾기, 새 창">네이버지도 길찾기 ↗</a></div>
       <p class="hint" style="margin-top:6px">지도 앱에서 출발지(집·현재 위치)를 정하면 대중교통 경로를 볼 수 있습니다.${j.addr ? '' : ' 주소를 몰라 교회 이름으로 찾으니 같은 이름의 다른 교회인지 확인하세요.'}</p>`;
 }
 HOOKS['pg-job'] = async ({ id }) => {

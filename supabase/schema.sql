@@ -46,6 +46,10 @@ language sql immutable as $$
   select case t when 'review' then 'reviews' when 'post' then 'posts' when 'comment' then 'comments'
                 when 'resource' then 'resources' when 'setlist' then 'setlists' end;
 $$;
+-- 도우미 함수의 search_path 고정(Supabase 보안 점검 권고, 11/3)
+alter function public.anon_handle(text) set search_path = public;
+alter function public.church_key(text) set search_path = public;
+alter function public.target_table(text) set search_path = public;
 
 -- ── 2. 테이블 ──────────────────────────────────────────────────────
 -- 2-1. 교회 평가

@@ -234,6 +234,12 @@ begin
     end if;
     new.status := 'pending';
     new.church_key := public.church_key(new.church_name);
+    -- 같은 계정은 한 교회(이름+시·도)에 평가 1건(11/3 운영자 결정). 지운·반려된 평가는 세지 않음
+    if exists (select 1 from public.reviews r where r.author_id = new.author_id and r.church_key = new.church_key
+               and split_part(btrim(r.region), ' ', 1) = split_part(btrim(new.region), ' ', 1)
+               and r.status not in ('removed', 'rejected')) then
+      raise exception '이미 이 교회 평가를 쓰셨습니다. 고치려면 교회 페이지의 내 평가에서 「삭제」를 누른 뒤 다시 써 주세요';
+    end if;
     new.moderated_at := null;
   elsif tg_table_name = 'comments' then
     execute format('select author_id, status from public.%I where id = $1', public.target_table(new.target_type))

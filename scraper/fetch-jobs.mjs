@@ -55,7 +55,7 @@ const ONLY = resolveOnly();
 // 새 공고의 본문을 한 번만 읽어 사례비 숫자만 뽑는다(본문·연락처는 저장하지 않음). 1회 실행 상한을 둔다.
 // 본문 앞부분(모집 부서·자격)에서 직책 힌트 — 담임목사는 본문 언급만으로 붙이지 않음(교회 소개에 자주 나옴)
 const bodyHint = text => { const t = String(text || ''); const i = Math.max(0, t.search(/모집|청빙|초빙|부서|자격|사역\s*내용/)); return classifyPositions(t.slice(i, i + 1200)).filter(p => CLERGY.includes(p)).slice(0, 4); };   // 본문에서는 교역자 직책만(반주·방송 등은 제목·부서에서만)
-const DETAIL_MAX = args.detail != null ? Number(args.detail) : 150, DETAIL_PER_SOURCE = 20, DETAIL_DAYS = 45;
+const DETAIL_MAX = args.detail != null ? Number(args.detail) : 220, DETAIL_PER_SOURCE = 20, DETAIL_DAYS = 45;   // 11/3 150→220(옛 공고 「한눈에 보기」 채우기, 수집 작업 약 7→10분, 제한 15분)
 async function fillPay(http, items, okSources) {
   const bySrc = new Map(SOURCES.map(s => [s.id, s]));
   const since = new Date(Date.now() - DETAIL_DAYS * 86400e3).toISOString().slice(0, 10);

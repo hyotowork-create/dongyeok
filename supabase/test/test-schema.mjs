@@ -274,3 +274,17 @@ console.log('\n모든 점검 통과');
   assert.equal(row.n, 2); assert.equal(row.region, '서울 강남구'); assert.ok(!('author_id' in row));
   ok('평가 요청: 계정당 한 교회 1번, 요청 수·교회 이름만 공개, 표 직접 읽기 차단');
 }
+
+// 같은 계정은 한 교회에 평가 1건(지운 평가는 세지 않음, 다른 시·도의 같은 이름 교회는 따로)
+{
+  await db.exec(`reset role; delete from write_guard; update reviews set created_at = created_at - interval '2 minutes'`);
+  const ins = (u, region) => as(u, `insert into reviews (church_name, region, denomination, role, period, r_pay, r_workload, r_contract, r_respect, r_leadership, r_growth, recommend, pros, cons, attested)
+    values ('한건교회', $1, '예장합동','부목사','최근 2년 이내',3,3,3,3,3,3,true,'좋았던 점 열 글자 이상','아쉬운 점 열 글자 이상',true) returning id`, [region]);
+  const [a] = await ins(U4, '서울 강남구');
+  await fails(ins(U4, '서울 서초구'), /이미 이 교회 평가/);
+  await ins(U4, '부산 해운대구');                 // 다른 시·도의 같은 이름 교회
+  await ins(U3, '서울 강남구');                   // 다른 계정
+  await db.exec(`reset role; update reviews set status = 'removed' where id = ${a.id}`);
+  await ins(U4, '서울 강남구');                   // 지운 뒤 다시 쓰기
+  ok('교회 평가: 같은 계정은 한 교회 1건, 지운 뒤 다시 쓰기 가능');
+}

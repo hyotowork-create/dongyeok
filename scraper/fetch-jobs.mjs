@@ -230,7 +230,9 @@ async function main() {
   await mkdir(dirname(OUT_JSON), { recursive: true });
   await writeFile(OUT_JSON, JSON.stringify(data, null, 1) + '\n');
   // file://로 index.html을 바로 열어도 읽히도록 스크립트 형태로도 저장
-  await writeFile(OUT_JS, '// 자동 생성 파일 — scraper/fetch-jobs.mjs가 덮어씁니다. 직접 고치지 마세요.\nwindow.JOBS_DATA = ' + JSON.stringify(data) + ';\n');
+  // 사이트가 받는 사본은 화면이 쓰지 않는 수집 기록 칸·빈 값을 뺌(11/5, 약 3분의 1 작아짐). jobs.json은 수집 상태라 그대로 둠
+  const slim = { ...data, items: items.map(({ payChecked, posHint, firstSeen, ...it }) => Object.fromEntries(Object.entries(it).filter(([, v]) => v != null && v !== false && !(Array.isArray(v) && !v.length)))) };
+  await writeFile(OUT_JS, '// 자동 생성 파일 — scraper/fetch-jobs.mjs가 덮어씁니다. 직접 고치지 마세요.\nwindow.JOBS_DATA = ' + JSON.stringify(slim) + ';\n');
   console.log('저장: data/jobs.json, data/jobs.js');
 }
 main().catch(e => { console.error(e); process.exit(1); });

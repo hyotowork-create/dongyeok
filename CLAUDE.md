@@ -152,7 +152,7 @@ index.html                 사이트 전체(단일 파일 SPA, 화면 21개). �
 manifest.webmanifest, icons/  홈 화면에 추가(앱 아이콘 192·512·apple-touch 180). 배포 단계에서 함께 복사됨
 config.js                  이름·주소·Supabase 공개값·통계·도구 목록·업로드 한도 (공개돼도 되는 값만)
 404.html
-data/jobs.json, jobs.js    수집 결과(자동 생성, 직접 고치지 않음). jobs.js = file://로 열어도 읽히는 사본
+data/jobs.json, jobs.js    수집 결과(자동 생성, 직접 고치지 않음). jobs.json = 수집 상태 전체, jobs.js = 사이트가 받는 사본(화면이 안 쓰는 칸·빈 값을 뺌, file://로도 읽힘)
 data/jobs-local.json       맥 보충 수집 결과(광신대 등). GitHub 수집이 합침
 scraper/
   fetch-jobs.mjs           수집·병합·본문 읽기·재분류·저장(옵션 아래)
@@ -344,7 +344,6 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 |---|---|---|
 | **11/12경(공개 한 달): 한 달 통계 스레드 공개** | Claude 초안 → 운영자 게시 | 운영자 맥 `~/Downloads/dongyeok/promo/운영기록-첫달.md`(저장소 제외: 숫자·건의·논란·원칙·스레드 초안). 공개 한 달 시점에 숫자를 다시 뽑아 갱신(Supabase 커넥터 `execute_sql` 읽기 + GoatCounter). 그 뒤 Sermon Insight 개시 |
 | Sermon Insight 별도 도메인·2단계 | 운영자 → Claude | 지금 주소 `/tools/sermon.html`. 도메인 신청은 운영자. 2단계 후보: 공개 사전으로 원어 대조, 웹 검색으로 예화 근거 제시. 공개 글 초안 `promo/서먼인사이트-공개글.md` |
-| scraper `undici` 취약점 알림 7~8건(high 포함) | Claude(승인 후) | 7.30.1로 올리고 점검 뒤 push(11/5 Dependabot) |
 | 운영자 맥 `~/Developer/seraphim-fix` 정리 | 운영자(맥 세션) | 세라핌 0.3.1 릴리스됨(10/29). 이 폴더는 이제 필요 없음 |
 | 외부 예약 토큰 만료 전 교체 | 운영자 → Claude | Supabase pg_cron `dongyeok-wake`(UTC `17,47 21-23,0-14`)가 Vault `gh_dispatch_token`으로 workflow_dispatch(wake=true)를 부름(10/13 시험 호출 204·guard 건너뜀 확인). 토큰(fine-grained `dongyeok-wake`, Actions 쓰기, dongyeok만)은 **2027년 만료** — 만료 전 새로 발급해 Vault 값만 교체. 채팅에 한 번 노출됐으나 운영자 결정으로 그대로 사용(10/13) |
 | Supabase 조직에 공개 메일 초대 | 운영자 | 팀 화면 → Invite members → seraphim7997@gmail.com, Administrator |
@@ -383,4 +382,5 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 | 2026-11-03 | **중복 평가 정리**(운영자 승인): 같은 계정·같은 교회 공개 평가 3곳(남현·동도중앙침례·남포)에서 최근 1건만 남기고 이전 것(#49·#53·#69)을 「삭제」 상태로(처리 기록 남김, 되돌리기 가능). **같은 계정은 한 교회 1건** DB 제한(`tg_content_before_insert`, 운영 DB 적용 — 적용 전 운영 함수가 저장소와 주석 외 같음을 확인). 공고 본문 읽기 1회 150→220건 |
 | 2026-11-03 | (운영자 승인) 휴대폰의 카카오맵 길찾기를 모바일 웹 주소(`m.map.kakao.com/actions/searchView`)로 — 앱 연결 화면 없이 검색 결과가 바로 나옴, PC는 그대로. Supabase 보안 점검 권고대로 도우미 함수 3개(`anon_handle`·`church_key`·`target_table`) search_path 고정(운영 DB 적용). 그 밖의 점검 경고는 설계상 의도(익명 공개 읽기, 함수 안에서 관리자 재확인) |
 | 2026-11-05 | **Sermon Insight 1단계 공개**(운영자 지시, 원래 11/22·별도 도메인 계획을 앞당김): `tools/sermon.html`(배포에 tools 포함), 🟢🟡🔴 위험 신호 + 거울 3항목(본문 해석·논리 구조·개인적 주장, 충실/부분적/부족). 원어·예화 판단은 2단계. 옛 키 전달 코드 제거, CSP 추가, 키 받는 곳 링크. 실제 키로 유튜브 1편·경고 예시 원고 분석 확인(운영자 키). 음성 파일 분석은 미시험. 첫 화면 버튼·안내 창·예배 도구 카드 연결 |
+| 2026-11-05 | (운영자 승인) 수집기 의존성 `undici` 7.30.0→7.30.2(Dependabot 알림 8건, npm audit 0건). 사이트가 받는 `data/jobs.js`에서 `payChecked`·`posHint`·`firstSeen`·빈 값을 뺌 — 2.85MB→2.04MB(압축 348KB→297KB), 줄이기 전후 화면 결과 같음 확인 |
 | 2026-10-29 | **세라핌 0.3.1 릴리스**(Mac 「손상된 앱」 수정: 앱 전체 ad-hoc 서명, 빌드 중 서명 점검 — 못 맞추면 릴리스 중단, Seraphim main 361221e, Release run 40808130655). Apple 개발자 계정·공증은 계획 없음(운영자 결정) → Mac은 첫 실행 때 「그래도 열기」 1번. 사이트 내려받기 창의 「Mac 버전 수정 중」 문단 삭제, 터미널 방법은 0.3.0 이하용으로 표시 |

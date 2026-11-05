@@ -29,6 +29,15 @@ window.SITE_CONFIG = {
       license: 'MIT 무료',
       download: 'https://github.com/hyotowork-create/Seraphim/releases/latest',   // 사이트에서는 내려받기 안내 창(운영체제별 파일·첫 실행 경고 대처)을 열고, 이 주소는 창을 못 열 때만 씀
       source: 'https://github.com/hyotowork-create/Seraphim'
+    },
+    {
+      id: 'sermon',
+      name: 'Sermon Insight',
+      summary: '강단의 말이 본문에 뿌리내리고 있는지 비춰 보는 설교 분석 도구',
+      features: ['설교 원고·유튜브 링크·녹음 파일 입력', '본문 해석·논리 구조·개인적 주장과 말씀의 구별', '정통 신앙고백과 합치하지 않는 내용·정치 선동·기복 신호를 실제 문장과 함께'],
+      platforms: '웹 브라우저(설치 없음)',
+      license: '무료 · 본인 Gemini 키 필요',
+      dialog: 'sermon-dlg'
     }
   ],
 

@@ -159,7 +159,7 @@ fieldset{border:0;margin-bottom:18px}
 .hero-stats span{font-size:13px;color:rgba(255,255,255,.75)}
 .lead-short{display:none}
 @media(max-width:640px){.hero .lead-long{display:none}.hero .lead-short{display:inline}}
-.hero-cta .is-soon{opacity:.55;cursor:default;flex-direction:column;gap:0}
+.hero-cta .is-soon{flex-direction:column;gap:0}
 .hero-cta .is-soon small{font-size:11px;font-weight:600;color:var(--gold);line-height:1.2}
 /* 휴대폰 첫 화면 정리(10/16): 한 화면에 메시지 하나·숫자 한 줄·버튼 하나만. 중복된 알림 띠·조명은 숨기고 배경을 더 어둡게 해 글자를 또렷하게 */
 @media(max-width:640px){
@@ -570,7 +570,7 @@ dialog h2{font-size:20px;margin-bottom:6px}
       <h1 class="hero-title" id="hero-title"><span>다음 사역지,</span><span>먼저 걸어간 동역자에게 묻다</span></h1>
       <p class="lead"><span class="lead-long">신학교와 교단, 기독교 사이트의 청빙 공고를 하루 세 번 모으고, 그 교회에서 사역했던 교역자들의 평가를 공고 바로 아래에 보여 드립니다.</span><span class="lead-short">신학교·교단·기독 사이트의 청빙 공고를 하루 세 번 모으고, 그 교회 출신 교역자의 평가를 함께 보여 드립니다.</span></p>
       <div class="hero-stats" id="hero-stats" hidden></div>
-      <div class="hero-cta"><a class="btn btn-main btn-lg" href="#pg-jobs">청빙 공고 보기</a><a class="btn btn-ghost btn-lg" href="#pg-review-new">사역했던 교회 평가하기</a><a class="btn btn-ghost btn-lg" href="https://github.com/hyotowork-create/Seraphim/releases/latest" data-seraphim-dl aria-haspopup="dialog">세라핌 다운로드</a><button type="button" class="btn btn-ghost btn-lg is-soon" onclick="document.getElementById('sermon-dlg').showModal();window.goatcounter?.count?.({path:'event-sermon-soon',title:'설교 평가 안내 열기',event:true})" aria-haspopup="dialog">설교 평가하기<small>공개 예정 · 안내 보기</small></button></div>
+      <div class="hero-cta"><a class="btn btn-main btn-lg" href="#pg-jobs">청빙 공고 보기</a><a class="btn btn-ghost btn-lg" href="#pg-review-new">사역했던 교회 평가하기</a><a class="btn btn-ghost btn-lg" href="https://github.com/hyotowork-create/Seraphim/releases/latest" data-seraphim-dl aria-haspopup="dialog">세라핌 다운로드</a><button type="button" class="btn btn-ghost btn-lg is-soon" onclick="document.getElementById('sermon-dlg').showModal();window.goatcounter?.count?.({path:'event-sermon-soon',title:'설교 평가 안내 열기',event:true})" aria-haspopup="dialog">설교 평가하기<small>Sermon Insight · 안내 보기</small></button></div>
       <figure class="verse"><blockquote>추수할 것은 많되<br>일군이 적으니</blockquote><figcaption>마태복음 9장 37절</figcaption></figure>
     </div>
   </section>
@@ -993,19 +993,18 @@ dialog h2{font-size:20px;margin-bottom:6px}
 
 <dialog id="sermon-dlg" aria-labelledby="sermon-h">
   <form method="dialog">
-    <h2 id="sermon-h">설교 평가하기 <span class="tag">공개 예정</span></h2>
-    <p style="margin-bottom:10px">설교 원고나 유튜브 링크, 녹음 파일을 넣으면 <b>AI(구글 Gemini)</b>가 설교를 살펴 정리해 드립니다. 본문에 얼마나 충실한지, 은혜와 결단이 어떻게 균형을 이루는지, 설교가 어떤 흐름으로 전개되는지 보여 주고, 묵상과 나눔을 위한 질문도 함께 드립니다.</p>
+    <h2 id="sermon-h">설교 평가하기 <span class="tag">Sermon Insight</span></h2>
+    <p style="margin-bottom:10px">강단의 말이 본문에 뿌리내리고 있는지, 설교자의 생각에 뿌리내리고 있는지 비춰 보는 거울입니다. 설교 원고나 유튜브 링크, 녹음 파일을 넣으면 <b>AI(구글 Gemini)</b>가 <b>본문 해석, 논리 구조, 개인적 주장과 말씀의 구별</b>을 살피고, <b>정통 신앙고백과 합치하지 않는 내용이나 정치 선동, 기복·조종</b>이 섞여 있지 않은지 알려 드립니다. 위험 신호에는 설교 속 실제 문장을 근거로 붙입니다.</p>
     <p style="margin-bottom:12px">쓰시려면 <b>본인의 Gemini API 키</b>가 필요합니다. 구글 계정만 있으면 무료로 받을 수 있습니다. 키는 <b>쓰시는 기기의 브라우저에만</b> 저장되며, 동역 서버로는 보내지 않습니다.</p>
     <h3 style="font-size:15px;margin-bottom:6px">쓰시기 전에 꼭 읽어 주세요</h3>
     <ul class="mk-list" style="margin-bottom:14px;font-size:14px">
-      <li><b>참고용입니다.</b> AI가 내놓은 의견일 뿐이니, 설교자나 교회를 판단하는 근거로 삼지 말아 주세요.</li>
-      <li><b>결과를 공개하지 마세요.</b> 특정 설교자를 비방하는 데 쓰면 그 책임은 게시한 분께 있습니다.</li>
+      <li><b>참고 판단입니다.</b> AI가 틀릴 수 있고, 설교의 영적 가치를 판정하지 못합니다. 특정 설교자나 단체에 대한 공식 판단은 소속 교단의 결의로 확인해 주세요.</li>
+      <li><b>결과를 공개하지 마세요.</b> 사실이라도 특정인의 설교를 문제 있다고 공개 지목하면 명예훼손 책임이 생길 수 있습니다. 개인의 분별과 공부에만 써 주세요.</li>
       <li><b>입력한 내용은 구글로 전송됩니다.</b> 무료 키로 보낸 내용은 구글이 서비스 개선에 쓸 수 있으니, 개인정보나 공개되지 않은 설교는 넣지 말아 주세요.</li>
-      <li><b>설교에도 저작권이 있습니다.</b> 다른 분의 원고나 녹음은 개인 묵상과 공부에만 써 주세요.</li>
-      <li><b>무료 키는 하루 사용량에 한도가 있습니다.</b> 한도를 넘으면 다음 날 다시 쓰실 수 있습니다.</li>
+      <li><b>설교에도 저작권이 있습니다.</b> 다른 분의 원고나 녹음은 개인 공부에만 써 주세요.</li>
+      <li><b>무료 키는 하루 사용량에 한도가 있습니다.</b> 긴 예배 영상은 하루 3~4편이 한계이고, 막 끝난 생방송 영상은 바로 분석되지 않을 수 있습니다.</li>
     </ul>
-    <p class="hint" style="margin-bottom:14px">지금 준비하고 있습니다. 공개되면 이 버튼에서 바로 시작하실 수 있습니다.</p>
-    <div class="btn-row"><button class="btn btn-main" value="close">확인</button></div>
+    <div class="btn-row"><a class="btn btn-main" href="tools/sermon.html">시작하기</a><button class="btn btn-line" value="close">닫기</button></div>
   </form>
 </dialog>
 <dialog id="report-dlg" aria-labelledby="report-h">
@@ -2221,7 +2220,7 @@ function renderTools() {
   $('#tool-list').innerHTML = tools.length ? tools.map(t => `<article class="tool">
       <div><h3>${esc(t.name)}</h3><p class="sum">${esc(t.summary)}</p><ul>${(t.features || []).map(f => `<li>${esc(f)}</li>`).join('')}</ul>
         <p class="meta" style="margin-top:12px"><span>${esc(t.platforms || '')}</span><span>${esc(t.license || '')}</span></p></div>
-      <div class="btn-row">${t.download ? `<a class="btn btn-main" href="${esc(safeUrl(t.download))}"${t.id === 'seraphim' ? ' data-seraphim-dl aria-haspopup="dialog">내려받기' : ` target="_blank" rel="noopener" aria-label="${esc(t.name)} 내려받기 새 창에서 열기">내려받기 ↗`}</a>` : ''}${t.source ? `<a class="btn btn-line" href="${esc(safeUrl(t.source))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 소스 코드 새 창에서 열기">소스·설명서 ↗</a>` : ''}</div>
+      <div class="btn-row">${t.dialog ? `<button type="button" class="btn btn-main" aria-haspopup="dialog" onclick="document.getElementById('${esc(t.dialog)}').showModal();window.goatcounter?.count?.({path:'event-sermon-soon',title:'설교 평가 안내 열기',event:true})">안내 보고 시작하기</button>` : ''}${t.download ? `<a class="btn btn-main" href="${esc(safeUrl(t.download))}"${t.id === 'seraphim' ? ' data-seraphim-dl aria-haspopup="dialog">내려받기' : ` target="_blank" rel="noopener" aria-label="${esc(t.name)} 내려받기 새 창에서 열기">내려받기 ↗`}</a>` : ''}${t.source ? `<a class="btn btn-line" href="${esc(safeUrl(t.source))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 소스 코드 새 창에서 열기">소스·설명서 ↗</a>` : ''}</div>
     </article>`).join('') : '<p class="empty">등록된 도구가 없습니다. config.js의 tools에 추가하세요.</p>';
 }
 function slRow(s) {

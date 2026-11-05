@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sermon Insight · 동역</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net data:; img-src 'self' data:; media-src blob:; connect-src https://generativelanguage.googleapis.com https://www.youtube.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="theme-color" content="#121418">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root {
+    --ink: #121418;
+    --ink-2: #191c23;
+    --panel: #1f242f;
+    --panel-2: #262c3a;
+    --line: #32394a;
+    --paper: #F4F1EA;
+    --muted: #9aa2b1;
+    --brass: #AE863A;
+    --brass-hi: #d8b05e;
+    --navy: #1C2B49;
+    --ok: #4ea672;
+    --err: #d9584e;
+    --warn: #d4a72c;
+    --radius: 14px;
+    --mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background:
+      radial-gradient(900px 500px at 88% -10%, rgba(174,134,58,.12), transparent 60%),
+      radial-gradient(700px 500px at -5% 8%, rgba(28,43,73,.40), transparent 55%),
+      var(--ink);
+    color: var(--paper);
+    font-family: "Pretendard Variable", Pretendard, system-ui, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+  .wrap { max-width: 1220px; margin: 0 auto; padding: 36px 20px 90px; }
+  .back { display: inline-block; margin-bottom: 18px; color: var(--muted); font-size: 13px; text-decoration: none; }
+  .back:hover { color: var(--brass-hi); }
+
+  /* Header */
+  header.top {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 20px; flex-wrap: wrap; border-bottom: 1px solid var(--line);
+    padding-bottom: 20px; margin-bottom: 28px;
+  }
+  .brand { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--brass-hi); }
+  h1 { margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -.02em; }
+  h1 .accent { color: var(--brass-hi); }
+  .sub { color: var(--muted); font-size: 13.5px; max-width: 640px; }
+  .badge-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .badge { font-family: var(--mono); font-size: 11px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; background: var(--ink-2); }
+  .badge.ok { border-color: rgba(78,166,114,.5); color: #7ce0a3; }
+
+  /* Layout Grid */
+  .grid { display: grid; grid-template-columns: 370px 1fr; gap: 24px; align-items: start; }
+  .grid > div { min-width: 0; }
+  @media (max-width: 920px) { .grid { grid-template-columns: 1fr; } }
+
+  /* Panels */
+  .panel {
+    background: linear-gradient(180deg, var(--panel), var(--ink-2));
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 20px;
+  }
+  .panel + .panel { margin-top: 18px; }
+  .panel h2 {
+    margin: 0 0 6px; font-size: 13px; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--brass-hi); font-weight: 700;
+  }
+  .panel .hint { color: var(--muted); font-size: 12px; margin: 0 0 14px; }
+
+  /* Inputs & Tabs */
+  label.field { display: block; margin-bottom: 14px; }
+  label.field > span { display: flex; justify-content: space-between; font-size: 12.5px; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
+  input[type=text], input[type=password], input[type=url], select, textarea {
+    width: 100%; background: var(--ink); color: var(--paper);
+    border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px;
+    font-size: 13.5px; font-family: inherit; outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--brass); box-shadow: 0 0 0 3px rgba(174,134,58,.18);
+  }
+  textarea { resize: vertical; min-height: 170px; line-height: 1.55; }
+
+  .tabs { display: flex; gap: 6px; margin-bottom: 14px; background: var(--ink); padding: 4px; border-radius: 10px; border: 1px solid var(--line); }
+  .tab-btn {
+    flex: 1; background: transparent; border: none; color: var(--muted);
+    padding: 8px 6px; font-size: 12.5px; font-weight: 600; border-radius: 7px; cursor: pointer;
+  }
+  .tab-btn.active { background: var(--panel-2); color: var(--brass-hi); border: 1px solid var(--line); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    border: none; border-radius: 11px; padding: 13px 16px; font-size: 14px;
+    font-weight: 700; font-family: inherit; cursor: pointer; width: 100%;
+    transition: transform .08s, filter .15s, opacity .15s;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: .45; cursor: not-allowed; }
+  .btn-primary {
+    background: linear-gradient(180deg, var(--brass-hi), var(--brass));
+    color: #191408; box-shadow: 0 6px 18px rgba(174,134,58,.25);
+  }
+  .btn-stop { background: var(--err); color: #fff; margin-top: 8px; }
+  .btn-ghost { background: var(--ink); color: var(--paper); border: 1px solid var(--line); font-size: 12.5px; padding: 9px 12px; }
+  .btn-ghost:hover { border-color: var(--brass); color: var(--brass-hi); }
+
+  /* Progress & Status Banner */
+  .status-box {
+    background: var(--ink); border: 1px solid var(--line); border-radius: 12px;
+    padding: 14px 16px; margin-bottom: 18px; display: none;
+  }
+  .status-box.show { display: block; }
+  .status-box.error { border-color: var(--err); background: rgba(217,88,78,.08); }
+  .status-top { display: flex; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 8px; gap: 10px; }
+  .status-msg { font-weight: 600; color: var(--paper); word-break: keep-all; }
+  .status-box.error .status-msg { color: #ff8e86; }
+  .progress { height: 7px; background: var(--panel); border-radius: 999px; overflow: hidden; }
+  .progress > i { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--brass), var(--brass-hi)); transition: width .3s ease; }
+
+  /* Report Output Cards */
+  .empty-state {
+    text-align: center; padding: 70px 24px; color: var(--muted);
+    border: 1px dashed var(--line); border-radius: var(--radius);
+  }
+  .report-wrap { display: none; flex-direction: column; gap: 20px; }
+  .report-wrap.show { display: flex; }
+
+  .meta-card {
+    background: linear-gradient(135deg, rgba(28,43,73,.55), var(--panel));
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 24px;
+  }
+  .meta-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .scripture-pill { background: rgba(174,134,58,.18); border: 1px solid var(--brass); color: var(--brass-hi); padding: 4px 12px; border-radius: 999px; font-size: 12.5px; font-weight: 700; }
+  .engine-tag { font-family: var(--mono); font-size: 11px; color: var(--muted); white-space: nowrap; }
+  .sermon-title { font-size: 23px; font-weight: 800; margin: 0 0 10px; color: #fff; }
+  .core-prop { background: rgba(0,0,0,.28); border-left: 3px solid var(--brass-hi); padding: 12px 15px; border-radius: 0 8px 8px 0; font-size: 14.5px; font-weight: 600; color: var(--paper); margin-bottom: 14px; }
+  .kw-list { display: flex; gap: 8px; flex-wrap: wrap; }
+  .kw { font-size: 12px; background: var(--ink); border: 1px solid var(--line); padding: 4px 10px; border-radius: 6px; color: var(--muted); }
+
+  /* Metrics Grid */
+  .metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 720px) { .metrics-grid { grid-template-columns: 1fr; } }
+  .metric-card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .metric-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+  .metric-name { font-size: 12.5px; color: var(--muted); font-weight: 600; }
+  .metric-score { font-family: var(--mono); font-size: 22px; font-weight: 800; color: var(--brass-hi); }
+  .metric-bar { height: 6px; background: var(--ink); border-radius: 99px; overflow: hidden; margin-bottom: 10px; }
+  .metric-bar > span { display: block; height: 100%; background: var(--ok); transition: width .4s ease; }
+  .metric-desc { font-size: 12.5px; color: var(--paper); margin: 0; }
+
+  /* Grace vs Duty Dual Bar */
+  .dual-card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+  .dual-labels { display: flex; justify-content: space-between; font-size: 13px; font-weight: 700; margin-bottom: 8px; flex-wrap: wrap; gap: 6px; }
+  .dual-bar { display: flex; height: 12px; border-radius: 999px; overflow: hidden; background: var(--ink); margin-bottom: 10px; }
+  .bar-grace { background: linear-gradient(90deg, #3b82f6, #60a5fa); transition: width .4s ease; }
+  .bar-duty { background: linear-gradient(90deg, #d97706, #f59e0b); transition: width .4s ease; }
+
+  /* Flow & Insights */
+  .sec-card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .sec-card h3 { margin: 0 0 14px; font-size: 15px; color: var(--brass-hi); display: flex; align-items: center; gap: 8px; }
+  .flow-item { border-left: 2px solid var(--brass); padding-left: 14px; margin-bottom: 14px; }
+  .flow-item:last-child { margin-bottom: 0; }
+  .flow-stage { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .flow-sum { font-size: 13.5px; color: var(--paper); margin: 0 0 4px; }
+  .flow-conn { font-size: 12px; color: var(--muted); margin: 0; }
+
+  .word-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 680px) { .word-grid { grid-template-columns: 1fr; } }
+  .word-box { background: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: 14px; }
+  .word-term { font-weight: 800; color: var(--brass-hi); font-size: 14px; margin-bottom: 4px; }
+  .word-sig { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+
+  .discern-box {
+    background: rgba(212,167,44,.07); border: 1px solid rgba(212,167,44,.35);
+    border-radius: 10px; padding: 15px; margin-bottom: 12px;
+  }
+  .discern-title { font-weight: 700; color: #f3c969; font-size: 13.5px; margin-bottom: 6px; }
+  .discern-bal { font-size: 13px; color: var(--paper); margin: 6px 0 0; }
+
+  .q-list { margin: 0; padding-left: 18px; }
+  .verdict { border-radius: var(--radius); padding: 18px 20px; border: 1px solid var(--line); background: var(--panel); }
+  .verdict strong { font-size: 17px; display: block; margin-bottom: 4px; }
+  .verdict p { margin: 0; font-size: 13.5px; }
+  .verdict.ok { border-color: rgba(78,166,114,.6); } .verdict.ok strong { color: #7ce0a3; }
+  .verdict.caution { border-color: rgba(212,167,44,.7); } .verdict.caution strong { color: #f3c969; }
+  .verdict.warn { border-color: rgba(217,88,78,.8); background: rgba(217,88,78,.08); } .verdict.warn strong { color: #ff8e86; }
+  .discern-box.warn { background: rgba(217,88,78,.08); border-color: rgba(217,88,78,.5); }
+  .q-list li { margin-bottom: 8px; font-size: 13.5px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="back" href="../#pg-worship">← 동역 예배 도구</a>
+  <header class="top">
+    <div class="brand">
+      <span class="kicker">SERMON INSIGHT · AI HOMILETICAL DISCERNMENT</span>
+      <h1>Sermon <span class="accent">Insight</span></h1>
+      <div class="sub">강단의 말이 본문에 뿌리내리고 있는지, 설교자의 생각에 뿌리내리고 있는지 비춰 보는 거울입니다. 본문 해석, 논리 구조, 개인적 주장과 함께 정통 신앙고백과 합치하지 않는 내용이나 정치 선동이 섞여 있지 않은지 살펴봅니다.</div>
+    </div>
+    <div class="badge-row">
+      <span class="badge ok" id="keyStatusBadge">● Gemini API 대기 중</span>
+      <span class="badge">Direct Google API · 외부 서버 전송 0건</span>
+    </div>
+  </header>
+
+  <div class="grid">
+    <!-- 좌측 컨트롤 패널 -->
+    <div>
+      <div class="panel">
+        <h2>1. 설교 소스 입력</h2>
+        <p class="hint">모든 데이터는 외부 중계 서버를 거치지 않고 사용자의 브라우저에서 Google Gemini API로 직접 전송됩니다.</p>
+
+        <div class="tabs">
+          <button type="button" class="tab-btn active" onclick="switchInputTab('text')">설교문/스크립트</button>
+          <button type="button" class="tab-btn" onclick="switchInputTab('url')">유튜브 링크</button>
+          <button type="button" class="tab-btn" onclick="switchInputTab('audio')">음성 파일</button>
+        </div>
+
+        <!-- 탭 1 (기본 탭): 설교문 직접 입력 -->
+        <div id="tab-text" class="tab-content active">
+          <label class="field">
+            <span>설교 원고 또는 유튜브 '스크립트 표시' 붙여넣기 <em id="charCount">0자</em></span>
+            <textarea id="manualText" placeholder="설교 원고나 유튜브 영상 하단 [더보기] -> [스크립트 표시] 내용을 복사해 붙여넣으세요 (최소 300자 이상)..." oninput="updateCharCount()"></textarea>
+          </label>
+        </div>
+
+        <!-- 탭 2: 유튜브 URL (Gemini Native file_uri 직접 분석) -->
+        <div id="tab-url" class="tab-content">
+          <label class="field">
+            <span>공개 유튜브 설교 링크 (URL)</span>
+            <input type="url" id="youtubeUrl" placeholder="https://www.youtube.com/watch?v=...">
+          </label>
+          <div class="tabs" style="margin:-4px 0 12px" role="radiogroup" aria-label="영상 종류">
+            <button type="button" class="tab-btn active" id="ytKindFull" onclick="setYtKind('full')">예배 전체 영상</button>
+            <button type="button" class="tab-btn" id="ytKindSermon" onclick="setYtKind('sermon')">설교만 있는 영상</button>
+          </div>
+          <div style="display:flex;gap:8px;margin:-4px 0 12px">
+            <label class="field" style="flex:1;margin:0"><span>설교 시작(선택)</span><input type="text" id="ytStart" inputmode="numeric" placeholder="예: 41:50"></label>
+            <label class="field" style="flex:1;margin:0"><span>설교 끝(선택)</span><input type="text" id="ytEnd" inputmode="numeric" placeholder="예: 1:20:00"></label>
+          </div>
+          <p class="hint" style="margin-top:-6px;">
+            * 공개 영상만 분석할 수 있습니다. 예배 전체 영상은 몇 분 걸릴 수 있으며, 설교 시작·끝을 적으면 더 빠릅니다.
+          </p>
+        </div>
+
+        <!-- 탭 3: 오디오 파일 업로드 (Gemini Native Audio 직접 분석) -->
+        <div id="tab-audio" class="tab-content">
+          <label class="field">
+            <span>설교 녹음/오디오 파일 (mp3, m4a, wav)</span>
+            <input type="file" id="audioFile" accept="audio/*">
+          </label>
+          <p class="hint" style="margin-top:-6px;">
+            * 별도 외부 서버 없이 Gemini가 설교 음성을 직접 듣고 분석합니다 (대용량 파일은 브라우저에서 자동 경량화 후 전송).
+          </p>
+        </div>
+
+        <button type="button" class="btn btn-primary" id="runBtn" onclick="startSermonAnalysis()">
+          설교 분별 시작하기
+        </button>
+        <button type="button" class="btn btn-stop" id="stopBtn" onclick="cancelAnalysis()" style="display:none;">
+          ✕ 분석 강제 중단
+        </button>
+      </div>
+
+      <!-- 단일 Gemini API 키 설정 패널 -->
+      <div class="panel">
+        <h2>2. Google Gemini API 키 설정</h2>
+        <p class="hint"><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener" style="color:#f3c969;text-decoration:underline">Google AI Studio</a>에서 구글 계정으로 무료 키를 받아 아래에 넣어 주세요(결제 등록 불필요). 키는 이 브라우저에만 저장되고 동역 서버로 보내지 않습니다.</p>
+
+        <label class="field">
+          <span>Google Gemini API Key</span>
+          <input type="password" id="apiKey" placeholder="AIzaSy...">
+        </label>
+
+        <button type="button" class="btn btn-ghost" onclick="saveKeyToLocal()">API 키 브라우저에 저장</button>
+      </div>
+    </div>
+
+    <!-- 우측 리포트 결과 영역 -->
+    <div>
+      <!-- 실시간 상태 & 에러 배너 -->
+      <div class="status-box show" id="ytRange" style="display:none;font-size:13px">
+        <div id="ytRangeText" style="margin-bottom:8px"></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button type="button" class="btn btn-ghost" style="width:auto" onclick="adjustYt(-600,0)">◀ 앞으로 10분 더</button>
+          <button type="button" class="btn btn-ghost" style="width:auto" onclick="adjustYt(0,600)">뒤로 10분 더 ▶</button>
+          <button type="button" class="btn btn-ghost" style="width:auto" onclick="adjustYt(600,0)">앞 10분 빼기</button>
+          <button type="button" class="btn btn-ghost" style="width:auto" onclick="adjustYt(0,-600)">뒤 10분 빼기</button>
+        </div>
+      </div>
+      <div class="status-box" id="statusBox">
+        <div class="status-top">
+          <span class="status-msg" id="statusMsg">준비 중...</span>
+          <span class="engine-tag" id="statusTimer">0초</span>
+        </div>
+        <div class="progress"><i id="progressBar"></i></div>
+      </div>
+
+      <!-- 초기 빈 화면 -->
+      <div class="empty-state" id="emptyState">
+        <h3 style="color:var(--paper); margin-bottom:8px;">설교 원고, 유튜브 링크, 또는 음성 파일을 넣어 분석을 시작해 보세요</h3>
+        <p style="font-size:13.5px; max-width:520px; margin:0 auto 18px;">본문 해석·논리 구조·개인적 주장을 비춰 보고, 정통 신앙고백과의 합치 여부, 정치 선동, 기복·조종의 신호를 살펴 「건강 / 주의 / 경고」로 알려 드립니다. 위험 신호에는 설교 속 실제 문장을 근거로 붙입니다.</p>
+        <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap">
+          <button type="button" class="btn btn-ghost" style="width:auto;" onclick="loadSampleSermon('ok')">🟢 건강한 설교 예시</button>
+          <button type="button" class="btn btn-ghost" style="width:auto;" onclick="loadSampleSermon('caution')">🟡 주의 예시</button>
+          <button type="button" class="btn btn-ghost" style="width:auto;" onclick="loadSampleSermon('warn')">🔴 경고 예시</button>
+        </div>
+        <p style="font-size:12px;margin:10px 0 0">주의·경고 예시는 시험용으로 지어낸 글입니다.</p>
+      </div>
+
+      <!-- 분별 결과 -->
+      <div class="report-wrap" id="reportWrap">
+        <div class="meta-card">
+          <div class="meta-top">
+            <span class="scripture-pill" id="resScripture">본문 말씀</span>
+            <span class="engine-tag" id="resEngine">-</span>
+          </div>
+          <h2 class="sermon-title" id="resTitle">설교 제목</h2>
+          <p class="engine-tag" id="resPreacher" style="margin:-4px 0 10px;white-space:normal"></p>
+          <div class="core-prop" id="resSummary"></div>
+        </div>
+        <div class="verdict" id="resVerdict"></div>
+        <div class="sec-card" id="resFlagsCard">
+          <h3>🔎 발견된 위험 신호</h3>
+          <div id="resFlags"></div>
+        </div>
+        <div class="sec-card">
+          <h3>🪞 설교를 비춰 보는 거울</h3>
+          <div id="resMirror"></div>
+        </div>
+        <p class="hint" style="font-size:12px;color:var(--muted)">AI의 참고 판단입니다. 특정 설교자나 단체에 대한 공식 판단은 소속 교단의 결의로 확인하세요. 결과를 공개하거나 다른 사람을 비난하는 데 쓰지 마세요.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   0. Safe Storage & 데이터 정규화 유틸리티
+============================================================ */
+const safeStorage = {
+  get(key) { try { return localStorage.getItem(key) || ""; } catch (_) { return ""; } },
+  set(key, val) { try { localStorage.setItem(key, val); } catch (_) {} }
+};
+
+function safeParseJson(raw) {
+  if (!raw) throw new Error("AI 응답이 비어 있습니다.");
+  if (typeof raw === "object") return raw;
+  let cleaned = String(raw).trim();
+  cleaned = cleaned.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
+  const firstBrace = cleaned.indexOf("{");
+  const lastBrace = cleaned.lastIndexOf("}");
+  if (firstBrace !== -1 && lastBrace !== -1 && lastBrace > firstBrace) {
+    cleaned = cleaned.slice(firstBrace, lastBrace + 1);
+  }
+  return JSON.parse(cleaned);
+}
+
+function toSafePercent(val, fallback = 50) {
+  const n = parseFloat(String(val ?? "").replace(/[^0-9.]/g, ""));
+  if (isNaN(n)) return fallback;
+  return Math.max(0, Math.min(100, Math.round(n)));
+}
+
+/* ============================================================
+   1. 고도화된 설교 판독 시스템 프롬프트
+============================================================ */
+const SERMON_SYSTEM_PROMPT = `
+당신은 한국 개신교 정통 신학(사도신경·니케아 신조 고백, 주요 교단 공통 신앙)에 근거해 설교를 분별하는 조력자입니다.
+목적은 설교의 잘잘못을 채점하는 것이 아니라, 성도가 엉터리 설교·정통 신앙고백과 합치하지 않는 가르침·정치 선동을 알아차리도록 돕는 것입니다.
+
+[판정 기준]
+- "건강": 정통 신앙 범위 안의 설교. 문체·설교 형식(강해·주제·이야기·목회적)·교단 전통의 차이는 문제 삼지 않는다.
+- "주의": 정통 교단 안에서도 심하게 치우친 경우. 예) 본문을 떠난 사적 주장이 설교의 중심, 헌금·복을 거래처럼 말하는 기복주의, 두려움·저주로 순종 강요, 지도자 절대 복종 요구, 특정 정당·후보 지지·반대 촉구나 선거운동성 발언, 특정 집단 혐오·폭력 선동, 성경 근거가 약한 영적 기법(기도·선포로 천사를 부리거나 일하게 함, 영적 존재를 명령·조종, 직통계시·환상·꿈을 말씀처럼 권위 있게 제시, 귀신·저주를 과도하게 강조), 문맥을 무시한 구절 짜깁기로 본문에 없는 주장을 세움, 성경이 말하지 않는 추측을 성경의 사실처럼 단정.
+- "경고": 한국 주요 교단이 이단으로 규정한 가르침과 같은 특징. 예) 비유풀이·실상·영해로 성경을 특정 인물·단체 이야기로 바꿈, 특정 인물을 재림주·보혜사·이긴 자·하나님으로 높임, 성경 외 추가 계시를 성경 위에 둠, 삼위일체·그리스도의 신성·인성 부정, 깨달음·특정 교리 동의만으로 구원, 144,000 등 숫자 교리와 시한부 종말, 특정 단체 밖에는 구원이 없다는 주장.
+- "정치 선동"으로 볼 대표 표현(진영과 상관없이 같은 기준): 사실과 다르거나 확인되지 않은 주장·음모론으로 정부·정당·정치인을 공격(예: "중국인에게 다 퍼준다", "부정선거로 나라를 빼앗겼다", 정부가 미프진으로 낙태를 퍼뜨린다는 식의 단정), 계엄·"계몽령"을 정당화하거나 미화, 반대 진영을 "공산당·빨갱이·종북·좌파 마귀" 등으로 낙인찍기, 대통령·정치인에 대한 인격 모독·조롱·저주, 집회 참석·특정 정당 투표·불복을 신앙의 의무처럼 요구. 하나라도 있으면 최소 "주의". 다음 중 하나면 "경고": 설교 제목이나 설교의 틀이 특정 정치인·정당을 겨냥함, 정치 선동 위험 신호가 2개 이상, 특정 정치인의 죽음·몰락을 바라거나 반대 진영을 교회의 적으로 규정해 기도하게 함.
+- 낙태·생명 존중, 동성애 등에 대한 성경적 입장을 밝히는 것 자체는 정치 선동이 아니다. 다만 사실과 다른 정치 주장과 엮어 특정 정부·정당을 공격하면 위 기준을 적용한다.
+- 교단 간 견해 차이(예정론·자유의지, 방언·은사, 성례 방식, 종말론 해석의 정통 범위 안 차이)는 위험 신호가 아니다.
+- 사회 정의·평화·공공성에 대한 성경적 메시지는 정치 선동이 아니다.
+- 엄격하게 판정한다. "건강"은 위험 신호가 하나도 없을 때만 준다. 위 "주의" 항목에 하나라도 해당하는 대목이 있으면 설교 전체가 대체로 건전해도 최소 "주의"로 판정한다. 너그럽게 넘기지 않는다.
+- 다만 설교에서 실제로 한 말(인용)이 없으면 위험 신호로 적지 않는다. 지어내거나 추측하지 않는다.
+
+[자막 보정] 받아쓰기 오타(성경 인명·지명·용어)는 문맥에 맞게 바로잡아 이해한다.
+[예외] 설교로 볼 수 없는 내용이면 {"error": true, "user_message": "입력에서 설교를 확인할 수 없습니다."}만 반환한다.
+
+반드시 아래 JSON만 출력한다(마크다운 없이):
+{
+  "error": false,
+  "metadata": {
+    "inferred_title": "설교 제목(영상 제목에 있으면 그대로)",
+    "preacher": "설교자 이름과 직분(확인될 때만, 아니면 빈 문자열)",
+    "main_scripture": "본문",
+    "summary": "설교 핵심 내용 2~3문장 요약"
+  },
+  "verdict": { "level": "건강|주의|경고", "reason": "판정 이유 1~2문장" },
+  "flags": [
+    { "category": "본문 이탈|개인적 주장|정통 신앙고백과 불일치|정치 선동|기복·조종|기타", "level": "주의|경고", "quote": "설교 속 실제 문장", "where": "대략 위치(앞부분/중간/끝부분 또는 시각)", "why": "어떤 정통 신앙과 어떻게 어긋나는지" }
+  ],
+  "mirror": {
+    "text": { "level": "충실|부분적|부족", "note": "본문에서 출발했는지, 문맥과 저자의 의도를 지켰는지, 결론이 본문에서 나오는지 2~3문장", "quote": "판단의 근거가 된 설교 속 실제 문장(없으면 빈 문자열)" },
+    "logic": { "level": "충실|부분적|부족", "note": "논지가 하나로 이어지는지, 근거에서 결론으로 무리 없이 가는지 2~3문장", "flow": ["설교 흐름을 순서대로 3~6개 짧은 구절로"] },
+    "personal": { "level": "충실|부분적|부족", "note": "본문의 말씀과 설교자 개인의 주장을 구별했는지 2~3문장(자기 정당화, 사적 갈등, 개인 의견을 성경의 권위로 말하는지)", "quote": "판단의 근거가 된 설교 속 실제 문장(없으면 빈 문자열)" }
+  }
+}
+판정이 "건강"이면 flags는 빈 배열로 둔다.
+[거울 항목 기준] mirror는 판정과 별개로 항상 채운다. 설교 형식·교단 전통·말솜씨가 아니라 근거만 본다. "충실"은 흠잡을 곳이 없다는 뜻이 아니라 그 항목에서 뚜렷한 문제가 보이지 않는다는 뜻이다. personal의 "충실"은 개인 주장과 말씀을 잘 구별했다는 뜻, "부족"은 개인 주장을 말씀처럼 말한다는 뜻이다. 받아쓰기로 판단이 어려우면 "부분적"으로 두고 note에 그 이유를 적는다. 설교자의 인격이나 영적 상태는 평가하지 않는다. 원어 풀이와 예화의 사실 여부는 판단하지 않는다.
+출력 문장에는 "이단"이라는 낱말을 쓰지 않는다. 대신 "정통 신앙고백과 합치하지 않는 설교 내용"처럼 내용을 설명한다.`.trim();
+
+/* ============================================================
+   2. 초기 설정 및 탭 전환
+============================================================ */
+let currentAbortController = null;
+let activeInputTab = "text";
+let progressInterval = null;
+
+window.addEventListener("DOMContentLoaded", () => {
+  const apiKeyEl = document.getElementById("apiKey");
+  if (!apiKeyEl.value) {
+    apiKeyEl.value = safeStorage.get("gemini_batch_apikey");
+  }
+  updateKeyBadge();
+  apiKeyEl.addEventListener("input", updateKeyBadge);
+});
+
+function updateKeyBadge() {
+  const gKey = document.getElementById("apiKey").value.trim();
+  const badge = document.getElementById("keyStatusBadge");
+  if (gKey) {
+    badge.textContent = "● Gemini API 연결됨";
+    badge.classList.add("ok");
+  } else {
+    badge.textContent = "● Gemini API 키 입력 필요";
+    badge.classList.remove("ok");
+  }
+}
+
+function saveKeyToLocal() {
+  const val = document.getElementById("apiKey").value.trim();
+  safeStorage.set("gemini_batch_apikey", val);
+  updateKeyBadge();
+  alert("Gemini API 키가 브라우저에 저장되었습니다.");
+}
+
+function switchInputTab(tab) {
+  activeInputTab = tab;
+  document.querySelectorAll(".tab-btn").forEach((btn, idx) => {
+    const match = (tab === "text" && idx === 0) || (tab === "url" && idx === 1) || (tab === "audio" && idx === 2);
+    btn.classList.toggle("active", match);
+  });
+  document.querySelectorAll(".tab-content").forEach(el => el.classList.remove("active"));
+  document.getElementById(`tab-${tab}`).classList.add("active");
+}
+
+function updateCharCount() {
+  const len = document.getElementById("manualText").value.trim().length;
+  const el = document.getElementById("charCount");
+  el.textContent = `${len.toLocaleString()}자`;
+  el.style.color = len >= 300 ? "#7ce0a3" : "#ff8e86";
+}
+
+/* ============================================================
+   3. 유튜브 정규화 & 오디오 동적 압축 (Gemini 20MB inline_data 규격)
+============================================================ */
+function normalizeYoutubeWatchUrl(url) {
+  const m = (url || "").match(/(?:v=|youtu\.be\/|shorts\/|live\/|embed\/)([0-9A-Za-z_-]{11})/);
+  return m ? `https://www.youtube.com/watch?v=${m[1]}` : null;
+}
+
+function blobToBase64(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const res = String(reader.result || "");
+      const commaIdx = res.indexOf(",");
+      resolve(commaIdx !== -1 ? res.slice(commaIdx + 1) : res);
+    };
+    reader.onerror = () => reject(new Error("오디오 파일 읽기에 실패했습니다."));
+    reader.readAsDataURL(blob);
+  });
+}
+
+// Gemini inline_data 20MB 요청 한도 준수를 위해 14MB 초과 오디오만 동적 리샘플링 압축
+async function prepareAudioForGeminiInline(file, onProgress) {
+  const MAX_RAW_BYTES = 14 * 1024 * 1024; // 14MB (Base64 변환 시 약 18.6MB < 20MB 한도)
+  if (file.size <= MAX_RAW_BYTES) {
+    onProgress("오디오 파일을 인코딩하고 있습니다...", 25);
+    const base64 = await blobToBase64(file);
+    const mimeType = file.type && file.type.startsWith("audio/") ? file.type : "audio/mp3";
+    return { mimeType, base64 };
+  }
+
+  onProgress("대용량 설교 오디오를 Gemini 전송 규격(14MB 이하)으로 경량화 압축 중입니다...", 20);
+  const arrayBuffer = await file.arrayBuffer();
+  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  let decoded;
+  try {
+    decoded = await audioCtx.decodeAudioData(arrayBuffer);
+  } finally {
+    try { await audioCtx.close(); } catch (_) {}
+  }
+
+  const maxSec = Math.min(decoded.duration, 55 * 60); // 최대 55분
+  const dynamicRate = Math.min(16000, Math.max(4000, Math.floor(MAX_RAW_BYTES / maxSec)));
+
+  const offline = new OfflineAudioContext(1, Math.floor(dynamicRate * maxSec), dynamicRate);
+  const src = offline.createBufferSource();
+  src.buffer = decoded;
+  src.connect(offline.destination);
+  src.start(0);
+
+  const rendered = await offline.startRendering();
+  const samples = rendered.getChannelData(0);
+  const buf = new ArrayBuffer(44 + samples.length);
+  const view = new DataView(buf);
+  const writeStr = (o, s) => { for (let i = 0; i < s.length; i++) view.setUint8(o + i, s.charCodeAt(i)); };
+
+  writeStr(0, "RIFF"); view.setUint32(4, 36 + samples.length, true);
+  writeStr(8, "WAVE"); writeStr(12, "fmt ");
+  view.setUint32(16, 16, true); view.setUint16(20, 1, true); view.setUint16(22, 1, true);
+  view.setUint32(24, dynamicRate, true); view.setUint32(28, dynamicRate, true);
+  view.setUint16(32, 1, true); view.setUint16(34, 8, true);
+  writeStr(36, "data"); view.setUint32(40, samples.length, true);
+
+  for (let i = 0; i < samples.length; i++) {
+    const s = Math.max(-1, Math.min(1, samples[i]));
+    view.setUint8(44 + i, ((s + 1) * 127.5) | 0);
+  }
+
+  const wavBlob = new Blob([buf], { type: "audio/wav" });
+  const base64 = await blobToBase64(wavBlob);
+  return { mimeType: "audio/wav", base64 };
+}
+
+function parseHms(v) {
+  const p = String(v || "").trim().split(":").map(x => parseInt(x, 10)).filter(x => !isNaN(x));
+  if (!p.length) return null;
+  return p.reduce((acc, x) => acc * 60 + x, 0) * (p.length === 1 ? 60 : 1);
+}
+const MODELS = ["gemini-3.8-flash", "gemini-3.5-flash-lite"];
+async function callGemini(key, body, signal) {
+  let res;
+  for (const m of MODELS) {
+    for (let tryN = 0; tryN < 2; tryN++) {
+      res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, {
+        method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": key }, signal, body: JSON.stringify(body)
+      });
+      if (res.status !== 503 && res.status !== 500) break;
+      await new Promise(r => setTimeout(r, 2000));
+    }
+    if (![404, 429, 500, 503].includes(res.status)) return res;
+  }
+  return res;
+}
+const YT_CACHE = {};   // 같은 영상에서 받아 적은 구간은 다시 요청하지 않음
+const mmss = t => { t = Math.round(t); const h = Math.floor(t / 3600), m = Math.floor(t % 3600 / 60), x = t % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(x).padStart(2, "0"); };
+async function transcribeYoutube(watchUrl, key, signal, onProgress, opt = {}) {
+  const CH = 600, MAX = 3 * 3600, PAR = 2;
+  const cache = YT_CACHE[watchUrl] = YT_CACHE[watchUrl] || {};
+  let ended = false, endAt = MAX;
+  const ask = async a => {
+    if (cache[a]) return cache[a];
+    if (a >= endAt) return { st: "없음", text: "" };
+    const b = a + CH;
+    const ac = new AbortController(), tm = setTimeout(() => ac.abort(), 150000);
+    signal.addEventListener("abort", () => ac.abort());
+    const res = await callGemini(key, {
+      contents: [{ role: "user", parts: [
+        { file_data: { file_uri: watchUrl, mime_type: "video/mp4" }, video_metadata: { fps: 0.05, start_offset: a + "s", end_offset: b + "s" } },
+        { text: "첫 줄에 이 구간의 설교 상태를 하나만 쓰세요: 없음 / 전체(처음부터 끝까지 설교) / 시작(중간에 설교가 시작돼 끝까지 이어짐) / 끝(처음에 이미 설교 중이고 중간에 끝남) / 안(안에서 시작하고 끝남). 둘째 줄부터 설교(말씀 선포) 부분만 들리는 대로 한국어로 받아 적으세요. 찬양·기도·광고·봉독은 빼고 요약하지 마세요." }
+      ] }],
+      generationConfig: { mediaResolution: "MEDIA_RESOLUTION_LOW", temperature: 0, maxOutputTokens: 8192 }
+    }, ac.signal);
+    clearTimeout(tm);
+    if (res.status === 403) throw new Error("AI가 이 영상을 열 수 없습니다(생방송 중이거나 막 끝난 영상, 연령 제한·회원 전용 영상 등). 몇 시간 뒤 다시 시도하거나 [설교문/스크립트] 탭을 이용해 주세요.");
+    const j = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      if (a > 0 && res.status === 400) { endAt = Math.min(endAt, a); return { st: "없음", text: "" }; }
+      if (res.status === 400) throw new Error("비공개·일부 공개 영상이거나 열 수 없는 링크입니다. [설교문/스크립트] 탭을 이용해 주세요.");
+      throw new Error(`Google AI 오류 (HTTP ${res.status})`);
+    }
+    if ((j.usageMetadata?.promptTokenCount || 0) < CH * 20) endAt = Math.min(endAt, b);
+    const raw = (j.candidates?.[0]?.content?.parts || []).map(p => p.text || "").join("").trim();
+    const first = raw.split("\n")[0];
+    const st = (first.match(/없음|전체|시작|끝|안/) || ["없음"])[0];
+    return cache[a] = { st, text: st === "없음" ? "" : raw.split("\n").slice(1).join("\n").trim() };
+  };
+  const tryAsk = async a => { try { return await ask(a); } catch (e) { if (signal.aborted || /키가 유효하지|비공개|열 수 없습니다/.test(e.message)) throw e; try { return await ask(a); } catch (e2) { if (/키가 유효하지|비공개|열 수 없습니다/.test(e2.message)) throw e2; return { st: "실패", text: "" }; } } };
+  const fetchAll = async list => { let i = 0; const r = {}; await Promise.all(Array.from({ length: PAR }, async () => { while (i < list.length) { const a = list[i++]; r[a] = await tryAsk(a); onProgress("유튜브 영상에서 설교를 살펴보는 중입니다...", 15 + Math.min(50, Object.keys(cache).length * 6)); } })); return r; };
+  const grid = t => Math.floor(t / CH) * CH;
+  let from, to, auto = !opt.fixed;
+  if (opt.from != null) { from = grid(opt.from); to = opt.to != null ? Math.ceil(opt.to / CH) * CH : from + 6 * CH; }
+  else { from = grid(25 * 60); to = Math.ceil(80 * 60 / CH) * CH; }   // 한국교회 주일예배 생중계에서 설교가 흔히 있는 자리
+  const list = () => { const l = []; for (let a = from; a < Math.min(to, endAt); a += CH) l.push(a); return l; };
+  await fetchAll(list());
+  if (auto) {
+    for (let k = 0; k < 8; k++) {   // 설교가 구간 밖으로 이어지면 넓힘
+      const l = list(); if (!l.length) break;
+      const f = cache[l[0]] || {}, z = cache[l[l.length - 1]] || {};
+      const any = l.some(a => cache[a] && cache[a].st !== "없음" && cache[a].st !== "실패");
+      let grew = false;
+      if (!any) { if (from > 0 || to < endAt) { from = 0; to = Math.min(endAt, MAX); grew = true; } }
+      else {
+        if (/전체|끝/.test(f.st) && from > 0) { from -= CH; grew = true; }
+        if (/전체|시작/.test(z.st) && to < endAt) { to += CH; grew = true; }
+      }
+      if (!grew) break;
+      await fetchAll(list());
+    }
+  }
+  const used = list().filter(a => cache[a]);
+  const sermon = used.filter(a => !/없음|실패/.test(cache[a].st));
+  return {
+    text: used.map(a => cache[a].text).filter(Boolean).join("\n").trim(),
+    from, to: Math.min(to, endAt),
+    sermonFrom: sermon.length ? sermon[0] : null, sermonTo: sermon.length ? Math.min(sermon[sermon.length - 1] + CH, endAt) : null
+  };
+}
+
+/* ============================================================
+   4. 단일 Gemini API 멀티모달(텍스트 / 유튜브 URL / 오디오) 판독 실행
+============================================================ */
+async function startSermonAnalysis() {
+  const statusBox = document.getElementById("statusBox");
+  const statusMsg = document.getElementById("statusMsg");
+  const statusTimer = document.getElementById("statusTimer");
+  const progressBar = document.getElementById("progressBar");
+  const runBtn = document.getElementById("runBtn");
+  const stopBtn = document.getElementById("stopBtn");
+
+  const geminiKey = document.getElementById("apiKey").value.trim() || safeStorage.get("gemini_batch_apikey");
+  if (!geminiKey) {
+    document.getElementById("apiKey").focus();
+    statusBox.className = "status-box show error";
+    statusMsg.textContent = "⚠️ Google Gemini API 키가 입력되지 않았습니다. 아래 설정란에 키를 입력해 주세요.";
+    return;
+  }
+
+  currentAbortController = new AbortController();
+  runBtn.disabled = true;
+  stopBtn.style.display = "inline-flex";
+  statusBox.className = "status-box show";
+  document.getElementById("reportWrap").classList.remove("show"); // 이전 결과는 새 분석 동안 숨김
+  document.getElementById("ytRange").style.display = "none";
+
+  let elapsed = 0;
+  clearInterval(progressInterval);
+  progressInterval = setInterval(() => {
+    elapsed++;
+    statusTimer.textContent = `${elapsed}초 경과`;
+  }, 1000);
+
+  const setProgress = (msg, pct, isErr = false) => {
+    statusMsg.textContent = msg;
+    progressBar.style.width = `${pct}%`;
+    if (isErr) statusBox.classList.add("error");
+  };
+
+  let timeoutId = null;
+  let isTimedOut = false;
+
+  try {
+    let userParts = [];
+    let modeLabel = "";
+    const genConfig = { temperature: 0.2, responseMimeType: "application/json" };
+
+    // 1. 탭별 멀티모달 파트 구성
+    window.__ytMeta = null;
+    if (activeInputTab === "text") {
+      const rawText = document.getElementById("manualText").value.trim();
+      const cleaned = rawText.replace(/[음악]|[박수]|[웃음]/g, "").replace(/\s+/g, " ").trim();
+      if (cleaned.length < 300) {
+        throw new Error(`입력된 설교 텍스트가 너무 짧습니다(${cleaned.length}자). 최소 300자 이상의 설교 원고나 스크립트를 입력해 주세요.`);
+      }
+      userParts = [{ text: cleaned.slice(0, 35000) }];
+      modeLabel = "설교문 분석";
+      setProgress("설교 본문의 신학적 균형과 논리 구조를 정밀 판독 중입니다...", 45);
+
+    } else if (activeInputTab === "url") {
+      const rawUrl = document.getElementById("youtubeUrl").value.trim();
+      const watchUrl = normalizeYoutubeWatchUrl(rawUrl);
+      if (!watchUrl) {
+        throw new Error("유효한 유튜브 영상 링크를 입력해 주세요.");
+      }
+      setProgress("유튜브 영상에서 설교를 살펴보는 중입니다...", 15);
+      const s0 = parseHms(document.getElementById("ytStart").value), e0 = parseHms(document.getElementById("ytEnd").value);
+      const tr = await transcribeYoutube(watchUrl, geminiKey, currentAbortController.signal, setProgress, s0 != null ? { from: s0, to: e0, fixed: true } : ytKind === "sermon" ? { from: 0, to: 3 * 3600, fixed: true } : {});
+      window.__ytLast = { url: rawUrl, ...tr };
+      showYtRange();
+      if (tr.text.length < 300) throw new Error("이 구간에서 설교를 찾지 못했습니다. 아래 버튼으로 구간을 넓히거나 [설교문/스크립트] 탭을 이용해 주세요.");
+      window.__ytMeta = await fetch("https://www.youtube.com/oembed?format=json&url=" + encodeURIComponent(watchUrl)).then(r => r.ok ? r.json() : null).catch(() => null);
+      const info = window.__ytMeta ? `[영상 정보] 제목: ${window.__ytMeta.title} / 채널: ${window.__ytMeta.author_name}\n\n` : "";
+      userParts = [{ text: info + tr.text.slice(0, 60000) }];
+      modeLabel = "유튜브 분석";
+      setProgress("설교를 분석하는 중입니다...", 70);
+
+    } else if (activeInputTab === "audio") {
+      const fileInput = document.getElementById("audioFile");
+      if (!fileInput.files || !fileInput.files[0]) {
+        throw new Error("분석할 설교 오디오 파일을 선택해 주세요.");
+      }
+      const { mimeType, base64 } = await prepareAudioForGeminiInline(fileInput.files[0], setProgress);
+      userParts = [
+        { inline_data: { mime_type: mimeType, data: base64 } },
+        { text: "첨부된 설교 오디오 음성을 듣고 설교 분석 JSON 리포트를 작성하십시오." }
+      ];
+      modeLabel = "음성 분석";
+      setProgress("Google Gemini가 설교 음성을 직접 듣고 신학적 구조와 메시지를 분석 중입니다...", 50);
+    }
+
+    // 응답 대기 시간
+    timeoutId = setTimeout(() => {
+      isTimedOut = true;
+      if (currentAbortController) currentAbortController.abort();
+    }, 180000);
+
+    const res = await callGemini(geminiKey, {
+      system_instruction: { parts: [{ text: SERMON_SYSTEM_PROMPT }] },
+      contents: [{ role: "user", parts: userParts }],
+      generationConfig: genConfig
+    }, currentAbortController.signal);
+
+    if (!res.ok) {
+      if (res.status === 400 && activeInputTab === "url") {
+        switchInputTab("text");
+        throw new Error("해당 유튜브 영상은 비공개/일부공개이거나 1시간을 초과하여 직접 로드가 제한되었습니다. [설교문/스크립트] 탭에 스크립트를 붙여넣어 주세요.");
+      } else if (res.status === 400 || res.status === 403) {
+        throw new Error("Gemini API 키가 유효하지 않거나 요청 권한이 없습니다. 키를 다시 확인해 주세요.");
+      } else if (res.status === 429 || res.status === 503) {
+        throw new Error("Gemini 사용량이 몰리거나 무료 한도를 넘었습니다. 잠시 후 다시 시도해 주세요.");
+      } else {
+        throw new Error(`Google AI 서버 응답 오류가 발생했습니다 (HTTP ${res.status}).`);
+      }
+    }
+
+    const data = await res.json();
+    const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+    const parsed = safeParseJson(rawText);
+
+    if (parsed.error) {
+      throw new Error(parsed.user_message || "설교 내용을 분석할 수 없습니다.");
+    }
+
+    setProgress(`✅ 설교 분별 완료! (${modeLabel})`, 100);
+    renderReportDashboard(parsed, modeLabel);
+
+  } catch (err) {
+    if (err.name === "AbortError") {
+      setProgress(
+        isTimedOut
+          ? "⚠️ 응답 시간(180초)이 초과되었습니다. 유튜브는 설교 시작·끝을 적어 범위를 줄이거나 [설교문/스크립트] 탭으로 분석해 보세요."
+          : "⚠️ 사용자에 의해 설교 분석이 중단되었습니다.",
+        100,
+        true
+      );
+    } else {
+      setProgress(`⚠️ ${err.message}`, 100, true);
+    }
+  } finally {
+    clearTimeout(timeoutId);
+    clearInterval(progressInterval);
+    runBtn.disabled = false;
+    stopBtn.style.display = "none";
+    currentAbortController = null;
+  }
+}
+
+let ytKind = "full";
+function setYtKind(k) { ytKind = k; document.getElementById("ytKindFull").classList.toggle("active", k === "full"); document.getElementById("ytKindSermon").classList.toggle("active", k === "sermon"); }
+function showYtRange() {
+  const r = window.__ytLast; if (!r) return;
+  document.getElementById("ytRange").style.display = "block";
+  document.getElementById("ytRangeText").innerHTML = `분석한 구간: <b>${mmss(r.from)} ~ ${mmss(r.to)}</b>` + (r.sermonFrom != null ? ` · 설교가 들린 구간: ${mmss(r.sermonFrom)} ~ ${mmss(r.sermonTo)}` : " · 설교를 찾지 못함") + "<br>설교가 잘렸거나 다른 순서가 섞였으면 구간을 조정해 다시 분석하세요(이미 들은 부분은 다시 쓰지 않습니다).";
+}
+function adjustYt(df, dt) {
+  const r = window.__ytLast; if (!r || (currentAbortController)) return;
+  const from = Math.max(0, r.from + df), to = Math.max(from + 600, r.to + dt);
+  document.getElementById("ytStart").value = mmss(from); document.getElementById("ytEnd").value = mmss(to);
+  switchInputTab("url"); startSermonAnalysis();
+}
+
+function cancelAnalysis() {
+  if (currentAbortController) {
+    currentAbortController.abort();
+  }
+}
+
+/* ============================================================
+   5. 리포트 UI 렌더링 함수
+============================================================ */
+function renderReportDashboard(data, engineName) {
+  document.getElementById("emptyState").style.display = "none";
+  document.getElementById("reportWrap").classList.add("show");
+  const meta = data.metadata || {}, v = data.verdict || {}, flags = Array.isArray(data.flags) ? data.flags : [];
+  document.getElementById("resScripture").textContent = meta.main_scripture || "본문 미상";
+  document.getElementById("resEngine").textContent = engineName;
+  document.getElementById("resTitle").textContent = meta.inferred_title || "설교";
+  document.getElementById("resPreacher").textContent = [meta.preacher ? "설교자: " + meta.preacher : "", window.__ytMeta?.author_name ? "채널: " + window.__ytMeta.author_name : ""].filter(Boolean).join(" · ");
+  document.getElementById("resSummary").textContent = meta.summary || "";
+  const lv = /경고/.test(v.level) ? "warn" : /주의/.test(v.level) ? "caution" : "ok";
+  const label = { ok: "🟢 특이 위험 신호 없음", caution: "🟡 주의가 필요한 부분이 있음", warn: "🔴 심각한 위험 신호가 발견됨" }[lv];
+  const box = document.getElementById("resVerdict");
+  box.className = "verdict " + lv;
+  box.innerHTML = `<strong>${label}</strong><p>${escapeHtml(v.reason || "")}</p>`;
+  document.getElementById("resFlagsCard").style.display = flags.length ? "block" : "none";
+  document.getElementById("resFlags").innerHTML = flags.map(f => `<div class="discern-box ${/경고/.test(f.level) ? "warn" : ""}">
+      <div class="discern-title">${/경고/.test(f.level) ? "🔴" : "🟡"} ${escapeHtml(f.category)}${f.where ? ` · <span style="font-weight:400;color:var(--muted)">${escapeHtml(f.where)}</span>` : ""}</div>
+      <div style="font-size:13px">“${escapeHtml(f.quote)}”</div>
+      <p class="discern-bal">${escapeHtml(f.why)}</p></div>`).join("");
+  const mirror = data.mirror || {}, badge = l => /충실/.test(l) ? "🟢 충실" : /부족/.test(l) ? "🔴 부족" : "🟡 부분적";
+  document.getElementById("resMirror").innerHTML = [["text", "본문 해석"], ["logic", "논리 구조"], ["personal", "개인적 주장과 말씀의 구별"]].map(([k, name]) => {
+    const m = mirror[k] || {}, flow = Array.isArray(m.flow) ? m.flow : [];
+    return `<div class="discern-box"><div class="discern-title">${escapeHtml(name)} · ${badge(m.level)}</div>
+      ${flow.length ? `<div style="font-size:13px;margin-bottom:6px">${flow.map(escapeHtml).join(" → ")}</div>` : ""}
+      ${m.quote ? `<div style="font-size:13px">“${escapeHtml(m.quote)}”</div>` : ""}
+      <p class="discern-bal">${escapeHtml(m.note)}</p></div>`;
+  }).join("");
+}
+
+function escapeHtml(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+const SAMPLES = {
+  ok: `오늘 본문 골로새서 1장 16절에서 17절입니다. "만물이 그에게서 창조되되 만물이 다 그로 말미암고 그를 위하여 창조되었고 또한 그가 만물보다 먼저 계시고 만물이 그 안에 함께 섰느니라." 여러분, 요즘 세상은 MBTI나 스펙, 성과로 우리를 설명하려 합니다. 그러나 성경은 우리의 기원과 목적과 소속을 분명히 말씀합니다. 첫째, 히브리어 '바라(bara)', 하나님만이 무에서 유를 창조하십니다. 우리의 존재는 우연이나 사고가 아니라 하나님의 분명한 의도입니다. 둘째, '첼렘(tselem)', 하나님의 형상입니다. 우리의 가치는 세상의 평가나 성취에서 오지 않고 우리 안에 새겨진 하나님의 형상에서 옵니다. 동시에 창세기 2장은 우리가 흙, '아다마'에서 왔음을 기억하게 합니다. 흙의 겸손과 형상의 존엄을 동시에 품어야 합니다. 셋째, 헬라어 '에이콘(eikon)', 보이지 않는 하나님의 온전한 형상이신 예수 그리스도이십니다. 우리의 구원과 정체성의 회복은 내 힘으로 나를 증명하거나 율법적 규칙 뒤에 숨는 것이 아니라, 우리의 원본이신 그리스도를 날마다 닮아가는 것입니다. 이번 한 주간 세상의 유행(스키마)에 흔들리지 않고, 나를 지으시고 붙드시는 그리스도 안에서 참된 안식과 이웃 사랑을 실천하시는 성도님들이 되시기를 축원합니다.`,
+  caution: `본문은 로마서 13장 1절입니다. "각 사람은 위에 있는 권세들에게 복종하라." 성도 여러분, 하나님은 이 나라를 지키실 지도자를 세우십니다. 이번 선거에서 ○○당과 그 후보를 찍는 것이 하나님의 뜻입니다. 저쪽 당을 찍는 사람은 하나님을 대적하는 것이고 교회를 무너뜨리는 사탄의 편에 서는 것입니다. 우리 교회 성도는 한 사람도 빠짐없이 투표장에 가서 ○○당에 표를 주십시오. 그리고 지난주에 작정하신 감사헌금을 다음 주까지 꼭 드리십시오. 헌금을 드리면 하나님이 사업의 복을 열 배로 갚아 주십니다. 헌금을 미루면 복이 막히고 가정에 우환이 생깁니다. 담임목사의 말에 순종하는 것이 곧 하나님께 순종하는 것입니다. 목사에게 반대하는 자는 하나님께 반대하는 자입니다.`,
+  warn: `오늘 본문은 마태복음 13장 씨 뿌리는 비유입니다. 여러분, 이 비유는 문자 그대로 읽으면 안 됩니다. 성경은 비유로 감춰진 책이고, 그 실상은 이 시대에 이루어졌습니다. 씨는 말씀이 아니라 약속의 목자, 곧 이 시대에 오신 이긴 자를 가리킵니다. 계시록 7장의 십사만 사천 인 맞추기가 끝나면 새 나라가 완성되고, 그때 인 맞은 자만 영생을 얻습니다. 기성 교회 목사들은 비유를 풀지 못하니 바벨론에 속한 자들입니다. 오직 약속의 목자를 통해 계시를 받아야 구원받습니다. 지금 센터에서 배우는 계시 말씀을 누구에게도 말하지 말고 끝까지 따라와야 합니다. 비유를 깨닫지 못하면 아무리 교회를 다녀도 소용이 없습니다.`
+};
+function loadSampleSermon(kind = "ok") {
+  switchInputTab("text");
+  document.getElementById("manualText").value = SAMPLES[kind] || SAMPLES.ok;
+  updateCharCount();
+}
+</script>
+
+</body>
+</html>

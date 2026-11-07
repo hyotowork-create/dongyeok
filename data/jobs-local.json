@@ -1,15 +1,6 @@
 {
- "updatedAt": "2026-11-07T09:36:11.511Z",
+ "updatedAt": "2026-11-07T21:36:44.079Z",
  "sources": [
-  {
-   "id": "daeshin",
-   "name": "대신대",
-   "group": "신학교",
-   "home": "https://www.daeshin.ac.kr/html/05_community/03.php",
-   "status": "ok",
-   "count": 15,
-   "note": "맥에서 보충 수집"
-  },
   {
    "id": "acts",
    "name": "아신대",
@@ -22,147 +13,28 @@
  ],
  "items": [
   {
-   "id": "ds-1f9k1f1",
-   "dk": "1f9k1f1",
-   "source": "daeshin",
-   "title": "구미새로남교회에서 다음 세대를 사랑으로 섬기며 함께 동역할 교육사역자를 청빙합니다....",
-   "church": "구미새로남교회",
-   "region": "경북",
+   "id": "ac-1etf6r8",
+   "dk": "1etf6r8",
+   "source": "acts",
+   "title": "이루는교회 청빙 공고",
+   "church": "이루는교회",
+   "region": null,
    "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
+   "positions": [],
    "dept": null,
    "tags": [],
    "pay": {
     "min": 100,
-    "max": 130,
-    "label": "월 100~130만원",
+    "max": 200,
+    "label": "월 100~200만원",
     "roles": []
    },
    "payChecked": true,
    "posHint": [
-    "파트 교육전도사",
-    "강도사"
+    "준전임 전도사"
    ],
    "addr": null,
    "info": {
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)",
-     "가족관계증명서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-07",
-   "deadline": null,
-   "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001586899999999"
-  },
-  {
-   "id": "ds-svwv1u",
-   "dk": "svwv1u",
-   "source": "daeshin",
-   "title": "[안산서현교회] 동역자분을 귀하게 모십니다",
-   "church": "안산서현교회",
-   "region": "경기",
-   "area": null,
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "addr": null,
-   "info": {
-    "work": [
-     "토·주일"
-    ],
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "설교(영상·원고)",
-     "가족관계증명서"
-    ],
-    "maxAge": 39
-   },
-   "denomination": null,
-   "date": "2026-11-07",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001586799999999"
-  },
-  {
-   "id": "ds-14aerdn",
-   "dk": "14aerdn",
-   "source": "daeshin",
-   "title": "부산 성일교회에서 교역자를 청빙합니다.",
-   "church": "성일교회",
-   "region": "부산",
-   "area": null,
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "강도사"
-   ],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-07",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001586699999999"
-  },
-  {
-   "id": "ds-4ohhsa",
-   "dk": "4ohhsa",
-   "source": "daeshin",
-   "title": "(수정. 끌어올림)경산교회에서 전임 사역자(목사) 혹은 교육 사역자(목사, 강도사,전도사)를 모십니다. (1명)...",
-   "church": "경산교회",
-   "region": null,
-   "area": null,
-   "positions": [
-    "전임 전도사",
-    "강도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "강도사"
-   ],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택",
-     "퇴직금"
-    ],
     "docs": [
      "이력서",
      "자기소개서",
@@ -173,213 +45,18 @@
    "date": "2026-11-07",
    "deadline": null,
    "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001586599999999"
-  },
-  {
-   "id": "ds-1s89z3k",
-   "dk": "1s89z3k",
-   "source": "daeshin",
-   "title": "산격제일교회 - 전임/파트 동역자를 모십니다.",
-   "church": "산격제일교회",
-   "region": null,
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "전임 부목사"
-   ],
-   "addr": "대구 북구 연암공원로 23",
-   "info": {
-    "perks": [
-     "사택 보조"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "가족관계증명서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-06",
-   "deadline": null,
-   "closed": false,
    "truncated": false,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001586499999999"
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2498&id=acts_csrd_guide&ca_no=1"
   },
   {
-   "id": "ds-36qiqi",
-   "dk": "36qiqi",
-   "source": "daeshin",
-   "title": "울산두레교회에서 동역자(전임)를 정중히 모십니다....",
-   "church": "울산두레교회",
-   "region": "울산",
-   "area": null,
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 부목사",
-    "강도사"
-   ],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-06",
-   "deadline": null,
-   "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001586399999999"
-  },
-  {
-   "id": "ds-1l5y4ve",
-   "dk": "1l5y4ve",
-   "source": "daeshin",
-   "title": "경산옥산교회 여전도사님(전임,준전임)을 모십니다.(다시올림)...",
-   "church": "경산옥산교회",
-   "region": "경북",
-   "area": null,
-   "positions": [
-    "준전임 전도사",
-    "심방전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "준전임 전도사",
-    "전임 전도사",
-    "심방전도사"
-   ],
-   "addr": "경북 경산시 삼성현로 31길 30-6",
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-05",
-   "deadline": null,
-   "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001586199999999"
-  },
-  {
-   "id": "ds-1juijv7",
-   "dk": "1juijv7",
-   "source": "daeshin",
-   "title": "진주성북교회에서 함께 동역할 전임 사역자를 모십니다....",
-   "church": "진주성북교회",
-   "region": "경남",
-   "area": null,
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "min": 290,
-    "max": 290,
-    "label": "월 290만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "전임 부목사",
-    "강도사"
-   ],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택",
-     "식대"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)",
-     "목회·사역계획서",
-     "가족관계증명서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-05",
-   "deadline": null,
-   "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001586099999999"
-  },
-  {
-   "id": "ds-eq5dmh",
-   "dk": "eq5dmh",
-   "source": "daeshin",
-   "title": "경산 대천교회에서 함께할 동역자를 정중히 모십니다.(파트)...",
-   "church": "대천교회",
-   "region": "경북",
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "강도사"
-   ],
-   "addr": "경북 경산시 성암로21길45",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-05",
-   "deadline": null,
-   "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001585999999999"
-  },
-  {
-   "id": "ds-1uiw9l5",
-   "dk": "1uiw9l5",
-   "source": "daeshin",
-   "title": "대봉제일교회에서 함께 사역할 동역자(전임, 파트 사역자)를 아래와 같이 청빙합니다. ...",
-   "church": "대봉제일교회",
+   "id": "ac-arkc2e",
+   "dk": "arkc2e",
+   "source": "acts",
+   "title": "오병이어교회 청빙 공고",
+   "church": "오병이어교회",
    "region": null,
    "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
+   "positions": [],
    "dept": null,
    "tags": [],
    "pay": {
@@ -396,209 +73,107 @@
      "이력서",
      "자기소개서",
      "졸업·재학증명서",
-     "가족관계증명서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-05",
-   "deadline": null,
-   "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001585899999999"
-  },
-  {
-   "id": "ds-f0851b",
-   "dk": "f0851b",
-   "source": "daeshin",
-   "title": "대구성광교회에서 (남자)전임 사역자를 모십니다(내용 변경 있음)....",
-   "church": "대구성광교회",
-   "region": "대구",
-   "area": null,
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "min": 320,
-    "max": 320,
-    "label": "월 320만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 부목사",
-    "강도사"
-   ],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택"
+     "신앙고백·간증"
     ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "설교(영상·원고)",
-     "가족관계증명서"
-    ]
+    "maxAge": 35
    },
    "denomination": null,
-   "date": "2026-11-05",
+   "date": "2026-11-07",
    "deadline": null,
    "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001585799999999"
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2497&id=acts_csrd_guide&ca_no=1"
   },
   {
-   "id": "ds-1i7jlw3",
-   "dk": "1i7jlw3",
-   "source": "daeshin",
-   "title": "교육전도사님(파트타임)을 모십니다.",
-   "church": null,
+   "id": "ac-1tm6of2",
+   "dk": "1tm6of2",
+   "source": "acts",
+   "title": "호평교회 청빙 공고",
+   "church": "호평교회",
    "region": null,
    "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 부목사"
-   ],
-   "addr": null,
-   "info": {
-    "perks": [
-     "퇴직금"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-05",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001585699999999"
-  },
-  {
-   "id": "ds-1kozcjk",
-   "dk": "1kozcjk",
-   "source": "daeshin",
-   "title": "울산서현교회를 함께 세워 갈 동역자(전임목사, 교육전도사)님을 모십니다....",
-   "church": "울산서현교회",
-   "region": "울산",
-   "area": null,
-   "positions": [
-    "파트 교육전도사",
-    "전임 부목사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "심방전도사"
-   ],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-05",
-   "deadline": null,
-   "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001585599999999"
-  },
-  {
-   "id": "ds-xwf7fx",
-   "dk": "xwf7fx",
-   "source": "daeshin",
-   "title": "대구서성로교회 교역자 충원모집합니다.",
-   "church": "대구서성로교회",
-   "region": "대구",
-   "area": null,
-   "positions": [
-    "교역자(직책 미상)"
-   ],
+   "positions": [],
    "dept": null,
    "tags": [],
    "pay": {
-    "min": 200,
-    "max": 200,
-    "label": "월 200만원",
-    "roles": []
+    "min": 110,
+    "max": 170,
+    "label": "월 110~170만원",
+    "roles": [
+     {
+      "role": "파트",
+      "v": 110
+     },
+     {
+      "role": "목사",
+      "v": 120
+     },
+     {
+      "role": "준전임",
+      "v": 160
+     },
+     {
+      "role": "목사",
+      "v": 170
+     }
+    ]
    },
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 전도사",
-    "전임 부목사"
-   ],
-   "addr": "대구 중구 서성로 49-34",
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)",
-     "가족관계증명서"
-    ],
-    "maxAge": 37
-   },
-   "denomination": null,
-   "date": "2026-11-05",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001585499999999"
-  },
-  {
-   "id": "ds-19ip70s",
-   "dk": "19ip70s",
-   "source": "daeshin",
-   "title": "청주중앙교회에서 전임 사역자(부목사님)을 정중히 모십니다. ...",
-   "church": "청주중앙교회",
-   "region": "충북",
-   "area": null,
-   "positions": [
-    "전임 전도사",
-    "전임 부목사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "전임 부목사",
-    "심방전도사"
-   ],
+   "posHint": [],
    "addr": null,
    "info": {
-    "perks": [
-     "사택",
-     "퇴직금"
-    ],
     "docs": [
      "이력서",
      "자기소개서",
-     "가족관계증명서"
+     "설교(영상·원고)"
     ]
    },
    "denomination": null,
-   "date": "2026-11-05",
+   "date": "2026-11-07",
    "deadline": null,
    "closed": false,
-   "truncated": true,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001585399999999"
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2496&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-831fxq",
+   "dk": "831fxq",
+   "source": "acts",
+   "title": "분당하나교회 청빙 공고",
+   "church": "분당하나교회",
+   "region": "경기",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 120,
+    "max": 120,
+    "label": "월 120만원",
+    "roles": [
+     {
+      "role": "파트",
+      "v": 120
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ],
+    "maxAge": 39
+   },
+   "denomination": null,
+   "date": "2026-11-07",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2495&id=acts_csrd_guide&ca_no=1"
   },
   {
    "id": "ac-1oc3pdi",
@@ -816,132 +391,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2489&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-ey4cs4",
-   "dk": "ey4cs4",
-   "source": "acts",
-   "title": "남부중앙교회 청빙 공고",
-   "church": "남부중앙교회",
-   "region": null,
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "min": 100,
-    "max": 100,
-    "label": "월 100만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "addr": null,
-   "info": {
-    "work": [
-     "주일만"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-03",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2488&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-e7wfac",
-   "dk": "e7wfac",
-   "source": "acts",
-   "title": "하올교회 청빙 공고",
-   "church": "하올교회",
-   "region": null,
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "min": 130,
-    "max": 130,
-    "label": "월 130만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [],
-   "addr": "경기 양주시 광적면",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서"
-    ],
-    "maxAge": 46
-   },
-   "denomination": null,
-   "date": "2026-11-03",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2487&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-j3a9xg",
-   "dk": "j3a9xg",
-   "source": "acts",
-   "title": "지구촌교회 청빙 공고",
-   "church": "지구촌교회",
-   "region": null,
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-01",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2486&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-831fxq",
-   "dk": "831fxq",
-   "source": "acts",
-   "title": "분당하나교회 청빙 공고",
-   "church": "분당하나교회",
-   "region": "경기",
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-10-31",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2485&id=acts_csrd_guide&ca_no=1"
   }
  ]
 }

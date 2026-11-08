@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-08T03:07:04.348Z",
+ "updatedAt": "2026-11-08T08:58:38.085Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -41,7 +41,6 @@
     "roles": []
    },
    "payChecked": true,
-   "posHint": [],
    "addr": null,
    "info": {
     "docs": [
@@ -108,10 +107,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사"
-   ],
    "addr": null,
    "info": {
     "docs": [
@@ -182,8 +177,32 @@
    ],
    "dept": null,
    "tags": [],
-   "pay": null,
-   "payChecked": false,
+   "pay": {
+    "min": 90,
+    "max": 120,
+    "label": "월 90~120만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "addr": "전북 전주시 완산구",
+   "info": {
+    "perks": [
+     "사택",
+     "퇴직금",
+     "식대"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
    "denomination": null,
    "date": "2026-11-04",
    "deadline": null,
@@ -208,10 +227,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "전임 부목사"
-   ],
    "addr": "광주 동구 참판로 25-1",
    "info": {
     "perks": [
@@ -252,11 +267,6 @@
     "roles": []
    },
    "payChecked": true,
-   "posHint": [
-    "파트 목사",
-    "전임 부목사",
-    "강도사"
-   ],
    "addr": null,
    "info": {
     "perks": [
@@ -291,7 +301,25 @@
    "dept": null,
    "tags": [],
    "pay": null,
-   "payChecked": false,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   },
    "denomination": null,
    "date": "2026-11-04",
    "deadline": null,
@@ -345,10 +373,6 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "전임 부목사"
-   ],
    "addr": "전남 여수시",
    "info": {
     "perks": [
@@ -549,6 +573,7 @@
     "roles": []
    },
    "payChecked": true,
+   "posHint": [],
    "addr": null,
    "info": {
     "docs": [
@@ -590,6 +615,7 @@
     ]
    },
    "payChecked": true,
+   "posHint": [],
    "addr": null,
    "info": {
     "perks": [
@@ -656,6 +682,7 @@
    "tags": [],
    "pay": null,
    "payChecked": true,
+   "posHint": [],
    "addr": null,
    "info": {
     "perks": [
@@ -694,6 +721,7 @@
     "roles": []
    },
    "payChecked": true,
+   "posHint": [],
    "addr": null,
    "info": {
     "docs": [
@@ -725,6 +753,11 @@
     "note": "내규·협의"
    },
    "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사"
+   ],
    "addr": null,
    "info": {
     "docs": [

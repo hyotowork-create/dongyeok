@@ -38,6 +38,26 @@ window.SITE_CONFIG = {
       platforms: '웹 브라우저(설치 없음)',
       license: '무료 · 본인 Gemini 키 필요',
       dialog: 'sermon-dlg'
+    },
+    {
+      id: 'transcribe',
+      name: 'Gemini 채보 (시험판)',
+      summary: '음원·유튜브 링크를 넣으면 피아노·베이스·기타·드럼 악보와 코드를 뽑아 주는 반주 연습 도구',
+      features: ['음악 파일·공개 유튜브 영상 입력(15분까지)', '피아노 롤·오선 악보·코드 리드시트·드럼 그리드', 'MIDI·MusicXML·PDF 받기, 쉬운 악보·계이름', '개인 연습용 — 가사는 화면에만, 받는 파일에는 넣지 않음'],
+      platforms: '웹 브라우저(설치 없음) · 설치판 Mac/Windows(Node)',
+      license: 'MIT 무료 · 본인 Gemini 키 필요',
+      open: 'tools/transcribe/',
+      source: 'https://github.com/hyotowork-create/gemini-transcriber'
+    },
+    {
+      id: 'tunemate',
+      name: '튠메이트 TuneMate (시험판)',
+      summary: '예배당 소리를 재고 보정 EQ·하울링 억제를 제안하는 AI 음향 도우미',
+      features: ['측정 마이크로 공간 응답 측정 → 보정 EQ 계산', '하울링 주파수 찾기·노치 제안', 'AI 대화형 진단(Claude·ChatGPT·Gemini 중 본인 키)', '기본은 제안 모드 — 사람이 「적용」을 눌러야 믹서가 바뀜', '실제 믹서 시험 전: 리허설에서 먼저 확인'],
+      platforms: 'macOS (iPhone·iPad는 준비 중)',
+      license: 'MIT 무료',
+      download: 'https://github.com/hyotowork-create/TuneMate/releases/latest',
+      source: 'https://github.com/hyotowork-create/TuneMate'
     }
   ],
 

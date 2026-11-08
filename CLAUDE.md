@@ -88,6 +88,7 @@
 | 운영자 맥 launchd | `~/Library/LaunchAgents/kr.dongyeok.fetch.plist`(05:45·11:45·17:45) → `~/Developer/dongyeok-collector/scripts/mac-fetch-jobs.sh` | 별도 git 클론. `~/Downloads`는 macOS 폴더 보호로 예약 작업이 못 읽음 |
 | 세라핌 | 저장소 `hyotowork-create/Seraphim`, 최신 릴리스 **0.3.1**(2026-10-29, Windows 설치형·포터블, Mac Apple Silicon·Intel dmg, ad-hoc 서명 — 공증 없음, 운영자 결정) | 사이트 「내려받기」 = `/releases/latest`. 0.2.0 소스는 아직 GitHub에 없음(운영자 맥의 작업 브랜치) |
 | 사진 | Unsplash 핫링크(`photo-…` 아이디) | 목록은 운영가이드 2-3 |
+| 튠메이트·Gemini 채보 | 공개 저장소 `hyotowork-create/TuneMate`(Mac dmg 릴리스 v0.1.0, ad-hoc 서명 — 키체인 공유 권한을 빼야 실행됨)·`hyotowork-create/gemini-transcriber`(설치판). 둘 다 개인정보를 뺀 새 기록(작성자 「동역 운영자」). 옛 기록은 비공개 `TuneMate-archive`와 운영자 맥 `~/Downloads/TuneMate`·`~/Downloads/gemini-piano-transcriber` | 동역 웹판 채보는 `tools/transcribe/`(원본 lib 복사, 점검 `node --test scripts/test-transcribe.mjs` 6개) |
 | 방문 통계 | GoatCounter `dongyeok` — https://dongyeok.goatcounter.com (`config.js` `goatcounter`) | 2026-10-12 연결. 쿠키 없음. 운영자 계정(운영자가 가입). 화면 이동마다 `/dongyeok/#pg-…` 경로로 집계 |
 
 ## 현재 상태 (2026-10-12)
@@ -383,4 +384,5 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 | 2026-11-03 | (운영자 승인) 휴대폰의 카카오맵 길찾기를 모바일 웹 주소(`m.map.kakao.com/actions/searchView`)로 — 앱 연결 화면 없이 검색 결과가 바로 나옴, PC는 그대로. Supabase 보안 점검 권고대로 도우미 함수 3개(`anon_handle`·`church_key`·`target_table`) search_path 고정(운영 DB 적용). 그 밖의 점검 경고는 설계상 의도(익명 공개 읽기, 함수 안에서 관리자 재확인) |
 | 2026-11-05 | **Sermon Insight 1단계 공개**(운영자 지시, 원래 11/22·별도 도메인 계획을 앞당김): `tools/sermon.html`(배포에 tools 포함), 🟢🟡🔴 위험 신호 + 거울 3항목(본문 해석·논리 구조·개인적 주장, 충실/부분적/부족). 원어·예화 판단은 2단계. 옛 키 전달 코드 제거, CSP 추가, 키 받는 곳 링크. 실제 키로 유튜브 1편·경고 예시 원고 분석 확인(운영자 키). 음성 파일 분석은 미시험. 첫 화면 버튼·안내 창·예배 도구 카드 연결 |
 | 2026-11-05 | (운영자 승인) 수집기 의존성 `undici` 7.30.0→7.30.2(Dependabot 알림 8건, npm audit 0건). 사이트가 받는 `data/jobs.js`에서 `payChecked`·`posHint`·`firstSeen`·빈 값을 뺌 — 2.85MB→2.04MB(압축 348KB→297KB), 줄이기 전후 화면 결과 같음 확인 |
+| 2026-11-08 | (운영자 승인) **예배 도구 2개 추가**: Gemini 채보 웹판 `tools/transcribe/`(본인 Gemini 키, 파일·공개 유튜브 15분까지, Demucs 뺌, 가사는 화면에만·받는 파일·PDF에서 제외, 공유 버튼 뺌, 개인 연습용 안내)와 설치판 공개 저장소. 튠메이트 Mac 시험판(제안 모드 기본) 공개·dmg 릴리스. 실명·개인 메일이 든 기록은 공개하지 않음(운영자 결정). iOS는 개발자 계정 생기면 |
 | 2026-10-29 | **세라핌 0.3.1 릴리스**(Mac 「손상된 앱」 수정: 앱 전체 ad-hoc 서명, 빌드 중 서명 점검 — 못 맞추면 릴리스 중단, Seraphim main 361221e, Release run 40808130655). Apple 개발자 계정·공증은 계획 없음(운영자 결정) → Mac은 첫 실행 때 「그래도 열기」 1번. 사이트 내려받기 창의 「Mac 버전 수정 중」 문단 삭제, 터미널 방법은 0.3.0 이하용으로 표시 |

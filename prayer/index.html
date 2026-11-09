@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; font-src https://cdn.jsdelivr.net data:; img-src 'self' data: https://i.ytimg.com; frame-src https://www.youtube-nocookie.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="description" content="부교역자를 위한 기도실. 새벽빛 아래 머물며 기도하고, 말씀과 설교, 성경공부를 함께합니다.">
+<title>동역 기도실</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true">
+  <div class="sun"></div>
+  <div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div>
+  <div class="dust"></div>
+</div>
+
+<header class="top">
+  <a class="back" href="../#pg-worship">← 동역</a>
+  <button id="sound" class="icon" aria-pressed="false" aria-label="오르간 소리 켜기">♪ 소리 끔</button>
+</header>
+
+<main>
+  <section class="room" aria-labelledby="h">
+    <p class="eyebrow">동역 기도실</p>
+    <h1 id="h">잠시, 사역을 내려놓고</h1>
+    <p class="lead">맡은 일 사이에 들어와 조용히 머무는 곳입니다. 시간을 정하고 촛불을 켜세요.</p>
+
+    <div class="candles" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <figure class="verse">
+      <blockquote id="verse"></blockquote>
+      <figcaption id="verseRef"></figcaption>
+    </figure>
+    <p class="topic">오늘은 <b id="topic"></b> 기도해요</p>
+
+    <div class="timer" role="group" aria-label="기도 시간">
+      <button class="chip" data-min="5">5분</button>
+      <button class="chip on" data-min="10">10분</button>
+      <button class="chip" data-min="20">20분</button>
+      <button class="chip" data-min="0">시간 없이</button>
+    </div>
+    <button id="go" class="go">촛불 켜고 기도 시작</button>
+    <p id="clock" class="clock" aria-live="polite"></p>
+    <p id="together" class="together hidden"></p>
+  </section>
+
+  <nav class="tabs" aria-label="기도실 메뉴">
+    <button class="tab on" data-tab="sermon">오늘의 설교</button>
+    <button class="tab" data-tab="study">성경공부</button>
+    <button class="tab" data-tab="quiz">퀴즈</button>
+  </nav>
+
+  <section class="pane" id="pane-sermon">
+    <div id="player" class="player"></div>
+    <ul id="sermons" class="sermons"></ul>
+    <p class="note">추천 설교는 유튜브 공개 영상을 연결합니다. 영상은 유튜브에서 재생되고, 동역은 시청 기록을 남기지 않습니다. 설교를 듣고 나서 <a href="../tools/sermon.html">Sermon Insight</a>로 비춰 볼 수 있습니다.</p>
+  </section>
+
+  <section class="pane hidden" id="pane-study">
+    <h2 id="studyRef"></h2>
+    <p id="studyText" class="scripture"></p>
+    <ol id="studyQ" class="questions"></ol>
+  </section>
+
+  <section class="pane hidden" id="pane-quiz">
+    <div id="quiz"></div>
+    <a id="quizn" class="go small hidden" target="_blank" rel="noopener">퀴즈앤으로 함께 풀기 ↗</a>
+    <p class="note">퀴즈앤 방은 운영자가 만들어 열면 여기에 버튼이 생깁니다. 소그룹·주일학교에서 함께 풀 수 있습니다.</p>
+  </section>
+</main>
+
+<footer class="foot">말씀: 개역한글 · 소리: 이 브라우저에서 만든 오르간 소리(음원 파일 없음)</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

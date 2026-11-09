@@ -1,0 +1,83 @@
+:root { --ink:#f4efe6; --muted:#b9b3c9; --gold:#ffc24b; --violet:#7c5cff; --night:#0e1230; --card:rgba(14,18,48,.62); --line:rgba(255,255,255,.12); --t:0; }
+* { box-sizing:border-box; }
+html, body { margin:0; min-height:100%; }
+body { background:var(--night); color:var(--ink); font-family:Pretendard, -apple-system, "Apple SD Gothic Neo", sans-serif; line-height:1.6; overflow-x:hidden; }
+.hidden { display:none !important; }
+a { color:var(--gold); }
+
+/* 새벽 하늘: --t(0 밤 → 1 아침)를 기도 시간에 맞춰 올림 */
+.sky { position:fixed; inset:0; z-index:-1; overflow:hidden;
+  background: linear-gradient(180deg,
+    color-mix(in oklab, #0e1230, #2b4a8a calc(var(--t) * 100%)) 0%,
+    color-mix(in oklab, #1b1747, #c77a8a calc(var(--t) * 100%)) 55%,
+    color-mix(in oklab, #2a1d3a, #ffcf8a calc(var(--t) * 100%)) 100%);
+  transition: background 3s linear; }
+.sun { position:absolute; left:50%; bottom:calc(-40vmin + var(--t) * 22vmin); width:80vmin; height:80vmin; transform:translateX(-50%); border-radius:50%;
+  background: radial-gradient(circle, rgba(255,214,140,calc(.25 + var(--t) * .55)) 0%, rgba(255,170,90,calc(.1 + var(--t) * .2)) 35%, transparent 70%);
+  transition: bottom 3s linear; }
+.beam { position:absolute; top:-10%; width:18vmin; height:140%; transform-origin:top; mix-blend-mode:screen;
+  background: linear-gradient(180deg, rgba(255,226,170,calc(.04 + var(--t) * .16)), transparent 80%); filter:blur(6px); animation: sway 14s ease-in-out infinite; }
+.b1 { left:18%; transform:rotate(-18deg); } .b2 { left:44%; transform:rotate(-10deg); animation-delay:-5s; } .b3 { left:70%; transform:rotate(-4deg); animation-delay:-9s; }
+@keyframes sway { 50% { opacity:.55; } }
+.dust { position:absolute; inset:0; background-image: radial-gradient(1px 1px at 20% 30%, #fff8, transparent), radial-gradient(1px 1px at 60% 70%, #fff6, transparent), radial-gradient(1.5px 1.5px at 80% 20%, #fff5, transparent), radial-gradient(1px 1px at 35% 85%, #fff6, transparent);
+  background-size: 300px 300px; animation: drift 60s linear infinite; opacity:calc(.3 + var(--t) * .5); }
+@keyframes drift { to { background-position: 300px -300px; } }
+
+.top { display:flex; justify-content:space-between; align-items:center; padding:14px max(16px, env(safe-area-inset-left)); }
+.back { color:var(--muted); text-decoration:none; font-size:14px; }
+.icon { background:rgba(255,255,255,.08); color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:6px 12px; font-size:13px; cursor:pointer; }
+main { max-width:720px; margin:0 auto; padding:0 16px 48px; }
+
+.room { text-align:center; padding:4vh 0 24px; }
+.eyebrow { color:var(--gold); letter-spacing:.2em; font-size:13px; margin:0; }
+h1 { font-size:clamp(28px, 7vw, 40px); margin:6px 0 8px; font-weight:700; }
+.lead { color:var(--muted); margin:0 auto 18px; max-width:30em; }
+
+.candles { display:flex; justify-content:center; gap:26px; height:100px; align-items:flex-end; margin:10px 0 18px; }
+.candles i { position:relative; width:12px; height:46px; border-radius:3px 3px 2px 2px; background:linear-gradient(90deg,#efe4cf,#fffaf0 45%,#d8cbb2); }
+.candles i:nth-child(2) { height:62px; }
+.candles i::before { content:''; position:absolute; left:50%; bottom:100%; width:14px; height:26px; margin-left:-7px; border-radius:50% 50% 45% 45%;
+  background: radial-gradient(circle at 50% 70%, #fff6d0, #ffc24b 45%, #ff8a3d 70%, transparent 72%); opacity:0; transition:opacity 1.2s; filter:drop-shadow(0 0 10px #ffb347) drop-shadow(0 0 24px rgba(255,170,70,.6)); }
+.lit .candles i::before { opacity:1; animation: flicker 2.4s ease-in-out infinite; }
+.candles i:nth-child(2)::before { animation-delay:-.8s; } .candles i:nth-child(3)::before { animation-delay:-1.6s; }
+@keyframes flicker { 0%,100% { transform:scale(1) rotate(-1deg); } 30% { transform:scale(1.06,.94) rotate(2deg); } 60% { transform:scale(.95,1.05) rotate(-2deg); } }
+
+.verse { margin:0 auto 10px; max-width:32em; }
+.verse blockquote { margin:0; font-size:clamp(17px, 4.4vw, 20px); line-height:1.8; word-break:keep-all; }
+.verse figcaption { color:var(--muted); font-size:13px; margin-top:6px; }
+.topic { color:var(--muted); font-size:14px; margin:12px 0 20px; word-break:keep-all; }
+.topic b { color:var(--ink); font-weight:600; }
+
+.timer { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+.chip { background:rgba(255,255,255,.07); color:var(--ink); border:1px solid var(--line); border-radius:999px; padding:8px 16px; font-size:15px; cursor:pointer; }
+.chip.on { background:rgba(255,194,75,.18); border-color:var(--gold); color:#fff; }
+.go { display:inline-block; background:var(--gold); color:#1b1530; border:0; border-radius:999px; padding:14px 28px; font-size:17px; font-weight:700; cursor:pointer; text-decoration:none; box-shadow:0 8px 30px rgba(255,194,75,.25); }
+.go.small { padding:10px 20px; font-size:15px; margin-top:14px; }
+.go:focus-visible, .chip:focus-visible, .tab:focus-visible, .icon:focus-visible { outline:3px solid #fff; outline-offset:2px; }
+.clock { font-variant-numeric:tabular-nums; font-size:28px; margin:16px 0 0; min-height:1.4em; letter-spacing:.05em; }
+.together { color:var(--muted); font-size:14px; }
+
+.tabs { display:flex; gap:6px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:6px; backdrop-filter:blur(10px); position:sticky; top:8px; z-index:2; }
+.tab { flex:1; background:none; border:0; color:var(--muted); padding:10px; border-radius:10px; font-size:15px; cursor:pointer; }
+.tab.on { background:rgba(124,92,255,.35); color:#fff; font-weight:600; }
+.pane { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px; margin-top:12px; backdrop-filter:blur(10px); }
+.pane h2 { margin:0 0 8px; font-size:18px; }
+.note { color:var(--muted); font-size:13px; margin:12px 0 0; }
+
+.player { aspect-ratio:16/9; border-radius:12px; overflow:hidden; background:#000; display:none; margin-bottom:12px; }
+.player.on { display:block; } .player iframe { width:100%; height:100%; border:0; }
+.sermons { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+.sermons button { width:100%; display:grid; grid-template-columns:120px 1fr; gap:12px; align-items:center; text-align:left; background:rgba(255,255,255,.05); border:1px solid var(--line); color:var(--ink); border-radius:12px; padding:8px; cursor:pointer; }
+.sermons img { width:120px; aspect-ratio:16/9; object-fit:cover; border-radius:8px; }
+.sermons b { display:block; font-size:15px; } .sermons small { color:var(--muted); font-size:13px; }
+.sermons div { min-width:0; }
+
+.scripture { font-size:16px; line-height:1.9; word-break:keep-all; }
+.questions li { margin:8px 0; }
+.q { margin:0 0 14px; } .q p { margin:0 0 6px; font-weight:600; }
+.q button { display:block; width:100%; text-align:left; margin:6px 0; background:rgba(255,255,255,.05); color:var(--ink); border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:15px; cursor:pointer; }
+.q button.right { border-color:#7ed9a0; background:rgba(126,217,160,.15); } .q button.wrong { border-color:#ff8e86; background:rgba(255,142,134,.12); }
+.score { font-weight:700; color:var(--gold); }
+.foot { text-align:center; color:var(--muted); font-size:12px; padding:0 16px 28px; }
+
+@media (prefers-reduced-motion: reduce) { .beam, .dust, .lit .candles i::before { animation:none; } .sky, .sun { transition:none; } }

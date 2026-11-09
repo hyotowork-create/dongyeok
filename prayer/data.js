@@ -19,11 +19,13 @@ window.PRAYER = {
     { ref: '예레미야애가 3:22-23', text: '여호와의 자비와 긍휼이 무궁하시므로 우리가 진멸되지 아니함이니이다 이것들이 아침마다 새로우니 주의 성실이 크도소이다' },
     { ref: '디모데후서 4:2', text: '너는 말씀을 전파하라 때를 얻든지 못 얻든지 항상 힘쓰라 범사에 오래 참음과 가르침으로 경책하며 경계하며 권하라' },
   ],
-  // 추천 설교: 후보(운영자 확인 전). id = 유튜브 영상 번호
+  // 추천 설교(운영자 선정 설교자, 2026-11-09). id = 유튜브 영상 번호, channel = 올린 채널(가능하면 교회·본인 공식)
   sermons: [
-    { id: 'UUlCBjOLiCc', title: '여러분의 정체성은?', passage: '요한복음 1:35-42', preacher: '이재철 목사', channel: '홍성사' },
-    { id: 'osOR2NK4r28', title: '참된 교회, 참된 신자', passage: '마태복음 8:5-10', preacher: '이재철 목사', channel: '홍성사' },
-    { id: 'L7vtDbkgBXc', title: '참된 임직자', passage: '요한복음 20:21-22', preacher: '이재철 목사', channel: '홍성사' },
+    { id: 'Pac3jUc0dvQ', title: '사람의 마음을 얻기 힘쓰는 크리스천', passage: '날마다 기막힌 새벽 #2315', preacher: '김동호 목사', channel: '날마다 기막힌 새벽' },
+    { id: 'pAkKKvaA5xE', title: '다윗의 자손 예수 그리스도', passage: '마태복음 강해 (1)', preacher: '조현삼 목사', channel: '서울광염교회' },
+    { id: 'aOfso6tnkKk', title: '내 마음은 고요하고 평온합니다', passage: '시편 131:1-3', preacher: '김기석 목사', channel: '청파교회' },
+    { id: '4PcqVjZHGLA', title: '나는 혼자가 아닙니다', passage: '요한복음 강해 (26)', preacher: '반세호 목사', channel: '성서대학교회' },
+    { id: 'GlrUk12Pf4c', title: '역전의 은혜를 누리라', passage: '누가복음 5:1-6', preacher: '전혁 목사(예람워십 대표)', channel: '호산나교회' },
   ],
   // 성경공부: 본문 + 묵상 질문 + 확인 퀴즈(본문에서 답을 찾는 문제)
   studies: [

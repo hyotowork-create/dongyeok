@@ -49,6 +49,17 @@ window.SITE_CONFIG = {
       dialog: 'sermon-dlg'
     },
     {
+      id: 'shorts',
+      name: 'Sermon Shorts (시험판)',
+      summary: '설교 영상에서 좋은 대목을 골라 세로 쇼츠로 만드는 프로그램',
+      features: ['설교 영상 파일 → AI가 30~60초 대목 3~5개와 위쪽 제목 추천', '자막 자동 생성 후 직접 고치기, 실제 모양 미리보기', '1080×1920 MP4 저장(교회 이름·마지막 안내 장면)', '업로드 문안(제목·설명·해시태그) 초안', '영상은 내 컴퓨터 밖으로 나가지 않음'],
+      platforms: 'Windows 10·11 · macOS(Apple Silicon·Intel)',
+      license: 'MIT 무료 · 본인 Gemini 키 필요',
+      dialog: 'shorts-dlg',
+      dialogLabel: '내려받기',
+      source: 'https://github.com/hyotowork-create/SermonShorts'
+    },
+    {
       id: 'transcribe',
       name: 'Gemini 채보 (시험판)',
       summary: '음원·유튜브 링크를 넣으면 피아노·베이스·기타·드럼 악보와 코드를 뽑아 주는 반주 연습 도구',

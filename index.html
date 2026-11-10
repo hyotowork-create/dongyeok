@@ -448,13 +448,13 @@ dialog form{padding:26px}
 dialog h2{font-size:20px;margin-bottom:6px}
 .song-list .listen{margin-left:6px;font-size:12.5px;font-weight:600;color:var(--indigo);text-decoration:none;white-space:nowrap}
 .by-admin{display:inline-block;padding:1px 8px;border-radius:999px;background:var(--gold);color:var(--night);font-weight:700;font-size:.92em}
-#sermon-dlg,#update-dlg,#creply-dlg,#seraphim-dlg,#write-dlg,#rebut-dlg{max-height:calc(100svh - 32px);overflow:auto}
+#sermon-dlg,#update-dlg,#creply-dlg,#seraphim-dlg,#shorts-dlg,#write-dlg,#rebut-dlg{max-height:calc(100svh - 32px);overflow:auto}
 .church-reply{margin:12px 0 4px;padding:12px 14px;border-left:3px solid var(--gold);background:rgba(255,194,75,.08);border-radius:8px}
 .church-reply h4{margin-top:0}
-#seraphim-dlg .sd-list{display:grid;gap:8px}
-#seraphim-dlg .sd-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border:1px solid var(--line,#e5e7eb);border-radius:12px;text-decoration:none;color:inherit}
+#seraphim-dlg .sd-list,#shorts-dlg .sd-list{display:grid;gap:8px}
+#seraphim-dlg .sd-item,#shorts-dlg .sd-item{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border:1px solid var(--line,#e5e7eb);border-radius:12px;text-decoration:none;color:inherit}
 #seraphim-dlg .sd-item.me{border-color:var(--gold);background:rgba(255,194,75,.1)}
-#seraphim-dlg .sd-item small{display:block;color:var(--muted);font-size:12.5px}
+#seraphim-dlg .sd-item small,#shorts-dlg .sd-item small{display:block;color:var(--muted);font-size:12.5px}
 #update-dlg ol{padding-left:20px;margin:8px 0}#update-dlg li{margin-bottom:8px}
 #sermon-dlg h2 .tag{font-size:12px;vertical-align:middle}
 .hero-cta button.is-soon{font:inherit;color:inherit;cursor:pointer}
@@ -1077,6 +1077,35 @@ dialog h2{font-size:20px;margin-bottom:6px}
       <p style="margin-top:8px"><b>내 Mac 칩 확인</b>: 화면 왼쪽 위 Apple 메뉴 → 이 Mac에 관하여 → 「칩」이 Apple M1~M4면 Apple Silicon, 「프로세서」가 Intel이면 Intel입니다.</p>
     </details>
     <div class="btn-row" style="margin-top:14px"><a class="btn btn-line" href="https://github.com/hyotowork-create/Seraphim/releases/latest" target="_blank" rel="noopener">모든 파일 보기 ↗</a><button class="btn btn-line" value="close">닫기</button></div>
+  </form>
+</dialog>
+<dialog id="shorts-dlg" aria-labelledby="shorts-h">
+  <form method="dialog">
+    <h2 id="shorts-h">Sermon Shorts 내려받기 <span class="tag">시험판</span></h2>
+    <p class="hint" style="margin-bottom:12px">설교 영상에서 좋은 대목을 골라 세로 쇼츠(1080×1920)로 만드는 무료 프로그램입니다. 본인 Gemini 키가 필요하고, 영상 파일은 내 컴퓨터 밖으로 나가지 않습니다.</p>
+    <div class="sd-list">
+      <a class="sd-item" href="https://github.com/hyotowork-create/SermonShorts/releases/latest" target="_blank" rel="noopener"><span><b>Windows 10·11 (64비트)</b><small>Sermon-Shorts-Setup-버전.exe — 설치판 / …-portable.exe — 설치 없이 실행</small></span><span>↗</span></a>
+      <a class="sd-item" href="https://github.com/hyotowork-create/SermonShorts/releases/latest" target="_blank" rel="noopener"><span><b>Mac (Apple Silicon M1~)</b><small>Sermon-Shorts-버전-arm64.dmg</small></span><span>↗</span></a>
+      <a class="sd-item" href="https://github.com/hyotowork-create/SermonShorts/releases/latest" target="_blank" rel="noopener"><span><b>Mac (Intel)</b><small>Sermon-Shorts-버전-x64.dmg</small></span><span>↗</span></a>
+    </div>
+    <p class="hint" style="margin-top:10px">우리 교회 설교만, 설교자 동의를 받고 만들어 주세요. 찬양 부분은 저작권 때문에 넣지 않습니다. AI 자막은 올리기 전에 꼭 확인하세요.</p>
+    <details style="margin-top:12px"><summary><b>Windows에서 설치할 때 나오는 메시지</b></summary>
+      <p style="margin-top:8px">개인이 무료로 배포하는 프로그램이라 유료 코드 서명 인증서가 없어, 처음에 Windows가 경고를 띄웁니다. 프로그램 문제는 아닙니다.</p>
+      <p style="margin-top:8px"><b>「Windows의 PC 보호」(파란 창)</b> — 창 안의 <b>추가 정보</b>를 누르고, 아래에 생기는 <b>실행</b>을 누르세요. 한 번만 하면 됩니다.</p>
+      <p style="margin-top:8px"><b>브라우저가 「일반적으로 다운로드되지 않는 파일」·「위험할 수 있습니다」라며 막을 때</b> — Edge: 다운로드 목록에서 파일의 <b>⋯ → 유지 → 자세히 표시 → 그래도 유지</b>. Chrome: <b>⋮ → 위험한 파일 다운로드</b>.</p>
+      <p style="margin-top:8px"><b>「실행」 버튼이 아예 없을 때</b> — 교회·회사 PC에서 관리자가 막아 둔 경우입니다. 관리자에게 허용을 부탁하거나 개인 PC에서 설치하세요. portable 파일을 써 보는 것도 방법입니다.</p>
+      <p style="margin-top:8px"><b>백신(V3·알약·Defender)이 파일을 지우거나 「위협 발견」</b> — 인증서 없는 새 프로그램을 의심하는 오진입니다. 백신의 검역소(치료함)에서 <b>복원</b>하고 <b>예외</b>에 추가하세요.</p>
+      <p style="margin-top:8px"><b>「이 앱은 PC에서 실행할 수 없습니다」</b> — 64비트(x64) Windows 10·11에서만 됩니다. <b>설정 → 시스템 → 정보 → 시스템 종류</b>가 「64비트 운영 체제, x64 기반 프로세서」인지 확인하세요(32비트·ARM 서피스는 안 됨).</p>
+      <p style="margin-top:8px"><b>「이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?」</b> — 설치판이 맞으면 <b>예</b>. 관리자 권한이 없으면 설치 화면에서 「현재 사용자만」을 고르세요.</p>
+      <p style="margin-top:8px"><b>설치했는데 창이 안 뜰 때</b> — 작업 관리자(Ctrl+Shift+Esc)에서 Sermon Shorts를 끝내고 다시 여세요. 그래도 안 되면 PC를 다시 시작하세요.</p>
+      <p style="margin-top:8px"><b>「영상 처리에 실패했습니다」</b> — 저장 폴더를 「동영상」이나 바탕화면으로 바꿔 보세요. 다른 영상으로도 같으면 아래 연락처로 알려 주세요.</p>
+      <p style="margin-top:8px"><b>「API 키가 맞지 않습니다」·「사용 한도를 넘었습니다」</b> — 설정에서 키를 앞뒤 빈칸 없이 다시 붙여 넣으세요. 한도는 잠시 뒤 풀립니다.</p>
+    </details>
+    <details style="margin-top:8px"><summary><b>Mac에서 처음 열 때</b></summary>
+      <p style="margin-top:8px">dmg를 열어 Sermon Shorts를 <b>응용 프로그램</b>으로 끌어 넣은 뒤 여세요. 「확인되지 않은 개발자」가 나오면 <b>시스템 설정 → 개인정보 보호 및 보안</b> 아래쪽의 <b>「그래도 열기」</b>를 한 번 누르면 됩니다.</p>
+      <p style="margin-top:8px"><b>내 Mac 칩 확인</b>: Apple 메뉴 → 이 Mac에 관하여 → 「칩」이 Apple M1~이면 Apple Silicon, 「프로세서」가 Intel이면 Intel.</p>
+    </details>
+    <div class="btn-row" style="margin-top:14px"><a class="btn btn-line" href="https://github.com/hyotowork-create/SermonShorts#readme" target="_blank" rel="noopener">사용 설명서 ↗</a><button class="btn btn-line" value="close">닫기</button></div>
   </form>
 </dialog>
 <dialog id="write-dlg" aria-labelledby="write-h">
@@ -2230,7 +2259,7 @@ function renderTools() {
   $('#tool-list').innerHTML = tools.length ? tools.map(t => `<article class="tool">
       <div><h3>${esc(t.name)}</h3><p class="sum">${esc(t.summary)}</p><ul>${(t.features || []).map(f => `<li>${esc(f)}</li>`).join('')}</ul>
         <p class="meta" style="margin-top:12px"><span>${esc(t.platforms || '')}</span><span>${esc(t.license || '')}</span></p></div>
-      <div class="btn-row">${t.dialog ? `<button type="button" class="btn btn-main" aria-haspopup="dialog" onclick="document.getElementById('${esc(t.dialog)}').showModal();window.goatcounter?.count?.({path:'event-sermon-soon',title:'설교 평가 안내 열기',event:true})">안내 보고 시작하기</button>` : ''}${/^(tools\/)?[\w-]+\/$/.test(t.open || '') ? `<a class="btn btn-main" href="${t.open}" onclick="window.goatcounter?.count?.({path:'event-${esc(t.id)}-open',title:'${esc(t.id)} 열기',event:true})">바로 쓰기</a>` : ''}${t.download ? `<a class="btn btn-main" href="${esc(safeUrl(t.download))}"${t.id === 'seraphim' ? ' data-seraphim-dl aria-haspopup="dialog">내려받기' : ` target="_blank" rel="noopener" aria-label="${esc(t.name)} 내려받기 새 창에서 열기">내려받기 ↗`}</a>` : ''}${t.source ? `<a class="btn btn-line" href="${esc(safeUrl(t.source))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 소스 코드 새 창에서 열기">소스·설명서 ↗</a>` : ''}</div>
+      <div class="btn-row">${t.dialog ? `<button type="button" class="btn btn-main" aria-haspopup="dialog" onclick="document.getElementById('${esc(t.dialog)}').showModal();window.goatcounter?.count?.({path:'${t.id === 'sermon' ? 'event-sermon-soon' : 'event-' + esc(t.id) + '-dl'}',title:'${esc(t.id)} 안내 열기',event:true})">${esc(t.dialogLabel || '안내 보고 시작하기')}</button>` : ''}${/^(tools\/)?[\w-]+\/$/.test(t.open || '') ? `<a class="btn btn-main" href="${t.open}" onclick="window.goatcounter?.count?.({path:'event-${esc(t.id)}-open',title:'${esc(t.id)} 열기',event:true})">바로 쓰기</a>` : ''}${t.download ? `<a class="btn btn-main" href="${esc(safeUrl(t.download))}"${t.id === 'seraphim' ? ' data-seraphim-dl aria-haspopup="dialog">내려받기' : ` target="_blank" rel="noopener" aria-label="${esc(t.name)} 내려받기 새 창에서 열기">내려받기 ↗`}</a>` : ''}${t.source ? `<a class="btn btn-line" href="${esc(safeUrl(t.source))}" target="_blank" rel="noopener" aria-label="${esc(t.name)} 소스 코드 새 창에서 열기">소스·설명서 ↗</a>` : ''}</div>
     </article>`).join('') : '<p class="empty">등록된 도구가 없습니다. config.js의 tools에 추가하세요.</p>';
 }
 function slRow(s) {

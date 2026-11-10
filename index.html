@@ -222,6 +222,15 @@ fieldset{border:0;margin-bottom:18px}
 .tile-stat{display:inline-block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--night);background:var(--gold);padding:4px 13px;border-radius:999px}
 .tile-lg{grid-row:span 2}
 .tile-wide{grid-column:span 2}
+.tile-prayer{background:linear-gradient(180deg,#141a4a 0%,#3a2a6a 48%,#c9806a 88%,#ffc98a 100%)}
+.tile-prayer::before{background:linear-gradient(0deg,rgba(14,18,48,.88) 0%,rgba(14,18,48,.3) 55%,rgba(14,18,48,0) 100%)}
+.tp-candles{position:absolute;top:22%;left:50%;transform:translateX(-50%);display:flex;gap:16px;align-items:flex-end;z-index:-1}
+.tp-candles i{position:relative;width:9px;height:34px;border-radius:2px;background:linear-gradient(90deg,#efe4cf,#fffaf0 45%,#d8cbb2)}
+.tp-candles i:nth-child(2){height:46px}
+.tp-candles i::before{content:'';position:absolute;left:50%;bottom:100%;width:10px;height:18px;margin-left:-5px;border-radius:50% 50% 45% 45%;background:radial-gradient(circle at 50% 70%,#fff6d0,#ffc24b 45%,#ff8a3d 70%,transparent 72%);filter:drop-shadow(0 0 10px #ffb347);animation:tpf 2.4s ease-in-out infinite}
+.tp-candles i:nth-child(2)::before{animation-delay:-.8s}.tp-candles i:nth-child(3)::before{animation-delay:-1.6s}
+@keyframes tpf{30%{transform:scale(1.06,.94) rotate(2deg)}60%{transform:scale(.95,1.05) rotate(-2deg)}}
+@media (prefers-reduced-motion:reduce){.tp-candles i::before{animation:none}}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
 .two-col>*,.layout-side>*{min-width:0}   /* 한 줄로 자르는 긴 제목(mini 목록)이 칸을 넓혀 휴대폰에서 가로로 넘치지 않게 */
 .box{background:#fff;border:1px solid var(--border-2);border-radius:14px;box-shadow:var(--shadow)}
@@ -580,7 +589,8 @@ dialog h2{font-size:20px;margin-bottom:6px}
       <a class="tile tile-lg" href="#pg-jobs"><img src="https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1515162305285-0293e4767cc2?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:640px) 100vw, 50vw" alt="" loading="lazy" decoding="async"><div class="tile-body"><h2>청빙 공고와 교회 평가</h2><p>여러 게시판의 청빙 공고를 한곳에서 보고, 공고마다 그 교회 출신 교역자들의 평가를 확인합니다.</p><span class="tile-stat" id="tile-jobs" hidden></span></div></a>
       <a class="tile " href="#pg-worship"><img src="https://images.unsplash.com/photo-1508829040592-72f179f8a73f?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1508829040592-72f179f8a73f?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1508829040592-72f179f8a73f?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:640px) 100vw, 50vw" alt="" loading="lazy" decoding="async"><div class="tile-body"><h2>예배 도구</h2><p>세라핌을 내려받고 콘티를 만들어 나눕니다.</p></div></a>
       <a class="tile " href="#pg-bamboo"><img src="https://images.unsplash.com/photo-1532920161727-344adb090f7f?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1532920161727-344adb090f7f?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1532920161727-344adb090f7f?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:640px) 100vw, 50vw" alt="" loading="lazy" decoding="async"><div class="tile-body"><h2>대나무숲</h2><p>이름 없이 털어놓는 사역 이야기.</p></div></a>
-      <a class="tile tile-wide" href="#pg-library"><img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:640px) 100vw, 50vw" alt="" loading="lazy" decoding="async"><div class="tile-body"><h2>자료실</h2><p>직접 만든 설교 원고, 성경공부 교안, 신학 정리 노트를 나눕니다.</p></div></a>
+      <a class="tile " href="#pg-library"><img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=1200&q=70" srcset="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=700&q=70 700w, https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d?auto=format&fit=crop&w=1200&q=70 1200w" sizes="(max-width:640px) 100vw, 50vw" alt="" loading="lazy" decoding="async"><div class="tile-body"><h2>자료실</h2><p>직접 만든 설교 원고, 성경공부 교안, 신학 정리 노트를 나눕니다.</p></div></a>
+      <a class="tile tile-prayer" href="prayer/"><span class="tp-candles" aria-hidden="true"><i></i><i></i><i></i></span><div class="tile-body"><h2>동역 기도실</h2><p>사역 사이에 잠시 머물러 기도하고, 말씀·설교·성경공부를 함께합니다.</p><span class="tile-stat">새로 열림</span></div></a>
     </div>
   </section>
   <section class="wrap sec two-col" style="padding-top:0">

@@ -114,5 +114,4 @@
     right += ok; answered++;
     if (answered === st.quiz.length) $('score').textContent = `${st.quiz.length}문제 중 ${right}문제 맞혔어요`;
   });
-  if (/^https:\/\/([\w-]+\.)?quizn\.show\//.test(P.quiznUrl)) { $('quizn').href = P.quiznUrl; $('quizn').classList.remove('hidden'); }
 })();

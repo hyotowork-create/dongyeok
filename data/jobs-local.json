@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-11T03:20:58.711Z",
+ "updatedAt": "2026-11-11T10:10:38.138Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -397,6 +397,54 @@
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43231"
   },
   {
+   "id": "ac-1wuit1s",
+   "dk": "1wuit1s",
+   "source": "acts",
+   "title": "온누리교회 (남양주) 유치·초등부 파트교역자 청빙",
+   "church": "온누리교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 103,
+    "max": 130,
+    "label": "월 103~130만원",
+    "roles": [
+     {
+      "role": "재학생",
+      "v": 103
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": null,
+   "info": {
+    "work": [
+     "주일만"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-11",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2502&id=acts_csrd_guide&ca_no=1"
+  },
+  {
    "id": "ac-1sgv1jm",
    "dk": "1sgv1jm",
    "source": "acts",
@@ -450,6 +498,7 @@
     "note": "내규·협의"
    },
    "payChecked": true,
+   "posHint": [],
    "addr": null,
    "info": {
     "docs": [
@@ -753,40 +802,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2493&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-1w19b0c",
-   "dk": "1w19b0c",
-   "source": "acts",
-   "title": "상심리교회 청빙 공고",
-   "church": "상심리교회",
-   "region": null,
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "준전임 전도사"
-   ],
-   "addr": null,
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "신앙고백·간증"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-03",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2492&id=acts_csrd_guide&ca_no=1"
   }
  ]
 }

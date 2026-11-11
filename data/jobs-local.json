@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-10T08:45:46.957Z",
+ "updatedAt": "2026-11-11T03:20:58.711Z",
  "sources": [
   {
    "id": "kwangshin",
@@ -21,6 +21,37 @@
   }
  ],
  "items": [
+  {
+   "id": "ks-1d195c5",
+   "dk": "1d195c5",
+   "source": "kwangshin",
+   "title": "전주동부교회(예장합동) 구인광고",
+   "church": "전주동부교회",
+   "region": "전북",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택 보조",
+     "식대"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-11",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43242"
+  },
   {
    "id": "ks-1hfczs7",
    "dk": "1hfczs7",
@@ -114,12 +145,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "전임 부목사"
-   ],
    "addr": null,
    "info": {
     "perks": [
@@ -156,9 +181,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [
-    "전임 부목사"
-   ],
    "addr": "광주 동구 참판로 25-1",
    "info": {
     "perks": [
@@ -200,11 +222,6 @@
     "roles": []
    },
    "payChecked": true,
-   "posHint": [
-    "파트 목사",
-    "전임 부목사",
-    "강도사"
-   ],
    "addr": null,
    "info": {
     "perks": [
@@ -245,9 +262,6 @@
     "roles": []
    },
    "payChecked": true,
-   "posHint": [
-    "전임 부목사"
-   ],
    "addr": null,
    "info": {
     "docs": [
@@ -293,12 +307,6 @@
     ]
    },
    "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "전임 부목사"
-   ],
    "addr": null,
    "info": {
     "perks": [
@@ -389,38 +397,43 @@
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43231"
   },
   {
-   "id": "ks-1qsted3",
-   "dk": "1qsted3",
-   "source": "kwangshin",
-   "title": "청주중앙교회에서 전임 부목사님 한 분을 정중히 모십니다.",
-   "church": "청주중앙교회",
-   "region": "충북",
+   "id": "ac-1sgv1jm",
+   "dk": "1sgv1jm",
+   "source": "acts",
+   "title": "평안교회 청빙 공고",
+   "church": "평안교회",
+   "region": null,
    "area": null,
-   "positions": [
-    "전임 부목사"
-   ],
+   "positions": [],
    "dept": null,
    "tags": [],
-   "pay": null,
+   "pay": {
+    "min": 120,
+    "max": 280,
+    "label": "월 120~280만원",
+    "roles": []
+   },
    "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사"
+   ],
    "addr": null,
    "info": {
-    "perks": [
-     "사택",
-     "퇴직금"
-    ],
     "docs": [
      "이력서",
      "자기소개서",
-     "가족관계증명서"
+     "졸업·재학증명서",
+     "설교(영상·원고)"
     ]
    },
    "denomination": null,
-   "date": "2026-11-09",
+   "date": "2026-11-11",
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43230"
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2501&id=acts_csrd_guide&ca_no=1"
   },
   {
    "id": "ac-1pjufd0",
@@ -437,7 +450,6 @@
     "note": "내규·협의"
    },
    "payChecked": true,
-   "posHint": [],
    "addr": null,
    "info": {
     "docs": [
@@ -775,40 +787,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2492&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-1bl6se5",
-   "dk": "1bl6se5",
-   "source": "acts",
-   "title": "더온누리교회 청빙 교회",
-   "church": "더온누리교회",
-   "region": null,
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택",
-     "교통비"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서"
-    ],
-    "maxAge": 50
-   },
-   "denomination": null,
-   "date": "2026-11-03",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2491&id=acts_csrd_guide&ca_no=1"
   }
  ]
 }

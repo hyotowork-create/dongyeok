@@ -1,4 +1,4 @@
-// Gemini 채보 웹판(tools/transcribe/lib) 점검 6개: 묶기·쉬운 악보·MusicXML·MIDI·응답 해석. 네트워크 없음. 실행: node --test scripts/test-transcribe.mjs
+// Gemini 채보 웹판(tools/transcribe/lib) 점검 9개: 묶기·쉬운 악보·MusicXML·MIDI·응답 해석. 네트워크 없음. 실행: node --test scripts/test-transcribe.mjs
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mergeAndQuantize, buildEasyNotes, chordRootPitch } from '../tools/transcribe/lib/quantize.js';
@@ -82,4 +82,45 @@ test('MIDI 여러 파트', () => {
   const buf = Buffer.from(buildMidi({ bpm: m.bpm, timeSignature: m.timeSignature, parts, title: 'x' }));
   assert.equal(buf.subarray(0, 4).toString(), 'MThd');
   assert.equal(buf.readUInt16BE(10), 5); // 템포 + 양손 2 + 베이스 + 드럼
+});
+
+import { transposeChord, transposeKey, correctKeys } from '../tools/transcribe/lib/keyfix.js';
+
+test('조 보정: 코드·조 옮기기', () => {
+  assert.equal(transposeChord('E', 1, true), 'F');
+  assert.equal(transposeChord('B/D#', 1, true), 'C/E');
+  assert.equal(transposeChord('C#m7', 1, true), 'Dm7');
+  assert.equal(transposeChord('Gmaj7', -2, true), 'Fmaj7');
+  assert.equal(transposeChord('A2', 1, true), 'Bb2');
+  assert.equal(transposeKey('E major', 1), 'F major');
+  assert.equal(transposeKey('A minor', 2), 'B minor');
+  assert.equal(transposeKey('D major', 0), 'D major');
+});
+
+test('조 보정: Gemini가 반음 낮게 적은 조각을 음원 기준으로 되돌린다', () => {
+  // 음원: F장조 음계 에너지 (F G A Bb C D E), 30초짜리 조각 2개
+  const fMajor = new Float64Array(12); for (const [pc, w] of [[5, 6], [7, 3], [9, 4], [10, 3], [0, 5], [2, 3], [4, 3]]) fMajor[pc] = w;
+  const chroma = { hopSec: 30, winSec: 0, frames: [fMajor, fMajor] };
+  const eNotes = [64, 66, 68, 69, 71, 73, 75, 64, 71, 68].map((p, i) => ({ p, s: i, d: p % 12 === 4 ? 2 : 0.5 }));   // E장조
+  const fNotes = [65, 67, 69, 70, 72, 74, 76, 65, 72, 69].map((p, i) => ({ p, s: i, d: p % 12 === 5 ? 2 : 0.5 }));   // F장조(맞음)
+  const results = [
+    { offsetSec: 0, durationSec: 30, key: 'E major', notes: eNotes, chords: [{ s: 0, name: 'E' }, { s: 2, name: 'B/D#' }] },
+    { offsetSec: 30, durationSec: 30, key: 'F major', notes: fNotes, chords: [{ s: 0, name: 'F' }] },
+  ];
+  const fix = correctKeys(results, chroma);
+  assert.equal(fix.target, 'F major');
+  assert.deepEqual(fix.perChunk.map(p => p.shift), [1, 0]);
+  assert.equal(results[0].key, 'F major');
+  assert.deepEqual(results[0].chords.map(c => c.name), ['F', 'C/E']);
+  assert.equal(results[0].notes[0].p, 65);
+  assert.equal(results[1].notes[0].p, 65); // 맞는 조각은 그대로
+});
+
+import { audioChroma, SR } from '../tools/transcribe/lib/keyfix.js';
+test('조 보정: 샘플에서 크로마 — 440Hz 사인파는 A가 가장 큼', () => {
+  const x = new Float32Array(SR * 3);
+  for (let i = 0; i < x.length; i++) x[i] = Math.sin(2 * Math.PI * 440 * i / SR);
+  const c = audioChroma(x);
+  assert.ok(c.frames.length > 0);
+  assert.equal(c.frames[0].indexOf(Math.max(...c.frames[0])), 9);
 });

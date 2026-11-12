@@ -1,6 +1,7 @@
 // Gemini 채보 · 동역 웹판. 원본(로컬 서버판) public/app.js에서 서버 호출을 브라우저 처리로 바꿈
 import { transcribeChunk, describeSong, PART_IDS } from './lib/gemini.js';
-import { decodeFile, splitChunks } from './lib/audio.js';
+import { decodeFile, splitChunks, toMono } from './lib/audio.js';
+import { audioChroma, correctKeys, SR as CHROMA_SR } from './lib/keyfix.js';
 import { mergeAndQuantize, buildEasyNotes } from './lib/quantize.js';
 import { buildMidi } from './lib/midi.js';
 import { buildMusicXML } from './lib/musicxml.js';
@@ -92,6 +93,7 @@ function friendly(e) {
   const s = e.status;
   if (s === 400 && /API key/i.test(e.message)) return 'API 키가 맞지 않습니다. 키를 다시 확인해 주세요.';
   if (s === 401 || s === 403) return 'API 키가 맞지 않거나, 이 영상을 열 수 없습니다(비공개·연령 제한·생방송 직후 등).';
+  if (s === 402 || /prepayment credits are depleted|billing/i.test(e.message || '')) return 'Gemini API 크레딧이 바닥났습니다. aistudio.google.com 의 프로젝트 결제(Billing)에서 충전하거나 다른 키로 바꾼 뒤 다시 시도하세요.';
   if (s === 429) return 'Gemini 무료 한도를 넘었거나 요청이 몰렸습니다. 잠시 뒤 다시 하거나 「빠른 모드」 모델을 골라 보세요.';
   if (s === 404) return '이 모델을 쓸 수 없습니다. 옵션에서 다른 모델을 골라 주세요.';
   return e.message;
@@ -100,7 +102,7 @@ function friendly(e) {
 async function runPipeline({ apiKey, parts, file, youtube, model, bpmOverride, chunkSec, splitPitch, hint }, signal) {
   const concurrency = /lite/i.test(model) ? 3 : 2;
   const results = [];
-  let duration = 0, title = '', audioUrl = null;
+  let duration = 0, title = '', audioUrl = null, keyFix = null;
   const call = c => transcribeChunk(c, { apiKey, model, hint, signal, parts, log });
   const report = (r, c) => {
     const counts = ['notes', 'bass', 'guitar', 'drums'].map(k => r[k]?.length ? `${k === 'notes' ? '피아노' : PART_LABEL[k]} ${r[k].length}` : null).filter(Boolean).join(', ');
@@ -122,11 +124,18 @@ async function runPipeline({ apiKey, parts, file, youtube, model, bpmOverride, c
       while (next < chunks.length) {
         const c = chunks[next++];
         const r = await call(c);
-        results[c.index] = { ...r, offsetSec: c.offsetSec };
+        results[c.index] = { ...r, offsetSec: c.offsetSec, durationSec: c.durationSec };
         report(r, c); done++;
         setStatus(0.1 + 0.78 * done / chunks.length, `Gemini 채보 중 (${done}/${chunks.length})`);
       }
     }));
+    // 조 보정: 음원에서 잰 음별 에너지와 비교해, Gemini가 통째로 옮겨 적은 조각을 되돌린다(파일만 — 유튜브는 음원이 없어 못 함)
+    setStatus(0.89, '음원에서 조를 재서 맞추는 중');
+    try {
+      keyFix = correctKeys(results, audioChroma(await toMono(buf, CHROMA_SR)));
+      const moved = keyFix.perChunk.map((p, i) => p.shift ? `${i + 1}: ${p.shift > 0 ? '+' : ''}${p.shift}` : null).filter(Boolean);
+      log(`조 보정: 음원 기준 ${keyFix.target ?? '판단 불가'}${moved.length ? ` · 옮긴 조각 ${moved.join(', ')}` : ' · 옮길 필요 없음'}`);
+    } catch (e) { keyFix = null; log(`조 보정 건너뜀: ${String(e.message).slice(0, 80)}`); }
   } else {
     title = (await fetch(`https://www.youtube.com/oembed?format=json&url=${encodeURIComponent(youtube)}`).then(r => r.ok ? r.json() : null).catch(() => null))?.title || '유튜브 영상';
     // 영상 길이를 미리 알 수 없어, 영상 끝을 넘는 구간(400)이나 짧게 끝난 구간을 만나면 거기서 멈춘다
@@ -168,7 +177,7 @@ async function runPipeline({ apiKey, parts, file, youtube, model, bpmOverride, c
     partIds, parts: merged.parts, chords: merged.chords, lyrics: merged.lyrics,
     easy: buildEasyNotes({ ...merged }, splitPitch),
     noteCount: partIds.reduce((n, id) => n + merged.parts[id].length, 0),
-    description: null,
+    description: null, keyFix: keyFix ? { applied: keyFix.applied, target: keyFix.target } : null,
   };
   setStatus(0.95, '곡 해설을 쓰는 중');
   try {
@@ -220,7 +229,7 @@ function showResult(r) {
   $('resultCard').classList.remove('hidden');
   $('rTitle').textContent = R.title;
   const partsTxt = R.partIds.map(p => `${PART_LABEL[p]} ${R.parts[p].length.toLocaleString()}음`).join(' · ');
-  $('rMeta').textContent = `${fmt(R.duration)} · ${R.key} · ${R.timeSignature} · 약 ${R.bpm} BPM · ${partsTxt} · 코드 ${R.chords.length}개${R.lyrics.length ? ` · 가사 ${R.lyrics.length}줄(화면에만)` : ''} · 처리 ${R.processingSec}초 · ${R.model}`;
+  $('rMeta').textContent = `${fmt(R.duration)} · ${R.key} · ${R.timeSignature} · 약 ${R.bpm} BPM · ${partsTxt} · 코드 ${R.chords.length}개${R.lyrics.length ? ` · 가사 ${R.lyrics.length}줄(화면에만)` : ''} · 처리 ${R.processingSec}초 · ${R.model}${R.keyFix?.applied ? ' · 조 보정됨(음원 기준)' : ''}`;
   if (R.description) {
     $('desc').classList.remove('hidden');
     $('descSummary').textContent = R.description.summary || '';

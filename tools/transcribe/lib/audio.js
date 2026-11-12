@@ -8,8 +8,9 @@ export async function decodeFile(file) {
   finally { ctx.close?.(); }
 }
 
-async function toMono16k(buf) {
-  const off = new OfflineAudioContext(1, Math.ceil(buf.duration * RATE), RATE);
+/** 모노로 섞고 rate로 다시 샘플링한 Float32Array */
+export async function toMono(buf, rate) {
+  const off = new OfflineAudioContext(1, Math.ceil(buf.duration * rate), rate);
   const src = off.createBufferSource();
   src.buffer = buf; src.connect(off.destination); src.start(0);
   return (await off.startRendering()).getChannelData(0);
@@ -34,7 +35,7 @@ function toBase64(bytes) {
 
 /** [{index, offsetSec, durationSec, audio:{mimeType, base64}}] — 조각 하나는 30초 기준 약 1MB */
 export async function splitChunks(buf, chunkSec) {
-  const mono = await toMono16k(buf);
+  const mono = await toMono(buf, RATE);
   const per = chunkSec * RATE, out = [];
   for (let i = 0, k = 0; i < mono.length; i += per, k++) {
     const part = mono.subarray(i, Math.min(mono.length, i + per));

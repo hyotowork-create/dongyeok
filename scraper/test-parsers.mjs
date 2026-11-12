@@ -152,6 +152,7 @@ await t('본문 주소·항목(지어낸 문장)', () => {
   assert.equal(parseAddress('3. 교회 소재지 : 충청남도 천안시 동남구 수곡1길 12-1 (가나교회)'), '충남 천안시 동남구 수곡1길 12-1');
   assert.equal(parseAddress('한빛교회(서울시 강동구 길동 소재)에서 모십니다'), '서울 강동구 길동');
   assert.equal(parseAddress('주소: 세종특별자치시 한누리대로 100'), '세종 한누리대로 100');
+  assert.equal(parseAddress('교회 주소: 대전 광역시 유성구 유성대로 1709'), '대전 유성구 유성대로 1709');   // 시·도를 띄어 써도 시·군·구로 읽지 않음
   assert.equal(parseAddress('수집 항목: 이름, 주소, 연락처'), null);
   assert.equal(parseAddress('교회 주소: 미정(010-0000-0000)'), null);
   const i = parseInfo('교역자 모집 1. 자격: 강도사 이상, 만 41세 이하 2. 복지: 아파트 사택 제공, 4대 보험, 퇴직금, 식대 지급 3. 출근: 토요일·주일 4. 제출서류 : 이력서, 자기소개서, 설교 영상 링크');

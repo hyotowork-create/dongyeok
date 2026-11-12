@@ -50,6 +50,7 @@ export default [
   board({
     id: 'kehc', short: 'ke', name: '기성 총회', group: '교단', home: 'https://www.kehc.org/home/recruit/view_list/page/0',
     listUrl: p => `https://www.kehc.org/home/recruit/view_list/page/${50 * (p - 1)}`,
+    detailDrop: 'table.read_post_align',   // 본문 아래 붙는 공고 목록의 「○○교회(서울시 강동구 길동 소재)」를 이 공고 주소로 잘못 읽던 것(11/12 이용자 제보)
     row: 'table tbody tr',
     parse: ($, r) => {
       const tds = r.find('td'); if (tds.length < 6 || /공지/.test(tds.eq(0).text())) return null;

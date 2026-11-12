@@ -77,7 +77,7 @@ async function fillPay(http, items, okSources) {
       const it = q.shift();
       try {
         const html = await http.request(it.url, { source: bySrc.get(sid), encoding: 'auto' });
-        const $ = cheerio.load(html); $('script, style, noscript, header, footer, nav').remove();
+        const $ = cheerio.load(html); $('script, style, noscript, header, footer, nav').remove(); if (bySrc.get(sid).detailDrop) $(bySrc.get(sid).detailDrop).remove();
         const text = ($('body').text() || $.root().text()).replace(/\s+/g, ' ');
         it.pay = parseSalary(text); it.payChecked = true; done++;
         it.posHint = bodyHint(text);

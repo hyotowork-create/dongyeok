@@ -1528,17 +1528,31 @@ function parseHash() {
   return { id: i < 0 ? h : h.slice(0, i), params: Object.fromEntries(new URLSearchParams(i < 0 ? '' : h.slice(i + 1))) };
 }
 function go(id, params) { const next = href(id, params); if (location.hash === next) routeFromHash(); else location.hash = next; }
+// 뒤로가기로 목록에 돌아오면 다시 불러오지 않고 읽던 위치로(11/15 이용자 요청). 「더 보기」로 늘린 목록도 그대로 남음
+const KEEP_ON_BACK = new Set(['pg-jobs', 'pg-churches', 'pg-church', 'pg-bamboo', 'pg-library']);
+const scrollPos = {}, renderedHash = {};
+let curHash = null, curIdx = 0;
 function routeFromHash() {
   let { id, params } = parseHash();
   if (id === 'main') return;                      // 「본문 바로가기」 링크
   if (!ALL_PAGES.includes(id)) { id = 'pg-home'; params = {}; }
+  const h = location.hash;
+  if (curHash !== null) scrollPos[curHash] = window.scrollY;
+  let idx = history.state && history.state.i;     // 기록마다 번호를 붙여, 같은 주소로 메뉴를 다시 누른 것과 진짜 뒤로가기를 구분
+  if (idx == null) { idx = curIdx + 1; history.replaceState({ i: idx }, ''); }
+  const back = idx < curIdx;
+  curIdx = idx; curHash = h;
+  const restore = back && KEEP_ON_BACK.has(id) && renderedHash[id] === h && scrollPos[h] != null;   // 그 사이 같은 화면을 다른 값(다른 교회 등)으로 그렸으면 다시 불러옴
   ALL_PAGES.forEach(p => document.getElementById(p).classList.remove('active'));
   const t = document.getElementById(id); t.classList.add('active');
   $$('.gnb a, .tabbar a').forEach(a => a.classList.toggle('on', a.dataset.group === GROUP[id]));
   closeDrawer();
-  window.scrollTo({ top: 0, behavior: 'instant' });
-  $$('.reveal', t).forEach(el => { if (revealObs) { el.classList.remove('visible'); revealObs.observe(el); } else el.classList.add('visible'); });
-  if (HOOKS[id]) HOOKS[id](params);
+  window.scrollTo({ top: restore ? scrollPos[h] : 0, behavior: 'instant' });
+  if (!restore) {
+    $$('.reveal', t).forEach(el => { if (revealObs) { el.classList.remove('visible'); revealObs.observe(el); } else el.classList.add('visible'); });
+    renderedHash[id] = h;
+    if (HOOKS[id]) HOOKS[id](params);
+  }
   if (!firstRoute && window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: location.pathname + '#' + id, title: document.title });
   firstRoute = false;
 }

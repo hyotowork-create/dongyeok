@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // 첫 화면 숫자 줄(data/hero-stats.json)을 하루 한 번 갱신 — 수집 작업 끝에 불림. 오늘(한국 날짜) 이미 갱신했으면 그대로 둠(--force면 바로 갱신)
-//   jobs     최근 90일 청빙 공고(같은 공고 묶은 수)
+//   jobs     최근 70일 청빙 공고(같은 공고 묶은 수)
 //   newJobs  최근 2일(KST 오늘·어제) 게시된 공고(묶은 수)
 //   visits   GoatCounter 누적 방문(공개 카운터). 못 읽으면 이전 값 유지
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';

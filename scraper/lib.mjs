@@ -406,3 +406,15 @@ export function parseInfo(text) {
   if (age && +age[1] >= 25 && +age[1] <= 70) info.maxAge = +age[1] - (age[2] === '미만' ? 1 : 0);
   return Object.keys(info).length ? info : null;
 }
+
+// 이번에 읽은 목록 기간(출처별 가장 오래된 날짜보다 뒤) 안인데 목록에 없는 옛 공고 = 원문에서 지워졌거나 초빙완료로 빠짐 → byId에서 지움.
+// liveOk 출처만. 가장 오래된 날짜와 같은 날 공고는 목록 끝에서 잘렸을 수 있어 남긴다. 반환: 출처별 지운 수
+export function dropVanished(byId, fresh, liveOk) {
+  const oldest = new Map(), ids = new Set(fresh.map(it => it.id)), gone = new Map();
+  for (const it of fresh) if (liveOk.has(it.source) && it.date && !(oldest.get(it.source) <= it.date)) oldest.set(it.source, it.date);
+  for (const [id, it] of byId) {
+    if (ids.has(id) || !oldest.has(it.source) || !(it.date > oldest.get(it.source))) continue;
+    byId.delete(id); gone.set(it.source, (gone.get(it.source) || 0) + 1);
+  }
+  return gone;
+}

@@ -3,7 +3,7 @@
 // 사이트 구조가 바뀌어 수집이 0건이 되면, 표본을 새로 저장하고 이 점검부터 맞춘다.
 import { readFile } from 'node:fs/promises';
 import assert from 'node:assert/strict';
-import { isNotJob, classifyPositions, parseSalary, parseRobots, robotsAllows, normRegion, extractChurch, extractPositions, cleanTitle, titleKey, parseDate, areaOf, parseAddress, parseInfo } from './lib.mjs';
+import { isNotJob, classifyPositions, parseSalary, parseRobots, robotsAllows, normRegion, extractChurch, extractPositions, cleanTitle, titleKey, parseDate, areaOf, parseAddress, parseInfo, dropVanished } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import mtu from './sources/mtu.mjs';
 import godpeople from './sources/godpeople.mjs';
@@ -161,5 +161,13 @@ await t('본문 주소·항목(지어낸 문장)', () => {
   assert.equal(parseInfo('교역자 모집: 여름 휴가철 행사 안내'), null);
   assert.deepEqual(parseInfo('파트 전도사 모집, 출근은 주일 1회, 개인정보 수집(만 14세 미만 제외)'), { work: ['주일만'] });
   assert.equal(parseInfo('교회 소개 글입니다'), null);
+});
+await t('원문 목록에서 사라진 공고 빼기', () => {
+  const j = (id, source, date) => [id, { id, source, date }];
+  const byId = new Map([j('a1', 'a', '2026-11-16'), j('a2', 'a', '2026-11-15'), j('a3', 'a', '2026-11-14'), j('a4', 'a', '2026-11-01'), j('b1', 'b', '2026-11-15'), j('m1', 'm', '2026-11-15')]);
+  const fresh = [{ id: 'a1', source: 'a', date: '2026-11-16' }, { id: 'a9', source: 'a', date: '2026-11-14' }, { id: 'm2', source: 'm', date: '2026-11-10' }];
+  const gone = dropVanished(byId, fresh, new Set(['a', 'b']));
+  assert.deepEqual([...byId.keys()], ['a1', 'a3', 'a4', 'b1', 'm1']);   // a2만 빠짐: 목록 기간(11/14 뒤) 안인데 목록에 없음
+  assert.deepEqual([...gone], [['a', 1]]);   // a3(가장 오래된 날과 같은 날)·a4(기간 밖)·b(이번에 0건)·m(맥 보충 등 liveOk 아님)은 그대로
 });
 console.log(`\n${n}개 점검 통과`);

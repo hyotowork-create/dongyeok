@@ -12,6 +12,7 @@ export default {
   noDetail: true,    // 상세 화면은 자바스크립트로 그려 읽을 것이 없음 — 본문은 목록 API에서 받음
   viaKR: true,       // 해외(GitHub) 접속을 막음 → GitHub Actions에서는 서울 중계 함수(kr-relay)를 거침
   pages: 3,          // 1쪽 = 50건(약 4~5시간 분량). 하루 3번 × 3쪽 = 충분, 서버 부담을 줄이려 6→3
+  deepPages: 20,     // 하루 한 번 약 20일치 목록(본문 없이)으로 초빙완료·삭제 확인 — 이 API는 모집 중인 공고만 돌려줌
   async collect({ http }) {
     const out = [];
     for (let page = 1; page <= this.pages; page++) {
@@ -21,8 +22,9 @@ export default {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', Referer: this.home, 'X-Requested-With': 'XMLHttpRequest' }
       });
       // 본문까지 받으면 1쪽이 약 0.8MB라 해외 서버에서 끊길 수 있음 → 실패하면 본문 없이 목록만(사례비는 다음 기회에)
-      let text;
-      try { text = await ask(true, 50); } catch (e) { if (e.name === 'BlockedError' || e.name === 'RobotsError') throw e; text = await ask(false, 50); }
+      let text, withBody = page <= 3;   // 깊게 읽는 4쪽부터는 목록만(본문까지 받으면 1쪽 약 0.8MB)
+      if (!withBody) text = await ask(false, 50);
+      else try { text = await ask(true, 50); } catch (e) { if (e.name === 'BlockedError' || e.name === 'RobotsError') throw e; text = await ask(false, 50); withBody = false; }
       const json = JSON.parse(text);
       const list = (json.body || json).list || [];
       for (const it of list) {
@@ -36,10 +38,13 @@ export default {
           date: String(it.registered_date || '').slice(0, 10),
           closed: Number(it.status_code) === 4000,       // 4000 = 초빙완료
           pay: pickPay(parseSalary(p.gratuity, { dedicated: true }), parseSalary(strip(it.body))),   // 사례비 칸 숫자 > 본문 숫자 > "내규·협의"
-          payChecked: true,
-          posHint: classifyPositions(strip(it.body).slice(0, 1500)).filter(p => CLERGY.includes(p)).slice(0, 4),
-          addr: parseAddress(strip(it.body)) || (p.location ? parseAddress('주소 ' + p.location) : null),
-          info: parseInfo(strip(it.body)),
+          // 본문 없이 받은 쪽은 본문에서 뽑는 값을 비워 둠 → 병합 때 예전에 뽑아 둔 사례비·주소·항목을 지우지 않음
+          ...(withBody ? {
+            payChecked: true,
+            posHint: classifyPositions(strip(it.body).slice(0, 1500)).filter(p => CLERGY.includes(p)).slice(0, 4),
+            addr: parseAddress(strip(it.body)) || (p.location ? parseAddress('주소 ' + p.location) : null),
+            info: parseInfo(strip(it.body)),
+          } : {}),
           url: `https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=${encodeURIComponent(it.id)}`
         });
       }

@@ -12,7 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as cheerio from 'cheerio';
-import { Http, KrRelay, BlockedError, RobotsError, isNotJob, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, parseAddress, parseInfo, PERK_NAMES, extractPositions, parseDate, kstToday, fnv } from './lib.mjs';
+import { Http, KrRelay, BlockedError, RobotsError, isNotJob, CLERGY, classifyPositions, parseSalary, cleanTitle, cleanChurch, extractChurch, churchKey, titleKey, normRegion, areaOf, regionFromTitle, parseAddress, parseInfo, PERK_NAMES, extractPositions, parseDate, kstToday, fnv, dropVanished } from './lib.mjs';
 import chongshin from './sources/chongshin.mjs';
 import puts from './sources/puts.mjs';
 import mtu from './sources/mtu.mjs';
@@ -21,12 +21,15 @@ import seminaries from './sources/seminaries.mjs';
 import denominations from './sources/denominations.mjs';
 
 const SOURCES = [chongshin, puts, mtu, godpeople, ...seminaries, ...denominations];
-const KEEP_DAYS = 90;      // 이보다 오래된 공고는 목록에서 뺌
-const MAX_ITEMS = 6000;   // 10/27 3,000건에 닿아 44일치만 남던 것을 90일 유지로(운영자 결정)
+const KEEP_DAYS = 70;      // 이보다 오래된 공고는 목록에서 뺌(11/16 90→70, 운영자 결정 — 하루 약 150건이라 90일이면 파일이 너무 커짐)
+const MAX_ITEMS = 12000;  // 안전 상한. 70일 × 하루 약 150건 ≈ 10,500건
+const RECENT_DAYS = 30;   // 사이트는 최근 30일(jobs.js)을 먼저 받고, 그보다 오래된 공고(jobs-old.js)는 화면을 그린 뒤 받음
+const DEEP_PAGES = 5;     // 하루 한 번(그날 첫 수집) 목록을 이만큼 깊게 읽어 초빙완료·삭제를 갱신. 출처가 deepPages를 정하면 그 값
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT_JSON = join(ROOT, 'data', 'jobs.json');
 const OUT_JS = join(ROOT, 'data', 'jobs.js');
+const OUT_OLD_JS = join(ROOT, 'data', 'jobs-old.js');
 // 해외(GitHub 서버) 접속을 막는 출처는 맥에서 따로 모아 이 파일에 둔다 → GitHub 수집 때 합쳐 넣음
 const OUT_LOCAL = join(ROOT, 'data', 'jobs-local.json');
 const LOCAL_MAX_AGE_DAYS = 3;
@@ -129,6 +132,9 @@ async function main() {
   let prev = { items: [], sources: [] };
   try { prev = JSON.parse(await readFile(OUT_JSON, 'utf8')); } catch { /* 첫 실행 */ }
 
+  // 그날(한국 날짜) 첫 GitHub 수집이면 목록을 깊게 읽는다 — 원문에서 마감·삭제된 옛 공고를 걸러 내려고(11/16)
+  const deep = !ONLY && !args.offline && args.out !== 'local' && String(prev.deepAt || '').slice(0, 10) !== today;
+  if (deep) { for (const s of SOURCES) s.pages = Math.max(s.pages, s.deepPages || DEEP_PAGES); console.log('오늘 첫 수집 — 목록을 깊게 읽음'); }
   const fresh = []; const statuses = [];
   for (const src of SOURCES) {
     if (args.offline || (ONLY && !ONLY.has(src.id))) { const old = (prev.sources || []).find(s => s.id === src.id); if (old) statuses.push(old); continue; }
@@ -189,6 +195,11 @@ async function main() {
     if (freshIds.has(id)) continue;
     if (freshUrl.has(it.source + '|' + it.url) || freshTitle.has(it.source + '|' + titleKey(it.title))) byId.delete(id);
   }
+  // 원문에서 지워지거나 목록에서 빠진(초빙완료 등) 공고: 이번에 읽은 목록 기간 안인데 목록에 없으면 뺀다.
+  // 이번에 직접 모은 출처만(맥 보충 파일 제외). 목록의 가장 오래된 날짜와 같은 날 공고는 잘렸을 수 있어 남긴다
+  const liveOk = new Set(statuses.filter(s => s.status === 'ok' && !/맥/.test(s.note || '')).map(s => s.id));
+  const gone = dropVanished(byId, fresh, liveOk);
+  if (gone.size) console.log(`원문 목록에서 사라진 공고 뺌: ${[...gone].map(([k, n]) => `${k} ${n}`).join(', ')}`);
   const seenNow = new Set();
   for (const it of fresh) {
     const old = byId.get(it.id);
@@ -221,7 +232,7 @@ async function main() {
   }
   let links = [];
   try { links = (JSON.parse(await readFile(join(ROOT, 'scraper', 'link-only.json'), 'utf8')).links || []).filter(l => /^https?:\/\//.test(l.url)); } catch { /* 없으면 생략 */ }
-  const data = { updatedAt: new Date().toISOString(), sources: statuses.map(({ checkedAt, ...s }) => s), links, items };
+  const data = { updatedAt: new Date().toISOString(), deepAt: deep ? today : prev.deepAt, sources: statuses.map(({ checkedAt, ...s }) => s), links, items };
   console.log(`합계 ${items.length}건 (이번 수집 ${fresh.length}건, 요청 ${http.count}회${http.relay ? `, 그중 서울 중계 ${http.relayCount}회` : ''})`);
   if (args.dry) { console.log(JSON.stringify(items.slice(0, 5), null, 2)); return; }
   // 켜진 출처가 모두 실패하면 파일을 건드리지 않고 실패로 끝냄 → GitHub Actions가 저장소 주인에게 실패 메일을 보냄
@@ -231,8 +242,11 @@ async function main() {
   await writeFile(OUT_JSON, JSON.stringify(data, null, 1) + '\n');
   // file://로 index.html을 바로 열어도 읽히도록 스크립트 형태로도 저장
   // 사이트가 받는 사본은 화면이 쓰지 않는 수집 기록 칸·빈 값을 뺌(11/5, 약 3분의 1 작아짐). jobs.json은 수집 상태라 그대로 둠
-  const slim = { ...data, items: items.map(({ payChecked, posHint, firstSeen, ...it }) => Object.fromEntries(Object.entries(it).filter(([, v]) => v != null && v !== false && !(Array.isArray(v) && !v.length)))) };
-  await writeFile(OUT_JS, '// 자동 생성 파일 — scraper/fetch-jobs.mjs가 덮어씁니다. 직접 고치지 마세요.\nwindow.JOBS_DATA = ' + JSON.stringify(slim) + ';\n');
-  console.log('저장: data/jobs.json, data/jobs.js');
+  const slimItem = ({ payChecked, posHint, firstSeen, ...it }) => Object.fromEntries(Object.entries(it).filter(([, v]) => v != null && v !== false && !(Array.isArray(v) && !v.length)));
+  const recentFrom = new Date(Date.now() - RECENT_DAYS * 86400e3).toISOString().slice(0, 10);
+  const head = '// 자동 생성 파일 — scraper/fetch-jobs.mjs가 덮어씁니다. 직접 고치지 마세요.\n';
+  await writeFile(OUT_JS, head + 'window.JOBS_DATA = ' + JSON.stringify({ ...data, deepAt: undefined, items: items.filter(it => it.date >= recentFrom).map(slimItem) }) + ';\n');
+  await writeFile(OUT_OLD_JS, head + 'window.JOBS_OLD = ' + JSON.stringify(items.filter(it => it.date < recentFrom).map(slimItem)) + ';\n');
+  console.log('저장: data/jobs.json, data/jobs.js(최근 30일), data/jobs-old.js(그 이전)');
 }
 main().catch(e => { console.error(e); process.exit(1); });

@@ -1,6 +1,24 @@
 {
- "updatedAt": "2026-11-17T21:56:53.777Z",
+ "updatedAt": "2026-11-18T03:25:55.650Z",
  "sources": [
+  {
+   "id": "hapdong",
+   "name": "합동신학대학원대",
+   "group": "신학교",
+   "home": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03",
+   "status": "ok",
+   "count": 15,
+   "note": "맥에서 보충 수집"
+  },
+  {
+   "id": "kwangshin",
+   "name": "광신대",
+   "group": "신학교",
+   "home": "https://www.kwangshin.ac.kr/front/boardList.do?brd_mgrno=184&menu_no=467",
+   "status": "ok",
+   "count": 10,
+   "note": "맥에서 보충 수집"
+  },
   {
    "id": "acts",
    "name": "아신대",
@@ -12,6 +30,975 @@
   }
  ],
  "items": [
+  {
+   "id": "hs-1c6aeu5",
+   "dk": "1c6aeu5",
+   "source": "hapdong",
+   "title": "제주평안교회에서 파트 사역자를 모십니다.",
+   "church": "제주평안교회",
+   "region": "제주",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16185&page=1"
+  },
+  {
+   "id": "hs-ojyqsf",
+   "dk": "ojyqsf",
+   "source": "hapdong",
+   "title": "안양 평촌에 있는 남서울평촌교회(합신)에서 동역할 교역자를 아래와 같이 청빙합니다.",
+   "church": "남서울평촌교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ],
+    "maxAge": 35
+   },
+   "denomination": null,
+   "date": "2026-11-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16184&page=1"
+  },
+  {
+   "id": "hs-1t99v5m",
+   "dk": "1t99v5m",
+   "source": "hapdong",
+   "title": "성남 신지교회에서 함께 동역하실 전임 사역자 분을 모십니다.",
+   "church": "신지교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "addr": "경기 성남시 중원구 시민로 95",
+   "info": {
+    "perks": [
+     "사택",
+     "퇴직금",
+     "교통비"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16183&page=1"
+  },
+  {
+   "id": "hs-16lyvuf",
+   "dk": "16lyvuf",
+   "source": "hapdong",
+   "title": "(재공고) 시흥평안교회 파트사역자 모집",
+   "church": "시흥평안교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-11-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16182&page=1"
+  },
+  {
+   "id": "hs-153zq9d",
+   "dk": "153zq9d",
+   "source": "hapdong",
+   "title": "예수사랑교회 전임 사역자 모십니다",
+   "church": "예수사랑교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "addr": "경기 고양시 일산동구 백석동",
+   "info": {
+    "perks": [
+     "사택",
+     "퇴직금"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16181&page=1"
+  },
+  {
+   "id": "hs-1h4zu2z",
+   "dk": "1h4zu2z",
+   "source": "hapdong",
+   "title": "부평강성교회에서 함께 선한 사역에 힘써 나가실 귀한 사역자님을 모십니다~^^",
+   "church": "강성교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "추천서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16180&page=1"
+  },
+  {
+   "id": "hs-11na5fk",
+   "dk": "11na5fk",
+   "source": "hapdong",
+   "title": "성남 상원제일교회에서 중고등부 파트 교역자를 모십니다.",
+   "church": "상원제일교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ],
+    "maxAge": 30
+   },
+   "denomination": null,
+   "date": "2026-11-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16179&page=1"
+  },
+  {
+   "id": "hs-1s7cpbr",
+   "dk": "1s7cpbr",
+   "source": "hapdong",
+   "title": "대전 전민새생명교회 부교역자 초빙 (전임사역자 및 전임여전도사)",
+   "church": "전민새생명교회",
+   "region": "대전",
+   "area": null,
+   "positions": [
+    "전임 전도사",
+    "심방전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 220,
+    "max": 300,
+    "label": "월 220~300만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사",
+    "강도사",
+    "심방전도사"
+   ],
+   "addr": "대전 유성구 전민로 38번길 40",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "추천서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ],
+    "maxAge": 45
+   },
+   "denomination": null,
+   "date": "2026-11-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16178&page=1"
+  },
+  {
+   "id": "hs-l5ys4n",
+   "dk": "l5ys4n",
+   "source": "hapdong",
+   "title": "(예장 고신) 은혜샘물교회(용인)에서 유년부 파트 사역자를 모십니다.",
+   "church": "은혜샘물교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": "경기 용인시 기흥구 언동로 1563",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16176&page=1"
+  },
+  {
+   "id": "hs-upz3ml",
+   "dk": "upz3ml",
+   "source": "hapdong",
+   "title": "하남성민교회(동서울노회)에서 청소년부(중고등부) 파트타임 사역자를 모십니다.",
+   "church": "하남성민교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "사찰·관리집사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 120,
+    "max": 120,
+    "label": "월 120만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "addr": "경기 하남시 이성로 10",
+   "info": {
+    "perks": [
+     "퇴직금"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ],
+    "maxAge": 40
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16175&page=1"
+  },
+  {
+   "id": "hs-f0fig6",
+   "dk": "f0fig6",
+   "source": "hapdong",
+   "title": "[전주동양교회] 비전이 있는 다음세대를 맡아 지도하실 사역자를 모십니다",
+   "church": "전주동양교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 목사",
+    "전임 전도사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16174&page=1"
+  },
+  {
+   "id": "hs-kvocu3",
+   "dk": "kvocu3",
+   "source": "hapdong",
+   "title": "장항갈보리교회 담임목사를 청빙합니다",
+   "church": "장항갈보리교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "담임목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "추천서",
+     "가족관계증명서"
+    ],
+    "maxAge": 54
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16173&page=1"
+  },
+  {
+   "id": "hs-g2iehl",
+   "dk": "g2iehl",
+   "source": "hapdong",
+   "title": "송파구 석촌동에 위치한 성심교회(합신 동서울노회) 에서 귀한 동역자를 모십니다.",
+   "church": "성심교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "신앙고백·간증"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16172&page=1"
+  },
+  {
+   "id": "hs-k2wb3",
+   "dk": "k2wb3",
+   "source": "hapdong",
+   "title": "[전주 재언교회] 사역자를 구합니다.",
+   "church": "재언교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16171&page=1"
+  },
+  {
+   "id": "hs-x2nupn",
+   "dk": "x2nupn",
+   "source": "hapdong",
+   "title": "화평교회(역삼동)에서 함께 동역할 교역자를 모십니다.",
+   "church": "화평교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사",
+    "전임 부목사"
+   ],
+   "addr": "서울 강남구 선릉로 557",
+   "info": {
+    "perks": [
+     "4대보험"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ],
+    "maxAge": 34
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16170&page=1"
+  },
+  {
+   "id": "ks-iv8phh",
+   "dk": "iv8phh",
+   "source": "kwangshin",
+   "title": "[군산] 개복교회에서 전임사역자(부목사, 강도사)를 모십니다.",
+   "church": "개복교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43272"
+  },
+  {
+   "id": "ks-1qjsrft",
+   "dk": "1qjsrft",
+   "source": "kwangshin",
+   "title": "삼례동부교회 교육 목사(전도사) 및 관리집사 모집 공고",
+   "church": "삼례동부교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 목사",
+    "사찰·관리집사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택",
+     "4대보험"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43271"
+  },
+  {
+   "id": "ks-1qwcu4a",
+   "dk": "1qwcu4a",
+   "source": "kwangshin",
+   "title": "목포동문교회에서 함께하실 동역자를 모십니다.",
+   "church": "목포동문교회",
+   "region": "전남",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 308,
+    "max": 308,
+    "label": "월 308만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 목사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43270"
+  },
+  {
+   "id": "ks-1d195c5",
+   "dk": "1d195c5",
+   "source": "kwangshin",
+   "title": "전주동부교회(예장합동) 구인광고",
+   "church": "전주동부교회",
+   "region": "전북",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택 보조",
+     "식대"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43269"
+  },
+  {
+   "id": "ks-8pz64t",
+   "dk": "8pz64t",
+   "source": "kwangshin",
+   "title": "신안 비금도 신안제일교회 담임목사님을 청빙합니다.",
+   "church": "신안제일교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "담임목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 250,
+    "max": 250,
+    "label": "월 250만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43268"
+  },
+  {
+   "id": "ks-u2hx77",
+   "dk": "u2hx77",
+   "source": "kwangshin",
+   "title": "첨단겨자씨교회 전임 부목사 청빙 공고",
+   "church": "첨단겨자씨교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "addr": "광주 광산구 첨단강변로 94",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)",
+     "목회·사역계획서"
+    ],
+    "maxAge": 42
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43267"
+  },
+  {
+   "id": "ks-jg14qv",
+   "dk": "jg14qv",
+   "source": "kwangshin",
+   "title": "전주아멘교회 교역자 청빙 광고",
+   "church": "전주아멘교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43266"
+  },
+  {
+   "id": "ks-5c8l52",
+   "dk": "5c8l52",
+   "source": "kwangshin",
+   "title": "행복한 웃음이 넘치는 광주생명교회에서 함께 사역하실 동역자를 모십니다.",
+   "church": "광주생명교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43265"
+  },
+  {
+   "id": "ks-obmh14",
+   "dk": "obmh14",
+   "source": "kwangshin",
+   "title": "행복을 심는 광주중앙교회에서 다음 세대를 세우실 열정의 동역자를 모집합니다.",
+   "church": "광주중앙교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 부목사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43264"
+  },
+  {
+   "id": "ks-1xqgxek",
+   "dk": "1xqgxek",
+   "source": "kwangshin",
+   "title": "[군산]서문교회에서 동역자를 정중히 모십니다(부목사, 교육전도사, 여전도사).",
+   "church": "서문교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "전임 부목사",
+    "심방전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 부목사",
+    "심방전도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-17",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43263"
+  },
+  {
+   "id": "ac-15sqdws",
+   "dk": "15sqdws",
+   "source": "acts",
+   "title": "양평감리교회 청빙 공고",
+   "church": "양평감리교회",
+   "region": "경기",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": false,
+   "denomination": null,
+   "date": "2026-11-18",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2512&id=acts_csrd_guide&ca_no=1"
+  },
   {
    "id": "ac-831fxq",
    "dk": "831fxq",
@@ -326,6 +1313,9 @@
     "note": "내규·협의"
    },
    "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
    "addr": null,
    "info": {
     "work": [
@@ -344,50 +1334,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2503&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-1wuit1s",
-   "dk": "1wuit1s",
-   "source": "acts",
-   "title": "온누리교회 (남양주) 유치·초등부 파트교역자 청빙",
-   "church": "온누리교회",
-   "region": "경기",
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "min": 103,
-    "max": 130,
-    "label": "월 103~130만원",
-    "roles": [
-     {
-      "role": "재학생",
-      "v": 103
-     }
-    ]
-   },
-   "payChecked": true,
-   "addr": null,
-   "info": {
-    "work": [
-     "주일만"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "설교(영상·원고)"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-11",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2502&id=acts_csrd_guide&ca_no=1"
   }
  ]
 }

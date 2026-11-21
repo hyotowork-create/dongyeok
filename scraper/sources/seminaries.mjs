@@ -84,6 +84,7 @@ export default [
   },
   board({
     id: 'ytus', short: 'yt', name: '영남신대', home: 'https://www.ytus.ac.kr/board/trXXR',
+    enabled: false, disabledReason: '사이트가 수집 로봇을 막음(2026-11-19부터 403, 브라우저로는 열림) — 우회하지 않고 링크만. 학교 허락 받으면 다시 켬',
     listUrl: p => p === 1 ? 'https://www.ytus.ac.kr/board/trXXR' : `https://www.ytus.ac.kr/board/list/trXXR/page/${p}`,
     row: 'tr:not(.notice-row)',
     parse: ($, r, base) => {

@@ -89,7 +89,7 @@
 | 세라핌 | 저장소 `hyotowork-create/Seraphim`, 최신 릴리스 **0.4.0**(2026-11-14, Windows 설치형·포터블, Mac Apple Silicon·Intel dmg, ad-hoc 서명 — 공증 없음, 운영자 결정) | 사이트 「내려받기」 = `/releases/latest`. 운영자 맥 작업 브랜치(`feature/v0.2.0-worship-tools`)의 기능은 0.4.0에 모두 합쳐짐(가사 든 시험 파일은 가짜 문구로 바꿈) |
 | 사진 | Unsplash 핫링크(`photo-…` 아이디) | 목록은 운영가이드 2-3 |
 | 튠메이트·Gemini 채보 | 공개 저장소 `hyotowork-create/TuneMate`(Mac dmg 릴리스 v0.1.0, ad-hoc 서명 — 키체인 공유 권한을 빼야 실행됨)·`hyotowork-create/gemini-transcriber`(설치판). 둘 다 개인정보를 뺀 새 기록(작성자 「동역 운영자」). 옛 기록은 비공개 `TuneMate-archive`와 운영자 맥 `~/Downloads/TuneMate`·`~/Downloads/gemini-piano-transcriber` | 동역 웹판 채보는 `tools/transcribe/`(원본 lib 복사, 점검 `node --test scripts/test-transcribe.mjs` 6개) |
-| 방문 통계 | GoatCounter `dongyeok` — https://dongyeok.goatcounter.com (`config.js` `goatcounter`) | 2026-10-12 연결. 쿠키 없음. 운영자 계정(운영자가 가입). 화면 이동마다 `/dongyeok/#pg-…` 경로로 집계 |
+| 방문 통계 | GoatCounter `dongyeok` — https://dongyeok.goatcounter.com (`config.js` `goatcounter`) | 2026-10-12 연결. 쿠키 없음. 운영자 계정(운영자가 가입). 화면 이동마다 `/dongyeok/#pg-…` 경로로 집계. 기도실·Sermon Insight·채보(`/dongyeok/prayer/`·`/dongyeok/tools/sermon.html`·`/dongyeok/tools/transcribe/`)는 11/21부터 이미지 한 장으로만 집계(API 키를 넣는 화면이라 외부 스크립트 없음). 공개 카운터로 경로별 숫자를 읽을 수 있음: `https://dongyeok.goatcounter.com/counter/<경로를 URL 인코딩>.json?start=YYYY-MM-DD&end=YYYY-MM-DD` |
 
 ## 현재 상태 (2026-10-12)
 
@@ -394,4 +394,5 @@ gh workflow run fetch-jobs.yml -R hyotowork-create/dongyeok --ref main -f args="
 | 2026-11-15 | (이용자 요청·운영자 승인) **뒤로가기 때 읽던 위치 유지**: 청빙 공고·교회 평가(목록·교회별)·대나무숲·자료실 목록에서 글을 보고 뒤로 오면 다시 불러오지 않고 스크롤 위치·「더 보기」로 늘린 목록을 그대로 보여 줌. 진짜 뒤로가기만 구분하려고 기록마다 `history.state.i` 번호를 붙임(메뉴로 다시 들어오면 맨 위·새로 불러옴), 그 사이 같은 화면을 다른 교회로 그렸으면 다시 불러옴. 휴대폰 폭 Chromium으로 확인(공고 목록 복원·메뉴 재진입 맨 위·교회 A→B→뒤로 A) |
 | 2026-11-16 | (운영자 승인) 정밀점검 뒤 **공고 신선도**: 원문 목록에서 사라진 공고 빼기, 하루 한 번 목록 깊게 읽기(수집 작업 제한 15→25분), 마감일 지난 공고 「마감」·30일 넘은 공고 「원문 확인」. **보관 90→70일**, 사이트 데이터를 최근 30일(`jobs.js`)과 그 이전(`jobs-old.js`, 나중에 받음)으로 나눔. 기도실 추천 설교는 **주 1회 수동 교체**로 정함(운영자 결정 — 자동 교체는 YouTube API 키가 필요해 만들었다가 뺌, 유튜브 RSS는 11/16 기준 모든 채널 404). 맥이 11/12 저녁부터 꺼져 있어 광신대·아신대 보충이 3.9일 멈췄던 것을 수동 보충으로 회복(b15be60) |
 | 2026-11-21 | (운영자 승인) 정밀점검: **영남신대 수집 중단·링크만**(11/19 저녁부터 GitHub·맥 모두 403, 같은 맥의 브라우저로는 열림 → 수집 로봇 차단으로 보고 우회하지 않음). 기존 영남신대 공고 275건은 꺼진 출처 규칙대로 목록에서 빠짐. 깊게 읽기는 11/17부터 매일 그날 첫 수집에서 돎(사라진 공고 하루 10~20건, 작업 8~9분). 11/20·11/21 배포 실패 2번은 GitHub 일시 오류(artifact metadata), 다음 회차가 다시 배포 |
+| 2026-11-21 | (운영자 지시) 주요 통계 정리(누적 화면 열람 46,309회, 세라핌 내려받기 54회·내려받기 창 129회, 참여 익명 이용자 250명, 공개 평가 96건·교회 90곳, 평가 요청 171건). 통계가 없던 **기도실·Sermon Insight·채보 화면에 방문 집계** 추가(GoatCounter 이미지 방식, CSP img-src에 `dongyeok.goatcounter.com`) |
 | 2026-10-29 | **세라핌 0.3.1 릴리스**(Mac 「손상된 앱」 수정: 앱 전체 ad-hoc 서명, 빌드 중 서명 점검 — 못 맞추면 릴리스 중단, Seraphim main 361221e, Release run 40808130655). Apple 개발자 계정·공증은 계획 없음(운영자 결정) → Mac은 첫 실행 때 「그래도 열기」 1번. 사이트 내려받기 창의 「Mac 버전 수정 중」 문단 삭제, 터미널 방법은 0.3.0 이하용으로 표시 |

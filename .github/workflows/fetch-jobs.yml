@@ -39,7 +39,7 @@ jobs:
     outputs:
       skipped: ${{ steps.guard.outputs.skip }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main          # 예약 시점의 커밋이 아니라 지금의 main — 앞 회차가 늦게 돌아 대기열에서 겹쳐도 그 결과를 보고 건너뛰게
       - name: 이번 시간대에 수집이 필요한지 확인(예약 실행·외부 예약만)
@@ -59,7 +59,7 @@ jobs:
             echo "skip=true" >> "$GITHUB_OUTPUT"
             echo "::notice title=건너뜀::이번 시간대($s~)에 이미 수집함(마지막 갱신 $last)"
           else echo "skip=false" >> "$GITHUB_OUTPUT"; fi
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         if: steps.guard.outputs.skip != 'true'
         with:
           node-version: 20
@@ -113,7 +113,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main          # 방금 커밋한 공고까지 포함
       - name: 공개할 파일만 모으기
@@ -122,9 +122,9 @@ jobs:
           cp index.html config.js 404.html manifest.webmanifest _site/
           cp -r icons tools prayer _site/
           cp -r data _site/
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

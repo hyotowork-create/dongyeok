@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-21T09:24:07.764Z",
+ "updatedAt": "2026-11-23T09:29:17.415Z",
  "sources": [
   {
    "id": "acts",
@@ -7,11 +7,74 @@
    "group": "신학교",
    "home": "https://www.acts.ac.kr/modules/board/bd_list.asp?id=acts_csrd_guide&ca_no=1&left=unilife3_12",
    "status": "ok",
-   "count": 10,
+   "count": 9,
    "note": "맥에서 보충 수집"
   }
  ],
  "items": [
+  {
+   "id": "ac-1eg58hj",
+   "dk": "1eg58hj",
+   "source": "acts",
+   "title": "성남 예수로교회 청빙 공고",
+   "church": "예수로교회",
+   "region": "경기",
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ],
+    "maxAge": 40
+   },
+   "denomination": null,
+   "date": "2026-11-23",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2516&id=acts_csrd_guide&ca_no=1"
+  },
+  {
+   "id": "ac-1jgy8a4",
+   "dk": "1jgy8a4",
+   "source": "acts",
+   "title": "수지 목양감리교회 청빙 공고",
+   "church": "목양감리교회",
+   "region": null,
+   "area": null,
+   "positions": [],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-23",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2515&id=acts_csrd_guide&ca_no=1"
+  },
   {
    "id": "ac-w6djr",
    "dk": "w6djr",
@@ -95,6 +158,7 @@
     "note": "내규·협의"
    },
    "payChecked": true,
+   "posHint": [],
    "addr": null,
    "info": {
     "docs": [
@@ -261,119 +325,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2508&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-1osl2bo",
-   "dk": "1osl2bo",
-   "source": "acts",
-   "title": "부산사랑의교회 청빙 공고",
-   "church": "부산사랑의교회",
-   "region": "부산",
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "min": 30,
-    "max": 342,
-    "label": "월 30~342만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택 보조"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "추천서",
-     "졸업·재학증명서",
-     "가족관계증명서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-16",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2507&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-urjrdg",
-   "dk": "urjrdg",
-   "source": "acts",
-   "title": "더온누리교회 청빙 공고",
-   "church": "더온누리교회",
-   "region": null,
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택",
-     "교통비"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서"
-    ],
-    "maxAge": 45
-   },
-   "denomination": null,
-   "date": "2026-11-16",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2506&id=acts_csrd_guide&ca_no=1"
-  },
-  {
-   "id": "ac-8rqvtg",
-   "dk": "8rqvtg",
-   "source": "acts",
-   "title": "춘천온누리교회 청빙 공고",
-   "church": "춘천온누리교회",
-   "region": "강원",
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "추천서",
-     "졸업·재학증명서",
-     "설교(영상·원고)",
-     "가족관계증명서"
-    ],
-    "maxAge": 44
-   },
-   "denomination": null,
-   "date": "2026-11-16",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.acts.ac.kr/modules/board/bd_view.asp?no=2505&id=acts_csrd_guide&ca_no=1"
   }
  ]
 }

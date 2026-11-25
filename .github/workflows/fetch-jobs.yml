@@ -111,7 +111,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -126,5 +126,13 @@ jobs:
       - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
+      # 배포가 결과물을 조회하다 GitHub API 오류(「artifact metadata 가져오기 실패」)를 받는 일이 잦음(11/20~25 4번) → 1분 뒤 한 번 더
       - id: deployment
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - name: 배포 실패 — 1분 뒤 다시
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 60
+      - id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v5

@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-28T03:19:55.173Z",
+ "updatedAt": "2026-11-28T09:20:16.895Z",
  "deepAt": "2026-11-28",
  "sources": [
   {
@@ -68,7 +68,6 @@
    "group": "신학교",
    "home": "https://www.kwangshin.ac.kr/front/boardList.do?brd_mgrno=184&menu_no=467",
    "status": "ok",
-   "note": "맥에서 보충 수집(2026-11-26) — 해외 접속 차단",
    "count": 10
   },
   {
@@ -176,7 +175,7 @@
    "group": "교단",
    "home": "https://www.prok.org/Board/Index/176244",
    "status": "ok",
-   "count": 15
+   "count": 14
   },
   {
    "id": "kbaptist",
@@ -324,6 +323,925 @@
   }
  ],
  "items": [
+  {
+   "id": "ke-16nwtif",
+   "dk": "16nwtif",
+   "source": "kehc",
+   "title": "대관령교회에서 함께 동역할 부목사님 또는 전담전도사님를 모십니다.",
+   "church": "대관령교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [
+    "목사"
+   ],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kehc.org/home/recruit/read_post/28276/page/0",
+   "firstSeen": "2026-11-28T09:19:09.170Z"
+  },
+  {
+   "id": "cj-1ik2nya",
+   "dk": "1ik2nya",
+   "source": "cjob",
+   "title": "(화성 병점) 성가대 지휘자를 모집합니다",
+   "church": null,
+   "region": "경기",
+   "area": "경기 화성시",
+   "positions": [
+    "지휘자"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": "경기 화성시 병점구 병점동로 4",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": "예장고신",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.cjob.co.kr/bbs/board.php?bo_table=offerKG&wr_id=8692",
+   "firstSeen": "2026-11-28T09:19:09.170Z"
+  },
+  {
+   "id": "kt-pzc2v",
+   "dk": "pzc2v",
+   "source": "kts",
+   "title": "서울서부노회",
+   "church": null,
+   "region": "서울",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "전임 부목사"
+   ],
+   "addr": null,
+   "info": null,
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kts.ac.kr/home/pinvit?nh=%EC%84%9C%EC%9A%B8%EC%84%9C%EB%B6%80%EB%85%B8%ED%9A%8C",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
+  },
+  {
+   "id": "kt-1kraii2",
+   "dk": "1kraii2",
+   "source": "kts",
+   "title": "경남노회",
+   "church": null,
+   "region": "경남",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": null,
+   "info": null,
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kts.ac.kr/home/pinvit?nh=%EA%B2%BD%EB%82%A8%EB%85%B8%ED%9A%8C",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
+  },
+  {
+   "id": "hs-2onmm4",
+   "dk": "2onmm4",
+   "source": "hapdong",
+   "title": "목동 대흥교회에서 유치부 전도사님을 모십니다.",
+   "church": "대흥교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 150,
+    "label": "월 100~150만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16308&page=1",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
+  },
+  {
+   "id": "ds-w2min4",
+   "dk": "w2min4",
+   "source": "daeshin",
+   "title": "통영 충무교회에서 함께 사역 할 전임 사역자를 모십니다.",
+   "church": "충무교회",
+   "region": "경남",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 전도사"
+   ],
+   "addr": null,
+   "info": null,
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001604999999999",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
+  },
+  {
+   "id": "ds-1883b6s",
+   "dk": "1883b6s",
+   "source": "daeshin",
+   "title": "대구 동성교회(수성노회)에서 귀한 동역자를 초빙합니다.",
+   "church": "동성교회",
+   "region": "대구",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001604899999999",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
+  },
+  {
+   "id": "bp-v440bf",
+   "dk": "v440bf",
+   "source": "bpu",
+   "title": "울산주성교회 교역자 청빙합니다.",
+   "church": "울산주성교회",
+   "region": "울산",
+   "area": "울산 북구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 100,
+    "label": "월 100만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": "울산 북구",
+   "info": {
+    "perks": [
+     "교통비"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102479&BoardMstNo=6",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
+  },
+  {
+   "id": "sj-1e0ptmt",
+   "dk": "1e0ptmt",
+   "source": "sjs",
+   "title": "군산동부교회 교역자를 모십니다.(전임1명, 파트타임1명)",
+   "church": "군산동부교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사",
+    "전임 전도사"
+   ],
+   "addr": null,
+   "info": {
+    "work": [
+     "토·주일"
+    ],
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=51287&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
+  },
+  {
+   "id": "sj-1gn86fs",
+   "dk": "1gn86fs",
+   "source": "sjs",
+   "title": "신성커뮤니티교회에서 반주자님을 청빙 합니다.(4호선 인덕원역)",
+   "church": "신성커뮤니티교회",
+   "region": "경기",
+   "area": "경기 의왕시",
+   "positions": [
+    "반주자"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "min": 40,
+    "max": 40,
+    "label": "월 40만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [],
+   "addr": "경기 의왕시 안양판교로 107",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=51285&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
+  },
+  {
+   "id": "cs-18yf4bp",
+   "dk": "18yf4bp",
+   "source": "chongshin",
+   "title": "주품교회에서 함께 사역할 동역자를 모십니다.",
+   "church": "주품교회",
+   "region": "경기",
+   "area": "경기 광명시",
+   "positions": [
+    "강도사"
+   ],
+   "dept": "아래",
+   "tags": [],
+   "pay": {
+    "min": 250,
+    "max": 375,
+    "label": "월 250~375만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "강도사"
+   ],
+   "addr": "경기 광명시 소하동",
+   "info": {
+    "perks": [
+     "4대보험",
+     "퇴직금"
+    ]
+   },
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128968",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-1ntjzlq",
+   "dk": "1ntjzlq",
+   "source": "chongshin",
+   "title": "남도교회에서 함께 동역할 유초등부 교역자를 모십니다.",
+   "church": "남도교회",
+   "region": "서울",
+   "area": "서울 서초구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "아래",
+   "tags": [],
+   "pay": {
+    "min": 120,
+    "max": 120,
+    "label": "월 120만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "강도사",
+    "심방전도사"
+   ],
+   "addr": "서울 서초구 방배동",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": "아래",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128966",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-1lah62r",
+   "dk": "1lah62r",
+   "source": "chongshin",
+   "title": "대구 성일교회에서 전임사역자를 청빙합니다.",
+   "church": "성일교회",
+   "region": "대구",
+   "area": "대구 동구",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "중등부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "addr": "대구 동구 반야월로 20",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "목회·사역계획서",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": "대한예수교 장로회 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128963",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-1g91pf7",
+   "dk": "1g91pf7",
+   "source": "chongshin",
+   "title": "(끌어올림, 수정) 2027년 교회설립 50주년을 맞이하는 수원화산교회에서 함께 사역할 동역자를 모십니다.",
+   "church": "수원화산교회",
+   "region": "경기",
+   "area": "경기 수원시",
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": "아래참고",
+   "tags": [],
+   "pay": {
+    "min": 292,
+    "max": 292,
+    "label": "월 292만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "addr": "경기 수원시 장안구 정자동",
+   "info": {
+    "perks": [
+     "사택",
+     "퇴직금"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": "대한예수교장로회 총회(합동)",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128952",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-sbkfc6",
+   "dk": "sbkfc6",
+   "source": "chongshin",
+   "title": "교구 및 행정 전임사역자를 모십니다..",
+   "church": "하남예일교회",
+   "region": "경기",
+   "area": "경기 하남시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "교구 행정",
+   "tags": [],
+   "pay": {
+    "min": 50,
+    "max": 250,
+    "label": "월 50~250만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "addr": "경기 하남시 미사강변중앙로 105",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128950",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-16zshve",
+   "dk": "16zshve",
+   "source": "chongshin",
+   "title": "대구기지교회에서 함께 할 사역자를 구합니다.(아동부 및 어와나)",
+   "church": "공군대구기지교회",
+   "region": "대구",
+   "area": "대구 동구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "아동부",
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 100,
+    "label": "월 100만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "addr": "대구 동구 검사동",
+   "info": null,
+   "denomination": "초교파",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128949",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-69al5d",
+   "dk": "69al5d",
+   "source": "chongshin",
+   "title": "[의왕 성산교회/예장합동] 준전임목사/준전임전도사/파트목사/파트전도사/찬양간사(건반 반주자) 청빙",
+   "church": "의왕성산교회",
+   "region": "경기",
+   "area": "경기 의왕시",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 목사",
+    "전임 부목사",
+    "반주자",
+    "기타 간사"
+   ],
+   "dept": "아래 내용 참조",
+   "tags": [],
+   "pay": {
+    "min": 90,
+    "max": 150,
+    "label": "월 90~150만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 목사",
+    "전임 부목사"
+   ],
+   "addr": "경기 의왕시 안양판교로 221",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": "예장합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128946",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-3c2z4s",
+   "dk": "3c2z4s",
+   "source": "chongshin",
+   "title": "부산중앙교회에서 2027년 함께 할 동역자를 정중히 초빙합니다.",
+   "church": "부산중앙교회",
+   "region": "부산",
+   "area": "부산 수영구",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "아래참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "addr": "부산 수영구 남천동",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "추천서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ],
+    "maxAge": 44
+   },
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128940",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-1t12d",
+   "dk": "1t12d",
+   "source": "chongshin",
+   "title": "강서제일교회에서 청년부 사역자를 모십니다. (파트 사역자)",
+   "church": "강서제일교회",
+   "region": "서울",
+   "area": "서울 양천구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "청년부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "addr": "서울 양천구 목동",
+   "info": null,
+   "denomination": "예장 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128939",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-8aerpr",
+   "dk": "8aerpr",
+   "source": "chongshin",
+   "title": "전주제자교회에서 함께 사역할 분을 모십니다.",
+   "church": "전주제자교회",
+   "region": "전북",
+   "area": "전북 전주시",
+   "positions": [],
+   "dept": "초등부",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "addr": "전북 전주시 완산구 평화동1가",
+   "info": null,
+   "denomination": "예장합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128938",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-16v6ygg",
+   "dk": "16v6ygg",
+   "source": "chongshin",
+   "title": "'오금제일교회' 동역자 모집(전임 또는 파트)",
+   "church": "오금제일교회",
+   "region": "서울",
+   "area": "서울 송파구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "강도사"
+   ],
+   "addr": "서울 송파구 오금동",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ],
+    "maxAge": 40
+   },
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128935",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-1y2aycb",
+   "dk": "1y2aycb",
+   "source": "chongshin",
+   "title": "성덕교회에서 사역자를 모십니다.",
+   "church": "성덕교회",
+   "region": "서울",
+   "area": "서울 서초구",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "전임 부목사",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "addr": "서울 서초구 방배동",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128933",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-gm463e",
+   "dk": "gm463e",
+   "source": "chongshin",
+   "title": "대한교회에서 교역자를 모십니다(준전임 교육디렉터 및 주일학교 교육전도사)",
+   "church": "대한교회",
+   "region": "서울",
+   "area": "서울 양천구",
+   "positions": [
+    "파트 교육전도사",
+    "준전임 전도사"
+   ],
+   "dept": "교육디렉터(준전임) 및 주일학교 교육전도사",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "준전임 전도사"
+   ],
+   "addr": "서울 양천구 신정동",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128930",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-1ntat8g",
+   "dk": "1ntat8g",
+   "source": "chongshin",
+   "title": "[용인 포곡] 전대중앙교회에서 유초등부 파트 사역자를 정중히 청빙합니다.",
+   "church": "전대중앙교회",
+   "region": "경기",
+   "area": "경기 용인시",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "유초등부",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "addr": "경기 용인시 처인구 전대리",
+   "info": null,
+   "denomination": "예장 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128925",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
+  {
+   "id": "cs-1o4v74d",
+   "dk": "1o4v74d",
+   "source": "chongshin",
+   "title": "호평제일교회 동역자(중등부 파트 타임 사역자)를 모십니다.",
+   "church": "호평제일교회",
+   "region": "경기",
+   "area": "경기 남양주시",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "중등부 파티 타임 사역자",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "addr": "경기 남양주시 호평동",
+   "info": null,
+   "denomination": "예장 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128888",
+   "firstSeen": "2026-11-28T09:19:09.166Z"
+  },
   {
    "id": "pr-1gd1kr7",
    "dk": "1gd1kr7",
@@ -720,31 +1638,6 @@
    "firstSeen": "2026-11-28T03:19:11.376Z"
   },
   {
-   "id": "cs-o2k5rp",
-   "dk": "o2k5rp",
-   "source": "chongshin",
-   "title": "호평제일교회 동역자(중등부 파티 타임 사역자)를 모십니다.",
-   "church": "호평제일교회",
-   "region": "경기",
-   "area": "경기 남양주시",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "중등부 파티 타임 사역자",
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "addr": "경기 남양주시 호평동",
-   "info": null,
-   "denomination": "예장 합동",
-   "date": "2026-11-28",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128888",
-   "firstSeen": "2026-11-27T21:23:55.250Z"
-  },
-  {
    "id": "cs-y13ie3",
    "dk": "y13ie3",
    "source": "chongshin",
@@ -855,6 +1748,62 @@
    "firstSeen": "2026-11-27T03:19:13.587Z"
   },
   {
+   "id": "cs-xxp95q",
+   "dk": "xxp95q",
+   "source": "chongshin",
+   "title": "법원중앙교회에서 함께 사역할 사역자를 청빙합니다. (중고등부, 사택제공)",
+   "church": "법원중앙교회",
+   "region": "경기",
+   "area": "경기 파주시",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "중고등부",
+   "tags": [],
+   "pay": {
+    "min": 80,
+    "max": 120,
+    "label": "월 80~120만원",
+    "roles": [
+     {
+      "role": "재학생",
+      "v": 80
+     },
+     {
+      "role": "졸업생",
+      "v": 120
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사",
+    "강도사"
+   ],
+   "addr": "경기 파주시 대능리",
+   "info": {
+    "perks": [
+     "사택",
+     "퇴직금"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ],
+    "maxAge": 42
+   },
+   "denomination": "대한예수교장로회 (합동)",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128955",
+   "firstSeen": "2026-11-27T03:19:13.587Z"
+  },
+  {
    "id": "cs-1hranqv",
    "dk": "1hranqv",
    "source": "chongshin",
@@ -899,6 +1848,88 @@
    "firstSeen": "2026-11-26T09:19:17.163Z"
   },
   {
+   "id": "cs-t0whxk",
+   "dk": "t0whxk",
+   "source": "chongshin",
+   "title": "다음 세대를 사랑으로 함께 세워갈 초등부 교역자님을 청빙합니다 (파트)",
+   "church": "성현교회",
+   "region": "서울",
+   "area": "서울 송파구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "초등부",
+   "tags": [],
+   "pay": {
+    "min": 120,
+    "max": 120,
+    "label": "월 120만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": "서울 송파구 백제고분로 122",
+   "info": {
+    "perks": [
+     "퇴직금"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "신앙고백·간증",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128948",
+   "firstSeen": "2026-11-26T09:19:17.163Z"
+  },
+  {
+   "id": "sj-186bwvl",
+   "dk": "186bwvl",
+   "source": "sjs",
+   "title": "전주동신교회에서 교육목사님, 교육전도사님을 모십니다.",
+   "church": "전주동신교회",
+   "region": "전북",
+   "area": "전북 전주시",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": "전북 전주시 완산구 효자천변2길 12-35",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=51284&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
+   "firstSeen": "2026-11-25T21:23:54.727Z"
+  },
+  {
    "id": "cs-frlcqy",
    "dk": "frlcqy",
    "source": "chongshin",
@@ -937,6 +1968,43 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128917",
    "firstSeen": "2026-11-25T21:23:54.722Z"
+  },
+  {
+   "id": "hs-1an96xj",
+   "dk": "1an96xj",
+   "source": "hapdong",
+   "title": "<끌어올림> 소망교회(합신, 수원노회) 청년부 사역자를 모십니다.",
+   "church": "소망교회",
+   "region": "경기",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "퇴직금",
+     "식대"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16309&page=1",
+   "firstSeen": "2026-11-25T09:19:24.746Z"
   },
   {
    "id": "cs-1tcjsml",
@@ -982,7 +2050,7 @@
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128913",
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128960",
    "firstSeen": "2026-11-25T09:19:24.745Z"
   },
   {
@@ -1108,8 +2176,91 @@
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128892",
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128962",
    "firstSeen": "2026-11-25T03:19:43.990Z"
+  },
+  {
+   "id": "cs-7c4z03",
+   "dk": "7c4z03",
+   "source": "chongshin",
+   "title": "흰돌교회에서 사역자(준전임 또는 파트)을 모십니다.",
+   "church": "흰돌교회",
+   "region": "서울",
+   "area": "서울 영등포구",
+   "positions": [
+    "파트 교육전도사",
+    "준전임 전도사"
+   ],
+   "dept": "비전 청장년부(기혼 30~40대 부서) 준전임 또는 파트",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "준전임 전도사"
+   ],
+   "addr": "서울 영등포구 대림동",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": "예장 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128928",
+   "firstSeen": "2026-11-25T03:19:43.990Z"
+  },
+  {
+   "id": "cs-20dtcg",
+   "dk": "20dtcg",
+   "source": "chongshin",
+   "title": "원당교회에서 함께 주님의 몸 된 교회를 섬길 동역자(전임-교구)를 모십니다.",
+   "church": "원당교회",
+   "region": "경기",
+   "area": "경기 고양시",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "dept": "아래참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "addr": "경기 고양시 덕양구 주교동",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": "예장합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128943",
+   "firstSeen": "2026-11-25T03:19:43.989Z"
   },
   {
    "id": "cs-1f8w55y",
@@ -1148,6 +2299,50 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128907",
+   "firstSeen": "2026-11-24T03:19:15.269Z"
+  },
+  {
+   "id": "cs-1d40lcc",
+   "dk": "1d40lcc",
+   "source": "chongshin",
+   "title": "갈릴리교회에서 파트 사역자(유초등부)를 모십니다.",
+   "church": "갈릴리교회",
+   "region": "서울",
+   "area": "서울 관악구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 130,
+    "label": "월 100~130만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": "서울 관악구 봉천동",
+   "info": {
+    "perks": [
+     "퇴직금",
+     "식대"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "가족관계증명서"
+    ],
+    "maxAge": 35
+   },
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128927",
    "firstSeen": "2026-11-24T03:19:15.269Z"
   },
   {
@@ -1543,6 +2738,166 @@
    "firstSeen": "2026-11-17T09:19:20.708Z"
   },
   {
+   "id": "hi-1e0ptmt",
+   "dk": "1e0ptmt",
+   "source": "hanil",
+   "title": "군산동부교회 교역자를 모십니다.(전임1명, 파트타임1명)",
+   "church": "군산동부교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": null,
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hanil.ac.kr/portal/default/bbs/view.do?menuId=M0004000500000000&boardSeq=105512",
+   "firstSeen": "2026-11-15T21:19:28.096Z"
+  },
+  {
+   "id": "hi-1uks2y8",
+   "dk": "1uks2y8",
+   "source": "hanil",
+   "title": "황등교회에서 전임전도사를 청빙합니다.",
+   "church": "황등교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": null,
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.hanil.ac.kr/portal/default/bbs/view.do?menuId=M0004000500000000&boardSeq=105511",
+   "firstSeen": "2026-11-15T09:19:22.265Z"
+  },
+  {
+   "id": "sj-1uks2y8",
+   "dk": "1uks2y8",
+   "source": "sjs",
+   "title": "황등교회에서 전임전도사를 청빙합니다.",
+   "church": "황등교회",
+   "region": "전북",
+   "area": "전북 익산시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "심방전도사"
+   ],
+   "addr": "전북 익산시 황등면",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서"
+    ],
+    "maxAge": 50
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=51283&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
+   "firstSeen": "2026-11-15T09:19:22.265Z"
+  },
+  {
+   "id": "cs-eczcum",
+   "dk": "eczcum",
+   "source": "chongshin",
+   "title": "[대전/계룡] 나눔의교회에서 파트,전임사역자를 모십니다.",
+   "church": "나눔의교회",
+   "region": "충남",
+   "area": "충남 계룡시",
+   "positions": [
+    "파트 교육전도사",
+    "전임 전도사"
+   ],
+   "dept": "교육부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "addr": "충남 계룡시 금암동",
+   "info": {
+    "perks": [
+     "사택"
+    ]
+   },
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128932",
+   "firstSeen": "2026-11-14T03:19:22.504Z"
+  },
+  {
+   "id": "cs-1wrlve0",
+   "dk": "1wrlve0",
+   "source": "chongshin",
+   "title": "부산 벧엘교회에서 전임 동역자를 모십니다.",
+   "church": "벧엘교회",
+   "region": "부산",
+   "area": "부산 금정구",
+   "positions": [
+    "파트 교육전도사",
+    "심방전도사"
+   ],
+   "dept": "목양 및 교육부서",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "심방전도사"
+   ],
+   "addr": "부산 금정구 서동",
+   "info": null,
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128934",
+   "firstSeen": "2026-11-12T09:19:23.567Z"
+  },
+  {
    "id": "hs-x8194p",
    "dk": "x8194p",
    "source": "hapdong",
@@ -1624,6 +2979,111 @@
    "firstSeen": "2026-11-11T03:19:24.387Z"
   },
   {
+   "id": "cs-1lpon6a",
+   "dk": "1lpon6a",
+   "source": "chongshin",
+   "title": "[ 여수제일교회 ]에서 함께 하실 동역자를 모십니다",
+   "church": "여수제일교회",
+   "region": "전남",
+   "area": "전남 여수시",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "강도사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128964",
+   "firstSeen": "2026-11-11T03:19:24.387Z"
+  },
+  {
+   "id": "ke-uatn0x",
+   "dk": "uatn0x",
+   "source": "kehc",
+   "title": "낙원교회에서 부목사님을 모십니다.",
+   "church": "낙원교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": null,
+   "tags": [
+    "목사"
+   ],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": null,
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kehc.org/home/recruit/read_post/28277/page/0",
+   "firstSeen": "2026-11-10T09:19:22.054Z"
+  },
+  {
+   "id": "ke-1pejo79",
+   "dk": "1pejo79",
+   "source": "kehc",
+   "title": "영동중앙교회(서울강남지방회)에서 같이 사역할 어린이부 전도사님을 ...",
+   "church": "영동중앙교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [
+    "전도사"
+   ],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": null,
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kehc.org/home/recruit/read_post/28278/page/0",
+   "firstSeen": "2026-11-10T03:19:25.042Z"
+  },
+  {
    "id": "sj-svawoe",
    "dk": "svawoe",
    "source": "sjs",
@@ -1699,6 +3159,100 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128891",
    "firstSeen": "2026-11-06T21:19:20.164Z"
+  },
+  {
+   "id": "cs-w25xtm",
+   "dk": "w25xtm",
+   "source": "chongshin",
+   "title": "상원교회에서 전임 부목사님(행정, 청년부)을 청빙합니다.",
+   "church": "상원교회",
+   "region": "서울",
+   "area": "서울 동작구",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "addr": "서울 동작구 상도동",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "가족관계증명서"
+    ],
+    "maxAge": 50
+   },
+   "denomination": "대한예수교장로회(합동)",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128924",
+   "firstSeen": "2026-11-04T21:19:25.399Z"
+  },
+  {
+   "id": "cs-1b8aj82",
+   "dk": "1b8aj82",
+   "source": "chongshin",
+   "title": "천호교회에서 동역자를 모십니다. (전임 또는 준전임 - 목사/강도사/전도사)",
+   "church": "천호교회",
+   "region": "서울",
+   "area": "서울 강동구",
+   "positions": [
+    "준전임 전도사",
+    "강도사"
+   ],
+   "dept": "아래",
+   "tags": [],
+   "pay": {
+    "min": 210,
+    "max": 240,
+    "label": "월 210~240만원",
+    "roles": [
+     {
+      "role": "목사",
+      "v": 240
+     },
+     {
+      "role": "강도사",
+      "v": 210
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "준전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": "서울 강동구 구천면로34길 26",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ],
+    "maxAge": 40
+   },
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128944",
+   "firstSeen": "2026-11-04T09:19:26.868Z"
   },
   {
    "id": "hs-sxt6zw",
@@ -1915,6 +3469,271 @@
    "firstSeen": "2026-11-03T09:19:27.017Z"
   },
   {
+   "id": "cs-pp9t59",
+   "dk": "pp9t59",
+   "source": "chongshin",
+   "title": "강동구 길동교회에서 전임 교역자를 정중히 모십니다.",
+   "church": "길동교회",
+   "region": "서울",
+   "area": "서울 강동구",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "아래참조",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "addr": "서울 강동구 길동",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "목회·사역계획서",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": "아래참조",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128941",
+   "firstSeen": "2026-11-03T09:19:27.017Z"
+  },
+  {
+   "id": "bp-1n0lc0o",
+   "dk": "1n0lc0o",
+   "source": "bpu",
+   "title": "부산 거양교회에서 청소년부 교육전도사 또는 교육목사님을 모십니다.",
+   "church": "거양교회",
+   "region": "부산",
+   "area": "부산 부산진구",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "사찰·관리집사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": "부산 부산진구 해맞이로 6",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102478&BoardMstNo=6",
+   "firstSeen": "2026-11-01T21:19:26.882Z"
+  },
+  {
+   "id": "cs-1abcesp",
+   "dk": "1abcesp",
+   "source": "chongshin",
+   "title": "대광교회(예장합동)에서 유초등부 학생들을 지도할 파트 사역자를 모십니다.",
+   "church": "대광교회",
+   "region": "서울",
+   "area": "서울 양천구",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "유,초등부",
+   "tags": [],
+   "pay": {
+    "min": 150,
+    "max": 150,
+    "label": "월 150만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": "서울 양천구 오목로 11길 16",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "가족관계증명서"
+    ],
+    "maxAge": 40
+   },
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128967",
+   "firstSeen": "2026-11-01T03:19:28.211Z"
+  },
+  {
+   "id": "ds-o8pefh",
+   "dk": "o8pefh",
+   "source": "daeshin",
+   "title": "창원왕성교회 파트 사역자를 모십니다.",
+   "church": "창원왕성교회",
+   "region": "경남",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": null,
+   "info": null,
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001605099999999",
+   "firstSeen": "2026-10-31T21:19:37.612Z"
+  },
+  {
+   "id": "cs-o8pefh",
+   "dk": "o8pefh",
+   "source": "chongshin",
+   "title": "창원왕성교회 파트 사역자를 모십니다.",
+   "church": "창원왕성교회",
+   "region": "경남",
+   "area": "경남 창원시",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "아래 참고",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "addr": "경남 창원시 성산구 대원동",
+   "info": null,
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128961",
+   "firstSeen": "2026-10-31T21:19:37.611Z"
+  },
+  {
+   "id": "cs-1ug7cfh",
+   "dk": "1ug7cfh",
+   "source": "chongshin",
+   "title": "원동교회에서 교구, 교육디렉터 전임 목사님을 모십니다.",
+   "church": "원동교회",
+   "region": "서울",
+   "area": "서울 용산구",
+   "positions": [
+    "전임 부목사"
+   ],
+   "dept": "교구, 교육디렉터",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 부목사"
+   ],
+   "addr": "서울 용산구 원효로2",
+   "info": {
+    "perks": [
+     "사택",
+     "식대"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "추천서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": "대한예수교장로회 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128951",
+   "firstSeen": "2026-10-31T09:19:20.253Z"
+  },
+  {
+   "id": "cs-8z6e34",
+   "dk": "8z6e34",
+   "source": "chongshin",
+   "title": "예수가족교회에서(담임목사 백금산) 함께 사역할 중고등부(파트) 사역자와 전임 부목사님을(청년2부) 모십니다.",
+   "church": "예수가족교회",
+   "region": "서울",
+   "area": "서울 마포구",
+   "positions": [
+    "파트 교육전도사",
+    "전임 부목사"
+   ],
+   "dept": "게시글 참고",
+   "tags": [],
+   "pay": {
+    "min": 130,
+    "max": 130,
+    "label": "월 130만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": "서울 마포구 서교동",
+   "info": {
+    "perks": [
+     "사택 보조",
+     "식대"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "추천서",
+     "설교(영상·원고)",
+     "목회·사역계획서"
+    ],
+    "maxAge": 35
+   },
+   "denomination": "예장 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128929",
+   "firstSeen": "2026-10-31T03:19:17.090Z"
+  },
+  {
    "id": "ds-myjmx9",
    "dk": "myjmx9",
    "source": "daeshin",
@@ -1958,6 +3777,83 @@
    "firstSeen": "2026-10-30T03:19:19.266Z"
   },
   {
+   "id": "cs-1t177jb",
+   "dk": "1t177jb",
+   "source": "chongshin",
+   "title": "시온산교회에서 전임 사역자(목사,강도사,전도사)를 모십니다.",
+   "church": "시온산교회",
+   "region": "서울",
+   "area": "서울 금천구",
+   "positions": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "dept": "교구",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "addr": "서울 금천구 시흥동",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ],
+    "maxAge": 46
+   },
+   "denomination": "대한예수교 장로회 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128954",
+   "firstSeen": "2026-10-29T09:19:25.637Z"
+  },
+  {
+   "id": "sj-1ej3zje",
+   "dk": "1ej3zje",
+   "source": "sjs",
+   "title": "동현교회에서 함께 사역할 사역자를 모십니다.",
+   "church": "동현교회",
+   "region": null,
+   "area": null,
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=51286&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
+   "firstSeen": "2026-10-28T03:19:33.529Z"
+  },
+  {
    "id": "cs-18h6hsk",
    "dk": "18h6hsk",
    "source": "chongshin",
@@ -1994,7 +3890,7 @@
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128890",
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128965",
    "firstSeen": "2026-10-23T03:19:28.699Z"
   },
   {
@@ -2043,6 +3939,50 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128919",
    "firstSeen": "2026-10-21T21:19:37.557Z"
+  },
+  {
+   "id": "cs-w6yna6",
+   "dk": "w6yna6",
+   "source": "chongshin",
+   "title": "영등포 성은교회에서 유초등부 파트사역자(목사,강도사,전도사)를 모십니다.",
+   "church": "성은교회",
+   "region": "서울",
+   "area": "서울 영등포구",
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "dept": "아래 참고",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "강도사"
+   ],
+   "addr": "서울 영등포구 양평동1가",
+   "info": {
+    "perks": [
+     "식대"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "목회·사역계획서",
+     "가족관계증명서"
+    ],
+    "maxAge": 39
+   },
+   "denomination": "예장합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128926",
+   "firstSeen": "2026-10-21T03:19:19.660Z"
   },
   {
    "id": "ke-1mzd2qv",
@@ -2106,8 +4046,203 @@
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128895",
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128958",
    "firstSeen": "2026-10-14T03:19:17.305Z"
+  },
+  {
+   "id": "cs-1iolnpv",
+   "dk": "1iolnpv",
+   "source": "chongshin",
+   "title": "성산교회에서 함께 사역할 동역자를 찾습니다(유초등부 파트사역)",
+   "church": "성산교회",
+   "region": "경기",
+   "area": "경기 성남시",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "유초등부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": "경기 성남시 중원구 금광동",
+   "info": null,
+   "denomination": "예장 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128942",
+   "firstSeen": "2026-10-13T09:19:29.946Z"
+  },
+  {
+   "id": "cs-1v4nvjx",
+   "dk": "1v4nvjx",
+   "source": "chongshin",
+   "title": "하나은혜교회(분당우리교회 분립개척)에서 다음세대 동역자를 모십니다",
+   "church": "하나은혜교회",
+   "region": "서울",
+   "area": "서울 송파구",
+   "positions": [
+    "준전임 전도사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": {
+    "min": 130,
+    "max": 224,
+    "label": "월 130~224만원",
+    "roles": [
+     {
+      "role": "파트",
+      "v": 130
+     },
+     {
+      "role": "준전임",
+      "v": 224
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "준전임 전도사"
+   ],
+   "addr": "서울 송파구 방이동",
+   "info": {
+    "perks": [
+     "사택 보조"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)",
+     "목회·사역계획서"
+    ]
+   },
+   "denomination": "예장합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128959",
+   "firstSeen": "2026-10-13T05:58:35.919Z"
+  },
+  {
+   "id": "cs-xyyuhm",
+   "dk": "xyyuhm",
+   "source": "chongshin",
+   "title": "(수정) 예수가온교회에서 함께 섬길 동역자를 청빙합니다",
+   "church": "예수가온교회",
+   "region": "경기",
+   "area": "경기 구리시",
+   "positions": [
+    "파트 교육전도사",
+    "준전임 전도사",
+    "전임 전도사"
+   ],
+   "dept": "아래 참조",
+   "tags": [],
+   "pay": {
+    "min": 350,
+    "max": 350,
+    "label": "월 350만원",
+    "roles": [
+     {
+      "role": "전임",
+      "v": 350
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "준전임 전도사",
+    "전임 전도사"
+   ],
+   "addr": "경기 구리시 갈매동",
+   "info": {
+    "perks": [
+     "퇴직금",
+     "식대"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)",
+     "목회·사역계획서"
+    ]
+   },
+   "denomination": "대한예수교장로회(합동)",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128956",
+   "firstSeen": "2026-10-12T05:26:53.698Z"
+  },
+  {
+   "id": "cs-1dzyuj5",
+   "dk": "1dzyuj5",
+   "source": "chongshin",
+   "title": "수성교회에서 함께 동역하실 교육 전도사님을 정중히 모십니다.",
+   "church": "수성교회",
+   "region": "경기",
+   "area": "경기 수원시",
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": "초등부",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": "경기 수원시 권선구 세류동",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   },
+   "denomination": "예장합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128936",
+   "firstSeen": "2026-10-12T05:26:53.698Z"
+  },
+  {
+   "id": "cs-1ydfzhb",
+   "dk": "1ydfzhb",
+   "source": "chongshin",
+   "title": "파송할 선교사님을 모십니다",
+   "church": null,
+   "region": "전북",
+   "area": "전북 김제시",
+   "positions": [],
+   "dept": "파송선교사",
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "addr": "전북 김제시 신풍동",
+   "info": null,
+   "denomination": "합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128947",
+   "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
    "id": "cs-r7o8j",
@@ -2244,7 +4379,7 @@
    "positions": [
     "전임 부목사"
    ],
-   "dept": "전임부목사(행정.교구.교육부서)",
+   "dept": "전임부목사(행정. 교구. 교육부서)",
    "tags": [],
    "pay": null,
    "payChecked": true,
@@ -2258,8 +4393,166 @@
    "deadline": null,
    "closed": false,
    "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128889",
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128953",
    "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-5h9fei",
+   "dk": "5h9fei",
+   "source": "chongshin",
+   "title": "고암교회에서 함께 동역하실 전임 사역자 1분을 정중히 모십니다.",
+   "church": "고암교회",
+   "region": "충북",
+   "area": "충북 제천시",
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": "아래참고",
+   "tags": [],
+   "pay": {
+    "min": 250,
+    "max": 250,
+    "label": "월 250만원",
+    "roles": []
+   },
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 부목사",
+    "심방전도사"
+   ],
+   "addr": "충북 제천시 고암동",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": "예장 합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128931",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-13h43ub",
+   "dk": "13h43ub",
+   "source": "chongshin",
+   "title": "곤지암 만나교회에서 사역자를 모십니다.",
+   "church": "곤지암만나교회",
+   "region": "경기",
+   "area": "경기 광주시",
+   "positions": [
+    "교역자(직책 미상)"
+   ],
+   "dept": "아래",
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "addr": "경기 광주시 곤지암리",
+   "info": null,
+   "denomination": "예장합동",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128957",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "cs-9igzh4",
+   "dk": "9igzh4",
+   "source": "chongshin",
+   "title": "시대에 따라 복음을 타협하지 않으며, 남양주 예수로교회에서 목회의 기본기를 배워갈 동역자를 기다립니다.",
+   "church": "예수로교회",
+   "region": "경기",
+   "area": "경기 남양주시",
+   "positions": [
+    "준전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "dept": "교육부서",
+   "tags": [],
+   "pay": {
+    "min": 100,
+    "max": 200,
+    "label": "월 100~200만원",
+    "roles": [
+     {
+      "role": "파트",
+      "v": 100
+     }
+    ]
+   },
+   "payChecked": true,
+   "posHint": [
+    "준전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": "경기 남양주시 화도읍",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": "대한예수교장로회(합동)",
+   "date": "2026-11-28",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128937",
+   "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "ks-2uq2ca",
+   "dk": "2uq2ca",
+   "source": "kwangshin",
+   "title": "정읍성광교회에서 전도사님을 모십니다.",
+   "church": "정읍성광교회",
+   "region": "전북",
+   "area": null,
+   "positions": [
+    "전임 전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "추천서",
+     "졸업·재학증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-27",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43310",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
   },
   {
    "id": "pk-nnb7b2",
@@ -5366,62 +7659,6 @@
    "firstSeen": "2026-11-27T03:19:13.587Z"
   },
   {
-   "id": "cs-xxp95q",
-   "dk": "xxp95q",
-   "source": "chongshin",
-   "title": "법원중앙교회에서 함께 사역할 사역자를 청빙합니다. (중고등부, 사택제공)",
-   "church": "법원중앙교회",
-   "region": "경기",
-   "area": "경기 파주시",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "중고등부",
-   "tags": [],
-   "pay": {
-    "min": 80,
-    "max": 120,
-    "label": "월 80~120만원",
-    "roles": [
-     {
-      "role": "재학생",
-      "v": 80
-     },
-     {
-      "role": "졸업생",
-      "v": 120
-     }
-    ]
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "준전임 전도사",
-    "강도사"
-   ],
-   "addr": "경기 파주시 대능리",
-   "info": {
-    "perks": [
-     "사택",
-     "퇴직금"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)"
-    ],
-    "maxAge": 42
-   },
-   "denomination": "대한예수교장로회 (합동)",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128790",
-   "firstSeen": "2026-11-27T03:19:13.587Z"
-  },
-  {
    "id": "cs-j2m3ws",
    "dk": "j2m3ws",
    "source": "chongshin",
@@ -5776,51 +8013,6 @@
    "truncated": false,
    "url": "https://www.kts.ac.kr/home/pinvit?nh=%EB%B6%80%EC%82%B0%EB%82%A8%EB%B6%80%EB%85%B8%ED%9A%8C",
    "firstSeen": "2026-11-26T09:19:17.164Z"
-  },
-  {
-   "id": "cs-t0whxk",
-   "dk": "t0whxk",
-   "source": "chongshin",
-   "title": "다음 세대를 사랑으로 함께 세워갈 초등부 교역자님을 청빙합니다 (파트)",
-   "church": "성현교회",
-   "region": "서울",
-   "area": "서울 송파구",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "초등부",
-   "tags": [],
-   "pay": {
-    "min": 120,
-    "max": 120,
-    "label": "월 120만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "addr": "서울 송파구 백제고분로 122",
-   "info": {
-    "perks": [
-     "퇴직금"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "신앙고백·간증",
-     "설교(영상·원고)",
-     "가족관계증명서"
-    ]
-   },
-   "denomination": "합동",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128827",
-   "firstSeen": "2026-11-26T09:19:17.163Z"
   },
   {
    "id": "cs-18n41ok",
@@ -6235,50 +8427,6 @@
    "firstSeen": "2026-11-24T03:19:15.269Z"
   },
   {
-   "id": "cs-1d40lcc",
-   "dk": "1d40lcc",
-   "source": "chongshin",
-   "title": "갈릴리교회에서 파트 사역자(유초등부)를 모십니다.",
-   "church": "갈릴리교회",
-   "region": "서울",
-   "area": "서울 관악구",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "아래 참조",
-   "tags": [],
-   "pay": {
-    "min": 100,
-    "max": 130,
-    "label": "월 100~130만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "addr": "서울 관악구 봉천동",
-   "info": {
-    "perks": [
-     "퇴직금",
-     "식대"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "가족관계증명서"
-    ],
-    "maxAge": 40
-   },
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128802",
-   "firstSeen": "2026-11-24T03:19:15.269Z"
-  },
-  {
    "id": "ds-17m5kce",
    "dk": "17m5kce",
    "source": "daeshin",
@@ -6491,6 +8639,50 @@
    "firstSeen": "2026-11-20T21:24:11.281Z"
   },
   {
+   "id": "ks-j733ma",
+   "dk": "j733ma",
+   "source": "kwangshin",
+   "title": "여수 영광교회 함께하실 동역자를 모십니다.",
+   "church": "영광교회",
+   "region": "전남",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택",
+     "퇴직금"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-27",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43309",
+   "firstSeen": "2026-11-20T03:19:17.761Z"
+  },
+  {
    "id": "sj-ghvqb0",
    "dk": "ghvqb0",
    "source": "sjs",
@@ -6540,36 +8732,6 @@
    "truncated": false,
    "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=51262&pageno=2&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=2|*bbsid=main4600",
    "firstSeen": "2026-11-19T21:24:10.571Z"
-  },
-  {
-   "id": "cs-1l0okcn",
-   "dk": "1l0okcn",
-   "source": "chongshin",
-   "title": "전임 교역자 청빙",
-   "church": "통영열방교회",
-   "region": "경남",
-   "area": "경남 통영시",
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": "주일학교및 장년",
-   "tags": [],
-   "pay": {
-    "min": 275,
-    "max": 275,
-    "label": "월 275만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "addr": "경남 통영시 무전동",
-   "info": null,
-   "denomination": "합동",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128764",
-   "firstSeen": "2026-11-19T09:19:28.446Z"
   },
   {
    "id": "sj-1tp9b78",
@@ -7001,43 +9163,6 @@
    "firstSeen": "2026-11-14T09:19:20.677Z"
   },
   {
-   "id": "cs-eczcum",
-   "dk": "eczcum",
-   "source": "chongshin",
-   "title": "[대전/계룡] 나눔의교회에서 파트,전임사역자를 모십니다.",
-   "church": "나눔의교회",
-   "region": "충남",
-   "area": "충남 계룡시",
-   "positions": [
-    "파트 교육전도사",
-    "전임 전도사"
-   ],
-   "dept": "교육부",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "강도사"
-   ],
-   "addr": "충남 계룡시 금암동",
-   "info": {
-    "perks": [
-     "사택"
-    ]
-   },
-   "denomination": "합동",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128772",
-   "firstSeen": "2026-11-14T03:19:22.504Z"
-  },
-  {
    "id": "hi-1opinev",
    "dk": "1opinev",
    "source": "hanil",
@@ -7201,51 +9326,6 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128785",
    "firstSeen": "2026-11-12T03:19:18.756Z"
-  },
-  {
-   "id": "cs-1lpon6a",
-   "dk": "1lpon6a",
-   "source": "chongshin",
-   "title": "[ 여수제일교회 ]에서 함께 하실 동역자를 모십니다",
-   "church": "여수제일교회",
-   "region": "전남",
-   "area": "전남 여수시",
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "강도사"
-   ],
-   "dept": "아래 참조",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "강도사"
-   ],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)"
-    ]
-   },
-   "denomination": "합동",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128824",
-   "firstSeen": "2026-11-11T03:19:24.387Z"
   },
   {
    "id": "hs-1dok8ov",
@@ -7612,43 +9692,6 @@
    "firstSeen": "2026-11-07T03:19:28.955Z"
   },
   {
-   "id": "cs-w25xtm",
-   "dk": "w25xtm",
-   "source": "chongshin",
-   "title": "상원교회에서 전임 부목사님(행정, 청년부)을 청빙합니다.",
-   "church": "상원교회",
-   "region": "서울",
-   "area": "서울 동작구",
-   "positions": [
-    "전임 부목사"
-   ],
-   "dept": "아래 참조",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 부목사"
-   ],
-   "addr": "서울 동작구 상도동",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "가족관계증명서"
-    ],
-    "maxAge": 50
-   },
-   "denomination": "대한예수교장로회(합동)",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128812",
-   "firstSeen": "2026-11-04T21:19:25.399Z"
-  },
-  {
    "id": "cs-1q73upk",
    "dk": "1q73upk",
    "source": "chongshin",
@@ -7883,97 +9926,6 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128813",
    "firstSeen": "2026-11-03T03:19:20.387Z"
-  },
-  {
-   "id": "cs-1ug7cfh",
-   "dk": "1ug7cfh",
-   "source": "chongshin",
-   "title": "원동교회에서 교구, 교육디렉터 전임 목사님을 모십니다.",
-   "church": "원동교회",
-   "region": "서울",
-   "area": "서울 용산구",
-   "positions": [
-    "전임 부목사"
-   ],
-   "dept": "교구, 교육디렉터",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 부목사"
-   ],
-   "addr": "서울 용산구 원효로2",
-   "info": {
-    "perks": [
-     "사택",
-     "식대"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "추천서",
-     "설교(영상·원고)"
-    ]
-   },
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128803",
-   "firstSeen": "2026-10-31T09:19:20.253Z"
-  },
-  {
-   "id": "cs-8z6e34",
-   "dk": "8z6e34",
-   "source": "chongshin",
-   "title": "예수가족교회에서(담임목사 백금산) 함께 사역할 중고등부(파트) 사역자와 전임 부목사님을(청년2부) 모십니다.",
-   "church": "예수가족교회",
-   "region": "서울",
-   "area": "서울 마포구",
-   "positions": [
-    "파트 교육전도사",
-    "전임 부목사"
-   ],
-   "dept": "게시글 참고",
-   "tags": [],
-   "pay": {
-    "min": 130,
-    "max": 130,
-    "label": "월 130만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 부목사",
-    "강도사"
-   ],
-   "addr": "서울 마포구 서교동",
-   "info": {
-    "perks": [
-     "사택 보조",
-     "식대"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "추천서",
-     "설교(영상·원고)",
-     "목회·사역계획서"
-    ],
-    "maxAge": 35
-   },
-   "denomination": "예장 합동",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128823",
-   "firstSeen": "2026-10-31T03:19:17.090Z"
   },
   {
    "id": "hs-14opxna",
@@ -8473,6 +10425,42 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128857",
    "firstSeen": "2026-10-24T09:11:10.577Z"
+  },
+  {
+   "id": "ks-17th8xl",
+   "dk": "17th8xl",
+   "source": "kwangshin",
+   "title": "[ 여수제일교회 ]에서 전임(0명)/파트(0명) 사역자를 청빙합니다",
+   "church": "여수제일교회",
+   "region": "전남",
+   "area": null,
+   "positions": [
+    "파트 교육전도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": {
+    "note": "내규·협의"
+   },
+   "payChecked": true,
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-27",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43312",
+   "firstSeen": "2026-10-23T21:19:29.562Z"
   },
   {
    "id": "cs-b0sfpx",
@@ -9019,6 +11007,50 @@
    "firstSeen": "2026-10-07T07:29:44.219Z"
   },
   {
+   "id": "ks-1gntz5b",
+   "dk": "1gntz5b",
+   "source": "kwangshin",
+   "title": "광주중앙교회 부교역자 청빙 공고",
+   "church": "광주중앙교회",
+   "region": "광주",
+   "area": null,
+   "positions": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "강도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 전도사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택",
+     "퇴직금"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "가족관계증명서"
+    ]
+   },
+   "denomination": null,
+   "date": "2026-11-27",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43311",
+   "firstSeen": "2026-10-07T07:28:05.758Z"
+  },
+  {
    "id": "cs-p0n648",
    "dk": "p0n648",
    "source": "chongshin",
@@ -9106,51 +11138,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128777",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "cs-5h9fei",
-   "dk": "5h9fei",
-   "source": "chongshin",
-   "title": "고암교회에서 함께 동역하실 전임 사역자 1분을 정중히 모십니다.",
-   "church": "고암교회",
-   "region": "충북",
-   "area": "충북 제천시",
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": "아래참고",
-   "tags": [],
-   "pay": {
-    "min": 250,
-    "max": 250,
-    "label": "월 250만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "심방전도사"
-   ],
-   "addr": "충북 제천시 고암동",
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "설교(영상·원고)"
-    ]
-   },
-   "denomination": "예장 합동",
-   "date": "2026-11-27",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128808",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -9536,30 +11523,6 @@
    "truncated": false,
    "url": "https://www.kehc.org/home/recruit/read_post/28263/page/0",
    "firstSeen": "2026-11-26T21:23:56.468Z"
-  },
-  {
-   "id": "kt-1fexjqe",
-   "dk": "1fexjqe",
-   "source": "kts",
-   "title": "경남서부노회",
-   "church": null,
-   "region": "경남",
-   "area": null,
-   "positions": [],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-26",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kts.ac.kr/home/pinvit?nh=%EA%B2%BD%EB%82%A8%EC%84%9C%EB%B6%80%EB%85%B8%ED%9A%8C",
-   "firstSeen": "2026-11-26T21:23:56.467Z"
   },
   {
    "id": "hs-82kdjh",
@@ -9954,36 +11917,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.mtu.ac.kr/mtu/board/view.do?mId=162&page=1&brdIdx=20922",
-   "firstSeen": "2026-11-26T09:19:17.164Z"
-  },
-  {
-   "id": "kt-1d9huqf",
-   "dk": "1d9huqf",
-   "source": "kts",
-   "title": "부산노회",
-   "church": null,
-   "region": "부산",
-   "area": null,
-   "positions": [
-    "파트 교육전도사",
-    "전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 전도사"
-   ],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-26",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kts.ac.kr/home/pinvit?nh=%EB%B6%80%EC%82%B0%EB%85%B8%ED%9A%8C",
    "firstSeen": "2026-11-26T09:19:17.164Z"
   },
   {
@@ -12318,46 +14251,6 @@
    "posHint": [],
    "addr": null,
    "info": null,
-   "firstSeen": "2026-11-25T03:19:43.990Z"
-  },
-  {
-   "id": "cs-7c4z03",
-   "dk": "7c4z03",
-   "source": "chongshin",
-   "title": "흰돌교회에서 사역자(준전임 또는 파트)을 모십니다.",
-   "church": "흰돌교회",
-   "region": "서울",
-   "area": "서울 영등포구",
-   "positions": [
-    "파트 교육전도사",
-    "준전임 전도사"
-   ],
-   "dept": "▶ 모집분야 : 비전 청장년부(기혼 30~40대 부서) 준전임 또는 파트",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "준전임 전도사"
-   ],
-   "addr": "서울 영등포구 대림동",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "설교(영상·원고)"
-    ]
-   },
-   "denomination": "예장 합동",
-   "date": "2026-11-26",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128731",
    "firstSeen": "2026-11-25T03:19:43.990Z"
   },
   {
@@ -16581,38 +18474,6 @@
    "firstSeen": "2026-11-13T03:19:18.262Z"
   },
   {
-   "id": "cs-1wrlve0",
-   "dk": "1wrlve0",
-   "source": "chongshin",
-   "title": "부산 벧엘교회에서 전임 동역자를 모십니다.",
-   "church": "벧엘교회",
-   "region": "부산",
-   "area": "부산 금정구",
-   "positions": [
-    "파트 교육전도사",
-    "심방전도사"
-   ],
-   "dept": "목양 및 교육부서",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "심방전도사"
-   ],
-   "addr": "부산 금정구 서동",
-   "info": null,
-   "denomination": "합동",
-   "date": "2026-11-26",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128679",
-   "firstSeen": "2026-11-12T09:19:23.567Z"
-  },
-  {
    "id": "ds-1gm926f",
    "dk": "1gm926f",
    "source": "daeshin",
@@ -17895,63 +19756,6 @@
    "firstSeen": "2026-11-04T09:19:26.869Z"
   },
   {
-   "id": "cs-1b8aj82",
-   "dk": "1b8aj82",
-   "source": "chongshin",
-   "title": "천호교회에서 동역자를 모십니다. (전임 또는 준전임 - 목사/강도사/전도사)",
-   "church": "천호교회",
-   "region": "서울",
-   "area": "서울 강동구",
-   "positions": [
-    "준전임 전도사",
-    "강도사"
-   ],
-   "dept": "아래",
-   "tags": [],
-   "pay": {
-    "min": 210,
-    "max": 240,
-    "label": "월 210~240만원",
-    "roles": [
-     {
-      "role": "목사",
-      "v": 240
-     },
-     {
-      "role": "강도사",
-      "v": 210
-     }
-    ]
-   },
-   "payChecked": true,
-   "posHint": [
-    "준전임 전도사",
-    "전임 부목사",
-    "강도사"
-   ],
-   "addr": "서울 강동구 구천면로34길 26",
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "설교(영상·원고)",
-     "가족관계증명서"
-    ],
-    "maxAge": 40
-   },
-   "denomination": "합동",
-   "date": "2026-11-26",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128739",
-   "firstSeen": "2026-11-04T09:19:26.868Z"
-  },
-  {
    "id": "gp-15qbr9k",
    "dk": "15qbr9k",
    "source": "godpeople",
@@ -18474,48 +20278,6 @@
    "firstSeen": "2026-11-03T09:19:27.017Z"
   },
   {
-   "id": "cs-pp9t59",
-   "dk": "pp9t59",
-   "source": "chongshin",
-   "title": "강동구 길동교회에서 전임 교역자를 정중히 모십니다.",
-   "church": "길동교회",
-   "region": "서울",
-   "area": "서울 강동구",
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": "아래참조",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사"
-   ],
-   "addr": "서울 강동구 길동",
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "설교(영상·원고)",
-     "목회·사역계획서",
-     "가족관계증명서"
-    ]
-   },
-   "denomination": "아래참조",
-   "date": "2026-11-26",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128699",
-   "firstSeen": "2026-11-03T09:19:27.017Z"
-  },
-  {
    "id": "gp-zcgsl1",
    "dk": "zcgsl1",
    "source": "godpeople",
@@ -18844,47 +20606,6 @@
     ]
    },
    "firstSeen": "2026-11-01T09:19:24.462Z"
-  },
-  {
-   "id": "cs-1abcesp",
-   "dk": "1abcesp",
-   "source": "chongshin",
-   "title": "대광교회(예장합동)에서 유초등부 학생들을 지도할 파트 사역자를 모십니다",
-   "church": "대광교회",
-   "region": "서울",
-   "area": "서울 양천구",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "유,초등부",
-   "tags": [],
-   "pay": {
-    "min": 150,
-    "max": 150,
-    "label": "월 150만원",
-    "roles": []
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사"
-   ],
-   "addr": "서울 양천구 오목로 11길 16",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "가족관계증명서"
-    ],
-    "maxAge": 40
-   },
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-11-26",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128735",
-   "firstSeen": "2026-11-01T03:19:28.211Z"
   },
   {
    "id": "gp-186on32",
@@ -19646,50 +21367,6 @@
     ]
    },
    "firstSeen": "2026-10-21T21:19:37.558Z"
-  },
-  {
-   "id": "cs-w6yna6",
-   "dk": "w6yna6",
-   "source": "chongshin",
-   "title": "영등포 성은교회에서 유초등부 파트사역자(목사,강도사,전도사)를 모십니다.",
-   "church": "성은교회",
-   "region": "서울",
-   "area": "서울 영등포구",
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사",
-    "강도사"
-   ],
-   "dept": "아래 참고",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "강도사"
-   ],
-   "addr": "서울 영등포구 양평동1가",
-   "info": {
-    "perks": [
-     "식대"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "목회·사역계획서",
-     "가족관계증명서"
-    ],
-    "maxAge": 39
-   },
-   "denomination": "예장합동",
-   "date": "2026-11-26",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128676",
-   "firstSeen": "2026-10-21T03:19:19.660Z"
   },
   {
    "id": "gp-1h167cw",
@@ -22331,43 +24008,6 @@
    "firstSeen": "2026-11-25T21:23:54.727Z"
   },
   {
-   "id": "sj-186bwvl",
-   "dk": "186bwvl",
-   "source": "sjs",
-   "title": "전주동신교회에서 교육목사님, 교육전도사님을 모십니다.",
-   "church": "전주동신교회",
-   "region": "전북",
-   "area": "전북 전주시",
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사"
-   ],
-   "addr": "전북 전주시 완산구 효자천변2길 12-35",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-25",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=51247&pageno=2&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=2|*bbsid=main4600",
-   "firstSeen": "2026-11-25T21:23:54.727Z"
-  },
-  {
    "id": "sj-164q049",
    "dk": "164q049",
    "source": "sjs",
@@ -22606,43 +24246,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16283&page=2",
-   "firstSeen": "2026-11-25T09:19:24.746Z"
-  },
-  {
-   "id": "hs-1an96xj",
-   "dk": "1an96xj",
-   "source": "hapdong",
-   "title": "소망교회(합신, 수원노회) 청년부 사역자를 모십니다.",
-   "church": "소망교회",
-   "region": "경기",
-   "area": null,
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사"
-   ],
-   "addr": null,
-   "info": {
-    "perks": [
-     "퇴직금",
-     "식대"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-25",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.hapdong.ac.kr/bbs/board.php?bo_table=e03&wr_id=16282&page=2",
    "firstSeen": "2026-11-25T09:19:24.746Z"
   },
   {
@@ -25045,49 +26648,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128539",
-   "firstSeen": "2026-11-25T03:19:43.989Z"
-  },
-  {
-   "id": "cs-20dtcg",
-   "dk": "20dtcg",
-   "source": "chongshin",
-   "title": "원당교회에서 함께 주님의 몸 된 교회를 섬길 동역자(전임-교구)를 모십니다.",
-   "church": "원당교회",
-   "region": "경기",
-   "area": "경기 고양시",
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 부목사"
-   ],
-   "dept": "아래참조",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 부목사"
-   ],
-   "addr": "경기 고양시 덕양구 주교동",
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)"
-    ]
-   },
-   "denomination": "예장합동",
-   "date": "2026-11-25",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128536",
    "firstSeen": "2026-11-25T03:19:43.989Z"
   },
   {
@@ -36774,36 +38334,6 @@
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
-   "id": "cs-1iolnpv",
-   "dk": "1iolnpv",
-   "source": "chongshin",
-   "title": "성산교회에서 함께 사역할 동역자를 찾습니다(유초등부 파트사역)",
-   "church": "성산교회",
-   "region": "경기",
-   "area": "경기 성남시",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "유초등부",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "addr": "경기 성남시 중원구 금광동",
-   "info": null,
-   "denomination": "예장 합동",
-   "date": "2026-11-25",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128607",
-   "firstSeen": "2026-10-13T09:19:29.946Z"
-  },
-  {
    "id": "gp-aw1igx",
    "dk": "aw1igx",
    "source": "godpeople",
@@ -37369,31 +38899,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=6JeRY4p3An",
-   "firstSeen": "2026-10-12T05:26:53.698Z"
-  },
-  {
-   "id": "cs-xyyuhm",
-   "dk": "xyyuhm",
-   "source": "chongshin",
-   "title": "예수가온교회에서 함께 섬길 동역자를 청빙합니다",
-   "church": "예수가온교회",
-   "region": "경기",
-   "area": "경기 구리시",
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "dept": "아래 참조",
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "addr": "경기 구리시 갈매동",
-   "info": null,
-   "denomination": "대한예수교장로회(합동)",
-   "date": "2026-11-25",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128578",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -38514,31 +40019,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=3aBtndqu2C",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
-   "id": "cs-13h43ub",
-   "dk": "13h43ub",
-   "source": "chongshin",
-   "title": "곤지암 만나교회에서 사역자를 모십니다.",
-   "church": "곤지암만나교회",
-   "region": "경기",
-   "area": "경기 광주시",
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "dept": "아래",
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "addr": "경기 광주시 곤지암리",
-   "info": null,
-   "denomination": "예장합동",
-   "date": "2026-11-25",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128568",
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
@@ -44428,58 +45908,6 @@
    "firstSeen": "2026-10-13T09:19:29.946Z"
   },
   {
-   "id": "cs-1v4nvjx",
-   "dk": "1v4nvjx",
-   "source": "chongshin",
-   "title": "하나은혜교회(분당우리교회 분립개척)에서 다음세대 동역자를 모십니다",
-   "church": "하나은혜교회",
-   "region": "서울",
-   "area": "서울 송파구",
-   "positions": [
-    "준전임 전도사"
-   ],
-   "dept": "아래 참조",
-   "tags": [],
-   "pay": {
-    "min": 130,
-    "max": 224,
-    "label": "월 130~224만원",
-    "roles": [
-     {
-      "role": "파트",
-      "v": 130
-     },
-     {
-      "role": "준전임",
-      "v": 224
-     }
-    ]
-   },
-   "payChecked": true,
-   "posHint": [
-    "준전임 전도사"
-   ],
-   "addr": "서울 송파구 방이동",
-   "info": {
-    "perks": [
-     "사택 보조"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)",
-     "목회·사역계획서"
-    ]
-   },
-   "denomination": "예장합동",
-   "date": "2026-11-24",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128385",
-   "firstSeen": "2026-10-13T05:58:35.919Z"
-  },
-  {
    "id": "sj-qqh78d",
    "dk": "qqh78d",
    "source": "sjs",
@@ -44606,41 +46034,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=nneFia5p0",
-   "firstSeen": "2026-10-12T05:26:53.698Z"
-  },
-  {
-   "id": "cs-1dzyuj5",
-   "dk": "1dzyuj5",
-   "source": "chongshin",
-   "title": "수성교회에서 함께 동역하실 교육 전도사님을 정중히 모십니다.",
-   "church": "수성교회",
-   "region": "경기",
-   "area": "경기 수원시",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "초등부",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "addr": "경기 수원시 권선구 세류동",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서"
-    ]
-   },
-   "denomination": "예장합동",
-   "date": "2026-11-24",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128400",
    "firstSeen": "2026-10-12T05:26:53.698Z"
   },
   {
@@ -50434,32 +51827,6 @@
    "firstSeen": "2026-11-17T03:19:25.026Z"
   },
   {
-   "id": "hi-1e0ptmt",
-   "dk": "1e0ptmt",
-   "source": "hanil",
-   "title": "군산동부교회 교역자를 모십니다.(전임1명, 파트타임1명)",
-   "church": "군산동부교회",
-   "region": "전북",
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-21",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.hanil.ac.kr/portal/default/bbs/view.do?menuId=M0004000500000000&boardSeq=105449",
-   "firstSeen": "2026-11-15T21:19:28.096Z"
-  },
-  {
    "id": "cs-hc3xj8",
    "dk": "hc3xj8",
    "source": "chongshin",
@@ -52799,34 +54166,6 @@
    "firstSeen": "2026-11-20T03:19:17.761Z"
   },
   {
-   "id": "pr-2p64l5",
-   "dk": "2p64l5",
-   "source": "prok",
-   "title": "용인 주북교회에서 전임 전도사를 청빙합니다.",
-   "church": "주북교회",
-   "region": "경기",
-   "area": null,
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "심방전도사"
-   ],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-20",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.prok.org/Board/Detail/176244/601615",
-   "firstSeen": "2026-11-20T03:19:17.761Z"
-  },
-  {
    "id": "pr-43fjyw",
    "dk": "43fjyw",
    "source": "prok",
@@ -53071,50 +54410,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43283",
-   "firstSeen": "2026-11-20T03:19:17.761Z"
-  },
-  {
-   "id": "ks-j733ma",
-   "dk": "j733ma",
-   "source": "kwangshin",
-   "title": "여수 영광교회 함께하실 동역자를 모십니다.",
-   "church": "영광교회",
-   "region": "전남",
-   "area": null,
-   "positions": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "강도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 부목사",
-    "강도사"
-   ],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택",
-     "퇴직금"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "설교(영상·원고)",
-     "가족관계증명서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-20",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43282",
    "firstSeen": "2026-11-20T03:19:17.761Z"
   },
   {
@@ -54711,44 +56006,6 @@
    "truncated": false,
    "url": "https://www.kehc.org/home/recruit/read_post/28216/page/0",
    "firstSeen": "2026-11-03T03:19:20.388Z"
-  },
-  {
-   "id": "bp-1n0lc0o",
-   "dk": "1n0lc0o",
-   "source": "bpu",
-   "title": "부산 거양교회에서 청소년부 교육전도사 또는 교육목사님을 모십니다.",
-   "church": "거양교회",
-   "region": "부산",
-   "area": "부산 부산진구",
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사",
-    "사찰·관리집사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사"
-   ],
-   "addr": "부산 부산진구 해맞이로 6",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-20",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102365&BoardMstNo=6",
-   "firstSeen": "2026-11-01T21:19:26.882Z"
   },
   {
    "id": "gp-j1gv84",
@@ -56506,31 +57763,6 @@
    "firstSeen": "2026-10-12T05:26:53.699Z"
   },
   {
-   "id": "cs-1ydfzhb",
-   "dk": "1ydfzhb",
-   "source": "chongshin",
-   "title": "파송할 선교사님을 모십니다",
-   "church": null,
-   "region": "전북",
-   "area": "전북 김제시",
-   "positions": [],
-   "dept": "파송선교사",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "addr": "전북 김제시 신풍동",
-   "info": null,
-   "denomination": "합동",
-   "date": "2026-11-20",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128116",
-   "firstSeen": "2026-10-12T05:26:53.698Z"
-  },
-  {
    "id": "cs-7wsmt",
    "dk": "7wsmt",
    "source": "chongshin",
@@ -56602,50 +57834,6 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1128136",
    "firstSeen": "2026-10-12T05:26:53.698Z"
-  },
-  {
-   "id": "ks-1gntz5b",
-   "dk": "1gntz5b",
-   "source": "kwangshin",
-   "title": "광주중앙교회 부교역자 청빙 공고",
-   "church": "광주중앙교회",
-   "region": "광주",
-   "area": null,
-   "positions": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "강도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "파트 목사",
-    "전임 전도사",
-    "강도사"
-   ],
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택",
-     "퇴직금"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "가족관계증명서"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-20",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43279",
-   "firstSeen": "2026-10-07T07:28:05.758Z"
   },
   {
    "id": "gp-zv4028",
@@ -57022,36 +58210,6 @@
    "truncated": false,
    "url": "https://www.kts.ac.kr/home/pinvit?nh=%EC%A0%84%EB%82%A8%EB%8F%99%EB%B6%80%EB%85%B8%ED%9A%8C",
    "firstSeen": "2026-11-27T09:19:14.906Z"
-  },
-  {
-   "id": "kt-1uuy0on",
-   "dk": "1uuy0on",
-   "source": "kts",
-   "title": "대구서부노회",
-   "church": null,
-   "region": "대구",
-   "area": null,
-   "positions": [
-    "파트 교육전도사",
-    "전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사",
-    "전임 전도사"
-   ],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-19",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kts.ac.kr/home/pinvit?nh=%EB%8C%80%EA%B5%AC%EC%84%9C%EB%B6%80%EB%85%B8%ED%9A%8C",
-   "firstSeen": "2026-11-26T21:23:56.467Z"
   },
   {
    "id": "cs-g3w08i",
@@ -60304,54 +61462,6 @@
    "firstSeen": "2026-10-07T06:34:51.990Z"
   },
   {
-   "id": "cs-9igzh4",
-   "dk": "9igzh4",
-   "source": "chongshin",
-   "title": "시대에 따라 복음을 타협하지 않으며, 남양주 예수로교회에서 목회의 기본기를 배워갈 동역자를 기다립니다.",
-   "church": "예수로교회",
-   "region": "경기",
-   "area": "경기 남양주시",
-   "positions": [
-    "준전임 전도사",
-    "전임 부목사",
-    "강도사"
-   ],
-   "dept": "교육부서",
-   "tags": [],
-   "pay": {
-    "min": 100,
-    "max": 200,
-    "label": "월 100~200만원",
-    "roles": [
-     {
-      "role": "파트",
-      "v": 100
-     }
-    ]
-   },
-   "payChecked": true,
-   "posHint": [
-    "준전임 전도사",
-    "전임 부목사",
-    "강도사"
-   ],
-   "addr": "경기 남양주시 묵현리",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)"
-    ]
-   },
-   "denomination": "대한예수교장로회(합동)",
-   "date": "2026-11-19",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1127981",
-   "firstSeen": "2026-10-07T06:34:51.990Z"
-  },
-  {
    "id": "cd-x01z8j",
    "dk": "x01z8j",
    "source": "cdaily",
@@ -63209,36 +64319,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.bpu.ac.kr/Board/BoardView.aspx?BoardNo=102333&BoardMstNo=6",
-   "firstSeen": "2026-11-10T09:19:22.054Z"
-  },
-  {
-   "id": "ke-uatn0x",
-   "dk": "uatn0x",
-   "source": "kehc",
-   "title": "낙원교회에서 부목사님을 모십니다.",
-   "church": "낙원교회",
-   "region": null,
-   "area": null,
-   "positions": [
-    "전임 부목사"
-   ],
-   "dept": null,
-   "tags": [
-    "목사"
-   ],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-18",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kehc.org/home/recruit/read_post/28198/page/0",
    "firstSeen": "2026-11-10T09:19:22.054Z"
   },
   {
@@ -70031,45 +71111,6 @@
    "firstSeen": "2026-10-31T03:19:17.091Z"
   },
   {
-   "id": "cs-1t177jb",
-   "dk": "1t177jb",
-   "source": "chongshin",
-   "title": "시온산교회에서 전임 사역자(목사,강도사,전도사)를 모십니다.",
-   "church": "시온산교회",
-   "region": "서울",
-   "area": "서울 금천구",
-   "positions": [
-    "전임 전도사",
-    "강도사"
-   ],
-   "dept": "아래 참조",
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "강도사"
-   ],
-   "addr": "서울 금천구 시흥동",
-   "info": {
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)"
-    ],
-    "maxAge": 46
-   },
-   "denomination": "대한예수교장로회 합동",
-   "date": "2026-11-17",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1127568",
-   "firstSeen": "2026-10-29T09:19:25.637Z"
-  },
-  {
    "id": "ks-obmh14",
    "dk": "obmh14",
    "source": "kwangshin",
@@ -75301,32 +76342,6 @@
    "firstSeen": "2026-11-15T09:19:22.265Z"
   },
   {
-   "id": "hi-1uks2y8",
-   "dk": "1uks2y8",
-   "source": "hanil",
-   "title": "황등교회에서 전임전도사를 청빙합니다.",
-   "church": "황등교회",
-   "region": null,
-   "area": null,
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-15",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.hanil.ac.kr/portal/default/bbs/view.do?menuId=M0004000500000000&boardSeq=105381",
-   "firstSeen": "2026-11-15T09:19:22.265Z"
-  },
-  {
    "id": "bp-aq6bdz",
    "dk": "aq6bdz",
    "source": "bpu",
@@ -75441,45 +76456,6 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=51093&pageno=5&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=5|*bbsid=main4600",
-   "firstSeen": "2026-11-15T09:19:22.265Z"
-  },
-  {
-   "id": "sj-1uks2y8",
-   "dk": "1uks2y8",
-   "source": "sjs",
-   "title": "황등교회에서 전임전도사를 청빙합니다.",
-   "church": "황등교회",
-   "region": "전북",
-   "area": "전북 익산시",
-   "positions": [
-    "전임 전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "전임 전도사",
-    "심방전도사"
-   ],
-   "addr": "전북 익산시 황등면",
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서"
-    ],
-    "maxAge": 50
-   },
-   "denomination": null,
-   "date": "2026-11-15",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=51092&pageno=5&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=5|*bbsid=main4600",
    "firstSeen": "2026-11-15T09:19:22.265Z"
   },
   {
@@ -76437,59 +77413,6 @@
    "truncated": false,
    "url": "https://recruit.godpeople.com/?GO=recruit_view&rc_idxx=4Wb6iMoU1z",
    "firstSeen": "2026-11-01T21:19:26.881Z"
-  },
-  {
-   "id": "ds-o8pefh",
-   "dk": "o8pefh",
-   "source": "daeshin",
-   "title": "창원왕성교회 파트 사역자를 모십니다.",
-   "church": "창원왕성교회",
-   "region": "경남",
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "posHint": [
-    "파트 교육전도사"
-   ],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-15",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.daeshin.ac.kr/html/05_community/03.php?AT=V&b_id=0001593499999999",
-   "firstSeen": "2026-10-31T21:19:37.612Z"
-  },
-  {
-   "id": "cs-o8pefh",
-   "dk": "o8pefh",
-   "source": "chongshin",
-   "title": "창원왕성교회 파트 사역자를 모십니다.",
-   "church": "창원왕성교회",
-   "region": "경남",
-   "area": "경남 창원시",
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": "아래 참고",
-   "tags": [],
-   "pay": null,
-   "payChecked": true,
-   "addr": "경남 창원시 성산구 대원동",
-   "info": null,
-   "denomination": "합동",
-   "date": "2026-11-15",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1127358",
-   "firstSeen": "2026-10-31T21:19:37.611Z"
   },
   {
    "id": "sj-uhz6j3",
@@ -81334,36 +82257,6 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1127217",
    "firstSeen": "2026-11-11T03:19:24.387Z"
-  },
-  {
-   "id": "ke-1pejo79",
-   "dk": "1pejo79",
-   "source": "kehc",
-   "title": "★(끌어올림)★ 영동중앙교회(서울강남지방회)에서 같이 사역할 어린이부 전도사님을...",
-   "church": "영동중앙교회",
-   "region": null,
-   "area": null,
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "dept": null,
-   "tags": [
-    "전도사"
-   ],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [],
-   "addr": null,
-   "info": null,
-   "denomination": null,
-   "date": "2026-11-13",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kehc.org/home/recruit/read_post/28154/page/0",
-   "firstSeen": "2026-11-10T03:19:25.042Z"
   },
   {
    "id": "cs-pjujsh",
@@ -97142,42 +98035,6 @@
    "firstSeen": "2026-10-26T03:19:32.053Z"
   },
   {
-   "id": "ks-17th8xl",
-   "dk": "17th8xl",
-   "source": "kwangshin",
-   "title": "[ 여수제일교회 ]에서 전임(0명)/파트(0명) 사역자를 청빙합니다",
-   "church": "여수제일교회",
-   "region": "전남",
-   "area": null,
-   "positions": [
-    "파트 교육전도사"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "설교(영상·원고)"
-    ]
-   },
-   "denomination": null,
-   "date": "2026-11-09",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43231",
-   "firstSeen": "2026-10-23T21:19:29.562Z"
-  },
-  {
    "id": "hi-1t36wrf",
    "dk": "1t36wrf",
    "source": "hanil",
@@ -108774,6 +109631,36 @@
    "truncated": false,
    "url": "https://www.csu.ac.kr/?m1=page_ministry_detail&menu_id=1110&board_content_id=1125975",
    "firstSeen": "2026-10-07T06:34:51.990Z"
+  },
+  {
+   "id": "kt-1p50cry",
+   "dk": "1p50cry",
+   "source": "kts",
+   "title": "부산동부노회",
+   "church": null,
+   "region": "부산",
+   "area": null,
+   "positions": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "dept": null,
+   "tags": [],
+   "pay": null,
+   "payChecked": true,
+   "posHint": [
+    "전임 전도사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": null,
+   "denomination": null,
+   "date": "2026-11-04",
+   "deadline": null,
+   "closed": false,
+   "truncated": false,
+   "url": "https://www.kts.ac.kr/home/pinvit?nh=%EB%B6%80%EC%82%B0%EB%8F%99%EB%B6%80%EB%85%B8%ED%9A%8C",
+   "firstSeen": "2026-11-28T09:19:09.169Z"
   },
   {
    "id": "cj-84bh57",
@@ -132091,7 +132978,19 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43194",
-   "firstSeen": "2026-10-28T21:19:20.721Z"
+   "firstSeen": "2026-10-28T21:19:20.721Z",
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   }
   },
   {
    "id": "ks-1cvw9qa",
@@ -132147,9 +133046,11 @@
    "title": "광주평강교회(합동) 교역자 공고",
    "church": "광주평강교회",
    "region": "광주",
-   "area": null,
+   "area": "광주 남구",
    "positions": [
-    "교역자(직책 미상)"
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
    ],
    "dept": null,
    "tags": [],
@@ -132163,7 +133064,20 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43190",
-   "firstSeen": "2026-10-28T21:19:20.721Z"
+   "firstSeen": "2026-10-28T21:19:20.721Z",
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": "광주 남구 금당로 71-1",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "가족관계증명서"
+    ]
+   }
   },
   {
    "id": "ac-sjrw9y",
@@ -133823,44 +134737,6 @@
      "자기소개서",
      "졸업·재학증명서",
      "설교(영상·원고)"
-    ]
-   }
-  },
-  {
-   "id": "sj-1ej3zje",
-   "dk": "1ej3zje",
-   "source": "sjs",
-   "title": "동현교회에서 함께 사역할 사역자를 모십니다.",
-   "church": "동현교회",
-   "region": null,
-   "area": null,
-   "positions": [
-    "교역자(직책 미상)"
-   ],
-   "dept": null,
-   "tags": [],
-   "pay": {
-    "note": "내규·협의"
-   },
-   "payChecked": true,
-   "posHint": [],
-   "denomination": null,
-   "date": "2026-10-28",
-   "deadline": null,
-   "closed": false,
-   "truncated": false,
-   "url": "https://www.sjs.ac.kr/ht_ml/w_04ed/4600.php?pagetype=&bbs_idx=50855&pageno=1&pagekind=c&bbsid=main4600&cafeid=&ref_code=&keyword=&keyfield=&category=&qstr=&gopage=/ht_ml/w_04ed/4600.php?pagetype=|*pageno=1|*bbsid=main4600",
-   "firstSeen": "2026-10-28T03:19:33.529Z",
-   "addr": null,
-   "info": {
-    "perks": [
-     "사택"
-    ],
-    "docs": [
-     "이력서",
-     "자기소개서",
-     "졸업·재학증명서",
-     "가족관계증명서"
     ]
    }
   },
@@ -151544,7 +152420,15 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43156",
-   "firstSeen": "2026-10-23T21:19:29.562Z"
+   "firstSeen": "2026-10-23T21:19:29.562Z",
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "목회·사역계획서"
+    ]
+   }
   },
   {
    "id": "ks-bei1b5",
@@ -151567,7 +152451,27 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43155",
-   "firstSeen": "2026-10-23T21:19:29.562Z"
+   "firstSeen": "2026-10-23T21:19:29.562Z",
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "신앙고백·간증",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ],
+    "maxAge": 50
+   }
   },
   {
    "id": "bp-wumrd5",
@@ -153915,7 +154819,18 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43161",
-   "firstSeen": "2026-10-19T21:19:38.442Z"
+   "firstSeen": "2026-10-19T21:19:38.442Z",
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "가족관계증명서"
+    ]
+   }
   },
   {
    "id": "hs-1h5wu00",
@@ -159387,7 +160302,26 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43148",
-   "firstSeen": "2026-10-21T09:19:24.128Z"
+   "firstSeen": "2026-10-21T09:19:24.128Z",
+   "posHint": [
+    "파트 교육전도사",
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "가족관계증명서"
+    ],
+    "maxAge": 45
+   }
   },
   {
    "id": "ks-q59vxs",
@@ -159417,7 +160351,15 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43145",
-   "firstSeen": "2026-10-21T09:19:24.128Z"
+   "firstSeen": "2026-10-21T09:19:24.128Z",
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서"
+    ]
+   }
   },
   {
    "id": "ks-odtp9i",
@@ -159440,7 +160382,16 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43143",
-   "firstSeen": "2026-10-21T09:19:24.128Z"
+   "firstSeen": "2026-10-21T09:19:24.128Z",
+   "posHint": [
+    "파트 교육전도사"
+   ],
+   "addr": null,
+   "info": {
+    "work": [
+     "토·주일"
+    ]
+   }
   },
   {
    "id": "bp-13xhnow",
@@ -163790,7 +164741,14 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43140",
-   "firstSeen": "2026-10-19T21:19:38.442Z"
+   "firstSeen": "2026-10-19T21:19:38.442Z",
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택",
+     "사택 보조"
+    ]
+   }
   },
   {
    "id": "hs-1q73upk",
@@ -165354,7 +166312,19 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43138",
-   "firstSeen": "2026-10-19T03:19:22.830Z"
+   "firstSeen": "2026-10-19T03:19:22.830Z",
+   "posHint": [
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서"
+    ]
+   }
   },
   {
    "id": "ks-r55tnw",
@@ -165379,7 +166349,18 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43137",
-   "firstSeen": "2026-10-19T03:19:22.830Z"
+   "firstSeen": "2026-10-19T03:19:22.830Z",
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   }
   },
   {
    "id": "ks-6xcxp1",
@@ -165413,7 +166394,21 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43136",
-   "firstSeen": "2026-10-19T03:19:22.830Z"
+   "firstSeen": "2026-10-19T03:19:22.830Z",
+   "addr": null,
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "추천서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   }
   },
   {
    "id": "ks-nsnsn8",
@@ -165450,7 +166445,18 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43135",
-   "firstSeen": "2026-10-19T03:19:22.830Z"
+   "firstSeen": "2026-10-19T03:19:22.830Z",
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사"
+   ],
+   "addr": null,
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서"
+    ]
+   }
   },
   {
    "id": "mt-1aur7cb",
@@ -170783,8 +171789,8 @@
    "source": "kwangshin",
    "title": "원학교회 담임목사 청빙공고",
    "church": "원학교회",
-   "region": null,
-   "area": null,
+   "region": "전남",
+   "area": "전남 여수시",
    "positions": [
     "담임목사"
    ],
@@ -170798,7 +171804,18 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43131",
-   "firstSeen": "2026-10-16T21:19:31.682Z"
+   "firstSeen": "2026-10-16T21:19:31.682Z",
+   "posHint": [],
+   "addr": "전남 여수시 국동 5",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "목회·사역계획서",
+     "가족관계증명서"
+    ]
+   }
   },
   {
    "id": "ks-1v199r1",
@@ -170807,7 +171824,7 @@
    "title": "여수 새중앙교회에서 동역의 기쁨을 나눌 전임사역자를 정중히 청빙합니다.",
    "church": "새중앙교회",
    "region": "전남",
-   "area": null,
+   "area": "전남 여수시",
    "positions": [
     "전임 전도사"
    ],
@@ -170823,7 +171840,24 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43130",
-   "firstSeen": "2026-10-16T21:19:31.682Z"
+   "firstSeen": "2026-10-16T21:19:31.682Z",
+   "posHint": [
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "addr": "전남 여수시 좌수영로 493-5",
+   "info": {
+    "perks": [
+     "사택"
+    ],
+    "docs": [
+     "이력서",
+     "추천서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ],
+    "maxAge": 43
+   }
   },
   {
    "id": "ks-13k1e9k",
@@ -170832,7 +171866,7 @@
    "title": "정읍 낙양교회에서 동역자(파트) 를 정중히 청빙합니다.",
    "church": "낙양교회",
    "region": "전북",
-   "area": null,
+   "area": "전북 정읍시",
    "positions": [
     "파트 교육전도사"
    ],
@@ -170851,7 +171885,22 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43129",
-   "firstSeen": "2026-10-16T21:19:31.682Z"
+   "firstSeen": "2026-10-16T21:19:31.682Z",
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "강도사"
+   ],
+   "addr": "전북 정읍시 석지로 1234",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "가족관계증명서"
+    ],
+    "maxAge": 39
+   }
   },
   {
    "id": "ks-1pvegkb",
@@ -170860,7 +171909,7 @@
    "title": "순천 대대교회 부목사 청빙 공고",
    "church": "대대교회",
    "region": "전남",
-   "area": null,
+   "area": "전남 순천시",
    "positions": [
     "전임 부목사"
    ],
@@ -170874,7 +171923,23 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43128",
-   "firstSeen": "2026-10-16T21:19:31.682Z"
+   "firstSeen": "2026-10-16T21:19:31.682Z",
+   "posHint": [
+    "전임 전도사",
+    "전임 부목사",
+    "강도사"
+   ],
+   "addr": "전남 순천시 대대2길 18-6",
+   "info": {
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ],
+    "maxAge": 39
+   }
   },
   {
    "id": "cs-1fbxrif",
@@ -174232,7 +175297,7 @@
    "title": "전주북문교회 부목사 청빙 공고",
    "church": "전주북문교회",
    "region": "전북",
-   "area": null,
+   "area": "전북 전주시",
    "positions": [
     "전임 부목사"
    ],
@@ -174248,7 +175313,26 @@
    "closed": false,
    "truncated": false,
    "url": "https://www.kwangshin.ac.kr/front/boardView.do?brd_mgrno=184&menu_no=467&brd_no=43121",
-   "firstSeen": "2026-10-16T03:19:22.588Z"
+   "firstSeen": "2026-10-16T03:19:22.588Z",
+   "posHint": [
+    "파트 교육전도사",
+    "파트 목사",
+    "전임 부목사"
+   ],
+   "addr": "전북 전주시 덕진구 팔달로 339-43",
+   "info": {
+    "perks": [
+     "사택",
+     "사택 보조"
+    ],
+    "docs": [
+     "이력서",
+     "자기소개서",
+     "졸업·재학증명서",
+     "설교(영상·원고)",
+     "가족관계증명서"
+    ]
+   }
   },
   {
    "id": "cs-dxh1cu",
